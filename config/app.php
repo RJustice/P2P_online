@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'SomeRandomString'),
+    'key' => env('APP_KEY', '91OzdbmY9ktj4iUr8JYip0P1jtAjBIaN'),
 
     'cipher' => 'AES-256-CBC',
 
@@ -115,6 +115,7 @@ return [
          */
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
+        // Ollieread\Multiauth\MultiauthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
@@ -132,6 +133,7 @@ return [
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+        // Ollieread\Multiauth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
@@ -145,6 +147,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Forone\Admin\Providers\ForoneServiceProvider::class,
+
+        Ender\UEditor\UEditorServiceProvider::class,
     ],
 
     /*
@@ -195,7 +199,9 @@ return [
 
         'Form'      => Illuminate\Html\FormFacade::class,
         'Html'      => Illuminate\Html\HtmlFacade::class,
-        'Entrust'   => Zizaco\Entrust\EntrustFacade::class
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+
+        'UEditor'   => Ender\UEditor\UEditor::class,
     ],
 
 ];

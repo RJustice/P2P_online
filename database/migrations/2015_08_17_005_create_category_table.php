@@ -16,7 +16,8 @@ class CreateCategoryTable extends Migration
             $table->increments('id');
             $table->string('name',50)->index();
             $table->string('alias',50)->index();
-            $table->integer('parent_id')->index();
+            $table->integer('section_id');
+            $table->integer('parent_id');
             $table->string('image')->nullable();
             $table->string('description')->nullable();
             $table->integer('count')->default(0);

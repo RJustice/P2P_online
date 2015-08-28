@@ -1,0 +1,20 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+    // "settings":  
+    // {  
+    //     "xdebug": {  
+    //         "path_mapping": {  
+    //         },
+    //         "url": "http://www.nfzhongcheng.com",
+    //         // "super_globals": true,
+    //         // "close_on_stop": true,
+    //         // "port": 9000
+    //     }  
+    // }  
+}

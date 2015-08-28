@@ -8,9 +8,9 @@
 
 return [
     'site_config'                 => [
-        'site_name'   => 'your site name',
-        'title'       => 'your site title',
-        'description' => 'you site description',
+        'site_name'   => '农发众诚',
+        'title'       => '农发众诚',
+        'description' => '农发众诚',
         'logo'        => 'vendor/forone/images/logo.png'
     ],
     'RedirectAfterLoginPath'      => 'admin/roles', // 登录后跳转页面
@@ -19,7 +19,7 @@ return [
     'menus'                       => [
         '系统设置' => [
             'icon'       => 'mdi-toggle-radio-button-on',
-            'permission' => 'admin',
+            'permission' => ['admin'],
             'children'   => [
                 '角色管理'  => [
                     'uri' => 'roles',
@@ -32,5 +32,20 @@ return [
                 ]
             ],
         ],
+        '文章管理' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin','editor'],
+            'children'   => [
+                '分类管理'  => [
+                    'uri' => 'category',
+                ],
+                '文章管理'  => [
+                    'uri' => 'articles',
+                ],
+                '页面管理' => [
+                    'uri' => 'pages',
+                ]
+            ],
+        ]
     ],
 ];

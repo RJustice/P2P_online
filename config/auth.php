@@ -1,7 +1,19 @@
 <?php
 
 return [
-
+    
+    // 'multi' => [
+    //     'admin' => [
+    //         'driver' => 'eloquent',
+    //         'model' => App\Admin::class,
+    //         'table' => 'admin',
+    //     ],
+    //     'client' => [
+    //         'driver' => 'eloquent',
+    //         'model' => App\User::class,
+    //         'table' => 'user',
+    //     ]
+    // ],
     /*
     |--------------------------------------------------------------------------
     | Default Authentication Driver

@@ -10,9 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/',function(){
-    return view('welcome');
-});
+Route::get('/','HomeController@index');
 
 Route::group(['prefix' => 'demo'],function(){
     Route::get('/',function(){
@@ -32,15 +30,32 @@ Route::group(['prefix' => 'demo'],function(){
     });
 });
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin'],function(){
-    Route::get('/','AdminHomeController@index');
-    Route::resource('article','ArticleController');
+Route::controllers([
+    'admin/auth' => 'Auth\AdminAuthcontroller',
+]);
+
+
+Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admin.auth']],function(){
+    Route::group(['namespace' => 'Permissions'],function(){
+        Route::resource('roles','RolesController');
+        Route::resource('permissions','PermissionsController');
+        Route::resource('admins','AdminsController');
+        Route::post('roles/assign-permission', ['as' => 'admin.roles.assign-permission', 'uses' => 'RolesController@assignPermission']);
+        Route::post('admins/assign-role', ['as' => 'admin.roles.assign-role', 'uses' => 'AdminsController@assignRole']);
+    });
+    Route::get('/','DashboardController@index');
+    // Route::match(['get','post'],'category/create','CategoryController@create');
+    Route::get('category/alists',['as' => 'admin.category.alists','uses' => 'CategoryController@alists']);
     Route::resource('section','SectionController');
     Route::resource('category','CategoryController');
+    Route::resource('pages','PagesController');
+    Route::resource('articles','ArticlesController');
+    Route::get('category/alists/{id}/edit','ArticlesController@edit');
 });
 
-Route::get('article/{id}','ArticleController@show');
-Route::get('category/{id}','CategoryController@show');
-Route::get('project/{id}',function(){
-    return 'wating soon...';
-});
+
+// Route::get('articles','ArticlesController@index');
+Route::get('articles/c/{cid}','ArticlesController@clist');
+Route::get('articles/{id}','ArticlesController@show');
+// Route::get('pages','PagesController@index');
+Route::get('pages/{id}','PagesController@show');

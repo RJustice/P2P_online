@@ -21,13 +21,14 @@ class CreateArticlesTable extends Migration
             $table->integer('categoryid');
             $table->integer('sectionid');
             $table->string('type')->default('normal');
-            $table->tinyInteger('published')->default(0);
+            $table->tinyInteger('published')->default(1);
             $table->string('create_by');
             $table->string('out_link')->nullable();
             $table->string('from')->nullable();
             $table->string('images');
             $table->tinyInteger('ordering')->default(0);
             $table->timestamps();
+            $table->tinyInteger('deleted')->default(0);
         });
     }
 

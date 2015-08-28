@@ -1,0 +1,2640 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Canre",
+				"CanResetPasswordContract"
+			],
+			[
+				"Authentica",
+				"AuthenticatableContract"
+			],
+			[
+				"fh",
+				"font-weight"
+			],
+			[
+				"v",
+				"visibility"
+			],
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"b",
+				"background"
+			],
+			[
+				"ws-n",
+				"whs-nw	white-space: nowrap;"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"contact_",
+				"contact_history"
+			],
+			[
+				"store-",
+				"store-longitude"
+			],
+			[
+				"loca",
+				"locationInfo"
+			],
+			[
+				"qs",
+				"qrscan_data"
+			],
+			[
+				"app",
+				"applyfor_url"
+			],
+			[
+				"Even",
+				"EventKey"
+			],
+			[
+				"pri",
+				"print_r"
+			],
+			[
+				"redi",
+				"redirect"
+			],
+			[
+				"load_con",
+				"tidy_load_config"
+			],
+			[
+				"sc",
+				"scan_openid"
+			],
+			[
+				"ins",
+				"insert_data"
+			],
+			[
+				"scen",
+				"scene_id"
+			],
+			[
+				"mi",
+				"microtime"
+			],
+			[
+				"res",
+				"result_array"
+			],
+			[
+				"_chec",
+				"_checkUserNameAndPassword"
+			],
+			[
+				"red",
+				"redirect_url"
+			],
+			[
+				"login",
+				"loginAsUid"
+			],
+			[
+				"http_build",
+				"http_build_query"
+			],
+			[
+				"weixin_oAt",
+				"weixin_oAuth_authorize"
+			],
+			[
+				"_login",
+				"_loginAsSocialUser"
+			],
+			[
+				"func",
+				"function_exists"
+			],
+			[
+				"inser",
+				"insert_meta"
+			],
+			[
+				"update",
+				"update_meta"
+			],
+			[
+				"pass",
+				"passthru"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "vendor/forone/administrator/src/Forone/Controllers/Permissions/PermissionsController.php",
+			"settings":
+			{
+				"buffer_size": 2309,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "vendor/forone/administrator/src/Forone/Services/Registrar.php",
+			"settings":
+			{
+				"buffer_size": 871,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/routes.php",
+			"settings":
+			{
+				"buffer_size": 1410,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php",
+			"settings":
+			{
+				"buffer_size": 4320,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "vendor/forone/administrator/src/Forone/Controllers/Auth/AuthController.php",
+			"settings":
+			{
+				"buffer_size": 1609,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/webservice/php/php.ini",
+			"settings":
+			{
+				"buffer_size": 69764,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "p2ponline.sublime-project",
+			"settings":
+			{
+				"buffer_size": 343,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Admin.php",
+			"settings":
+			{
+				"buffer_size": 2213,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/Auth/AuthController.php",
+			"settings":
+			{
+				"buffer_size": 1795,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/Http/Kernel.php",
+			"settings":
+			{
+				"buffer_size": 980,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "vendor/forone/administrator/src/Forone/routes.php",
+			"settings":
+			{
+				"buffer_size": 1136,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Context",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Watch",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Stack",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Breakpoint",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 219.0,
+		"selected_items":
+		[
+			[
+				"xdebug",
+				"Xdebug: Start Debugging (Launch Browser)"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"set css",
+				"Set Syntax: CSS"
+			],
+			[
+				"set html",
+				"Set Syntax: HTML"
+			],
+			[
+				"set php",
+				"Set Syntax: PHP"
+			],
+			[
+				"set ini",
+				"Set Syntax: INI"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"set bat",
+				"Set Syntax: Batch File"
+			],
+			[
+				"set ngi",
+				"Set Syntax: nginx"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 464.0
+	},
+	"console":
+	{
+		"height": 241.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/webservice/www/P2P-Online",
+		"/D/webservice/www/P2P-Online/app",
+		"/D/webservice/www/P2P-Online/app/Http",
+		"/D/webservice/www/P2P-Online/app/Http/Controllers",
+		"/D/webservice/www/P2P-Online/app/Http/Controllers/Auth",
+		"/D/webservice/www/P2P-Online/app/Http/Middleware",
+		"/D/webservice/www/P2P-Online/app/Http/Requests",
+		"/D/webservice/www/P2P-Online/vendor",
+		"/D/webservice/www/P2P-Online/vendor/forone",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/config",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers/Auth",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers/Permissions",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Middleware",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Providers",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Requests",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Services",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/lang",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/lang/zh-CN"
+	],
+	"file_history":
+	[
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Providers/ForoneServiceProvider.php",
+		"/D/webservice/www/P2P-Online/resources/views/demo/common/footer.blade.php",
+		"/D/webservice/www/P2P-Online/public/vendor/forone/components/jquery-ui/AUTHORS.txt",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Providers/ForoneValidatorProvider.php",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ThrottlesLogins.php",
+		"/D/webservice/www/P2P-Online/public/css/app.css",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers/BaseController.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/resources/views/auth/login.blade.php",
+		"/D/webservice/www/P2P-Online/app/Admin.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/User.php",
+		"/D/webservice/www/P2P-Online/app/Http/Controllers/Auth/AuthController.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Middleware/Authenticate.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers/Auth/AuthController.php",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Contracts/Routing/TerminableMiddleware.php",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Contracts/Routing/Middleware.php",
+		"/D/webservice/www/P2P-Online/vendor/illuminate/contracts/Routing/Middleware.php",
+		"/D/webservice/www/P2P-Online/vendor/swiftmailer/swiftmailer/lib/dependency_maps/mime_deps.php",
+		"/D/webservice/www/P2P-Online/vendor/hamcrest/hamcrest-php/generator/parts/matchers_imports.txt",
+		"/D/webservice/www/P2P-Online/app/Menu.php",
+		"/D/webservice/www/P2P-Online/app/Http/Controllers/Auth/PasswordController.php",
+		"/D/webservice/www/P2P-Online/bootstrap/autoload.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/routing/Matcher/ApacheUrlMatcher.php",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Auth/AuthServiceProvider.php",
+		"/D/webservice/www/P2P-Online/database/seeds/DatabaseSeeder.php",
+		"/D/webservice/php/php.ini",
+		"/D/webservice/www/P2P-Online/p2ponline.sublime-project",
+		"/D/webservice/www/P2P-Online/p2ponline.sublime-workspace",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/routes.php",
+		"/D/webservice/www/P2P-Online/vendor/illuminate/contracts/Auth/Authenticatable.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/resources/views/admins/form.blade.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Requests/UpdateAdminRequest.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Requests/CreateAdminRequest.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers/Permissions/AdminsController.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Console/InitCommand.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Providers/EntrustServiceProvider.php",
+		"/D/webservice/www/P2P-Online/config/entrust.php",
+		"/D/webservice/www/P2P-Online/config/forone.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/config/entrust.php",
+		"/D/webservice/www/P2P-Online/vendor/illuminate/console/OutputStyle.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/http-kernel/Tests/Fixtures/KernelForOverrideName.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/config/config.php",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Foundation/Console/ConfigCacheCommand.php",
+		"/D/webservice/www/P2P-Online/vendor/classpreloader/classpreloader/src/Config.php",
+		"/D/webservice/www/P2P-Online/vendor/mockery/mockery/docs/conf.py",
+		"/D/webservice/www/P2P-Online/app/Http/Controllers/Controller.php",
+		"/D/webservice/www/P2P-Online/composer.json",
+		"/D/webservice/www/P2P-Online/.env",
+		"/D/webservice/www/P2P-Online/public/vendor/forone/scripts/ui-jp.js",
+		"/D/webservice/www/P2P-Online/database/seeds/AdminTableSeeder.php",
+		"/D/webservice/www/P2P-Online/database/migrations/2015_08_17_002_create_admin_table.php",
+		"/D/webservice/www/P2P-Online/resources/views/article/show.blade.php",
+		"/D/webservice/www/P2P-Online/app/Http/Controllers/ArticleController.php",
+		"/D/webservice/www/P2P-Online/vendor/composer/autoload_real.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/public/fonts/glyphicons-halflings-regular.woff",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Requests/UpdateRoleRequest.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/public/components/jquery-ui/AUTHORS.txt",
+		"/D/webservice/www/P2P-Online/app/Http/Controllers/Admin/AdController.php",
+		"/D/webservice/nginx/conf/vhost/p2p.conf",
+		"/D/webservice/nginx/conf/nginx.conf",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Permission.php",
+		"/D/webservice/www/P2P-Online/vendor/phpspec/phpspec/src/PhpSpec/Process/ReRunner/PhpExecutableReRunner.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/process/PhpExecutableFinder.php",
+		"/D/webservice/www/P2P-Online/package.json",
+		"/D/webservice/www/P2P-Online/app/Http/routes.php",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Auth/Middleware/AuthenticateWithBasicAuth.php",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php",
+		"/D/webservice/www/P2P-Online/config/auth.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/finder/Exception/AccessDeniedException.php",
+		"/D/webservice/www/P2P-Online/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Docs/CodeAnalysis/ForLoopShouldBeWhileLoopStandard.xml",
+		"/D/webservice/www/P2P-Online/app/Providers/RouteServiceProvider.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/public/components/jquery/src/var/push.js",
+		"/D/webservice/www/P2P-Online/vendor/symfony/finder/Adapter/PhpAdapter.php",
+		"/D/webservice/www/P2P-Online/app/Article.php",
+		"/D/webservice/www/P2P-Online/database/migrations/2015_08_17_009_create_users_table.php",
+		"/D/webservice/www/P2P-Online/database/migrations/2015_10_12_100000_create_roles_table.php",
+		"/D/webservice/www/P2P-Online/database/migrations/2015_10_13_100000_create_role_user_table.php",
+		"/D/webservice/www/P2P-Online/database/migrations/2014_10_12_100000_create_roles_table.php",
+		"/D/webservice/www/P2P-Online/database/migrations/2015_08_17_007_create_sections_table.php",
+		"/D/webservice/www/P2P-Online/vendor/doctrine/dbal/lib/Doctrine/DBAL/Schema/Visitor/CreateSchemaSqlCollector.php",
+		"/D/webservice/www/P2P-Online/vendor/danielstjules/stringy/src/Create.php",
+		"/D/webservice/www/P2P-Online/vendor/mtdowling/cron-expression/src/Cron/CronExpression.php",
+		"/D/webservice/www/P2P-Online/vendor/illuminate/contracts/Auth/CanResetPassword.php",
+		"/D/webservice/www/P2P-Online/config/database.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/console/Tests/Fixtures/definition_astext.txt",
+		"/D/webservice/www/P2P-Online/resources/views/demo/_layouts/default.blade.php",
+		"/D/webservice/www/P2P-Online/vendor/phpunit/phpunit/tests/_files/configuration.colors.false.xml",
+		"/D/webservice/www/P2P-Online/vendor/symfony/routing/Generator/ConfigurableRequirementsInterface.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/http-kernel/DependencyInjection/ConfigurableExtension.php",
+		"/D/webservice/www/P2P-Online/vendor/phpunit/phpunit/tests/_files/configuration_empty.xml",
+		"/D/webservice/www/P2P-Online/config/app.php",
+		"/D/webservice/www/P2P-Online/vendor/league/flysystem/src/ConfigAwareTrait.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/public/fonts/roboto/font.css",
+		"/D/webservice/www/P2P-Online/vendor/phpunit/phpunit/CODE_OF_CONDUCT.md",
+		"/D/webservice/www/P2P-Online/vendor/symfony/console/composer.json",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Foundation/Providers/ConsoleSupportServiceProvider.php",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Database/Connectors/PostgresConnector.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/console/Output/ConsoleOutput.php",
+		"/D/webservice/www/P2P-Online/vendor/phpunit/phpunit/tests/_files/configuration.custom-printer.xml",
+		"/D/webservice/www/P2P-Online/resources/views/demo/about.blade.php",
+		"/D/webservice/www/P2P-Online/resources/views/demo/index.blade.php",
+		"/D/webservice/www/P2P-Online/resources/views/demo/articles.blade.php",
+		"/D/webservice/www/P2P-Online/public/js/app.js",
+		"/D/webservice/www/P2P-Online/vendor/symfony/console/Tests/Fixtures/application_1.json",
+		"/D/webservice/www/P2P-Online/bootstrap/app.php",
+		"/D/webservice/www/P2P-Online/vendor/composer/autoload_psr4.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/console/Helper/DebugFormatterHelper.php",
+		"/D/webservice/www/P2P-Online/resources/views/demo/common/header.blade.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/http-foundation/HeaderBag.php",
+		"/D/webservice/www/P2P-Online/vendor/swiftmailer/swiftmailer/doc/headers.rst",
+		"/D/webservice/www/P2P-Online/vendor/jeremeamia/SuperClosure/src/hash_equals.php",
+		"/D/webservice/www/P2P-Online/app/Exceptions/Handler.php",
+		"/D/webservice/www/P2P-Online/vendor/phpunit/phpunit/tests/_files/foo.xml",
+		"/D/webservice/www/P2P-Online/vendor/phpunit/phpunit/tests/TextUI/filter-dataprovider-by-only-range.phpt",
+		"/D/webservice/www/P2P-Online/config/filesystems.php",
+		"/D/webservice/www/P2P-Online/public/index.php",
+		"/D/webservice/www/P2P-Online/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/Core/IsNot.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/css-selector/Parser/Handler/CommentHandler.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/console/Command/Command.php",
+		"/D/webservice/www/P2P-Online/resources/views/demo/common/userstate.blade.php",
+		"/D/webservice/www/P2P-Online/vendor/mockery/mockery/docs/cookbook/detecting_mock_objects.rst",
+		"/D/webservice/www/P2P-Online/vendor/phpspec/phpspec/features/matchers/developer_uses_string_end_matcher.feature",
+		"/D/webservice/www/P2P-Online/resources/assets/sass/app.scss",
+		"/D/webservice/www/P2P-Online/vendor/phpspec/prophecy/spec/Prophecy/Doubler/ClassPatch/ProphecySubjectPatchSpec.php",
+		"/D/webservice/www/P2P-Online/vendor/phpspec/phpspec/spec/PhpSpec/Console/ApplicationSpec.php",
+		"/D/webservice/www/P2P-Online/vendor/phpunit/phpunit-mock-objects/tests/MockObject/class_call_parent_clone.phpt",
+		"/D/webservice/www/P2P-Online/vendor/symfony/css-selector/Parser/Shortcut/ClassParser.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/debug/Tests/Fixtures/ClassAlias.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/css-selector/CssSelector.php"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 102.0,
+		"where_history":
+		[
+			"D:\\webservice\\www\\P2P-Online",
+			"D:\\webservice\\www\\P2P-Online\\vendor\\forone"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"loginUsername",
+			"username",
+			"email",
+			"withErrors",
+			"redirectWithError",
+			"xdebug",
+			"emai",
+			"email",
+			"login",
+			"email",
+			"user",
+			"proxy_read",
+			"alias",
+			"providers",
+			"006ad5",
+			".treetop-left .divstyle03.supportcss3",
+			"divstyle03",
+			"treetop li",
+			"fly-somplifred",
+			".treetop li",
+			"selected",
+			"005bac",
+			"e租宝",
+			"res/image",
+			"Bread crumbs",
+			"1288ff",
+			"fff",
+			"footer",
+			"009dde",
+			"006ad5",
+			"wrap",
+			"box",
+			"li",
+			"ul",
+			"li",
+			"/Style/newStatic/res/images/icon/new.png",
+			"iarrow",
+			"new-box",
+			"fly-somplifred",
+			"wrap",
+			"\\.box",
+			".box",
+			"box",
+			"divstyle03",
+			"divstyle",
+			"divstyle03",
+			"divstyle3",
+			"treetop-lef",
+			"h2",
+			"<span class=\"span-sty\">众诚财富</span><a href=\"{{ url('/project/2') }}\">融资租赁债权转让项目第504期B</a>",
+			"a-title",
+			"h2",
+			"treetop-right",
+			"line-hei",
+			"feau",
+			"text-de",
+			"warp",
+			"clearfix",
+			"max",
+			"AUTH_KEY",
+			"%DB_PREFIX%",
+			"safe_mode",
+			"max",
+			"mysql",
+			"href=\"\"",
+			"\\/e",
+			"replace",
+			"%DB_PREFIX%",
+			"check",
+			"update",
+			"check",
+			"user_id",
+			"acl_is_store_owner",
+			"store_owner",
+			"debug",
+			"ci",
+			"https://api.weixin.qq.com/cgi-bin/",
+			"message",
+			"\\$s",
+			"updateMeta",
+			"invi",
+			"applyfo",
+			"store",
+			"span",
+			"\n                ",
+			"295",
+			"this",
+			"rest",
+			"_receiveEvent",
+			"_response_event",
+			"_receiveEvent",
+			"exit",
+			"this->_",
+			"group\\.",
+			"GSALEMAN",
+			"300",
+			"cgi.force_redire",
+			"extension = php",
+			"get*meta",
+			"meta",
+			"geet",
+			"sign",
+			"loginAsU",
+			"session",
+			"<?",
+			"var_dump",
+			"session",
+			"_checkUserNameAndPassword",
+			"_uid",
+			"binduser",
+			"_checkUserNameAndPassword",
+			"login",
+			"loginasuid",
+			"this",
+			"login",
+			"password",
+			"loginAsUid",
+			"_loginAsUser",
+			"loginas",
+			"_oauthLink",
+			"_loginAsBind",
+			"loginAsUd",
+			"loginasuid",
+			"dafault",
+			"moreprofile",
+			"_checkUserNameAndPassword",
+			"getFullUserInfo",
+			"_login"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"00bef0",
+			"wrap",
+			"fanwe_"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "vendor/forone/administrator/src/Forone/Controllers/Permissions/PermissionsController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								546,
+								546
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 396.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "vendor/forone/administrator/src/Forone/Services/Registrar.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 871,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								774,
+								774
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 198.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/Http/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1229,
+								1229
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 660.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesUsers.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4320,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3946,
+								3946
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2729.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "vendor/forone/administrator/src/Forone/Controllers/Auth/AuthController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1609,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1135,
+								1135
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 792.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/D/webservice/php/php.ini",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 69764,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								69603,
+								69603
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"syntax": "Packages/INI/INI.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 42504.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "p2ponline.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								320,
+								320
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/Admin.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2213,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 66.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/Http/Controllers/Auth/AuthController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1795,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1672,
+								1672
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 858.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "app/Http/Kernel.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 980,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 264.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "vendor/forone/administrator/src/Forone/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								291,
+								291
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 198.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 11,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"default_dir": "D:\\webservice\\www\\P2P-Online",
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"default_dir": "D:\\webservice\\www\\P2P-Online",
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 13,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"default_dir": "D:\\webservice\\www\\P2P-Online",
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"default_dir": "D:\\webservice\\www\\P2P-Online",
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.7,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"project": "p2ponline.sublime-project",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"foroneroute",
+				"vendor\\forone\\administrator\\src\\Forone\\routes.php"
+			],
+			[
+				"foroneauthcontroller",
+				"vendor\\forone\\administrator\\src\\Forone\\Controllers\\Auth\\AuthController.php"
+			],
+			[
+				"throttleslogins",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Auth\\ThrottlesLogins.php"
+			],
+			[
+				"appadmin",
+				"app\\Admin.php"
+			],
+			[
+				"foroneuser",
+				"vendor\\forone\\administrator\\src\\Forone\\User.php"
+			],
+			[
+				"foronemiddleware",
+				"vendor\\forone\\administrator\\src\\Forone\\Middleware\\Authenticate.php"
+			],
+			[
+				"authcontroller",
+				"app\\Http\\Controllers\\Auth\\PasswordController.php"
+			],
+			[
+				"authauthcontroller",
+				"vendor\\forone\\administrator\\src\\Forone\\Controllers\\Auth\\AuthController.php"
+			],
+			[
+				"authlogin",
+				"vendor\\forone\\administrator\\src\\resources\\views\\auth\\login.blade.php"
+			],
+			[
+				"foroneadminenser",
+				"vendor\\forone\\administrator\\src\\Forone\\Providers\\EntrustServiceProvider.php"
+			],
+			[
+				"foroneservi",
+				"vendor\\forone\\administrator\\src\\Forone\\Providers\\ForoneServiceProvider.php"
+			],
+			[
+				"route",
+				"app\\Http\\routes.php"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"articletablesee",
+				"database\\seeds\\ArticleTableSeeder.php"
+			],
+			[
+				"foroneaurhlogin",
+				"vendor\\forone\\administrator\\src\\resources\\views\\auth\\login.blade.php"
+			],
+			[
+				"adminauth",
+				"vendor\\forone\\administrator\\src\\Forone\\Controllers\\Auth\\AuthController.php"
+			],
+			[
+				"permissioncontroller",
+				"vendor\\forone\\administrator\\src\\Forone\\Controllers\\Permissions\\PermissionsController.php"
+			],
+			[
+				"authauthservice",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\AuthServiceProvider.php"
+			],
+			[
+				"admin/",
+				"app\\Http\\Controllers\\Admin\\AdController.php"
+			],
+			[
+				"configforone",
+				"config\\forone.php"
+			],
+			[
+				"createsection",
+				"database\\migrations\\2015_08_17_007_create_sections_table.php"
+			],
+			[
+				"configforon",
+				"config\\forone.php"
+			],
+			[
+				"configentrus",
+				"config\\entrust.php"
+			],
+			[
+				"configapp.php",
+				"config\\app.php"
+			],
+			[
+				"composer",
+				"composer.json"
+			],
+			[
+				"index",
+				"resources\\views\\demo\\index.blade.php"
+			],
+			[
+				"defaultbl",
+				"resources\\views\\demo\\_layouts\\default.blade.php"
+			],
+			[
+				"default",
+				"resources\\views\\demo\\_layouts\\default.blade.php"
+			],
+			[
+				"app.css",
+				"public\\css\\app.css"
+			],
+			[
+				"defaultbla",
+				"resources\\views\\demo\\_layouts\\default.blade.php"
+			],
+			[
+				"headerblade",
+				"resources\\views\\demo\\common\\header.blade.php"
+			],
+			[
+				"footerblade",
+				"resources\\views\\demo\\common\\footer.blade.php"
+			],
+			[
+				"indexb",
+				"resources\\views\\demo\\index.blade.php"
+			],
+			[
+				"commheader",
+				"resources\\views\\demo\\common\\header.blade.php"
+			],
+			[
+				"democommheader",
+				"resources\\views\\demo\\common\\header.blade.php"
+			],
+			[
+				"cssappcss",
+				"resources\\assets\\sass\\app.scss"
+			],
+			[
+				"demolayoutdefault",
+				"resources\\views\\demo\\_layouts\\default.blade.php"
+			],
+			[
+				"democommonusersta",
+				"resources\\views\\demo\\common\\userstate.blade.php"
+			],
+			[
+				"_layoutsdefault",
+				"resources\\views\\demo\\_layouts\\default.blade.php"
+			],
+			[
+				"demoheader",
+				"resources\\views\\demo\\common\\header.blade.php"
+			],
+			[
+				"articleshow",
+				"resources\\views\\article\\show.blade.php"
+			],
+			[
+				"apparticle",
+				"app\\Article.php"
+			],
+			[
+				"articlecontroller",
+				"app\\Http\\Controllers\\ArticleController.php"
+			],
+			[
+				"ads",
+				"app\\ads.php"
+			],
+			[
+				"acl_he",
+				"application\\helpers\\acl_helper.php"
+			],
+			[
+				"m_store",
+				"application\\models\\m_store.php"
+			],
+			[
+				"admin/setting",
+				"themes\\default\\views\\admin\\setting\\index.html"
+			],
+			[
+				"welc",
+				"application\\controllers\\welcome.php"
+			],
+			[
+				"log",
+				"application\\logs\\log-2015-02-26.php"
+			],
+			[
+				"m_user",
+				"application\\models\\m_user.php"
+			],
+			[
+				"config",
+				"application\\config\\config.php"
+			],
+			[
+				"controllerweixin",
+				"application\\controllers\\weixin.php"
+			],
+			[
+				"ctime",
+				"application\\helpers\\ctime_helper.php"
+			],
+			[
+				"configweixin.php",
+				"application\\config\\weixin.php"
+			],
+			[
+				"m_weixin",
+				"application\\models\\m_weixin.php"
+			],
+			[
+				"weixin_he",
+				"application\\helpers\\weixin_helper.php"
+			],
+			[
+				"weixin_help",
+				"application\\helpers\\weixin_helper.php"
+			],
+			[
+				"controlleruser",
+				"application\\controllers\\user.php"
+			],
+			[
+				"acl_help",
+				"application\\helpers\\acl_helper.php"
+			],
+			[
+				"m_scan",
+				"application\\models\\m_scan.php"
+			],
+			[
+				"weixin.php",
+				"application\\controllers\\weixin.php"
+			],
+			[
+				"weixin_hep",
+				"application\\helpers\\weixin_helper.php"
+			],
+			[
+				"m_sc",
+				"application\\models\\m_scan.php"
+			],
+			[
+				"themesapplyfo",
+				"themes\\default\\views\\store\\applyfor_form.php"
+			],
+			[
+				"acl_",
+				"application\\helpers\\acl_helper.php"
+			],
+			[
+				"boot",
+				"themes\\default\\assets\\css\\bootstrap.css"
+			],
+			[
+				"main_menu",
+				"themes\\default\\views\\common\\main_menu.php"
+			],
+			[
+				"man_menu",
+				"themes\\default\\views\\common\\main_menu.php"
+			],
+			[
+				"themecommonhea",
+				"themes\\default\\views\\common\\header.php"
+			],
+			[
+				"m_qr",
+				"application\\models\\m_qr.php"
+			],
+			[
+				"themestoreapp",
+				"themes\\default\\views\\store\\applyfor_form.php"
+			],
+			[
+				"store",
+				"application\\controllers\\store.php"
+			],
+			[
+				"test.php",
+				"application\\controllers\\test.php"
+			],
+			[
+				"qr.php",
+				"application\\controllers\\qr.php"
+			],
+			[
+				"configweixin",
+				"application\\config\\weixin.php"
+			],
+			[
+				"user",
+				"application\\controllers\\user.php"
+			],
+			[
+				"curl",
+				"application\\libraries\\Curl.php"
+			],
+			[
+				"m_group",
+				"application\\models\\m_group.php"
+			],
+			[
+				"confiwei",
+				"application\\config\\weixin.php"
+			],
+			[
+				"themesuserprofile",
+				"themes\\default\\views\\user\\profile.php"
+			],
+			[
+				"acl_helper",
+				"application\\helpers\\acl_helper.php"
+			],
+			[
+				"themeelement_",
+				"themes\\default\\views\\admin\\acl\\element_form.php"
+			],
+			[
+				"themeaclindex",
+				"themes\\default\\views\\admin\\acl\\index.php"
+			],
+			[
+				"admin_acl",
+				"application\\controllers\\admin_acl.php"
+			],
+			[
+				"controllerstore",
+				"application\\controllers\\store.php"
+			],
+			[
+				"user.",
+				"application\\controllers\\user.php"
+			],
+			[
+				"admin_user",
+				"application\\controllers\\admin_user.php"
+			],
+			[
+				"user/bind",
+				"themes\\default\\views\\user\\bind.php"
+			],
+			[
+				"url_he",
+				"system\\helpers\\url_helper.php"
+			],
+			[
+				"login_fo",
+				"themes\\default\\views\\user\\login_form.php"
+			],
+			[
+				"user/login",
+				"themes\\default\\views\\user\\login_form.php"
+			],
+			[
+				"auto",
+				"application\\config\\autoload.php"
+			],
+			[
+				"user_help",
+				"application\\helpers\\user_helper.php"
+			],
+			[
+				"user.php",
+				"application\\controllers\\user.php"
+			],
+			[
+				"bind",
+				"themes\\default\\views\\user\\bind.php"
+			],
+			[
+				"user_he",
+				"application\\helpers\\user_helper.php"
+			],
+			[
+				"acl_h",
+				"application\\helpers\\acl_helper.php"
+			],
+			[
+				"mim",
+				"application\\config\\mimes.php"
+			],
+			[
+				"user/pro",
+				"themes\\default\\views\\user\\moreprofile.php"
+			],
+			[
+				"userhep",
+				"application\\helpers\\user_helper.php"
+			],
+			[
+				"aclhelper",
+				"application\\helpers\\acl_helper.php"
+			],
+			[
+				"themeuserre",
+				"themes\\default\\views\\user\\register_form.php"
+			],
+			[
+				"admin_us",
+				"application\\controllers\\admin_user.php"
+			],
+			[
+				"controleruser",
+				"application\\controllers\\user.php"
+			],
+			[
+				"user/regi",
+				"themes\\default\\views\\user\\register_form.php"
+			],
+			[
+				"themes/group/index",
+				"themes\\default\\views\\admin\\group\\index.php"
+			],
+			[
+				"admin_group",
+				"application\\controllers\\admin_group.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"102":
+				{
+					"group": 0,
+					"index": 3
+				},
+				"104":
+				{
+					"group": 0,
+					"index": 7
+				},
+				"106":
+				{
+					"group": 0,
+					"index": 8
+				},
+				"115":
+				{
+					"group": 0,
+					"index": 9
+				},
+				"121":
+				{
+					"group": 0,
+					"index": 4
+				},
+				"122":
+				{
+					"group": 0,
+					"index": 5
+				},
+				"123":
+				{
+					"group": 0,
+					"index": 6
+				},
+				"136":
+				{
+					"group": 0,
+					"index": 10
+				},
+				"15":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"16":
+				{
+					"group": 0,
+					"index": 2
+				},
+				"98":
+				{
+					"group": 0,
+					"index": 1
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						2,
+						1
+					],
+					[
+						0,
+						1,
+						1,
+						2
+					],
+					[
+						1,
+						1,
+						2,
+						2
+					]
+				],
+				"cols":
+				[
+					0.0,
+					0.5,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					0.62042042042,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 209.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
