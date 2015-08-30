@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "717ea2698ad342bfcdbc6e847542925d",
+    "hash": "ae43b0500bdb489c7b7f665d7c90ad09",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2205,17 +2205,11 @@
         },
         {
             "name": "forone/administrator",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ForoneTech/ForoneAdministrator.git",
-                "reference": "48941e5d0e252116662d2934a739e89b12147bce"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/ForoneTech/ForoneAdministrator/48941e5d0e252116662d2934a739e89b12147bce.zip",
-                "reference": "48941e5d0e252116662d2934a739e89b12147bce",
-                "shasum": ""
+                "url": "http://git.forone.co/mani/ForoneAdministrator.git",
+                "reference": "668d14989825f69f2a0afe9753589130fb44c30e"
             },
             "require": {
                 "doctrine/dbal": "^2.5",
@@ -2233,7 +2227,6 @@
                     "Forone\\Admin\\": "src/Forone/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2254,7 +2247,10 @@
                 "forone",
                 "laravel 5"
             ],
-            "time": "2015-08-23 14:27:57"
+            "support": {
+                "issues": "https://github.com/ForoneTech/LaravelAdmin/issues"
+            },
+            "time": "2015-08-28 09:26:05"
         },
         {
             "name": "fzaninotto/faker",

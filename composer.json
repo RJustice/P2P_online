@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*",
+        "laravel/framework": "~5.1.4",
         "ender/laravel-ueditor": "dev-master"
     },
     "require-dev": {
@@ -51,6 +51,7 @@
         "preferred-install": "dist"
     },
     "repositories": [
+        {"type": "git", "url": "http://git.forone.co/mani/ForoneAdministrator.git"},
         {"type": "composer", "url": "http://packagist.phpcomposer.com"},
         {"packagist": false}
     ],

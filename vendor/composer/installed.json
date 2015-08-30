@@ -2737,61 +2737,6 @@
         ]
     },
     {
-        "name": "forone/administrator",
-        "version": "1.0.1",
-        "version_normalized": "1.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/ForoneTech/ForoneAdministrator.git",
-            "reference": "48941e5d0e252116662d2934a739e89b12147bce"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "http://packagist.phpcomposer.com/files/ForoneTech/ForoneAdministrator/48941e5d0e252116662d2934a739e89b12147bce.zip",
-            "reference": "48941e5d0e252116662d2934a739e89b12147bce",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/dbal": "^2.5",
-            "illuminate/html": "5.0.0",
-            "illuminate/routing": "5.1.*",
-            "illuminate/support": "5.1.*",
-            "orangehill/iseed": "^2.0",
-            "php": ">=5.5.9",
-            "qiniu/php-sdk": "v7.0.4",
-            "zizaco/entrust": "dev-laravel-5@dev"
-        },
-        "time": "2015-08-23 14:27:57",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Forone\\Admin\\": "src/Forone/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "YuGang Yang",
-                "email": "smartydroid@gmail.com"
-            },
-            {
-                "name": "Mani Wang",
-                "email": "mani@forone.co"
-            }
-        ],
-        "description": "Admin system based on Laravel 5.1",
-        "homepage": "https://github.com/ForoneTech/LaravelAdmin",
-        "keywords": [
-            "admin",
-            "forone",
-            "laravel 5"
-        ]
-    },
-    {
         "name": "symfony/var-dumper",
         "version": "2.7.x-dev",
         "version_normalized": "2.7.9999999.9999999-dev",
@@ -3832,5 +3777,56 @@
             "ueditor",
             "wysiwyg"
         ]
+    },
+    {
+        "name": "forone/administrator",
+        "version": "1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "http://git.forone.co/mani/ForoneAdministrator.git",
+            "reference": "668d14989825f69f2a0afe9753589130fb44c30e"
+        },
+        "require": {
+            "doctrine/dbal": "^2.5",
+            "illuminate/html": "5.0.0",
+            "illuminate/routing": "5.1.*",
+            "illuminate/support": "5.1.*",
+            "orangehill/iseed": "^2.0",
+            "php": ">=5.5.9",
+            "qiniu/php-sdk": "v7.0.4",
+            "zizaco/entrust": "dev-laravel-5@dev"
+        },
+        "time": "2015-08-28 09:26:05",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Forone\\Admin\\": "src/Forone/"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "YuGang Yang",
+                "email": "smartydroid@gmail.com"
+            },
+            {
+                "name": "Mani Wang",
+                "email": "mani@forone.co"
+            }
+        ],
+        "description": "Admin system based on Laravel 5.1",
+        "homepage": "https://github.com/ForoneTech/LaravelAdmin",
+        "keywords": [
+            "admin",
+            "forone",
+            "laravel 5"
+        ],
+        "support": {
+            "issues": "https://github.com/ForoneTech/LaravelAdmin/issues"
+        }
     }
 ]
