@@ -31,7 +31,7 @@ Route::group(['prefix' => 'demo'],function(){
 });
 
 Route::controllers([
-    'admin/auth' => 'Auth\AdminAuthcontroller',
+    'admin/auth' => 'Auth\AdminAuthController',
 ]);
 // Route::controllers([
 //     'admin/auth' => config('forone.auth.administrator_auth_controller', '\Forone\Admin\Controllers\Auth\AuthController'),
