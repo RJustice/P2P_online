@@ -18,7 +18,7 @@
             <div class="main-bar wrap">
                 <div class="logo">
                     <a href="{{ url('/') }}" class="link f-l">
-                        <img width="263" height="58" src="http://p2p.example.com/public/attachment/201011/4cdd501dc023b.png">
+                        <img height="58" src="/images/logo.png">
                     </a>
                 </div>
                 <ul class="main-nav">

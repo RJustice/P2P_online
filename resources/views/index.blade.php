@@ -19,18 +19,18 @@
     <div class="feature">
         <a class="fea1">
             <i></i>
-            <h3>多重保证</h3>
-            <span>1000万本息保障机构全额担保</span>
+            <h3>信用审查</h3>
+            <span>农发众诚引进国际最先进的德国IPC技术,通过科学的流程审查和风控流程,严格控制风险,保障出借人资金安全</span>
         </a>
         <a class="fea2">
             <i></i>
-            <h3>低门槛高收益</h3>
-            <span>百元起投14-18%年化收益率</span>
+            <h3>风险分散</h3>
+            <span>出借人与借款人签署个人间的借贷合同,出借人将资金分散,出借给多个借款对象,风险得到最大程度的分散</span>
         </a>
         <a class="fea3">
             <i></i>
-            <h3>灵活的投资赎回</h3>
-            <span>债权转让功能方便灵活回收资金</span>
+            <h3>增强认知</h3>
+            <span>农发众诚本着对客户负责的态度,从风险理论,如何催收等方面进行加强,有效降低用户资金风险,告知用户资金用途</span>
         </a>
     </div>
     <!-- <div class="total">
@@ -73,30 +73,30 @@
         <div class="proj clearfix">
             <div class="top-item tbtj-project clearfix">
                 <div class="pic">
-                    <a href="{{ url('/project/2') }}"><img src="https://www.nongfadai.com/images/nyb.jpg" alt=""></a>
+                    <a href="{{ url('projects') }}"><img src="/images/nfb.png" alt=""></a>
                 </div>
                 <div class="info">
-                    <h3><a href="{{ url('/project/2') }}">农发众诚</a></h3>
+                    <h3><a href="{{ url('projects') }}">农富宝365T(50万起)</a></h3>
                     <ul>
-                        <li>还款方式: 每月利息,到期还本</li>
-                        <li>项目规模: 500,000.00元</li>
+                        <li>还款方式: 到期返本付息</li>
+                        <li>起投资金: 50万元起投</li>
                         <li class="f-l">
-                            项目期限: <span class="orange">1</span> 个月
+                            项目期限: <span class="orange">1</span> 年
                         </li>
                         <li class="f-l">
-                            投资进度: 
-                            <div class="progress-bg">
+                            项目特点:  通过循环出借方式,获取较高预期年收益.
+                            <!-- <div class="progress-bg">
                                 <span class="progress-b" style="width:86%">&nbsp;</span>
                             </div>
-                            <span class="orange">86%</span>
+                            <span class="orange">86%</span> -->
                         </li>
                         <li class="f-l">
-                            <span style="font-size:50px;line-height:60px;color:#f88b2c">11%</span>
+                            预期年化收益率: <span style="font-size:50px;line-height:60px;color:#f88b2c">15%</span>
                         </li>
                     </ul>
-                    <div class="f-l">
-                        <a class="btn" href="{{ url('/project/2') }}">立即购买</a>
-                    </div>
+                    <!-- <div class="f-l">
+                        <a class="btn" href="{{ url('projects') }}">立即购买</a>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('/project/2') }}">融资租赁债权转让项目第504期B</a>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">融资租赁债权转让项目第504期B</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
@@ -163,7 +163,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('/project/2') }}">融资租赁债权转让项目第504期B</a>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">融资租赁债权转让项目第504期B</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
@@ -219,7 +219,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('/project/2') }}">融资租赁债权转让项目第504期B</a>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">融资租赁债权转让项目第504期B</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">

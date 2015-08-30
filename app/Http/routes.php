@@ -59,3 +59,6 @@ Route::get('articles/c/{cid}','ArticlesController@clist');
 Route::get('articles/{id}','ArticlesController@show');
 // Route::get('pages','PagesController@index');
 Route::get('pages/{id}','PagesController@show');
+Route::any('projects',function(){
+    return view('projects');
+});
