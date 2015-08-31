@@ -143,30 +143,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "resources/views/index.blade.php",
-			"settings":
-			{
-				"buffer_size": 17653,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/Http/routes.php",
-			"settings":
-			{
-				"buffer_size": 2425,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "resources/views/projects.blade.php",
-			"settings":
-			{
-				"buffer_size": 118,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -264,28 +240,65 @@
 		"/D/webservice/www/P2P-Online/app",
 		"/D/webservice/www/P2P-Online/app/Http",
 		"/D/webservice/www/P2P-Online/app/Http/Controllers",
+		"/D/webservice/www/P2P-Online/app/Http/Controllers/Admin",
+		"/D/webservice/www/P2P-Online/app/Http/Controllers/Auth",
 		"/D/webservice/www/P2P-Online/database",
+		"/D/webservice/www/P2P-Online/database/migrations",
 		"/D/webservice/www/P2P-Online/database/seeds",
-		"/D/webservice/www/P2P-Online/resources",
 		"/D/webservice/www/P2P-Online/resources/views"
 	],
 	"file_history":
 	[
+		"/D/webservice/www/P2P-Online/app/Http/Controllers/Auth/AdminAuthController.php",
+		"/D/webservice/www/P2P-Online/app/Http/routes.php",
+		"/D/webservice/www/P2P-Online/database/migrations/2014_10_12_100000_create_roles_table.php",
+		"/D/webservice/www/P2P-Online/config/forone.php",
+		"/D/webservice/www/P2P-Online/public/ueditor/dialogs/template/config.js",
+		"/D/webservice/www/P2P-Online/vendor/mockery/mockery/docs/conf.py",
+		"/D/webservice/www/P2P-Online/app/Http/Controllers/Controller.php",
+		"/D/webservice/www/P2P-Online/composer.json",
+		"/D/webservice/www/P2P-Online/public/css/app.css",
+		"/D/webservice/www/P2P-Online/vendor/doctrine/common/lib/Doctrine/Common/Proxy/AbstractProxyFactory.php",
+		"/D/webservice/www/P2P-Online/vendor/league/flysystem/src/Plugin/PluginNotFoundException.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/public/components/bootstrap/less/forms.less",
+		"/D/webservice/www/P2P-Online/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Docs/PHP/ForbiddenFunctionsStandard.xml",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/public/components/jquery-form/bower.json",
+		"/D/webservice/www/P2P-Online/app/Providers/RouteServiceProvider.php",
+		"/D/webservice/www/P2P-Online/app/Providers/AppServiceProvider.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/console/Tests/Fixtures/application_renderexception1.txt",
+		"/D/webservice/www/P2P-Online/.gitattributes",
+		"/D/webservice/www/P2P-Online/.gitignore",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/.gitignore",
+		"/D/webservice/www/P2P-Online/app/User.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/User.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/routes.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers/Auth/AuthController.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Providers/ForoneServiceProvider.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/routing/Tests/Fixtures/special_route_name.yml",
+		"/D/webservice/www/P2P-Online/vendor/symfony/routing/Tests/Loader/YamlFileLoaderTest.php",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
+		"/D/webservice/www/P2P-Online/vendor/doctrine/dbal/lib/Doctrine/DBAL/Exception/DatabaseObjectNotFoundException.php",
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Session/Console/stubs/database.stub",
+		"/D/webservice/www/P2P-Online/config/database.php",
+		"/D/webservice/www/P2P-Online/vendor/symfony/console/Tests/Fixtures/definition_astext.txt",
+		"/D/webservice/www/P2P-Online/resources/views/_layouts/default.blade.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/migrations/2014_10_13_100000_create_role_user_table.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers/Permissions/AdminsController.php",
+		"/D/webservice/www/P2P-Online/resources/views/projects.blade.php",
+		"/D/webservice/www/P2P-Online/resources/views/index.blade.php",
+		"/D/webservice/www/P2P-Online/vendor/forone/administrator/composer.json",
+		"/D/webservice/www/P2P-Online/.env",
 		"/D/webservice/www/P2P-Online/resources/views/common/header.blade.php",
 		"/D/webservice/www/P2P-Online/vendor/swiftmailer/swiftmailer/doc/overview.rst",
 		"/D/webservice/www/P2P-Online/resources/views/demo/index.blade.php",
 		"/D/webservice/www/P2P-Online/database/seeds/CategoryTableSeeder.php",
 		"/D/webservice/www/P2P-Online/database/seeds/DatabaseSeeder.php",
-		"/D/webservice/www/P2P-Online/resources/views/index.blade.php",
 		"/D/webservice/www/P2P-Online/database/seeds/UsersTableSeeder.php",
-		"/D/webservice/www/P2P-Online/public/css/app.css",
-		"/D/webservice/www/P2P-Online/resources/views/_layouts/default.blade.php",
 		"/D/webservice/www/P2P-Online/resources/views/demo/_layouts/default.blade.php",
 		"/D/webservice/www/P2P-Online/vendor/symfony/yaml/Exception/DumpException.php",
 		"/D/webservice/www/P2P-Online/app/Http/Controllers/HomeController.php",
 		"/D/webservice/www/P2P-Online/app/Http/Controllers/Admin/DashboardController.php",
 		"/D/webservice/www/P2P-Online/app/Http/Controllers/PagesController.php",
-		"/D/webservice/www/P2P-Online/app/Http/routes.php",
 		"/D/webservice/www/P2P-Online/resources/views/pages/show.blade.php",
 		"/D/webservice/www/P2P-Online/resources/views/articles/clist.blade.php",
 		"/D/webservice/www/P2P-Online/app/Http/Controllers/Admin/ArticlesController.php",
@@ -313,10 +326,7 @@
 		"/D/webservice/www/P2P-Online/resources/views/demo/articles.blade.php",
 		"/D/webservice/www/P2P-Online/resources/views/demo/article.blade.php",
 		"/D/webservice/www/P2P-Online/database/seeds/AdminTableSeeder.php",
-		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers/Permissions/AdminsController.php",
 		"/D/webservice/www/P2P-Online/app/Http/Controllers/Admin/AdController.php",
-		"/D/webservice/www/P2P-Online/vendor/symfony/console/Tests/Fixtures/definition_astext.txt",
-		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers/Auth/AuthController.php",
 		"/D/webservice/www/P2P-Online/resources/views/demo/common/header.blade.php",
 		"/D/webservice/www/P2P-Online/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Mime/Headers/MailboxHeader.php",
 		"/D/webservice/www/P2P-Online/vendor/phpunit/phpunit/tests/TextUI/filter-dataprovider-by-classname-and-range-isolation.phpt",
@@ -327,17 +337,13 @@
 		"/D/webservice/www/P2P-Online/resources/views/articles.blade.php",
 		"/D/webservice/www/P2P-Online/app/Article.php",
 		"/D/webservice/www/P2P-Online/resources/views/article.blade.php",
-		"/D/webservice/www/P2P-Online/app/Providers/AppServiceProvider.php",
 		"/D/webservice/www/P2P-Online/app/Category.php",
 		"/D/webservice/www/P2P-Online/vendor/symfony/console/Tests/Fixtures/application_astext1.txt",
 		"/D/webservice/www/P2P-Online/app/Http/Controllers/Admin/SectionController.php",
 		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Providers/ForoneHtmlServiceProvider.php",
-		"/D/webservice/www/P2P-Online/config/forone.php",
-		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Providers/ForoneServiceProvider.php",
 		"/D/webservice/www/P2P-Online/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/PhpParser.php",
 		"/D/webservice/www/P2P-Online/resources/views/article/show.blade.php",
 		"/D/webservice/www/P2P-Online/vendor/composer/autoload_real.php",
-		"/D/webservice/www/P2P-Online/app/Http/Controllers/Auth/AdminAuthController.php",
 		"/D/webservice/www/P2P-Online/resources/views/vendor/forone/pages/form.blade.php",
 		"/D/webservice/www/P2P-Online/app/Http/Controllers/Admin/CategoryController.php",
 		"/D/webservice/www/P2P-Online/database/migrations/2015_08_17_004_create_articles_table.php",
@@ -345,7 +351,6 @@
 		"/D/webservice/www/P2P-Online/vendor/phpdocumentor/reflection-docblock/src/phpDocumentor/Reflection/DocBlock/Tag/ExampleTag.php",
 		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Requests/CreateAdminRequest.php",
 		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Requests/CreatePermissionRequest.php",
-		"/D/webservice/www/P2P-Online/composer.json",
 		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Providers/ForoneFormServiceProvider.php",
 		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Database/Schema/Grammars/MySqlGrammar.php",
 		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Auth/Middleware/AuthenticateWithBasicAuth.php",
@@ -371,34 +376,7 @@
 		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Foundation/Console/IlluminateCaster.php",
 		"/D/webservice/www/P2P-Online/vendor/phpunit/php-code-coverage/tests/_files/ignored-lines-clover.xml",
 		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
-		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Contracts/Database/ModelIdentifier.php",
-		"/D/webservice/www/P2P-Online/database/factories/ModelFactory.php",
-		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Foundation/Testing/DatabaseMigrations.php",
-		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php",
-		"/D/webservice/www/P2P-Online/config/database.php",
-		"/D/webservice/www/P2P-Online/config/adminauth.php",
-		"/D/webservice/www/P2P-Online/app/Http/Controllers/Admin/Permissions/AdminsController.php",
-		"/D/webservice/www/P2P-Online/config/ueditor.php",
-		"/D/webservice/www/P2P-Online/public/ueditor/dialogs/template/config.js",
-		"/D/webservice/www/P2P-Online/vendor/mockery/mockery/docs/conf.py",
-		"/D/webservice/www/P2P-Online/app/Http/Controllers/Controller.php",
-		"/D/webservice/www/P2P-Online/vendor/symfony/dom-crawler/Form.php",
-		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Support/ServiceProvider.php",
-		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Foundation/Providers/ConsoleSupportServiceProvider.php",
-		"/D/webservice/www/P2P-Online/public/vendor/forone/components/jquery/src/attributes/support.js",
-		"/D/webservice/www/P2P-Online/vendor/league/flysystem/src/NotSupportedException.php",
-		"/D/webservice/www/P2P-Online/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/Generic/Sniffs/PHP/UpperCaseConstantSniff.php",
-		"/D/webservice/www/P2P-Online/vendor/phpspec/phpspec/src/PhpSpec/Process/Prerequisites/SuitePrerequisites.php",
-		"/D/webservice/www/P2P-Online/vendor/phpspec/prophecy/src/Prophecy/Util/StringUtil.php",
-		"/D/webservice/www/P2P-Online/server.php",
-		"/D/webservice/www/P2P-Online/vendor/forone/administrator/src/Forone/Controllers/BaseController.php",
-		"/D/webservice/www/P2P-Online/resources/views/vendor/forone/layouts/base.blade.php",
-		"/D/webservice/www/P2P-Online/vendor/symfony/http-kernel/Tests/Fixtures/FooBarBundle.php",
-		"/D/webservice/www/P2P-Online/public/vendor/forone/components/humane/theme-src/jackedup.styl",
-		"/D/webservice/www/P2P-Online/database/migrations/2015_08_17_007_create_sections_table.php",
-		"/D/webservice/www/P2P-Online/vendor/phpunit/phpunit/tests/TextUI/colors-always.phpt",
-		"/D/webservice/www/P2P-Online/app/Http/Controllers/acontroller.php",
-		"/D/webservice/www/P2P-Online/vendor/ender/laravel-ueditor/config/ueditor.php"
+		"/D/webservice/www/P2P-Online/vendor/laravel/framework/src/Illuminate/Contracts/Database/ModelIdentifier.php"
 	],
 	"find":
 	{
@@ -409,6 +387,7 @@
 		"height": 102.0,
 		"where_history":
 		[
+			"D:\\webservice\\www\\P2P-Online\\vendor\\forone",
 			"D:\\webservice\\www\\P2P-Online",
 			"D:\\webservice\\www\\P2P-Online\\vendor\\forone",
 			"D:\\webservice\\www\\P2P-Online",
@@ -420,6 +399,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"administrator_table",
 			"/project/2",
 			"title",
 			"UsersTableSeeder",
@@ -546,8 +526,7 @@
 			"user_id",
 			"acl_is_store_owner",
 			"store_owner",
-			"debug",
-			"ci"
+			"debug"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -568,277 +547,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "resources/views/index.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 17653,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3189,
-								3189
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"is_xml": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2178.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/Http/routes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2425,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2418,
-								2418
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
-							],
-							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 924.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "resources/views/projects.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 118,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								118,
-								118
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content"
-							],
-							"is_xml": false,
-							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -893,12 +603,40 @@
 		"selected_items":
 		[
 			[
-				"headerbla",
-				"resources\\views\\common\\header.blade.php"
+				"configforon",
+				"config\\forone.php"
+			],
+			[
+				"approute",
+				"app\\Http\\routes.php"
+			],
+			[
+				"foronroute",
+				"vendor\\forone\\administrator\\src\\Forone\\routes.php"
 			],
 			[
 				"route",
 				"app\\Http\\routes.php"
+			],
+			[
+				"composer",
+				"composer.json"
+			],
+			[
+				"databasebuilder",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Builder.php"
+			],
+			[
+				"appuser",
+				"app\\User.php"
+			],
+			[
+				"foroneauthcontroller",
+				"vendor\\forone\\administrator\\src\\Forone\\Controllers\\Auth\\AuthController.php"
+			],
+			[
+				"headerbla",
+				"resources\\views\\common\\header.blade.php"
 			],
 			[
 				"indexblade",
@@ -1173,10 +911,6 @@
 				"vendor\\forone\\administrator\\src\\Forone\\Controllers\\Permissions\\AdminsController.php"
 			],
 			[
-				"appuser",
-				"app\\User.php"
-			],
-			[
 				"forn",
 				"config\\forone.php"
 			],
@@ -1233,10 +967,6 @@
 				"app\\Http\\Requests\\Request.php"
 			],
 			[
-				"foroneauthcontroller",
-				"vendor\\forone\\administrator\\src\\Forone\\Controllers\\Auth\\AuthController.php"
-			],
-			[
 				"resourceforonelogin",
 				"resources\\views\\vendor\\forone\\auth\\login.blade.php"
 			],
@@ -1271,10 +1001,6 @@
 			[
 				"authauthenti",
 				"vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Authenticatable.php"
-			],
-			[
-				"composer",
-				"composer.json"
 			],
 			[
 				"auth",
@@ -1365,10 +1091,6 @@
 				"database\\migrations\\2015_08_17_007_create_sections_table.php"
 			],
 			[
-				"configforon",
-				"config\\forone.php"
-			],
-			[
 				"configentrus",
 				"config\\entrust.php"
 			],
@@ -1391,18 +1113,6 @@
 			[
 				"defaultbla",
 				"resources\\views\\demo\\_layouts\\default.blade.php"
-			],
-			[
-				"footerblade",
-				"resources\\views\\demo\\common\\footer.blade.php"
-			],
-			[
-				"indexb",
-				"resources\\views\\demo\\index.blade.php"
-			],
-			[
-				"commheader",
-				"resources\\views\\demo\\common\\header.blade.php"
 			]
 		],
 		"width": 0.0
@@ -1484,8 +1194,8 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
-	"side_bar_width": 238.0,
+	"side_bar_visible": true,
+	"side_bar_width": 177.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

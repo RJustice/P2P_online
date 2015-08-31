@@ -22,7 +22,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name','phone','username', 'password'];
+    protected $fillable = ['name','phone','username', 'password','state','email'];
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -34,6 +34,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @return mixed
      */
+    
+    const TYPE_ADMIN = 'admin';
+    const TYPE_MEMBER = 'member';
+    const TYPE_EMPLOYEE = 'employee';
+
     public function getAuthIdentifier()
     {
         // TODO: Implement getAuthIdentifier() method.

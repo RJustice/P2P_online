@@ -13,12 +13,12 @@ return [
         'administrator_auth_controller' => '\Forone\Admin\Controllers\Auth\AuthController'
     ],
     'site_config'                 => [
-        'site_name'   => 'your site name',
-        'title'       => 'your site title',
-        'description' => 'you site description',
+        'site_name'   => '农发众诚',
+        'title'       => '农发众诚',
+        'description' => '农发众诚',
         'logo'        => 'vendor/forone/images/logo.png'
     ],
-    'RedirectAfterLoginPath'      => 'admin', // 登录后跳转页面
+    'RedirectAfterLoginPath'      => 'admin/category', // 登录后跳转页面
     'RedirectIfAuthenticatedPath' => 'admin/roles', // 如果授权后直接跳转到指定页面
 
     'menus'                       => [

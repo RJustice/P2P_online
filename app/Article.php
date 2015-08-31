@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class Article extends Model
 {
 
-    protected $fillable = ['title','alias','content','categoryid','sectionid','type','published','deleted'];
+    protected $fillable = ['title','alias','content','categoryid','sectionid','type','published','deleted','ordering','out_link','from'];
 
     const TYPE_PAGE = 'page';
     const TYPE_NORMAL = 'normal';
