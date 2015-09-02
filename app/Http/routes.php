@@ -12,26 +12,27 @@
 */
 Route::get('/','HomeController@index');
 
-Route::group(['prefix' => 'demo'],function(){
-    Route::get('/',function(){
-        return view('demo.index');
-    });
-    Route::get('about',function(){
-        return view('demo.about');
-    });
-    Route::get('article/{id?}',function(){
-        return view('demo.article');
-    });
-    Route::get('project/{id?}',function(){
-        return view('demo.project');
-    });
-    Route::get('articles',function(){
-        return view('demo.articles');
-    });
-});
+// Route::group(['prefix' => 'demo'],function(){
+//     Route::get('/',function(){
+//         return view('demo.index');
+//     });
+//     Route::get('about',function(){
+//         return view('demo.about');
+//     });
+//     Route::get('article/{id?}',function(){
+//         return view('demo.article');
+//     });
+//     Route::get('project/{id?}',function(){
+//         return view('demo.project');
+//     });
+//     Route::get('articles',function(){
+//         return view('demo.articles');
+//     });
+// });
 
 Route::controllers([
     'admin/auth' => 'Auth\AdminAuthController',
+    'auth' => 'Auth\AuthController',
 ]);
 // Route::controllers([
 //     'admin/auth' => config('forone.auth.administrator_auth_controller', '\Forone\Admin\Controllers\Auth\AuthController'),
@@ -63,4 +64,8 @@ Route::get('articles/{id}','ArticlesController@show');
 Route::get('pages/{id}','PagesController@show');
 Route::any('projects',function(){
     return view('projects');
+});
+
+Route::group(['prefix'=>'usercenter','namespace'=>'Center','middleware' => ['auth']],function(){
+    Route::get('/','CenterController@index');
 });

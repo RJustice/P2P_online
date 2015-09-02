@@ -23,6 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app['router']->middleware('member.auth', \Forone\Admin\Middleware\Authenticate::class);
     }
 }
