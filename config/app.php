@@ -149,6 +149,8 @@ return [
         Forone\Admin\Providers\ForoneServiceProvider::class,
 
         Ender\UEditor\UEditorServiceProvider::class,
+
+        Mews\Captcha\CaptchaServiceProvider::class,
     ],
 
     /*
@@ -202,6 +204,8 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 
         'UEditor'   => Ender\UEditor\UEditor::class,
+
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ],
 
 ];

@@ -755,3 +755,24 @@ p.touy{background:url(../images/touy.gif) no-repeat center center;display:block;
 .about-box .right-box .con-main{float: left;margin-top: 30px;width: 100%;min-height: 400px;}
 .about-box .right-box .con-main h2{color:#535353;font-size: 22px;line-height: 40px;padding-bottom: 10px;}
 .about-box .right-box .con-main p{color: #8a8a8a;display: block;float: left;font-size: 14px;line-height: 30px;text-align: left;width: 100%;}
+
+/** Login **/
+#login-wrap{background: #fff;margin-top: 25px;border:1px solid #ccc;}
+#login-wrap .login-left{float: left;width: 55%;height: 440px;background: #6cc0ff url("/images/banner_625.jpg") no-repeat center center;-webkit-background-size: contain;
+background-size: contain;}
+#login-wrap .login-right{float: right;width: 45%;font-size: 14px;position: relative;height: 440px;}
+#login-wrap .login-right .login-form{padding: 35px 35px 0 35px;}
+#login-wrap .login-right .login-form .h3-title{color:#00b4ff;line-height: 30px;font-weight: 600;font-size: 20px;margin-bottom: 10px;float:left;}
+#login-wrap .login-right .login-form .r-infor{float: right;font-size: 14px;line-height: 30px;}
+#login-wrap .login-right .login-form .r-infor a{cursor: pointer;color:#00b4ff;}
+#login-wrap .login-right .login-form .line-b{border-bottom: 1px solid #dfdfdf;margin-bottom: 20px;}
+#login-wrap .login-right .login-form .f-row{height: 67px;}
+#login-wrap .login-right .login-form .f-row input[type="text"],#login-wrap .login-right .login-form .f-row input[type="password"]{border: 1px solid #d2d4d6;padding: 10px 5px;height: 20px;width: 98%;color: #9a9ea2;border-radius: 6px;outline: none;}
+#login-wrap .login-right .login-form .f-row input.verification-code{width: 60%;display: inline-block;margin-right: 15px;}
+#login-wrap .login-right .login-form .f-row p{color:#f00;line-height: 24px;padding-left: 5px;}
+#login-wrap .login-right .login-form .f-row #captcha-img{vertical-align: middle;display: inline-block;}
+#login-wrap .login-right .login-form .f-row .refresh{display: inline-block;cursor: pointer;margin-left: 5px;width: 28px;height: 26px;vertical-align: middle;background: url(/images/refresh.png) no-repeat center center;background-size: contain;font-size: 0px;}
+#login-wrap .login-right .login-form .forget{height: 40px;}
+#login-wrap .login-right .login-form .forget a{float: right;color:#00b4ff;}
+#login-wrap .login-right .login-form .btn-login{height: 47px;background: #00b4ff;border: 0px;border-radius: 6px;width: 100%;color: #fff;font-size: 18px;font-weight: 600;outline: none;}
+#login-wrap .login-right .login-form .form-error{margin-top: 12px;text-align: center;color: red;}

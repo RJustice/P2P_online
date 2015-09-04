@@ -32,11 +32,11 @@ Route::get('/','HomeController@index');
 
 Route::controllers([
     'admin/auth' => 'Auth\AdminAuthController',
-    'auth' => 'Auth\AuthController',
+    'member/auth' => 'Auth\MemberAuthController',
 ]);
-// Route::controllers([
-//     'admin/auth' => config('forone.auth.administrator_auth_controller', '\Forone\Admin\Controllers\Auth\AuthController'),
-// ]);
+
+Route::get('member/password/forget',['as'=>'password.forget','uses'=>'Auth\MemberPasswordController@forget']);
+
 
 Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admin.auth']],function(){
     Route::group(['namespace' => 'Permissions'],function(){
@@ -47,7 +47,6 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
         Route::post('admins/assign-role', ['as' => 'admin.roles.assign-role', 'uses' => 'AdminsController@assignRole']);
     });
     Route::get('/','DashboardController@index');
-    // Route::match(['get','post'],'category/create','CategoryController@create');
     Route::get('category/alists',['as' => 'admin.category.alists','uses' => 'CategoryController@alists']);
     Route::resource('section','SectionController');
     Route::resource('category','CategoryController');
@@ -66,6 +65,6 @@ Route::any('projects',function(){
     return view('projects');
 });
 
-Route::group(['prefix'=>'usercenter','namespace'=>'Center','middleware' => ['auth']],function(){
+Route::group(['prefix'=>'center','namespace'=>'Member','middleware' => ['member.auth']],function(){
     Route::get('/','CenterController@index');
 });
