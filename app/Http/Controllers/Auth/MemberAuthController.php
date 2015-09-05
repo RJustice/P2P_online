@@ -27,10 +27,11 @@ class MemberAuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    protected $redirectPath = 'member';
+    protected $redirectPath = 'center';
     protected $redirectAfterLogout = '/';
     protected $loginPath = 'member/auth/login';
     protected $username = 'phone';
+    protected $registerPath = 'member/auth/register';
 
     /**
      * Create a new authentication controller instance.
@@ -57,9 +58,15 @@ class MemberAuthController extends Controller
             ->withErrors(['e'=>'验证码错误!']);
         }
 
-        // if(User::where('username',$request->get('username'))->first()->type == User::TYPE_ADMIN){
-        //     return redirect($this->loginPath());
-        // }
+        $user = User::where('username',$request->get('username'))->first();
+        if( ! $user ){
+            return redirect($this->loginPath())
+            ->withInput($request->only($this->loginUsername(), 'remember'))
+            ->withErrors(['e'=>$this->getFailedLoginMessage()]);
+        }
+        if(User::where('username',$request->get('username'))->first()->type == User::TYPE_ADMIN){
+            return redirect($this->loginPath());
+        }
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
@@ -89,11 +96,23 @@ class MemberAuthController extends Controller
     }
 
     public function getRegister(){
-        return "register";
+        return view('member.register');
     }
 
-    public function postRegister($step,Request $request){
+    public function postRegister(Request $request){
+        $validator = $this->validator($request->all());        
+        if ($validator->fails()) {
+            var_dump($validator->errors());exit;
+            return redirect($this->registerPath)
+                ->withInput($request->only('phone','rec_user'))
+                ->withErrors([
+                        $validator->messages()
+                    ]);
+        }
 
+        Auth::login($this->create($request->all()));
+
+        return redirect($this->redirectPath());
     }
     /**
      * Get a validator for an incoming registration request.
@@ -104,9 +123,9 @@ class MemberAuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|max:255',
-            // 'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'phone'=>'required',
+            'phone' => ['regex:/^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$/'],
+            'username' => 'required'
         ]);
     }
 

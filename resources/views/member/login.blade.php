@@ -7,7 +7,7 @@
 @stop
 @section('content')
 <div class="wrap-box">
-    <div class="wrap clearfix" id="login-wrap">
+    <div class="wrap clearfix" id="auth-wrap">
         <div class="login-left">
             &nbsp;
         </div>

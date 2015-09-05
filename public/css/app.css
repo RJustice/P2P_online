@@ -757,22 +757,30 @@ p.touy{background:url(../images/touy.gif) no-repeat center center;display:block;
 .about-box .right-box .con-main p{color: #8a8a8a;display: block;float: left;font-size: 14px;line-height: 30px;text-align: left;width: 100%;}
 
 /** Login **/
-#login-wrap{background: #fff;margin-top: 25px;border:1px solid #ccc;}
-#login-wrap .login-left{float: left;width: 55%;height: 440px;background: #6cc0ff url("/images/banner_625.jpg") no-repeat center center;-webkit-background-size: contain;
+#auth-wrap{background: #fff;margin-top: 25px;border:1px solid #ccc;}
+#auth-wrap .login-left{float: left;width: 55%;height: 440px;background: #6cc0ff url("/images/banner_625.jpg") no-repeat center center;-webkit-background-size: contain;
 background-size: contain;}
-#login-wrap .login-right{float: right;width: 45%;font-size: 14px;position: relative;height: 440px;}
-#login-wrap .login-right .login-form{padding: 35px 35px 0 35px;}
-#login-wrap .login-right .login-form .h3-title{color:#00b4ff;line-height: 30px;font-weight: 600;font-size: 20px;margin-bottom: 10px;float:left;}
-#login-wrap .login-right .login-form .r-infor{float: right;font-size: 14px;line-height: 30px;}
-#login-wrap .login-right .login-form .r-infor a{cursor: pointer;color:#00b4ff;}
-#login-wrap .login-right .login-form .line-b{border-bottom: 1px solid #dfdfdf;margin-bottom: 20px;}
-#login-wrap .login-right .login-form .f-row{height: 67px;}
-#login-wrap .login-right .login-form .f-row input[type="text"],#login-wrap .login-right .login-form .f-row input[type="password"]{border: 1px solid #d2d4d6;padding: 10px 5px;height: 20px;width: 98%;color: #9a9ea2;border-radius: 6px;outline: none;}
-#login-wrap .login-right .login-form .f-row input.verification-code{width: 60%;display: inline-block;margin-right: 15px;}
-#login-wrap .login-right .login-form .f-row p{color:#f00;line-height: 24px;padding-left: 5px;}
-#login-wrap .login-right .login-form .f-row #captcha-img{vertical-align: middle;display: inline-block;}
-#login-wrap .login-right .login-form .f-row .refresh{display: inline-block;cursor: pointer;margin-left: 5px;width: 28px;height: 26px;vertical-align: middle;background: url(/images/refresh.png) no-repeat center center;background-size: contain;font-size: 0px;}
-#login-wrap .login-right .login-form .forget{height: 40px;}
-#login-wrap .login-right .login-form .forget a{float: right;color:#00b4ff;}
-#login-wrap .login-right .login-form .btn-login{height: 47px;background: #00b4ff;border: 0px;border-radius: 6px;width: 100%;color: #fff;font-size: 18px;font-weight: 600;outline: none;}
-#login-wrap .login-right .login-form .form-error{margin-top: 12px;text-align: center;color: red;}
+#auth-wrap .login-right{float: right;width: 45%;font-size: 14px;position: relative;height: 440px;}
+#auth-wrap .login-form{padding: 35px 35px 0 35px;}
+#auth-wrap .h3-title{color:#00b4ff;line-height: 30px;font-weight: 600;font-size: 20px;margin-bottom: 10px;float:left;}
+#auth-wrap .r-infor{float: right;font-size: 14px;line-height: 30px;}
+#auth-wrap .r-infor a{cursor: pointer;color:#00b4ff;}
+#auth-wrap .line-b{border-bottom: 1px solid #dfdfdf;margin-bottom: 20px;}
+#auth-wrap .f-row{height: 67px;}
+#auth-wrap .f-row input[type="text"],#auth-wrap .f-row input[type="password"]{border: 1px solid #d2d4d6;padding: 10px 5px;height: 20px;width: 98%;color: #9a9ea2;border-radius: 6px;outline: none;}
+#auth-wrap .f-row input.verification-code{width: 60%;display: inline-block;margin-right: 15px;}
+#auth-wrap .f-row p{color:#f00;line-height: 24px;padding-left: 5px;}
+#auth-wrap .f-row #captcha-img{vertical-align: middle;display: inline-block;}
+#auth-wrap .f-row .refresh{display: inline-block;cursor: pointer;margin-left: 5px;width: 28px;height: 26px;vertical-align: middle;background: url(/images/refresh.png) no-repeat center center;background-size: contain;font-size: 0px;}
+#auth-wrap .forget{height: 40px;}
+#auth-wrap .forget a{float: right;color:#00b4ff;}
+#auth-wrap .btn-login{height: 47px;background: #00b4ff;border: 0px;border-radius: 6px;width: 100%;color: #fff;font-size: 18px;font-weight: 600;outline: none;}
+#auth-wrap .form-error{margin-top: 12px;text-align: center;color: red;}
+
+/** Register **/
+.register{padding:2%;min-height: 480px;}
+.process{width:800px;margin:0 auto;text-align: center;height: 100px;padding: 20px 0;}
+.register-content{width: 62%;margin: 0 auto;font-size: 14px;margin-top: 28px;}
+.register-content label,.forgetpass-content label{width: 17%;text-align: right;float: left;display: inline-block;line-height: 29px;margin-top: 5px;cursor: default;color:#666;}
+#auth-wrap .f-row input[type="text"].check-success,#auth-wrap .f-row input[type="password"].check-success{border:1px solid #00b4ff;}
+#auth-wrap .f-row input[type="text"].check-fail,#auth-wrap .f-row input[type="password"].check-fail{border:1px solid #f00;}
