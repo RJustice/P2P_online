@@ -88,12 +88,26 @@ return [
 
     'custom' => [
         'phone' => [
-            'required' => '手机号码必填',
-            'regex' => '手机号码格式不正确',
+            'required' => '手机号码必填。',
+            'regex' => '手机号码格式不正确。',
+            'unique' => '该手机已经被注册。',
         ],
         'username' => [
-            'required' => '用户名必填',
+            'required' => '用户名必填。',
             // 'max' => 
+        ],
+        'vercode' => [
+            'required' => '验证码必填。',
+            'check' => '验证码错误',
+        ],
+        'agreement' => [
+            'accepted' => '必须接受该条款。'
+        ],
+        'rec_user' => [
+            'exists' => '推荐人不存在',
+        ],
+        'password_confirmation' => [
+            'confirmed' => '两次密码填写必须相同。',
         ],
     ],
 

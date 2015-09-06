@@ -34,9 +34,13 @@ Route::controllers([
     'admin/auth' => 'Auth\AdminAuthController',
     'member/auth' => 'Auth\MemberAuthController',
 ]);
+Route::get('member/confirm','Auth\MemberAuthController@getRegisterStep2');
 
 Route::get('member/password/forget',['as'=>'password.forget','uses'=>'Auth\MemberPasswordController@forget']);
 
+Route::get('member/finish',function(){
+    return view('member.finish');
+});
 
 Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admin.auth']],function(){
     Route::group(['namespace' => 'Permissions'],function(){

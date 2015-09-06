@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Session;
 use App\User;
 use Validator;
 use App\Http\Requests;
@@ -99,20 +100,33 @@ class MemberAuthController extends Controller
         return view('member.register');
     }
 
-    public function postRegister(Request $request){
-        $validator = $this->validator($request->all());        
-        if ($validator->fails()) {
-            var_dump($validator->errors());exit;
-            return redirect($this->registerPath)
-                ->withInput($request->only('phone','rec_user'))
-                ->withErrors([
-                        $validator->messages()
-                    ]);
+    public function getRegisterStep2(){
+        if( Session::has('register') ){
+            $phone = preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',Session::get('register.phone'));
+            return view('member.register_2',compact('phone'));
         }
+        return redirect($this->registerPath);
+        // return view('member.register_2');
+    }
 
-        Auth::login($this->create($request->all()));
-
-        return redirect($this->redirectPath());
+    public function postRegister(Request $request){
+        if( $request->get('step') == 1 ){
+            $validator = $this->validator($request->all());
+            if ($validator->fails()) {
+                return redirect($this->registerPath)
+                    ->withInput($request->only('phone','rec_user'))
+                    ->withErrors($validator);
+            }
+            Session::push('register.register_step',true);
+            Session::push('register.phone',$request->get('phone'));
+            Session::push('register.password',$request->get('password'));
+            Session::push('register.rec_user',$request->get('rec_user'));
+            return redirect(url('member/confirm'));
+        }elseif( $request->get('step') == 2 ){
+            
+            return redirect($this->redirectPath());
+        }
+        return redirect($this->registerPath);
     }
     /**
      * Get a validator for an incoming registration request.
@@ -121,12 +135,23 @@ class MemberAuthController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'phone'=>'required',
-            'phone' => ['regex:/^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$/'],
-            'username' => 'required'
+    {   
+        Validator::extend('check', function($attribute, $value, $parameters)
+        {
+            return captcha_check($value);
+        });
+        $v = Validator::make($data, [
+            'phone'=>['required','unique:users','regex:/^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57])[0-9]{8}$/'],
+            'password' => 'required',
+            'password_confirmation'=> 'confirmed',
+            'agreement' => 'accepted',
+            'rec_user' => 'sometimes|exists:users,phone,type,'.User::TYPE_EMPLOYEE.',state,1',
+            'vercode' => 'required|check'
         ]);
+        // $v->sometimes('rec_user','required|exists:users,phone,type,'.User::TYPE_EMPLOYEE,function($request){
+        //     return $request->get('rec_user');
+        // });
+        return $v;
     }
 
     /**
@@ -137,10 +162,10 @@ class MemberAuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'username' => $data['username'],
-            // 'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        // return User::create([
+        //     'username' => $data['username'],
+        //     // 'email' => $data['email'],
+        //     'password' => bcrypt($data['password']),
+        // ]);
     }
 }
