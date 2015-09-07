@@ -37,11 +37,8 @@
                     <li rel="6" class="n-6 mr5">
                         <a href="{{ url('/pages/2') }}">联系我们</a>
                     </li>
-                    <li rel="6" class="n-6 mr5">
-                        <a href="{{ url('/pages/1') }}">关于我们</a>
-                    </li>
-                    <li rel="6" class="n-6 mr5">
-                        <a href="{{ url('/pages/1') }}">关于我们</a>
+                    <li rel="7" class="n-7 mr5">
+                        <a href="{{ url('/articles/c/2') }}">公司新闻</a>
                     </li>
                 </ul>
             </div>
