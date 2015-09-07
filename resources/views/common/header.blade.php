@@ -40,6 +40,9 @@
                     <li rel="7" class="n-7 mr5">
                         <a href="{{ url('/articles/c/2') }}">公司新闻</a>
                     </li>
+                    <!--<li rel="8" class="n-8 mr5">
+                        <a href="{{ url('/articles/c/2') }}">我要咨询</a>
+                    </li>-->
                 </ul>
             </div>
         </div>

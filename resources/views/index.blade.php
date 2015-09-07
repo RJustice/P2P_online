@@ -639,9 +639,9 @@
                 <li style="display: none;" id="news_industry" class="news-more"><a target="_blank" href="#">更多</a></li>
             </ul>
             <ul class="new-cntent" style="display: block;">
-                <li><a target="_blank" href="#">互联网金融迎大考  e租宝成创新样本<img src="/images/new.png"><i></i></a><span>08/21</span></li>
-                <li><a target="_blank" href="#">e租宝：顺应总体思路，宏观要稳，微观要活<img src="/images/new.png"><i></i></a><span>08/21</span></li>
-                <li><a target="_blank" href="#">互联网金融必须加速    e租宝不断进取<img src="/images/new.png"><i></i></a><span>08/21</span></li>
+                <li><a target="_blank" href="#">互联网金融迎大考  农发众诚成创新样本<img src="/images/new.png"><i></i></a><span>08/21</span></li>
+                <li><a target="_blank" href="#">农发众诚：顺应总体思路，宏观要稳，微观要活<img src="/images/new.png"><i></i></a><span>08/21</span></li>
+                <li><a target="_blank" href="#">互联网金融必须加速    农发众诚不断进取<img src="/images/new.png"><i></i></a><span>08/21</span></li>
                 <li><a target="_blank" href="#">监管加速行业规范    催生合格投资者<img src="/images/new.png"><i></i></a><span>08/20</span></li>
             </ul>
             <ul style="display: none;" class="new-cntent">
