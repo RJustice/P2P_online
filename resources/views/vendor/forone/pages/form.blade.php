@@ -3,7 +3,6 @@
 @stop
 @inject('category','App\Category')
 {!! Form::form_text('title','文章标题','请输入文章标题') !!}
-{!! Form::form_select('categoryid','文章分类',\App\Category::getCategoriesOptions()) !!}
 {!! UEditor::content($data->content,['name'=>'content','class'=>'form-group col-sm-12']) !!}
 {!! Form::form_radio('published','即刻发布',[
     [1,'是',true],
