@@ -22,7 +22,8 @@
                     </a>
                 </div>
                 <ul class="main-nav">
-                    <li rel="1" class="n-1 mr5 current">
+                    <li rel="1" class="n-1 mr5 
+                    ">
                         <a href="{{ url('/') }}">首页</a>
                     </li>
                     <!--<li rel="2" class="n-2 mr5">

@@ -49,7 +49,7 @@ class ArticlesController extends BaseController {
                 }],
             ]
         ];
-        $paginate = Article::where('type',Article::TYPE_NORMAL)->where('deleted',false)->orderBy('id','desc')->paginate(2);
+        $paginate = Article::where('type',Article::TYPE_NORMAL)->where('deleted',false)->orderBy('id','desc')->paginate(15);
         $results['items'] = $paginate;
 
         return $this->view('forone::' . $this->uri.'.index', compact('results'));
