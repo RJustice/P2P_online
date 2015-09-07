@@ -22,8 +22,7 @@
                     </a>
                 </div>
                 <ul class="main-nav">
-                    <li rel="1" class="n-1 mr5 
-                    ">
+                    <li rel="1" class="n-1 mr5 @if(Request::is('/')) current @endif">
                         <a href="{{ url('/') }}">首页</a>
                     </li>
                     <!--<li rel="2" class="n-2 mr5">
@@ -32,13 +31,13 @@
                     <li rel="3" class="n-3 mr5">
                         <a href="{{ url('/usercenter') }}">个人中心</a>
                     </li>-->
-                    <li rel="5" class="n-5 mr5">
+                    <li rel="5" class="n-5 mr5 @if(Request::is('pages/1')) current @endif">
                         <a href="{{ url('/pages/1') }}">关于我们</a>
                     </li>
-                    <li rel="6" class="n-6 mr5">
+                    <li rel="6" class="n-6 mr5 @if(Request::is('pages/2')) current @endif">
                         <a href="{{ url('/pages/2') }}">联系我们</a>
                     </li>
-                    <li rel="7" class="n-7 mr5">
+                    <li rel="7" class="n-7 mr5 @if(Request::is('articles/c/2')) current @endif">
                         <a href="{{ url('/articles/c/2') }}">公司新闻</a>
                     </li>
                     <!--<li rel="8" class="n-8 mr5">
