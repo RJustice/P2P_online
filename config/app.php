@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://www.nfzhongcheng.com',
+    'url' => 'http://test.nfzhongcheng.com',
 
     /*
     |--------------------------------------------------------------------------

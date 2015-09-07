@@ -19,20 +19,20 @@
    </div><!--end of nav-->
    <div class="Talk">
     <h4>全国热线</h4>
-    <h3>400-123-4567</h3>
+    <h3>400-6090-290</h3>
     <p>服务时间：09:00 - 21:00 （周一至周日）</p>
     <div class="Talk_tools">
     <div class="service01">
      <!-- <span><iframe width="92" height="22" frameborder="0" scrolling="no" allowtransparency="true" src="about:blank"></iframe><script src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAwNDU3NV8yNDE3NjNfNDAwOTk4NzI3N18" type="text/javascript" charset="utf-8"></script></span> -->
     </div><!--end of service1-->
     <div class="service02">
-     <a title="农发众诚" target="_blank" href="#"><img width="33" height="27" src=""></a>
+     <a title="农发众诚" target="_blank" href="#"></a>
     </div><!--end of service2-->
     </div>
    </div><!--end of Talk-->
    <div class="Scan">
-     <h5><i></i>微信扫二维码加关注</h5>
-     <img width="85" height="84" src="">
+     <!--<h5><i></i>微信扫二维码加关注</h5>
+     <img width="85" height="84" src="">-->
     </div><!--end of Scan-->
   </div><!--end of footer_up-->
  </div><!--end of wrap-->

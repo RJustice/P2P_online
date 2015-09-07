@@ -2,13 +2,17 @@
 @section('main_ad')
 <div id="main-adv-box" class="main-adv-box f-l">
     <div id="main-adv-img" class="main-adv-img">
-        <span rel="1"><img src="http://p2p.example.com/public/attachment/201410/10/16/54379e5b77e58.jpg" alt="" style="display:none"></span>
-        <span rel="2"><img src="http://p2p.example.com/public/attachment/201410/10/16/54379eb932938.jpg" alt="" style="display:none"></span>
+        <span rel="1"><img src="/images/b1.jpg" alt="" style="display:none"></span>
+        <span rel="2"><img src="/images/b2.jpg" alt="" style="display:none"></span>
+        <span rel="3"><img src="/images/b3.jpg" alt="" style="display:none"></span>
+        <span rel="4"><img src="/images/b4.jpg" alt="" style="display:none"></span>
     </div>
     <div id="main-adv-ctl" class="main-adv-ctl">
         <ul>
             <li rel="1">1</li>
             <li rel="2">2</li>
+            <li rel="3">3</li>
+            <li rel="4">4</li>
         </ul>
     </div>
 </div>
@@ -64,10 +68,11 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <!--<div>
                     <div class="login-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #209DF8;line-height: 42px;color: #FFF;text-align: center;">用户登录</div>
                     <div class="reg-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #ff972c;line-height: 42px;color: #FFF;text-align: center;">免费注册</div>
-                </div>
+                </div>-->
+                <div style="font-size:18px;line-height:48px;font-weight:600;text-align:center;">投资热线: 400-6090 290</div>
             </div>
         </div>
         <div class="proj clearfix">
@@ -107,31 +112,31 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">融资租赁债权转让项目第504期B</a>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">农富宝365T 月回息</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
                                 <div class="describe describe1">
-                                <em>13<i>%</i></em>
+                                <em>14.4<i>%</i></em>
                                 <br />
                                 预期年化收益率
                                 </div>
                                 <div class="describe describe2">
-                                    <em>30<i>天</i></em>
+                                    <em>1<i>年</i></em>
                                     <br />
                                     投资周期
                                 </div>
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:29.41%"></span>
+                                            <span class="in-progress-bar" style="width:54.69%"></span>
                                         </span>
                                     </p>
-                                    <p>可投：1764.8万元  /  总额：2500万元</p>
+                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;">通过循环出借方式,每月回收利息,本金继续借出</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
-                                起投金额：<em>1</em>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;付息方式：按月&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;赎回方式：T+10， 投资满30天即可申请赎回，赎回期内同等计息
+                                起投金额：<em>50万</em>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：按月付息，到期返本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </div>
                         </div>
                     </div>
@@ -143,17 +148,18 @@
                                     <div class="tab-switch">                                    
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value1707" data-id="1707" class="money-input h_enter_value" type="text"><span class="text">元</span>
-                                            <span class="error h_jx_notice" id="h_jx_notice1707"></span>
+                                            <input maxlength="11" id="h_enter_value1" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <span class="error h_jx_notice" id="h_jx_notice1"></span>
                                         </p>
                                         <p class="p-in clearfix">
                                             <label>预期收益：</label>
-                                            <span class="span-wid h_ys" id="h_ys1707">1300.00</span>
+                                            <span class="span-wid h_ys" id="h_ys1"></span>
                                             <span class="text">元</span>
                                         </p>
                                         <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" id="h_jx_payment1707" class="h_jx_payment a-btnop invest-btn" data-id="1707" data-pass="0" data-ishetong="1" data-model="newdetaildh" data-need="17647822.68" data-borrowmax="" data-borrowmin="0" data-startmoney="1.00" data-borrowinterestrate="13.00" data-tzqx="12" data-name="融资租赁债权转让项目第504期B">立即投资<i></i></a>
-                                        </p>                                
+                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" data-id="1" data-date="365" data-nsy="0.144" style="width:218px;">计算到期收益<i></i></a>
+                                        </p>
+                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>                               
                                     </div>
                                 </div>
                             </div>
@@ -161,6 +167,405 @@
                     </div>
                 </li>
                 <li class="past">
+                    <div class="treetop-left">
+                        <h2>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">农富宝45T</a>
+                        </h2>
+                        <div class="project-info">
+                            <div class="m-tp clearfix">
+                                <div class="describe describe1">
+                                <em>6<i>%</i></em>
+                                <br />
+                                预期年化收益率
+                                </div>
+                                <div class="describe describe2">
+                                    <em>45<i>天</i></em>
+                                    <br />
+                                    投资周期
+                                </div>
+                                <div class="divstyle divstyle03 supportcss3">
+                                    <p class="p-progress-bar clearfix">
+                                        <span class="out-progress-bar clearfix">
+                                            <span class="in-progress-bar" style="width:87.32%"></span>
+                                        </span>
+                                    </p>
+                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;">45天短期投入实现较高收益,获取较高预期年收益</p>
+                                </div>
+                            </div>
+                            <div class="tp-pattern">
+                                起投金额：<em>5万</em>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：到期返本付息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="treetop-right-outer">
+                        <div class="treetop-right-inner">
+                            <div class="treetop-right">
+                                <div style="height: 16px;">&nbsp;</div>
+                                <div class="tab-wrap">
+                                    <div class="tab-switch">                                    
+                                        <p class="p-in clearfix">
+                                            <label>输入金额：</label>
+                                            <input maxlength="11" id="h_enter_value2" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <span class="error h_jx_notice" id="h_jx_notice2"></span>
+                                        </p>
+                                        <p class="p-in clearfix">
+                                            <label>预期收益：</label>
+                                            <span class="span-wid h_ys" id="h_ys2"></span>
+                                            <span class="text">元</span>
+                                        </p>
+                                        <p class="invest-btn p-btn clearfix">
+                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn"  data-id="2" data-date="45" data-nsy="0.06" style="width:218px;">计算到期收益<i></i></a>
+                                        </p>
+                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="past">
+                    <div class="treetop-left">
+                        <h2>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">农富宝90T  月回息</a>
+                        </h2>
+                        <div class="project-info">
+                            <div class="m-tp clearfix">
+                                <div class="describe describe1">
+                                <em>9.5<i>%</i></em>
+                                <br />
+                                预期年化收益率
+                                </div>
+                                <div class="describe describe2">
+                                    <em>3<i>月</i></em>
+                                    <br />
+                                    投资周期
+                                </div>
+                                <div class="divstyle divstyle03 supportcss3">
+                                    <p class="p-progress-bar clearfix">
+                                        <span class="out-progress-bar clearfix">
+                                            <span class="in-progress-bar" style="width:59.41%"></span>
+                                        </span>
+                                    </p>
+                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;">3个月短期投入实现较高收益,每月回收利息,本金继续借出</p>
+                                </div>
+                            </div>
+                            <div class="tp-pattern">
+                                起投金额：<em>5万</em>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：按月付息,到期返本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="treetop-right-outer">
+                        <div class="treetop-right-inner">
+                            <div class="treetop-right">
+                                <div style="height: 16px;">&nbsp;</div>
+                                <div class="tab-wrap">
+                                    <div class="tab-switch">                                    
+                                        <p class="p-in clearfix">
+                                            <label>输入金额：</label>
+                                            <input maxlength="11" id="h_enter_value3" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <span class="error h_jx_notice" id="h_jx_notice3"></span>
+                                        </p>
+                                        <p class="p-in clearfix">
+                                            <label>预期收益：</label>
+                                            <span class="span-wid h_ys" id="h_ys3"></span>
+                                            <span class="text">元</span>
+                                        </p>
+                                        <p class="invest-btn p-btn clearfix">
+                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="3" data-date="90" data-nsy="0.095" >计算到期收益<i></i></a>
+                                        </p>
+                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="past">
+                    <div class="treetop-left">
+                        <h2>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">农富宝90T</a>
+                        </h2>
+                        <div class="project-info">
+                            <div class="m-tp clearfix">
+                                <div class="describe describe1">
+                                <em>10<i>%</i></em>
+                                <br />
+                                预期年化收益率
+                                </div>
+                                <div class="describe describe2">
+                                    <em>3<i>月</i></em>
+                                    <br />
+                                    投资周期
+                                </div>
+                                <div class="divstyle divstyle03 supportcss3">
+                                    <p class="p-progress-bar clearfix">
+                                        <span class="out-progress-bar clearfix">
+                                            <span class="in-progress-bar" style="width:89.59%"></span>
+                                        </span>
+                                    </p>
+                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;">3个月短期投入实现较高收益,获取较高预期年收益</p>
+                                </div>
+                            </div>
+                            <div class="tp-pattern">
+                                起投金额：<em>5万</em>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：到期返本付息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="treetop-right-outer">
+                        <div class="treetop-right-inner">
+                            <div class="treetop-right">
+                                <div style="height: 16px;">&nbsp;</div>
+                                <div class="tab-wrap">
+                                    <div class="tab-switch">                                    
+                                        <p class="p-in clearfix">
+                                            <label>输入金额：</label>
+                                            <input maxlength="11" id="h_enter_value4" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <span class="error h_jx_notice" id="h_jx_notice4"></span>
+                                        </p>
+                                        <p class="p-in clearfix">
+                                            <label>预期收益：</label>
+                                            <span class="span-wid h_ys" id="h_ys4"></span>
+                                            <span class="text">元</span>
+                                        </p>
+                                        <p class="invest-btn p-btn clearfix">
+                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="4" data-date="90" data-nsy="0.1" >计算到期收益<i></i></a>
+                                        </p>
+                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="past">
+                    <div class="treetop-left">
+                        <h2>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">农富宝180T 月回息</a>
+                        </h2>
+                        <div class="project-info">
+                            <div class="m-tp clearfix">
+                                <div class="describe describe1">
+                                <em>10.5<i>%</i></em>
+                                <br />
+                                预期年化收益率
+                                </div>
+                                <div class="describe describe2">
+                                    <em>6<i>月</i></em>
+                                    <br />
+                                    投资周期
+                                </div>
+                                <div class="divstyle divstyle03 supportcss3">
+                                    <p class="p-progress-bar clearfix">
+                                        <span class="out-progress-bar clearfix">
+                                            <span class="in-progress-bar" style="width:82.41%"></span>
+                                        </span>
+                                    </p>
+                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;">6个月短期投入实现较高收益,每月回收利息,本金继续借出</p>
+                                </div>
+                            </div>
+                            <div class="tp-pattern">
+                                起投金额：<em>5万</em>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：按月付息，到期返本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="treetop-right-outer">
+                        <div class="treetop-right-inner">
+                            <div class="treetop-right">
+                                <div style="height: 16px;">&nbsp;</div>
+                                <div class="tab-wrap">
+                                    <div class="tab-switch">                                    
+                                        <p class="p-in clearfix">
+                                            <label>输入金额：</label>
+                                            <input maxlength="11" id="h_enter_value5" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <span class="error h_jx_notice" id="h_jx_notice5"></span>
+                                        </p>
+                                        <p class="p-in clearfix">
+                                            <label>预期收益：</label>
+                                            <span class="span-wid h_ys" id="h_ys5"></span>
+                                            <span class="text">元</span>
+                                        </p>
+                                        <p class="invest-btn p-btn clearfix">
+                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="5" data-date="180" data-nsy="0.105" >计算到期收益<i></i></a>
+                                        </p>
+                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="past">
+                    <div class="treetop-left">
+                        <h2>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">农富宝180T</a>
+                        </h2>
+                        <div class="project-info">
+                            <div class="m-tp clearfix">
+                                <div class="describe describe1">
+                                <em>11<i>%</i></em>
+                                <br />
+                                预期年化收益率
+                                </div>
+                                <div class="describe describe2">
+                                    <em>6<i>月</i></em>
+                                    <br />
+                                    投资周期
+                                </div>
+                                <div class="divstyle divstyle03 supportcss3">
+                                    <p class="p-progress-bar clearfix">
+                                        <span class="out-progress-bar clearfix">
+                                            <span class="in-progress-bar" style="width:95.21%"></span>
+                                        </span>
+                                    </p>
+                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;">6个月短期投入实现较高收益,获取较高预期年收益</p>
+                                </div>
+                            </div>
+                            <div class="tp-pattern">
+                                起投金额：<em>5万</em>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：到期返本付息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="treetop-right-outer">
+                        <div class="treetop-right-inner">
+                            <div class="treetop-right">
+                                <div style="height: 16px;">&nbsp;</div>
+                                <div class="tab-wrap">
+                                    <div class="tab-switch">                                    
+                                        <p class="p-in clearfix">
+                                            <label>输入金额：</label>
+                                            <input maxlength="11" id="h_enter_value6" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <span class="error h_jx_notice" id="h_jx_notice6"></span>
+                                        </p>
+                                        <p class="p-in clearfix">
+                                            <label>预期收益：</label>
+                                            <span class="span-wid h_ys" id="h_ys6"></span>
+                                            <span class="text">元</span>
+                                        </p>
+                                        <p class="invest-btn p-btn clearfix">
+                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="6" data-date="180" data-nsy="0.11" >计算到期收益<i></i></a>
+                                        </p>
+                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="past">
+                    <div class="treetop-left">
+                        <h2>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">农富宝365T 月回息</a>
+                        </h2>
+                        <div class="project-info">
+                            <div class="m-tp clearfix">
+                                <div class="describe describe1">
+                                <em>12.5<i>%</i></em>
+                                <br />
+                                预期年化收益率
+                                </div>
+                                <div class="describe describe2">
+                                    <em>1<i>年</i></em>
+                                    <br />
+                                    投资周期
+                                </div>
+                                <div class="divstyle divstyle03 supportcss3">
+                                    <p class="p-progress-bar clearfix">
+                                        <span class="out-progress-bar clearfix">
+                                            <span class="in-progress-bar" style="width:69.41%"></span>
+                                        </span>
+                                    </p>
+                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;">通过循环出借方式,每月回收利息,本金继续借出</p>
+                                </div>
+                            </div>
+                            <div class="tp-pattern">
+                                起投金额：<em>5万</em>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：按月付息，到期返本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="treetop-right-outer">
+                        <div class="treetop-right-inner">
+                            <div class="treetop-right">
+                                <div style="height: 16px;">&nbsp;</div>
+                                <div class="tab-wrap">
+                                    <div class="tab-switch">                                    
+                                        <p class="p-in clearfix">
+                                            <label>输入金额：</label>
+                                            <input maxlength="11" id="h_enter_value7" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <span class="error h_jx_notice" id="h_jx_notice7"></span>
+                                        </p>
+                                        <p class="p-in clearfix">
+                                            <label>预期收益：</label>
+                                            <span class="span-wid h_ys" id="h_ys7"></span>
+                                            <span class="text">元</span>
+                                        </p>
+                                        <p class="invest-btn p-btn clearfix">
+                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="7" data-date="365" data-nsy="0.125" >计算到期收益<i></i></a>
+                                        </p>
+                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="past">
+                    <div class="treetop-left">
+                        <h2>
+                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">农富宝365T</a>
+                        </h2>
+                        <div class="project-info">
+                            <div class="m-tp clearfix">
+                                <div class="describe describe1">
+                                <em>13<i>%</i></em>
+                                <br />
+                                预期年化收益率
+                                </div>
+                                <div class="describe describe2">
+                                    <em>1<i>年</i></em>
+                                    <br />
+                                    投资周期
+                                </div>
+                                <div class="divstyle divstyle03 supportcss3">
+                                    <p class="p-progress-bar clearfix">
+                                        <span class="out-progress-bar clearfix">
+                                            <span class="in-progress-bar" style="width:78.68%"></span>
+                                        </span>
+                                    </p>
+                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;">通过循环出借方式,获取较高预期年收益</p>
+                                </div>
+                            </div>
+                            <div class="tp-pattern">
+                                起投金额：<em>5万</em>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：到期返本付息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="treetop-right-outer">
+                        <div class="treetop-right-inner">
+                            <div class="treetop-right">
+                                <div style="height: 16px;">&nbsp;</div>
+                                <div class="tab-wrap">
+                                    <div class="tab-switch">                                    
+                                        <p class="p-in clearfix">
+                                            <label>输入金额：</label>
+                                            <input maxlength="11" id="h_enter_value8" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <span class="error h_jx_notice" id="h_jx_notice8"></span>
+                                        </p>
+                                        <p class="p-in clearfix">
+                                            <label>预期收益：</label>
+                                            <span class="span-wid h_ys" id="h_ys8"></span>
+                                            <span class="text">元</span>
+                                        </p>
+                                        <p class="invest-btn p-btn clearfix">
+                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="8" data-date="365" data-nsy="0.13" >计算到期收益<i></i></a>
+                                        </p>
+                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>                              
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--<li class="past">
                     <div class="treetop-left">
                         <h2>
                             <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">融资租赁债权转让项目第504期B</a>
@@ -183,7 +588,7 @@
                                             <span class="in-progress-bar" style="width:29.41%"></span>
                                         </span>
                                     </p>
-                                    <p>可投：1764.8万元  /  总额：2500万元</p>
+                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;">可投：1764.8万元  /  总额：2500万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -199,79 +604,23 @@
                                     <div class="tab-switch">                                    
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value1707" data-id="1707" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <input maxlength="11" id="h_enter_value1707" class="money-input h_enter_value" type="text"><span class="text">元</span>
                                             <span class="error h_jx_notice" id="h_jx_notice1707"></span>
                                         </p>
                                         <p class="p-in clearfix">
                                             <label>预期收益：</label>
-                                            <span class="span-wid h_ys" id="h_ys1707">1300.00</span>
+                                            <span class="span-wid h_ys" id="h_ys1707"></span>
                                             <span class="text">元</span>
                                         </p>
                                         <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" id="h_jx_payment1707" class="h_jx_payment a-btnop invest-btn" data-id="1707" data-pass="0" data-ishetong="1" data-model="newdetaildh" data-need="17647822.68" data-borrowmax="" data-borrowmin="0" data-startmoney="1.00" data-borrowinterestrate="13.00" data-tzqx="12" data-name="融资租赁债权转让项目第504期B">立即投资<i></i></a>
+                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;">计算到期收益<i></i></a>
                                         </p>                                
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </li>
-                <li class="past">
-                    <div class="treetop-left">
-                        <h2>
-                            <span class="span-sty">众诚财富</span><a class="a-title" href="{{ url('projects') }}">融资租赁债权转让项目第504期B</a>
-                        </h2>
-                        <div class="project-info">
-                            <div class="m-tp clearfix">
-                                <div class="describe describe1">
-                                <em>13<i>%</i></em>
-                                <br />
-                                预期年化收益率
-                                </div>
-                                <div class="describe describe2">
-                                    <em>30<i>天</i></em>
-                                    <br />
-                                    投资周期
-                                </div>
-                                <div class="divstyle divstyle03 supportcss3">
-                                    <p class="p-progress-bar clearfix">
-                                        <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:29.41%"></span>
-                                        </span>
-                                    </p>
-                                    <p>可投：1764.8万元  /  总额：2500万元</p>
-                                </div>
-                            </div>
-                            <div class="tp-pattern">
-                                起投金额：<em>1</em>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;付息方式：按月&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;赎回方式：T+10， 投资满30天即可申请赎回，赎回期内同等计息
-                            </div>
-                        </div>
-                    </div>
-                    <div class="treetop-right-outer">
-                        <div class="treetop-right-inner">
-                            <div class="treetop-right">
-                                <div style="height: 16px;">&nbsp;</div>
-                                <div class="tab-wrap">
-                                    <div class="tab-switch">                                    
-                                        <p class="p-in clearfix">
-                                            <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value1707" data-id="1707" class="money-input h_enter_value" type="text"><span class="text">元</span>
-                                            <span class="error h_jx_notice" id="h_jx_notice1707"></span>
-                                        </p>
-                                        <p class="p-in clearfix">
-                                            <label>预期收益：</label>
-                                            <span class="span-wid h_ys" id="h_ys1707">1300.00</span>
-                                            <span class="text">元</span>
-                                        </p>
-                                        <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" id="h_jx_payment1707" class="h_jx_payment a-btnop invest-btn" data-id="1707" data-pass="0" data-ishetong="1" data-model="newdetaildh" data-need="17647822.68" data-borrowmax="" data-borrowmin="0" data-startmoney="1.00" data-borrowinterestrate="13.00" data-tzqx="12" data-name="融资租赁债权转让项目第504期B">立即投资<i></i></a>
-                                        </p>                                
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>
@@ -310,9 +659,29 @@
 @section('js')
 <script type="text/javascript" src="/js/main_adv.js"></script>
 <script type="text/javascript">
-    $(".new-title li:not(.news-more)").click(function() {
-        var e = $(this).index();
-        $(".new-title li").removeClass("selected"), $(this).addClass("selected"), $(".iarrow").hide(), $(this).children(".iarrow").show(), $(".news-more").hide(), $(e == 0 ? "#news_company" : "#news_industry").show(), $(".new-cntent").hide(), $(".new-cntent").eq(e).show()
-    })
+    $(document).ready(function(){
+        $(".new-title li:not(.news-more)").click(function() {
+            var e = $(this).index();
+            $(".new-title li").removeClass("selected"), $(this).addClass("selected"), $(".iarrow").hide(), $(this).children(".iarrow").show(), $(".news-more").hide(), $(e == 0 ? "#news_company" : "#news_industry").show(), $(".new-cntent").hide(), $(".new-cntent").eq(e).show()
+        });
+
+        $(".h_jx_payment").on('click',function(){
+            var id = $(this).data('id');
+            var date = parseInt($(this).data('date'));
+            var nsy = parseFloat($(this).data('nsy'));
+            var $tz = $("#h_enter_value"+id);
+            var $sy = $("#h_ys"+id);
+            var sy = '',tz = 0;
+            if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test($tz.val()) ){
+                tz = parseFloat($tz.val());
+                sy = ( tz * nsy ) * ( date / 365 );
+                $sy.text(sy.toFixed(3));
+            }else{
+                $sy.text(0);
+                $tz.val(0);
+                return;
+            }
+        });
+    });
 </script>
 @stop
