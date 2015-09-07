@@ -31,13 +31,18 @@
                     <li rel="3" class="n-3 mr5">
                         <a href="{{ url('/usercenter') }}">个人中心</a>
                     </li>-->
-                    <li rel="4" class="n-4 mr5">
-                        <a href="{{ url('/newlywed') }}">新手指引</a>
-                    </li>
                     <li rel="5" class="n-5 mr5">
-                        <a href="{{ url('/about') }}">关于我们</a>
+                        <a href="{{ url('/pages/1') }}">关于我们</a>
                     </li>
-                    <li rel="6" class="n-6 mr5"></li>
+                    <li rel="6" class="n-6 mr5">
+                        <a href="{{ url('/pages/2') }}">联系我们</a>
+                    </li>
+                    <li rel="6" class="n-6 mr5">
+                        <a href="{{ url('/pages/1') }}">关于我们</a>
+                    </li>
+                    <li rel="6" class="n-6 mr5">
+                        <a href="{{ url('/pages/1') }}">关于我们</a>
+                    </li>
                 </ul>
             </div>
         </div>

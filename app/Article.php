@@ -42,7 +42,7 @@ class Article extends Model
         if( $this->_type ){
             $this->type = $this->_type;
         }else{
-            $this->type = TYPE_NORMAL;
+            $this->type = static::TYPE_NORMAL;
         }
 
         if( $this->_create_by ){
