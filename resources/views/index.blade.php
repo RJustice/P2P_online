@@ -64,7 +64,7 @@
                     <div class="tnum">
                         <div>投资已在农发众诚完成</div>
                         <div class="tn">
-                            468,562,120
+                            168,562,000
                         </div>
                     </div>
                 </div>
@@ -129,10 +129,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:87.32%"></span>
+                                            <span class="in-progress-bar" style="width:28.44%"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;"></p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 3578 万元  /  总额：5000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -145,7 +145,7 @@
                             <div class="treetop-right">
                                 <div style="height: 16px;">&nbsp;</div>
                                 <div class="tab-wrap">
-                                    <div class="tab-switch">                                    
+                                    <div class="tab-switch">
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
                                             <input maxlength="11" id="h_enter_value2" class="money-input h_enter_value" type="text" data-id="2" data-date="45" data-nsy="0.06"><span class="text">元</span>
@@ -186,10 +186,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:59.41%"></span>
+                                            <span class="in-progress-bar" style="width:48.4%"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;"></p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 2580 万元  /  总额：5000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -243,10 +243,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:89.59%"></span>
+                                            <span class="in-progress-bar" style="width:26%"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;"></p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 3700 万元  /  总额：5000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -300,10 +300,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:82.41%"></span>
+                                            <span class="in-progress-bar" style="width:42.8%"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;"></p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 2860 万元  /  总额：5000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -357,10 +357,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:69.41%"></span>
+                                            <span class="in-progress-bar" style="width:44.67%"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;"></p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 1660 万元  /  总额：3000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -414,10 +414,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:78.68%"></span>
+                                            <span class="in-progress-bar" style="width:36.67%"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;"></p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 1900 万元  /  总额：3000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -471,10 +471,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:54.69%"></span>
+                                            <span class="in-progress-bar" style="width:38%"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;"></p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 4960 万元  /  总额：8000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -528,10 +528,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:54.69%"></span>
+                                            <span class="in-progress-bar" style="width:14.5%"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;height:40px;line-height:20px;"></p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 6840 万元  /  总额：8000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -639,16 +639,16 @@
                 <li style="display: none;" id="news_industry" class="news-more"><a target="_blank" href="#">更多</a></li>
             </ul>
             <ul class="new-cntent" style="display: block;">
-                <li><a target="_blank" href="#">互联网金融迎大考  农发众诚成创新样本<img src="/images/new.png"><i></i></a><span>08/21</span></li>
-                <li><a target="_blank" href="#">农发众诚：顺应总体思路，宏观要稳，微观要活<img src="/images/new.png"><i></i></a><span>08/21</span></li>
-                <li><a target="_blank" href="#">互联网金融必须加速    农发众诚不断进取<img src="/images/new.png"><i></i></a><span>08/21</span></li>
-                <li><a target="_blank" href="#">监管加速行业规范    催生合格投资者<img src="/images/new.png"><i></i></a><span>08/20</span></li>
+                <li><a target="_blank" href="#">互联网金融迎大考  农发众诚成创新样本<img src="/images/new.png"><i></i></a><span>09/05</span></li>
+                <li><a target="_blank" href="#">农发众诚：顺应总体思路，宏观要稳，微观要活<img src="/images/new.png"><i></i></a><span>09/05</span></li>
+                <li><a target="_blank" href="#">互联网金融必须加速    农发众诚不断进取<img src="/images/new.png"><i></i></a><span>09/05</span></li>
+                <li><a target="_blank" href="#">监管加速行业规范    催生合格投资者<img src="/images/new.png"><i></i></a><span>09/03</span></li>
             </ul>
             <ul style="display: none;" class="new-cntent">
-                <li><a target="_blank" href="#">第二届816互联网金融峰会“破局·破茧·破冰...<img src="/images/new.png"><i></i></a><span>08/21</span></li>
-                <li><a target="_blank" href="#">大数据顶层设计打造经济新引擎<img src="/images/new.png"><i></i></a><span>08/21</span></li>
-                <li><a target="_blank" href="#">上市银行晒“中考”成绩单 不良贷上升成资产质...<img src="/images/new.png"><i></i></a><span>08/21</span></li>
-                <li><a target="_blank" href="#">商务部：7月全国进出口2.12万亿元 同比下...<img src="/images/new.png"><i></i></a><span>08/21</span></li>
+                <li><a target="_blank" href="#">第二届816互联网金融峰会“破局·破茧·破冰...<img src="/images/new.png"><i></i></a><span>09/05</span></li>
+                <li><a target="_blank" href="#">大数据顶层设计打造经济新引擎<img src="/images/new.png"><i></i></a><span>09/05</span></li>
+                <li><a target="_blank" href="#">上市银行晒“中考”成绩单 不良贷上升成资产质...<img src="/images/new.png"><i></i></a><span>09/05</span></li>
+                <li><a target="_blank" href="#">商务部：7月全国进出口2.12万亿元 同比下...<img src="/images/new.png"><i></i></a><span>09/05</span></li>
             </ul>
         </div>
     </div>
