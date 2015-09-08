@@ -68,11 +68,11 @@
                         </div>
                     </div>
                 </div>
-                <!--<div>
-                    <div class="login-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #209DF8;line-height: 42px;color: #FFF;text-align: center;">用户登录</div>
-                    <div class="reg-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #ff972c;line-height: 42px;color: #FFF;text-align: center;">免费注册</div>
-                </div>-->
-                <div style="font-size:18px;line-height:48px;font-weight:600;text-align:center;">投资热线: 400-6090 290</div>
+                <div>
+                    <div class="login-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #209DF8;line-height: 42px;color: #FFF;text-align: center;"><a href="{{ url('member/auth/login') }}">用户登录</a></div>
+                    <div class="reg-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #ff972c;line-height: 42px;color: #FFF;text-align: center;"><a href="{{ url('member/auto/register') }}">免费注册</a></div>
+                </div>
+                <!--<div style="font-size:18px;line-height:48px;font-weight:600;text-align:center;">投资热线: 400-6090 290</div>-->
             </div>
         </div>
         <div class="proj clearfix">
@@ -148,7 +148,7 @@
                                     <div class="tab-switch">                                    
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value1" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <input maxlength="11" id="h_enter_value1" class="money-input h_enter_value" type="text" data-id="1" data-date="365" data-nsy="0.144"><span class="text">元</span>
                                             <span class="error h_jx_notice" id="h_jx_notice1"></span>
                                         </p>
                                         <p class="p-in clearfix">
@@ -157,9 +157,9 @@
                                             <span class="text">元</span>
                                         </p>
                                         <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" data-id="1" data-date="365" data-nsy="0.144" style="width:218px;">计算到期收益<i></i></a>
+                                            <a href="{{ url('/invest') }}" class="h_jx_payment a-btnop invest-btn" style="width:218px;">我要投资<i></i></a>
                                         </p>
-                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>                               
+                                        <!--<p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>-->
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@
                                     <div class="tab-switch">                                    
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value2" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <input maxlength="11" id="h_enter_value2" class="money-input h_enter_value" type="text" data-id="2" data-date="45" data-nsy="0.06"><span class="text">元</span>
                                             <span class="error h_jx_notice" id="h_jx_notice2"></span>
                                         </p>
                                         <p class="p-in clearfix">
@@ -214,9 +214,9 @@
                                             <span class="text">元</span>
                                         </p>
                                         <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn"  data-id="2" data-date="45" data-nsy="0.06" style="width:218px;">计算到期收益<i></i></a>
+                                            <a href="{{ url('/invest') }}" class="h_jx_payment a-btnop invest-btn" style="width:218px;">我要投资<i></i></a>
                                         </p>
-                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                        <!--<p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>--> 
                                     </div>
                                 </div>
                             </div>
@@ -262,7 +262,7 @@
                                     <div class="tab-switch">                                    
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value3" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <input maxlength="11" id="h_enter_value3" class="money-input h_enter_value" type="text" data-id="3" data-date="90" data-nsy="0.095"><span class="text">元</span>
                                             <span class="error h_jx_notice" id="h_jx_notice3"></span>
                                         </p>
                                         <p class="p-in clearfix">
@@ -271,9 +271,9 @@
                                             <span class="text">元</span>
                                         </p>
                                         <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="3" data-date="90" data-nsy="0.095" >计算到期收益<i></i></a>
+                                            <a href="{{ url('/invest') }}" class="h_jx_payment a-btnop invest-btn" style="width:218px;">我要投资<i></i></a>
                                         </p>
-                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                        <!--<p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>--> 
                                     </div>
                                 </div>
                             </div>
@@ -319,7 +319,7 @@
                                     <div class="tab-switch">                                    
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value4" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <input maxlength="11" id="h_enter_value4" class="money-input h_enter_value" type="text" data-id="4" data-date="90" data-nsy="0.1"><span class="text">元</span>
                                             <span class="error h_jx_notice" id="h_jx_notice4"></span>
                                         </p>
                                         <p class="p-in clearfix">
@@ -328,9 +328,9 @@
                                             <span class="text">元</span>
                                         </p>
                                         <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="4" data-date="90" data-nsy="0.1" >计算到期收益<i></i></a>
+                                            <a href="{{ url('/invest') }}" class="h_jx_payment a-btnop invest-btn" style="width:218px;">我要投资<i></i></a>
                                         </p>
-                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                        <!--<p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>--> 
                                     </div>
                                 </div>
                             </div>
@@ -376,7 +376,7 @@
                                     <div class="tab-switch">                                    
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value5" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <input maxlength="11" id="h_enter_value5" class="money-input h_enter_value" type="text" data-id="5" data-date="180" data-nsy="0.105"><span class="text">元</span>
                                             <span class="error h_jx_notice" id="h_jx_notice5"></span>
                                         </p>
                                         <p class="p-in clearfix">
@@ -385,9 +385,9 @@
                                             <span class="text">元</span>
                                         </p>
                                         <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="5" data-date="180" data-nsy="0.105" >计算到期收益<i></i></a>
+                                            <a href="{{ url('/invest') }}" class="h_jx_payment a-btnop invest-btn" style="width:218px;">我要投资<i></i></a>
                                         </p>
-                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                        <!--<p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>--> 
                                     </div>
                                 </div>
                             </div>
@@ -433,7 +433,7 @@
                                     <div class="tab-switch">                                    
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value6" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <input maxlength="11" id="h_enter_value6" class="money-input h_enter_value" type="text" data-id="6" data-date="180" data-nsy="0.11"><span class="text">元</span>
                                             <span class="error h_jx_notice" id="h_jx_notice6"></span>
                                         </p>
                                         <p class="p-in clearfix">
@@ -442,9 +442,9 @@
                                             <span class="text">元</span>
                                         </p>
                                         <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="6" data-date="180" data-nsy="0.11" >计算到期收益<i></i></a>
+                                            <a href="{{ url('/invest') }}" class="h_jx_payment a-btnop invest-btn" style="width:218px;">我要投资<i></i></a>
                                         </p>
-                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                        <!--<p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>--> 
                                     </div>
                                 </div>
                             </div>
@@ -490,7 +490,7 @@
                                     <div class="tab-switch">                                    
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value7" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <input maxlength="11" id="h_enter_value7" class="money-input h_enter_value" type="text" data-id="7" data-date="365" data-nsy="0.125"><span class="text">元</span>
                                             <span class="error h_jx_notice" id="h_jx_notice7"></span>
                                         </p>
                                         <p class="p-in clearfix">
@@ -499,9 +499,9 @@
                                             <span class="text">元</span>
                                         </p>
                                         <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="7" data-date="365" data-nsy="0.125" >计算到期收益<i></i></a>
+                                            <a href="{{ url('/invest') }}" class="h_jx_payment a-btnop invest-btn" style="width:218px;">我要投资<i></i></a>
                                         </p>
-                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p> 
+                                        <!--<p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>--> 
                                     </div>
                                 </div>
                             </div>
@@ -547,7 +547,7 @@
                                     <div class="tab-switch">                                    
                                         <p class="p-in clearfix">
                                             <label>输入金额：</label>
-                                            <input maxlength="11" id="h_enter_value8" class="money-input h_enter_value" type="text"><span class="text">元</span>
+                                            <input maxlength="11" id="h_enter_value8" class="money-input h_enter_value" type="text" data-id="8" data-date="365" data-nsy="0.13"><span class="text">元</span>
                                             <span class="error h_jx_notice" id="h_jx_notice8"></span>
                                         </p>
                                         <p class="p-in clearfix">
@@ -556,9 +556,9 @@
                                             <span class="text">元</span>
                                         </p>
                                         <p class="invest-btn p-btn clearfix">
-                                            <a href="javascript:;" class="h_jx_payment a-btnop invest-btn" style="width:218px;" data-id="8" data-date="365" data-nsy="0.13" >计算到期收益<i></i></a>
+                                            <a href="{{ url('/invest') }}" class="h_jx_payment a-btnop invest-btn" style="width:218px;">我要投资<i></i></a>
                                         </p>
-                                        <p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>                              
+                                        <!--<p style="height:30px;line-height:16px;overflow:hidden;font-size:12px;color:#f00;">* 计算所得为预计到期收益<br />具体请咨询400-6090 290</p>-->                              
                                     </div>
                                 </div>
                             </div>

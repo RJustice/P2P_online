@@ -72,3 +72,7 @@ Route::any('projects',function(){
 Route::group(['prefix'=>'center','namespace'=>'Member','middleware' => ['member.auth']],function(){
     Route::get('/','CenterController@index');
 });
+
+Route::group(['prefix'=>'invest','namespace'=>'Invest','middleware'=>['member.auth']],function(){
+    Route::get('/','InvestController@index');
+});
