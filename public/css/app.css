@@ -209,7 +209,8 @@ p.touy{background:url(../images/touy.gif) no-repeat center center;display:block;
     float: left;
     border-radius: 0 0 15px 0;
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: normal;
 }
 .treetop .span-sty-sp{background:#b17c44;}
 
@@ -262,6 +263,7 @@ p.touy{background:url(../images/touy.gif) no-repeat center center;display:block;
     margin: 0 0 0 20px;
     font-size: 14px;
     color: #000;
+    font-weight: normal;
 }
 
 .treetop .m-tp {
@@ -564,6 +566,8 @@ p.touy{background:url(../images/touy.gif) no-repeat center center;display:block;
 }
 .describe em{color:#ff5a13;font-size:42px;line-height:42px}
 .describe em i{color:#ff5a13;font-size:18px;line-height:18px}
+.describe span{color:#ff5a13;font-size:42px;line-height:42px}
+.describe span i{color:#ff5a13;font-size:18px;line-height:18px}
 .desc-content{left:0;padding:5px 15px;position:absolute;top:50%;width:100%}
 .p-progress-bar{clear:both;color:#333;font-size:14px;line-height:30px;overflow:hidden;position:relative}
 .in-progress-bar,.out-progress-bar{clear:both;display:block;float:left;height:20px;line-height:20px;width:260px}
@@ -574,6 +578,7 @@ p.touy{background:url(../images/touy.gif) no-repeat center center;display:block;
 .out-progress-bar canvas{overflow:hidden;padding-top:20px}
 .tp-pattern{color:#333;font-size:14px;line-height:30px;padding:10px 3%}
 .tp-pattern em{color:#ff5a13;font-size:22px}
+.tp-pattern span{color:#ff5a13;font-size:22px}
 .treetop-right{background:#ff8213 none repeat scroll 0 0;box-sizing:border-box;display:inline-block;float:left;height:100%;overflow:hidden;padding:10px;width:260px}
 .treetop-right-outer{float:right;height:100%;overflow:hidden;position:relative;width:260px}
 .treetop-right-inner{height:100%;position:absolute;width:520px}
