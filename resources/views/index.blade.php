@@ -69,8 +69,8 @@
                     </div>
                 </div>
                 <div>
-                    <div class="login-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #209DF8;line-height: 42px;color: #FFF;text-align: center;"><a href="{{ url('member/auth/login') }}">用户登录</a></div>
-                    <div class="reg-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #ff972c;line-height: 42px;color: #FFF;text-align: center;"><a href="{{ url('member/auto/register') }}">免费注册</a></div>
+                    <div class="login-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #209DF8;line-height: 42px;color: #FFF;text-align: center;"><a href="{{ url('member/auth/login') }}" style="color:#fff;">用户登录</a></div>
+                    <div class="reg-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #ff972c;line-height: 42px;color: #FFF;text-align: center;"><a href="{{ url('member/auto/register') }}" style="color:#fff;">免费注册</a></div>
                 </div>
                 <!--<div style="font-size:18px;line-height:48px;font-weight:600;text-align:center;">投资热线: 400-6090 290</div>-->
             </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title','P2P Online System')</title>
+    <title>@yield('title','农发众诚资产管理')</title>
     <link rel="stylesheet" href="/css/app.css">
     @yield('css')
 </head>
