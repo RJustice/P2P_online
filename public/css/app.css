@@ -205,12 +205,13 @@ p.touy{background:url(../images/touy.gif) no-repeat center center;display:block;
     height: 38px;
     line-height: 38px;
     color: #fff;
-    width: 138px;
+    width: 225px;
     float: left;
     border-radius: 0 0 15px 0;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
 }
+.treetop .span-sty-sp{background:#b17c44;}
 
 .treetop .span-sty i {
     background: url(../../../res/images/index/item.png) no-repeat;
