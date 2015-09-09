@@ -4,15 +4,13 @@
     <div id="main-adv-img" class="main-adv-img">
         <span rel="1"><img src="/images/b1.jpg" alt="" style="display:none"></span>
         <span rel="2"><img src="/images/b2.jpg" alt="" style="display:none"></span>
-        <span rel="3"><img src="/images/b3.jpg" alt="" style="display:none"></span>
-        <span rel="4"><img src="/images/b4.jpg" alt="" style="display:none"></span>
+        <span rel="3"><img src="/images/b4.jpg" alt="" style="display:none"></span>
     </div>
     <div id="main-adv-ctl" class="main-adv-ctl">
         <ul>
             <li rel="1">1</li>
             <li rel="2">2</li>
             <li rel="3">3</li>
-            <li rel="4">4</li>
         </ul>
     </div>
 </div>
@@ -24,7 +22,7 @@
         <a class="fea1">
             <i></i>
             <h3>信用审查</h3>
-            <span>农发众诚引进国际最先进的德国IPC技术,通过科学的流程审查和风控流程,严格控制风险,保障出借人资金安全</span>
+            <span>农发众诚引进国际最先进的德国IPC技术,通过科学的流程审查和风控流程,严格控制风险,保障出借人资金安全.</span>
         </a>
         <a class="fea2">
             <i></i>
