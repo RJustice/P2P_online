@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Article;
 use App\Category;
+
 use Redirect, Input;
 class ArticlesController extends Controller
 {
@@ -26,7 +27,7 @@ class ArticlesController extends Controller
 
     public function clist($cid){
         $c = Category::findOrFail($cid);
-        $cats = Category::all();
+        $cats = Category::where('published',1)->get();
         $articles = Article::where('type',Article::TYPE_NORMAL)
                             ->where('published',1)
                             ->where('categoryid',$cid)

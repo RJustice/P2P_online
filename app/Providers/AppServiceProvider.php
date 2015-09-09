@@ -24,5 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app['router']->middleware('member.auth', \App\Http\Middleware\MemberAuthenticate::class);
+        $this->app['router']->middleware('member.guest', \App\Http\Middleware\RedirectIfAuthenticated::class);
     }
 }

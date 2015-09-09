@@ -67,8 +67,8 @@
                     </div>
                 </div>
                 <div>
-                    <div class="login-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #209DF8;line-height: 42px;color: #FFF;text-align: center;"><a href="{{ url('member/auth/login') }}" style="color:#fff;">用户登录</a></div>
-                    <div class="reg-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #ff972c;line-height: 42px;color: #FFF;text-align: center;"><a href="{{ url('member/auto/register') }}" style="color:#fff;">免费注册</a></div>
+                    <div class="login-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #209DF8;line-height: 42px;color: #FFF;text-align: center;"><a href="{{ url('member/auth/login') }}" style="color:#fff;display:block;">用户登录</a></div>
+                    <div class="reg-btn" style="display: inline-block;width: 113px;height: 42px;background: none repeat scroll 0% 0% #ff972c;line-height: 42px;color: #FFF;text-align: center;"><a href="{{ url('member/auth/register') }}" style="color:#fff;display:block;">免费注册</a></div>
                 </div>
                 <!--<div style="font-size:18px;line-height:48px;font-weight:600;text-align:center;">投资热线: 400-6090 290</div>-->
             </div>
@@ -476,7 +476,7 @@
                                 </div>
                             </div>
                             <div class="tp-pattern">
-                                起投金额：<span>50万<spanm>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：按月付息，到期返本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            起投金额：<span>50万</span>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：按月付息，到期返本&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </div>
                         </div>
                     </div>
@@ -533,7 +533,7 @@
                                 </div>
                             </div>
                             <div class="tp-pattern">
-                                起投金额：<span>50万<spanm>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：到期返本付息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                起投金额：<span>50万</span>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：到期返本付息&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </div>
                         </div>
                     </div>
@@ -633,20 +633,18 @@
                     行业新闻
                 <i style="display: none;" class="iarrow"></i>
                 </li>
-                <li id="news_company" class="news-more" style="display: list-item;"><a target="_blank" href="#">更多</a></li>
-                <li style="display: none;" id="news_industry" class="news-more"><a target="_blank" href="#">更多</a></li>
+                <li id="news_company" class="news-more" style="display: list-item;"><a target="_blank" href="{{ url('articles/c/2') }}">更多</a></li>
+                <li style="display: none;" id="news_industry" class="news-more"><a target="_blank" href="{{ url('articles/c/3') }}">更多</a></li>
             </ul>
             <ul class="new-cntent" style="display: block;">
-                <li><a target="_blank" href="#">互联网金融迎大考  农发众诚成创新样本<img src="/images/new.png"><i></i></a><span>09/05</span></li>
-                <li><a target="_blank" href="#">农发众诚：顺应总体思路，宏观要稳，微观要活<img src="/images/new.png"><i></i></a><span>09/05</span></li>
-                <li><a target="_blank" href="#">互联网金融必须加速    农发众诚不断进取<img src="/images/new.png"><i></i></a><span>09/05</span></li>
-                <li><a target="_blank" href="#">监管加速行业规范    催生合格投资者<img src="/images/new.png"><i></i></a><span>09/03</span></li>
+                @foreach($official_news as $onew)
+                <li><a target="_blank" href="{{ url('articles',[$onew->id]) }}">{{ str_limit($onew->title,40,'...') }} &nbsp;&nbsp;<img src="/images/new.png"><i></i></a><span>{{ $onew->created_at->format('m/d') }}</span></li>
+                @endforeach
             </ul>
             <ul style="display: none;" class="new-cntent">
-                <li><a target="_blank" href="#">第二届816互联网金融峰会“破局·破茧·破冰...<img src="/images/new.png"><i></i></a><span>09/05</span></li>
-                <li><a target="_blank" href="#">大数据顶层设计打造经济新引擎<img src="/images/new.png"><i></i></a><span>09/05</span></li>
-                <li><a target="_blank" href="#">上市银行晒“中考”成绩单 不良贷上升成资产质...<img src="/images/new.png"><i></i></a><span>09/05</span></li>
-                <li><a target="_blank" href="#">商务部：7月全国进出口2.12万亿元 同比下...<img src="/images/new.png"><i></i></a><span>09/05</span></li>
+                @foreach($industry_news as $inew)
+                <li><a target="_blank" href="{{ url('articles',[$inew->id]) }}">{{ str_limit($inew->title,40,'...') }} &nbsp;&nbsp;<img src="/images/new.png"><i></i></a><span>{{ $inew->created_at->format('m/d') }}</span></li>
+                @endforeach
             </ul>
         </div>
     </div>

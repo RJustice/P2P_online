@@ -41,7 +41,7 @@ class MemberAuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('member.guest', ['except' => 'getLogout']);
     }
 
     public function getLogin(){

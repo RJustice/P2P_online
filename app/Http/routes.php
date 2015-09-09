@@ -11,6 +11,9 @@
 |
 */
 Route::get('/','HomeController@index');
+// Route::get('/',function(){
+//     return \App\Article::find(1);
+// });
 
 // Route::group(['prefix' => 'demo'],function(){
 //     Route::get('/',function(){

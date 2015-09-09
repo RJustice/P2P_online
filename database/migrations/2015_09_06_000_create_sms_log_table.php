@@ -18,6 +18,8 @@ class CreateSmsLogTable extends Migration
             $table->string('phone')->index();
             $table->text('message');
             $table->string('type');
+            $table->string('smsid');
+            $table->tinyInteger('sms_state')->default(0);
             $table->string('code');
             $table->timestamps();
         });
