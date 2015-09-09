@@ -151,6 +151,8 @@ return [
         Ender\UEditor\UEditorServiceProvider::class,
 
         Mews\Captcha\CaptchaServiceProvider::class,
+
+        App\Providers\SmsServiceProvider::class,
     ],
 
     /*
@@ -206,6 +208,8 @@ return [
         'UEditor'   => Ender\UEditor\UEditor::class,
 
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+
+        'Sms' => App\Facades\Sms::class,
     ],
 
 ];

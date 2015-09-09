@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title','农发众诚资产管理有限公司')</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="description" content="一家专业充实财富管理、投融资服务、信用风险评估与管理、信用数据整合服务、小额贷款行业投资、小微借款咨询服务与交易促成业务于一体的金融咨询服务公司。">
+    <meta name="keywords" content="农发众诚 北京 A2P 资产管理 理财管理 年化收益率高 安全">
     <link rel="stylesheet" href="/css/app.css">
     @yield('css')
 </head>

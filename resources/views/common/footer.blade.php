@@ -4,17 +4,14 @@
    <div class="nav">
     <dl>
      <dt>关于我们</dt>
-     <dd><a target="" href="#">平台介绍</a></dd>
-     <dd><a target="" href="#">荣誉资质</a></dd>
-     <dd><a target="" href="#">管理团队</a></dd>
-     <dd><a target="" href="#">联系我们</a></dd>
+     <dd><a target="_blank" href="{{ url('/pages',['id'=>1]) }}">平台介绍</a></dd>
+     <dd><a target="_blank" href="{{ url('/pages',['id'=>10]) }}">管理团队</a></dd>
+     <dd><a target="_blank" href="{{ url('/pages',['id'=>2]) }}">联系我们</a></dd>
     </dl>
     <dl>
      <dt>安全保障</dt>
-     <dd><a target="" href="#">平台安全</a></dd>
-     <dd><a target="" href="#">服务说明</a></dd>
-     <dd><a target="" href="#">法律声明</a></dd>
-     <dd><a target="" href="#">法律意见书</a></dd>
+     <dd><a target="_blank" href="{{ url('/pages',['id'=>11]) }}">平台安全</a></dd>
+     <dd><a target="_blank" href="{{ url('/pages',['id'=>12]) }}">服务说明</a></dd>
     </dl>
    </div><!--end of nav-->
    <div class="Talk">
