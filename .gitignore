@@ -4,3 +4,4 @@ Homestead.yaml
 .env
 p2ponline.sublime-project
 p2ponline.sublime-workspace
+/publish/uploads
