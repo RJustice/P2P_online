@@ -22,7 +22,7 @@ class PagesController extends Controller
     public function show($id)
     {   
         $page = Page::where('id',$id)->where('type',Page::TYPE_PAGE)->where('published',1)->firstOrFail();
-        $pages = Page::where('type',Article::TYPE_PAGE)->where('published',1)->orderBy('id','desc')->get();
+        $pages = Page::where('type',Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
         return view('pages.show',compact('page','pages','id'));
     }
 }
