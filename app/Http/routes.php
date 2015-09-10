@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('youxiang',function(){
+    return redirect('http://qiye.163.com/login/?from=ym');
+});
 Route::get('/','HomeController@index');
 // Route::get('/',function(){
 //     return \App\Article::find(1);
