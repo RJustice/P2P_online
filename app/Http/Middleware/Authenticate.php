@@ -41,6 +41,10 @@ class Authenticate
             } else {
                 return redirect()->guest('auth/login');
             }
+        }else{
+            if( $this->auth->user()->type == User::TYPE_ADMIN ){
+                return redirect()->guest('auth/login');
+            }
         }
 
         return $next($request);

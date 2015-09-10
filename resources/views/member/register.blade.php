@@ -23,7 +23,7 @@
             {!! Form::open(['method'=>'post','action'=>'Auth\MemberAuthController@postRegister','id'=>'register-form']) !!}
             <div class="f-row">
                 <label for="phone">手机号码：</label>
-                {!! Form::text('phone',old('phone'),['id'=>'phone','class'=>$errors->has('phone')?'check-fail':'' . ' validate[required,custom[mobile]]','placehoder'=>'请输入手机号码','style'=>'width:78%']) !!}
+                {!! Form::text('phone',old('phone'),['id'=>'phone','class'=>($errors->has('phone')?'check-fail':'') . ' validate[required,custom[mobile]]','placehoder'=>'请输入手机号码','style'=>'width:78%']) !!}
                 <p class="error-info">@if($errors->has('phone')) {{ $errors->first('phone') }} @endif</p>
             </div>
             <div class="f-row">

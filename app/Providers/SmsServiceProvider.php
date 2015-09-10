@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 class SmsServiceProvider extends ServiceProvider
 {
-    protected $defer = true;
+    protected $defer = false;
 
     /**
      * Bootstrap the application services.

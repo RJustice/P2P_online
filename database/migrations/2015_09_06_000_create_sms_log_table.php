@@ -19,8 +19,9 @@ class CreateSmsLogTable extends Migration
             $table->text('message');
             $table->string('type');
             $table->string('smsid');
-            $table->tinyInteger('sms_state')->default(0);
+            $table->string('sms_state');
             $table->string('code');
+            $table->string('ip')->index();
             $table->timestamps();
         });
     }

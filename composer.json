@@ -9,7 +9,7 @@
         "laravel/framework": "~5.1.4",
         "ender/laravel-ueditor": "dev-master",
         "mews/captcha": "dev-master",
-        "guzzle/http": "~3.9.2"
+        "guzzlehttp/guzzle": "^6.1@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

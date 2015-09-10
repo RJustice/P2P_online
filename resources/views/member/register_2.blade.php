@@ -17,19 +17,20 @@
         </div>
         <div class="line-b"></div>
         <div class="process p_02">
-            <img src="/images/process2.png">
+            <img src="/images/process2.png" usemap="#reg">
+            <map name="reg"><area shape="rect" coords="0,0,120,100" href ="{{ url('member/auth/register') }}" alt="填写账户信息" /></map>
         </div>
         <div class="register-content register_confirm">
             {!! Form::open(['method'=>'post','action'=>'Auth\MemberAuthController@postRegister','id'=>'register-form']) !!}
             <p style="float: left;margin-left: 17%;margin-bottom: 10px;font-size: 18px;">
-                <span style="color:#999;">验证码已经发送至您的手机：</span>
-                <span style="color:#999;">{{ $phone[0] }}</span>
+                <span style="color:#999;" id="sendTip">验证码已经发送至您的手机：</span>
+                <span style="color:#999;">{{ $phone }}</span>
             </p>
             <div class="f-row clearfix">
                 <label for="txt_smscode">短信验证码：</label>
                 <input type="text" name="txt_smscode" id="txt-smscode" style="width:50%;" class="validate[required] f-l">
                 <a style="width:140px;" id="re-sms" class="date gray-span">重新获取验证码</a>
-                <p id="send-sms-tip" class="error-hint" style="float: left;width:100%;margin-left:15%;padding:0;color:#f00;line-height: 24px;"></p>
+                <p id="send-sms-tip" class="error-hint" style="float: left;width:100%;margin-left:15%;padding:0;color:#f00;line-height: 24px;">@if( $errors->has('e') ) {{ $errors->first('e')  }} @elseif( $errors->has('sms')) {{ $errors->first('sms') }} @endif</p>
             </div>
             <div class="matters" style="margin-top:20px;">
                 <dl>
@@ -50,7 +51,32 @@
 @section('js')
 <script src="/js/jquery.validationEngine-zh_CN.js"></script> 
 <script src="/js/jquery.validationEngine.min.js"></script>
-<script type="text/javascript">    
+<script type="text/javascript">
+    var seconds = 0;
+    var mbTest = /^(1)[0-9]{10}$/;
+    var timer = null;
+    var leftsecond = 120; //倒计时
+    var msg = "";
+    var off = 1;
+    var tip = $("#sendTip").text();
+
+    function setLefttime(){
+        var second = Math.floor(leftsecond);
+        $('#re-sms').addClass('gray-span');
+        $("#re-sms").html(msg + leftsecond + "秒后可重发");
+        leftsecond--;
+        off = 1;
+        if (leftsecond < 1) {
+            clearInterval(timer);
+            try {
+                $("#re-sms").html("重新获取验证码");
+                document.getElementById('re-sms').disabled = false;
+                off = 0;
+            } catch (E) { }
+            return;
+        }
+    }
+
     $(document).ready(function(){
         $('#register-form').validationEngine('attach', { 
           promptPosition: 'centerRight', 
@@ -59,7 +85,38 @@
           autoHideDelay:5000,
           addSuccessCssClassToField:'check-success',
           addFailureCssClassToField:'check-fail'
-        }); 
+        });
+
+        clearInterval(timer);
+        timer = setInterval(setLefttime,1000,'1');
+
+        $("#re-sms").on('click',function(){
+            if( off ){
+                return;
+            }
+            leftsecond = 120;
+            $("#sendTip").text('短信验证码发送中……，发送至：');
+            off = 1;
+            $.ajax({
+                url : '{{ url('sms/send') }}',
+                type : 'post',
+                data : {_token:'{{ csrf_token() }}'},
+                dataType : 'json',
+                success : function(data){
+                    if( data.status == 0 ){
+                        $("#sendTip").text(tip);
+                    }else{
+                        $("#sendTip").text(tip);
+                        $("#send-sms-tip").text(data.msg);
+                    }
+                    clearInterval(timer);
+                    timer = setInterval(setLefttime,1000,'1');
+                },
+                error : function(){
+
+                }
+            });
+        });
     });
 </script>
 @stop

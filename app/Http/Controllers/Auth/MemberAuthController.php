@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Lang;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Sms;
+use Hash;
 
 class MemberAuthController extends Controller
 {
@@ -28,7 +30,7 @@ class MemberAuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    protected $redirectPath = 'center';
+    protected $redirectPath = 'member';
     protected $redirectAfterLogout = '/';
     protected $loginPath = 'member/auth/login';
     protected $username = 'phone';
@@ -59,14 +61,15 @@ class MemberAuthController extends Controller
             ->withErrors(['e'=>'验证码错误!']);
         }
 
-        $user = User::where('username',$request->get('username'))->first();
+        $user = User::where($this->loginUsername(),$request->get($this->loginUsername()))->first();
         if( ! $user ){
             return redirect($this->loginPath())
             ->withInput($request->only($this->loginUsername(), 'remember'))
             ->withErrors(['e'=>$this->getFailedLoginMessage()]);
         }
-        if(User::where('username',$request->get('username'))->first()->type == User::TYPE_ADMIN){
-            return redirect($this->loginPath());
+        if($user->type == User::TYPE_ADMIN){
+            return redirect($this->loginPath())
+                ->withErrors(['e' => '登陆异常,请联系客服.']);
         }
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -103,6 +106,13 @@ class MemberAuthController extends Controller
     public function getRegisterStep2(){
         if( Session::has('register') ){
             $phone = preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',Session::get('register.phone'));
+            if( Session::has('sms') && time() - Session::get('sms.sendtime') < 120 ){
+                return view('member.register_2',compact('phone'));
+            }
+            if( ! Sms::sendVerCode(Session::get('smsphone')) ){
+                return view('member.register_2',compact('phone'))
+                    ->withErrors(['sms'=>Sms::getError()]);
+            }
             return view('member.register_2',compact('phone'));
         }
         return redirect($this->registerPath);
@@ -117,13 +127,29 @@ class MemberAuthController extends Controller
                     ->withInput($request->only('phone','rec_user'))
                     ->withErrors($validator);
             }
-            Session::push('register.register_step',true);
-            Session::push('register.phone',$request->get('phone'));
-            Session::push('register.password',$request->get('password'));
-            Session::push('register.rec_user',$request->get('rec_user'));
+            Session::put('register',[
+                    'register_step' => true,
+                    'phone' => $request->get('phone'),
+                    'password' => $request->get('password'),
+                    'rec_user' => $request->get('rec_user'),
+                ]);
+            Session::put('smsphone',$request->get('phone'));
+            // Session::push('register.register_step',true);
+            // Session::push('register.phone',$request->get('phone'));
+            // Session::push('register.password',$request->get('password'));
+            // Session::push('register.rec_user',$request->get('rec_user'));
             return redirect(url('member/confirm'));
         }elseif( $request->get('step') == 2 ){
-            
+            $code = $request->get('txt_smscode');
+            if( ! Sms::check($code) ){
+                return redirect(url('member/confirm'))
+                    ->withErrors(['e'=>Sms::getError()]);
+            }
+
+            $user = $this->create(Session::get('register'));
+            if( $user ){
+                Auth::login($user);
+            }
             return redirect($this->redirectPath());
         }
         return redirect($this->registerPath);
@@ -162,10 +188,18 @@ class MemberAuthController extends Controller
      */
     protected function create(array $data)
     {
-        // return User::create([
-        //     'username' => $data['username'],
-        //     // 'email' => $data['email'],
-        //     'password' => bcrypt($data['password']),
-        // ]);
+        $user = User::create([
+                'username' => $data['phone'],
+                'phone' => $data['phone'],
+                'name' => '',
+                'email' => '',
+                'type' => User::TYPE_MEMBER,
+                'password' => Hash::make($data['password']),
+                'state' => 1
+            ]);
+        Session::forget('sms');
+        Session::forget('register');
+        Session::forget('smsphone');
+        return $user;
     }
 }

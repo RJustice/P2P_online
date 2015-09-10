@@ -35,8 +35,8 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->check()) {
-            return redirect('/center');
+        if ($this->auth->check() && $this->auth->user()->type != User::TYPE_ADMIN ) {
+            return redirect('/member');
         }
 
         return $next($request);

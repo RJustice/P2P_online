@@ -10,6 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// Route::get('testsms',function(){
+//     return var_dump(Sms::send());
+// });
 Route::get('youxiang',function(){
     return redirect('http://qiye.163.com/login/?from=ym');
 });
@@ -48,6 +51,10 @@ Route::get('member/finish',function(){
     return view('member.finish');
 });
 
+// Route::get('member',function(){
+//     return redirect('member/auth/login');
+// });
+
 Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admin.auth']],function(){
     Route::group(['namespace' => 'Permissions'],function(){
         Route::resource('roles','RolesController');
@@ -75,10 +82,12 @@ Route::any('projects',function(){
     return view('projects');
 });
 
-Route::group(['prefix'=>'center','namespace'=>'Member','middleware' => ['member.auth']],function(){
+Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.auth']],function(){
     Route::get('/','CenterController@index');
 });
 
 Route::group(['prefix'=>'invest','namespace'=>'Invest','middleware'=>['member.auth']],function(){
     Route::get('/','InvestController@index');
 });
+
+Route::post('sms/send','SmsController@postSendCode');
