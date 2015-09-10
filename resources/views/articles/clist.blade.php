@@ -20,7 +20,7 @@
         <div class="article-lists">
             <ul class="clearfix new-list">
                 @foreach ( $articles as $article )
-                <li><span class="span01"><a href="{{ action('ArticlesController@show',[$article->id]) }}">{{ $article->title }}</a></span><span class="span02">{{ $article->created_at }}</span></li>
+                <li><span class="span01"><a href="{{ action('ArticlesController@show',[$article->id]) }}">{{ $article->title }}</a></span><span class="span02">{{ $article->created_at->format('m-d') }}</span></li>
                 @endforeach
             </ul>
             <div class="text-center">
