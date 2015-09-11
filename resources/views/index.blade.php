@@ -55,13 +55,13 @@
                 <div class="num-content">
                     <div class="reg-num">
                         <div>已在农发众诚投资的用户</div>
-                        <div class="rn">
+                        <div class="rn" id="reg-count">
                             4983
                         </div>
                     </div>
                     <div class="tnum">
                         <div>投资已在农发众诚完成</div>
-                        <div class="tn">
+                        <div class="tn" id="pj-total">
                             168,562,000
                         </div>
                     </div>
@@ -127,10 +127,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:28.44%"></span>
+                                            <span class="in-progress-bar" id="pj1-progress"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 3578 万元  /  总额：5000 万元</p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;" id="pj1">已投： <span class="pj-has">3578</span> 万元  /  总额：5000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -184,10 +184,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:48.4%"></span>
+                                            <span class="in-progress-bar"  id="pj2-progress"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 2580 万元  /  总额：5000 万元</p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;" id="pj2">已投： <span class="pj-has">2580</span> 万元  /  总额：5000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -241,10 +241,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:26%"></span>
+                                            <span class="in-progress-bar"  id="pj3-progress"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 3700 万元  /  总额：5000 万元</p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;" id="pj3">已投： <span class="pj-has">3700</span> 万元  /  总额：5000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -298,10 +298,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:42.8%"></span>
+                                            <span class="in-progress-bar"  id="pj4-progress"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 2860 万元  /  总额：5000 万元</p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;" id="pj4">已投： <span class="pj-has">2860</span> 万元  /  总额：5000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -355,10 +355,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:44.67%"></span>
+                                            <span class="in-progress-bar"  id="pj5-progress"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 1660 万元  /  总额：3000 万元</p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;" id="pj5">已投： <span class="pj-has">1660</span> 万元  /  总额：3000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -412,10 +412,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:36.67%"></span>
+                                            <span class="in-progress-bar"  id="pj6-progress"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 1900 万元  /  总额：3000 万元</p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;" id="pj6">已投： <span class="pj-has">1612</span> 万元  /  总额：3000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -469,10 +469,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:38%"></span>
+                                            <span class="in-progress-bar"  id="pj7-progress"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 4960 万元  /  总额：8000 万元</p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;" id="pj7">已投： <span class="pj-has">4960</span> 万元  /  总额：8000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -526,10 +526,10 @@
                                 <div class="divstyle divstyle03 supportcss3">
                                     <p class="p-progress-bar clearfix">
                                         <span class="out-progress-bar clearfix">
-                                            <span class="in-progress-bar" style="width:14.5%"></span>
+                                            <span class="in-progress-bar"  id="pj8-progress"></span>
                                         </span>
                                     </p>
-                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;">可投： 6840 万元  /  总额：8000 万元</p>
+                                    <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;" id="pj8">已投： <span class="pj-has">3871</span> 万元  /  总额：8000 万元</p>
                                 </div>
                             </div>
                             <div class="tp-pattern">
@@ -655,7 +655,35 @@
 @section('js')
 <script type="text/javascript" src="/js/main_adv.js"></script>
 <script type="text/javascript">
+    function updateCount(){
+        $.ajax({
+            url : '{{ url('count') }}',
+            data : {},
+            dataType : 'json',
+            type : 'get',
+            success : function(data){
+                var register = data.register;
+                var projects = data.projects;
+                var total = data.total;
+                $("#reg-count").text(register);
+                $("#pj-total").text(total);
+                for( k in projects ){
+                    if( projects[k].c == 'done' ){
+                        $("#"+k).text("投资已满,敬请期待下一期!");
+                        $("#"+k).css({color:'#5cb85c',fontSize:'18px'});
+                    }else{
+                        $("#"+k+" span.pj-has").text(projects[k].c);
+                    }
+                    p = parseFloat(projects[k].c) / parseFloat(projects[k].t);
+                    $("."+k+'-progress').css('width',p.toFixed(2));
+                }
+            }
+        });
+    }
+
     $(document).ready(function(){
+        updateCount();
+        setInterval(updateCount,300000);
         $(".new-title li:not(.news-more)").click(function() {
             var e = $(this).index();
             $(".new-title li").removeClass("selected"), $(this).addClass("selected"), $(".iarrow").hide(), $(this).children(".iarrow").show(), $(".news-more").hide(), $(e == 0 ? "#news_company" : "#news_industry").show(), $(".new-cntent").hide(), $(".new-cntent").eq(e).show()

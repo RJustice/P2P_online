@@ -70,6 +70,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('pages','PagesController');
     Route::resource('articles','ArticlesController');
     Route::get('category/alists/{id}/edit','ArticlesController@edit');
+
+    Route::resource('users','UserManagerController');
 });
 
 
@@ -91,3 +93,5 @@ Route::group(['prefix'=>'invest','namespace'=>'Invest','middleware'=>['member.au
 });
 
 Route::post('sms/send','SmsController@postSendCode');
+
+Route::get('count/{type?}','CountController@index');
