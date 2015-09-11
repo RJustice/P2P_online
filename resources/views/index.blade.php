@@ -674,8 +674,8 @@
                     }else{
                         $("#"+k+" span.pj-has").text(projects[k].c);
                     }
-                    p = parseFloat(projects[k].c) / parseFloat(projects[k].t);
-                    $("#"+k+'-progress').css('width',p.toFixed(2));
+                    var p = parseFloat(projects[k].c) / parseFloat(projects[k].t) * 100;
+                    $("#"+k+'-progress').animate({width:p.toFixed(2)+"%"});
                 }
             }
         });
