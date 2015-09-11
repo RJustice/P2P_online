@@ -28,10 +28,8 @@ class CountController extends Controller
         $num = 0;
         $reload = false;
         if( $now - $register['updated'] > $register['randTime'] ){
-            $data['register'] = [
-                'count' => $register['count'] + mt_rand($register['randMin'],$register['randMax']),
-                'updated' => $now,
-            ];
+            $data['register']['count'] = $register['count'] + mt_rand($register['randMin'],$register['randMax']);
+            $data['register']['updated'] = $now;
             $reload = true;
         }
 
@@ -49,9 +47,7 @@ class CountController extends Controller
                 }else{
                     $has = $has + $rand;
                 }
-                $data['projects'][$k] = [
-                    'has' => $has
-                ];
+                $data['projects'][$k]['has'] = $has;
                 $t += $rand;
             }
             $data['projects']['updated'] = $now;
