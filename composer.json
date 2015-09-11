@@ -9,7 +9,8 @@
         "laravel/framework": "~5.1.4",
         "ender/laravel-ueditor": "dev-master",
         "mews/captcha": "dev-master",
-        "guzzlehttp/guzzle": "^6.1@dev"
+        "guzzlehttp/guzzle": "^6.1@dev",
+        "doctrine/dbal": "^2.6@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
