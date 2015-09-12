@@ -9,6 +9,7 @@
     [0,'否']
 ],0.5) !!}
 {!! Form::form_text('ordering','排序','数值越大越靠前,最大255,默认不填') !!}
+{!! Form::form_text('out_link','外链','填写外链,会自动连接到媒体报道的链接内容! 如无,请勿填写!',1) !!}
 @section('js')
     @parent
     {!! UEditor::js() !!}

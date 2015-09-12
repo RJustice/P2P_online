@@ -72,6 +72,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::get('category/alists/{id}/edit','ArticlesController@edit');
 
     Route::resource('users','UserManagerController');
+    Route::resource('employee','EmployeeController');
 });
 
 
@@ -95,3 +96,9 @@ Route::group(['prefix'=>'invest','namespace'=>'Invest','middleware'=>['member.au
 Route::post('sms/send','SmsController@postSendCode');
 
 Route::get('count/{type?}','CountController@index');
+
+Route::get('contact',function(){
+    $pages = \App\Page::where('type',\App\Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
+    $id = 2;
+    return view('contact',compact('pages','id'));
+});

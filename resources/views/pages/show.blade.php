@@ -14,7 +14,7 @@
         <div class="left-box">
             <ul>
             @foreach ( $pages as $p )
-                <li class="@if($p->id == $id) select @endif"><a id="page-{{ $p->id }}" href="{{ action('PagesController@show',[$p->id]) }}">{{ $p->title }}</a><i></i></li>
+                <li class="@if($p->id == $id) select @endif"><a id="page-{{ $p->id }}" href="{{ empty($p->out_link) ? action('PagesController@show',[$p->id]) : $p->out_link }}">{{ $p->title }}</a><i></i></li>
             @endforeach
             </ul>
         </div>
@@ -28,4 +28,4 @@
         </div>
     </div>
 </div>
-@endsection
+@stop
