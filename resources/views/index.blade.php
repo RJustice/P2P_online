@@ -668,7 +668,7 @@
                 var projects = data.projects;
                 var total = data.total;
                 $("#reg-count").text(register);
-                $("#pj-total").text(total);
+                $("#pj-total").text(total.replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g,'$1,'));
                 for( k in projects ){
                     if( projects[k].c == 'done' ){
                         $("#"+k).text("投资已满,敬请期待下一期!");
