@@ -24,7 +24,7 @@ class CountController extends Controller
         $data = json_decode($data,true);
         $now = time();
         $register = $data['register'];
-        $projects = $data['projects'];
+        $projects = $data['projects']['data'];
         $num = 0;
         $reload = false;
         if( $now - $register['updated'] > $register['randTime'] ){
@@ -33,7 +33,7 @@ class CountController extends Controller
             $reload = true;
         }
 
-        if( $now - $projects['updated'] > $projects['randTime'] ){
+        if( $now - $data['projects']['updated'] > $data['projects']['randTime'] ){
             $t = 0;
             foreach( $projects as $k => $project ){
                 $has = $project['has'];
@@ -47,7 +47,7 @@ class CountController extends Controller
                 }else{
                     $has = $has + $rand;
                 }
-                $data['projects'][$k]['has'] = $has;
+                $data['projects']['data'][$k]['has'] = $has;
                 $t += $rand;
             }
             $data['projects']['updated'] = $now;
@@ -61,36 +61,36 @@ class CountController extends Controller
             'register' => $data['register']['count'],
             'projects' => [
                 'pj1' => [
-                    'c' => $data['projects']['pj1']['has'],
-                    't' => $data['projects']['pj1']['total']
+                    'c' => $data['projects']['data']['pj1']['has'],
+                    't' => $data['projects']['data']['pj1']['total']
                 ],
                 'pj2' => [
-                    'c' => $data['projects']['pj2']['has'],
-                    't' => $data['projects']['pj3']['total']
+                    'c' => $data['projects']['data']['pj2']['has'],
+                    't' => $data['projects']['data']['pj3']['total']
                 ],
                 'pj3' => [
-                    'c' => $data['projects']['pj3']['has'],
-                    't' => $data['projects']['pj3']['total']
+                    'c' => $data['projects']['data']['pj3']['has'],
+                    't' => $data['projects']['data']['pj3']['total']
                 ],
                 'pj4' => [
-                    'c' => $data['projects']['pj4']['has'],
-                    't' => $data['projects']['pj4']['total']
+                    'c' => $data['projects']['data']['pj4']['has'],
+                    't' => $data['projects']['data']['pj4']['total']
                 ],
                 'pj5' => [
-                    'c' => $data['projects']['pj5']['has'],
-                    't' => $data['projects']['pj5']['total']
+                    'c' => $data['projects']['data']['pj5']['has'],
+                    't' => $data['projects']['data']['pj5']['total']
                 ],
                 'pj6' => [
-                    'c' => $data['projects']['pj6']['has'],
-                    't' => $data['projects']['pj6']['total']
+                    'c' => $data['projects']['data']['pj6']['has'],
+                    't' => $data['projects']['data']['pj6']['total']
                 ],
                 'pj7' => [
-                    'c' => $data['projects']['pj7']['has'],
-                    't' => $data['projects']['pj7']['total']
+                    'c' => $data['projects']['data']['pj7']['has'],
+                    't' => $data['projects']['data']['pj7']['total']
                 ],
                 'pj8' => [
-                    'c' => $data['projects']['pj8']['has'],
-                    't' => $data['projects']['pj8']['total']
+                    'c' => $data['projects']['data']['pj8']['has'],
+                    't' => $data['projects']['data']['pj8']['total']
                 ],
             ],
             'total' => $data['projects']['total']

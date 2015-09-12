@@ -4,13 +4,15 @@
     <div id="main-adv-img" class="main-adv-img">
         <span rel="1"><img src="/images/b1.jpg" alt="" style="display:none"></span>
         <span rel="2"><img src="/images/b2.jpg" alt="" style="display:none"></span>
-        <span rel="3"><img src="/images/b4.jpg" alt="" style="display:none"></span>
+        <span rel="3"><img src="/images/b3.jpg" alt="" style="display:none"></span>
+        <span rel="4"><img src="/images/b4.jpg" alt="" style="display:none"></span>
     </div>
     <div id="main-adv-ctl" class="main-adv-ctl">
         <ul>
             <li rel="1">1</li>
             <li rel="2">2</li>
             <li rel="3">3</li>
+            <li rel="4">4</li>
         </ul>
     </div>
 </div>
@@ -683,7 +685,7 @@
 
     $(document).ready(function(){
         updateCount();
-        setInterval(updateCount,300000);
+        setInterval(updateCount,600000);
         $(".new-title li:not(.news-more)").click(function() {
             var e = $(this).index();
             $(".new-title li").removeClass("selected"), $(this).addClass("selected"), $(".iarrow").hide(), $(this).children(".iarrow").show(), $(".news-more").hide(), $(e == 0 ? "#news_company" : "#news_industry").show(), $(".new-cntent").hide(), $(".new-cntent").eq(e).show()
