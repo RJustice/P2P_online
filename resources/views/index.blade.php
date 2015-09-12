@@ -666,7 +666,7 @@
             success : function(data){
                 var register = data.register;
                 var projects = data.projects;
-                var total = data.total;
+                var total = data.total.toString();
                 $("#reg-count").text(register);
                 $("#pj-total").text(total.replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g,'$1,'));
                 for( k in projects ){
@@ -676,7 +676,8 @@
                     }else{
                         $("#"+k+" span.pj-has").text(projects[k].c);
                     }
-                    var p = parseFloat(projects[k].c) / parseFloat(projects[k].t) * 100;
+                    console.log(typeof projects[k].c);
+                    var p = projects[k].c / projects[k].t * 100;
                     $("#"+k+'-progress').animate({width:p.toFixed(2)+"%"});
                 }
             }
