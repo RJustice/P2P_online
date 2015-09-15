@@ -20,7 +20,7 @@
         <div class="title-4edge">CAREER</div>
         <ul>
         @foreach ( $pages as $p )
-            <li class="@if($p->id == $page->id) current @endif"><a id="page-{{ $p->id }}" href="{{ empty($p->out_link) ? action('PagesController@show',[$p->id]) : $p->out_link }}">{{ $p->title }}</a><i></i></li>
+            <li class="@if($p->id == $page->id) current @endif"><a id="page-{{ $p->id }}" href="{{ empty($p->out_link) ? action('RecruitController@show',[$p->id]) : $p->out_link }}">{{ $p->title }}</a><i></i></li>
         @endforeach
         </ul>
     </div>
