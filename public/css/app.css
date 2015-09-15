@@ -227,7 +227,7 @@ p.touy{background:url(../images/touy.gif) no-repeat center center;display:block;
     width: 25px;
     height: 26px;
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: text-bottom;
     margin-right:3px;
 }
 .treetop .span-sty i img{width:25px;height:25px;}

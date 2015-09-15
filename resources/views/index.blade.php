@@ -112,7 +112,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                        <span class="span-sty span-sty-sp"><i class="sty-icon"><img src="/images/sty-01.png" alt=""></i>农富宝45T</span><a class="a-title" href="javascript:;">45天短期投入实现较高收益,获取较高预期年收益</a>
+                        <span class="span-sty span-sty-sp"><i class="sty-icon"><img src="/images/sty01.png" alt=""></i>农富宝45T</span><a class="a-title" href="javascript:;">45天短期投入实现较高收益,获取较高预期年收益</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
@@ -169,7 +169,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty"><i class="sty-icon"><img src="/images/sty-02.png" alt=""></i>农富宝90T  月回息</span><a class="a-title" href="javascript:;">3个月短期投入实现较高收益,每月回收利息,本金继续借出</a>
+                            <span class="span-sty"><i class="sty-icon"><img src="/images/sty02.png" alt=""></i>农富宝90T  月回息</span><a class="a-title" href="javascript:;">3个月短期投入实现较高收益,每月回收利息,本金继续借出</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
@@ -226,7 +226,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty span-sty-sp"><i class="sty-icon"><img src="/images/sty-04.png" alt=""></i>农富宝90T</span><a class="a-title" href="javascript:;">3个月短期投入实现较高收益,获取较高预期年收益</a>
+                            <span class="span-sty span-sty-sp"><i class="sty-icon"><img src="/images/sty04.png" alt=""></i>农富宝90T</span><a class="a-title" href="javascript:;">3个月短期投入实现较高收益,获取较高预期年收益</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
@@ -283,7 +283,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty"><i class="sty-icon"><img src="/images/sty-05.png" alt=""></i>农富宝180T 月回息</span><a class="a-title" href="javascript:;">6个月短期投入实现较高收益,每月回收利息,本金继续借出</a>
+                            <span class="span-sty"><i class="sty-icon"><img src="/images/sty05.png" alt=""></i>农富宝180T 月回息</span><a class="a-title" href="javascript:;">6个月短期投入实现较高收益,每月回收利息,本金继续借出</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
@@ -340,7 +340,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty"><i class="sty-icon"><img src="/images/sty-06.png" alt=""></i>农富宝365T 月回息</span><a class="a-title" href="javascript:;">通过循环出借方式,每月回收利息,本金继续借出</a>
+                            <span class="span-sty"><i class="sty-icon"><img src="/images/sty06.png" alt=""></i>农富宝365T 月回息</span><a class="a-title" href="javascript:;">通过循环出借方式,每月回收利息,本金继续借出</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
@@ -397,7 +397,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty span-sty-sp"><i class="sty-icon"><img src="/images/sty-04.png" alt=""></i>农富宝365T</span><a class="a-title" href="javascript:;">通过循环出借方式,获取较高预期年收益</a>
+                            <span class="span-sty span-sty-sp"><i class="sty-icon"><img src="/images/sty04.png" alt=""></i>农富宝365T</span><a class="a-title" href="javascript:;">通过循环出借方式,获取较高预期年收益</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
@@ -454,7 +454,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty"><i class="sty-icon"><img src="/images/sty-03.png" alt=""></i>农富宝365T(50万起) 月回息</span><a class="a-title" href="javascript:;">通过循环出借方式,每月回收利息,本金继续借出</a>
+                            <span class="span-sty"><i class="sty-icon"><img src="/images/sty03.png" alt=""></i>农富宝365T(50万起) 月回息</span><a class="a-title" href="javascript:;">通过循环出借方式,每月回收利息,本金继续借出</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
@@ -511,7 +511,7 @@
                 <li class="past">
                     <div class="treetop-left">
                         <h2>
-                            <span class="span-sty span-sty-sp"><i class="sty-icon"><img src="/images/sty-03.png" alt=""></i>农富宝365T(50万起）</span><a class="a-title" href="javascript:;">通过循环出借方式,获取较高预期年收益</a>
+                            <span class="span-sty span-sty-sp"><i class="sty-icon"><img src="/images/sty03.png" alt=""></i>农富宝365T(50万起）</span><a class="a-title" href="javascript:;">通过循环出借方式,获取较高预期年收益</a>
                         </h2>
                         <div class="project-info">
                             <div class="m-tp clearfix">
