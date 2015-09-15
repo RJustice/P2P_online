@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserCarryLogTable extends Migration
+class CreateRegionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,12 @@ class CreateUserCarryLogTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('regions',function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('pid');
+            $table->string('name');
+            $table->tinyInteger('region_level');
+        });
     }
 
     /**
@@ -22,6 +27,6 @@ class CreateUserCarryLogTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('regions');
     }
 }

@@ -12,7 +12,16 @@ class CreateDealOrderItemTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('deal_order_items',function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('deal_id');
+            $table->integer('number');
+            $table->decimal('unit_price',20,2);
+            $table->decimal('total_price',20,2);
+            $table->string('name');
+            $table->string('verify_code');
+            $table->integer('deal_order_id');
+        });
     }
 
     /**
@@ -22,6 +31,6 @@ class CreateDealOrderItemTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('deal_order_items');
     }
 }

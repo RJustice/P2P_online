@@ -55,18 +55,18 @@ return [
                 ]
             ],
         ],
-        // '用户管理' => [
-        //     'icon'       => 'mdi-toggle-radio-button-on',
-        //     'permission' => ['admin','editor'],
-        //     'children'   => [
-        //         '会员管理'  => [
-        //             'uri' => 'users',
-        //         ],
-        //         '员工管理'  => [
-        //             'uri' => 'employee',
-        //         ],
-        //     ],
-        // ],
+        '用户管理' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin','editor'],
+            'children'   => [
+                '会员管理'  => [
+                    'uri' => 'users',
+                ],
+                '员工管理'  => [
+                    'uri' => 'employee',
+                ],
+            ],
+        ],
     ],
 
     'qiniu'                       => [

@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use App\UserMeta;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
     use Authenticatable, CanResetPassword, EntrustUserTrait;
@@ -38,6 +39,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     const TYPE_ADMIN = 'admin';
     const TYPE_MEMBER = 'member';
     const TYPE_EMPLOYEE = 'employee';
+
+    const STATE_SYS_CREATED = 4;
+    const STATE_DELETED = 5;
+    const STATE_INVAILD = 0;
+    const STATE_VALID = 1;
+
+    const REFERER_SYSTEM = 'system';
+    const REFERER_SALES_CREATED = 'sales_created';
+    const REFERER_NORMAL = 'web_register';
+    const REFERER_WX = 'weixin';
+    const REFERER_OTHER = 'other';
 
     public function getAuthIdentifier()
     {
@@ -90,5 +102,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function getEmailForPasswordReset()
     {
         // TODO: Implement getEmailForPasswordReset() method.
+    }
+
+    // public function metas(){
+    //     return $this->belongsTo('App\UserMeta','uid','id');
+    // }
+
+    public function recUser(){
+        return $this->hasOne('App\User','id','pid');
+    }
+
+    public function modifiedUser(){
+        return $this->hasOne('App\User','id','modified_uid');
     }
 }

@@ -4,9 +4,12 @@
 {!! Form::form_password('password','密码','请输入密码',1) !!}
 {!! Form::form_radio('is_delete','禁用',[[0,'是'],[1,'否',true]],1) !!}
 {!!Form::form_text('idno','身份证号','请输入正确身份证号码',1) !!}
+{!! From::form_radio('sex','性别',[[1,'男'],[0,'女']],1) !!}
 {{-- @inject('region','App\Region') --}}
 {!! Form::form_select('province_id','省',[],0.5) !!}
 {!! Form::form_select('city_id','市',[],0.5) !!}
+
+{!! Form::form_text('address','地址','请输入地址',1) !!}
 
 {{-- @if (str_is('admin.admins.create', Route::current()->getName())) --}}
     {{-- {!! Form::group_password('password','密码','请输入密码',1) !!} --}}
