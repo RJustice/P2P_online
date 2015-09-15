@@ -15,6 +15,7 @@ class Article extends Model
 
     const TYPE_PAGE = 'page';
     const TYPE_NORMAL = 'normal';
+    const TYPE_RECRUIT = 'recruit';
 
     protected $_type = false;
     protected $_create_by = false;
