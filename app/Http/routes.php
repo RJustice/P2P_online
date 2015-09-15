@@ -68,6 +68,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('section','SectionController');
     Route::resource('category','CategoryController');
     Route::resource('pages','PagesController');
+    Route::resource('recruit','RecruitController');
     Route::resource('articles','ArticlesController');
     Route::get('category/alists/{id}/edit','ArticlesController@edit');
 
@@ -82,6 +83,10 @@ Route::get('articles/{id}','ArticlesController@show');
 // Route::get('pages','PagesController@index');
 Route::get('pages/{id}','PagesController@show')->where(['id'=>'[1-9]+']);
 Route::get('pages/{alias}','PagesController@aliasShow')->where(['alias' => '[A-Za-z_-]+']);
+
+Route::get('recruit/{id}','RecruitController@show')->where(['id'=>'[1-9]+']);
+Route::get('recruit/{alias}','RecruitController@aliasShow')->where(['alias' => '[A-Za-z_-]+']);
+
 Route::any('projects',function(){
     return view('projects');
 });
@@ -99,12 +104,12 @@ Route::post('sms/send','SmsController@postSendCode');
 Route::get('count/{type?}','CountController@index');
 
 Route::get('contact',function(){
-    $pages = \App\Page::where('type',\App\Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
-    $id = 2;
-    return view('contact',compact('pages','id'));
+    // $pages = \App\Page::where('type',\App\Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
+    // $id = 2;
+    return view('single.ditu');
 });
 Route::get('gltd',function(){
     $pages = \App\Page::where('type',\App\Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
     $id = 10;
-    return view('gltd',compact('pages','id'));
+    return view('single.gltd',compact('pages','id'));
 });

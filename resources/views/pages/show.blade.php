@@ -1,4 +1,4 @@
-@extends('_layouts.default')
+@extends('_layouts.about')
 @section('content')
 <div class="about-box clearfix">
     <div class="beadcrumb-nav">

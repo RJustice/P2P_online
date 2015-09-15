@@ -48,7 +48,7 @@ body{background:#f7f7f7;color:#666;font:14px/1.5 "Microsoft YaHei";margin:0;min-
 .f-r{float:right}
 .wrap-box{padding-bottom:20px;}
 .wrap{width:1100px;height:auto;overflow:visible;margin:0 auto;padding:0}
-#header{width:100%;height:120px;}
+#header{width:100%;}
 .header-container{width:100%}
 .header-container .constr{background-color:#555;color:#ccc;font-family:"Microsoft YaHei";height:42px;line-height:42px}
 .constr .wrap .f-l span{float:left;padding-right:10px;color:#b6b6b6;font-size: 16px;}
@@ -64,16 +64,16 @@ body{background:#f7f7f7;color:#666;font:14px/1.5 "Microsoft YaHei";margin:0;min-
 .constr .f-r #user-head-tip{color:#ccc;display:inline-block;line-height:22px;padding-top:10px;z-index:100}
 .constr .f-r #user-head-tip span{display:inline-block;float:left;height:22px;padding:0 8px}
 .constr .f-r #user-head-tip span a{color:#ccc}
-.constr .main-bars{background-color:#fff;border-bottom:2px solid #0697da;height:70px}
-.constr .main-bars .main-bar{height:70px;overflow:visible}
-.constr .main-bars .logo{display:inline-block;float:left;height:70px;overflow:visible}
-.constr .main-bars .logo a{display:block;height:70px;overflow:hidden}
-.constr .main-bars .logo a img{border:none}
-.constr .main-bars ul.main-nav{float:right;height:40px;line-height:40px;margin-top:16px;overflow:hidden;z-index:99;line-height:40px}
-.constr .main-bars ul.main-nav li{display:inline;float:left;position:relative;margin-right:5px}
-.constr .main-bars ul.main-nav li a{color:#555;display:block;float:left;font-size:16px;overflow:hidden;padding:0 25px;text-decoration:none;float:left}
-.constr .main-bars ul.main-nav li.current{background-color:#2971df;border-radius:20px;margin-right:5px}
-.constr .main-bars ul.main-nav li.current a{color:#fff}
+.main-bars{background-color:#fff;border-bottom:2px solid #0697da;height:70px}
+.main-bars .main-bar{height:70px;overflow:visible}
+.main-bars .logo{display:inline-block;float:left;height:70px;overflow:visible}
+.main-bars .logo a{display:block;height:70px;overflow:hidden}
+.main-bars .logo a img{border:none}
+.main-bars ul.main-nav{float:right;height:40px;line-height:40px;margin-top:16px;overflow:hidden;z-index:99;line-height:40px}
+.main-bars ul.main-nav li{display:inline;float:left;position:relative;margin-right:5px}
+.main-bars ul.main-nav li a{color:#555;display:block;float:left;font-size:16px;overflow:hidden;padding:0 25px;text-decoration:none;float:left}
+.main-bars ul.main-nav li.current{background-color:#2971df;border-radius:20px;margin-right:5px}
+.main-bars ul.main-nav li.current a{color:#fff}
 #main-adv-box{height:380px;overflow:hidden;position:relative;width:100%;z-index:1}
 #main-adv-img span{position:absolute;height:100%;display:none;width:100%}
 #main-adv-img span img{height:380px;width:100%}
