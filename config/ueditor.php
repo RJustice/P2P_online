@@ -42,9 +42,9 @@ return [
     */
     'core' => [
         'route' => [
-            'middleware' => 'auth',
+            'middleware' => 'admin.auth',
         ],
-        'mode'=>'local',//上传方式,local 为本地   qiniu 为七牛
+        'mode'=>'local',//上传方式,local 为本地   qiniu 为
         //七牛配置,若mode='qiniu',以下为必填.
         'qiniu'=>[
             'accessKey'=>'',
