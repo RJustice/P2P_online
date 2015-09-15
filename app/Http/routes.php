@@ -80,7 +80,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
 Route::get('articles/c/{cid}','ArticlesController@clist');
 Route::get('articles/{id}','ArticlesController@show');
 // Route::get('pages','PagesController@index');
-Route::get('pages/{id}','PagesController@show');
+Route::get('pages/{id}','PagesController@show')->where(['id'=>'[1-9]+']);
+Route::get('pages/{alias}','PagesController@aliasShow')->where(['alias' => '[A-Za-z_-]+']);
 Route::any('projects',function(){
     return view('projects');
 });
@@ -101,4 +102,9 @@ Route::get('contact',function(){
     $pages = \App\Page::where('type',\App\Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
     $id = 2;
     return view('contact',compact('pages','id'));
+});
+Route::get('gltd',function(){
+    $pages = \App\Page::where('type',\App\Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
+    $id = 10;
+    return view('gltd',compact('pages','id'));
 });
