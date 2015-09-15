@@ -81,10 +81,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
 Route::get('articles/c/{cid}','ArticlesController@clist');
 Route::get('articles/{id}','ArticlesController@show');
 // Route::get('pages','PagesController@index');
-Route::get('pages/{id}','PagesController@show')->where(['id'=>'[1-9]+']);
+Route::get('pages/{id}','PagesController@show')->where(['id'=>'[0-9]+']);
 Route::get('pages/{alias}','PagesController@aliasShow')->where(['alias' => '[A-Za-z_-]+']);
 
-Route::get('recruit/{id}','RecruitController@show')->where(['id'=>'[1-9]+']);
+Route::get('recruit/{id}','RecruitController@show')->where(['id'=>'[0-9]+']);
 Route::get('recruit/{alias}','RecruitController@aliasShow')->where(['alias' => '[A-Za-z_-]+']);
 
 Route::any('projects',function(){
