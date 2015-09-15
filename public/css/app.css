@@ -771,7 +771,7 @@ p.touy{background:url(../images/touy.gif) no-repeat center center;display:block;
 .com-bg{background: #f7f7f7;}
 .about-box .left-box{float: left;margin: 0;width: 18%;}
 .about-box .left-box li{line-height: 46px;font-size: 16px;border-left: 2px solid #f7f7f7;border-bottom: 1px solid #eaeaea;}
-.about-box .left-box li a{color:#656565;padding-left: 24px;display: block;}
+.about-box .left-box li a{color:#656565;padding-left: 50px;display: block;}
 .about-box .left-box li.select{color:#fc6703;}
 .about-box .left-box li.select,.about-box .left-box li:hover{background:url('/images/arrow_bg.png') no-repeat 93% center #fff;border-left: 2px solid #009edf;}
 .about-box .right-box{background: #fff;float: right;min-height: 600px;width: 82%;}
