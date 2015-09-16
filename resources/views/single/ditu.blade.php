@@ -21,7 +21,7 @@
                 <ul class="clearfix">
                     <li class="" data-area="bj">
                         <p class="area">总部</p>
-                        <p>国兴观湖  朝阳区  东四环北路88号甲六号楼2层201</p>
+                        <p>国兴观湖  朝阳区  东四环北路88号</p>
                     </li>
                     <li class="" data-area="jj">
                         <p class="area">靖江</p>
