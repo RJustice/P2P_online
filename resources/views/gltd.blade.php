@@ -31,7 +31,7 @@
                 #gltd dl dt img{height:150px;border:none;}
                 #gltd dl dd{float:left;height: 140px;overflow: hidden;width:500px;word-wrap:break-word;}
                 #gltd dl dd p.tit{font-size:20px;line-height: 30px;margin-bottom: 10px;color:#ff6c00;border-bottom:1px solid #ddd;}
-                #gltd dl dd p.content{}
+                #gltd dl dd p.content{line-height: 20px;}
                 </style>
                 <div class="con-main">
                     <h2>管理团队</h2>
