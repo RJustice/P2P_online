@@ -50,7 +50,7 @@ class RecruitController extends BaseController {
                 }],
             ]
         ];
-        $paginate = Recruit::where('type',Article::TYPE_RECRUIT)->orderBy('id','desc')->paginate(15);
+        $paginate = Recruit::where('type',Article::TYPE_RECRUIT)->->where('deleted',false)->orderBy('id','desc')->paginate(15);
         $results['items'] = $paginate;
 
         return $this->view('forone::' . $this->uri.'.index', compact('results'));

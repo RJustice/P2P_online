@@ -50,7 +50,7 @@ class PagesController extends BaseController {
                 }],
             ]
         ];
-        $paginate = Page::where('type',Article::TYPE_PAGE)->orderBy('id','desc')->paginate(15);
+        $paginate = Page::where('type',Article::TYPE_PAGE)->where('deleted',false)->orderBy('id','desc')->paginate(15);
         $results['items'] = $paginate;
 
         return $this->view('forone::' . $this->uri.'.index', compact('results'));
