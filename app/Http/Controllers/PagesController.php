@@ -28,7 +28,7 @@ class PagesController extends Controller
         if( !empty($page->out_link) ){
             return redirect($page->out_link);
         }
-        $pages = Page::where('type',Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
+        $pages = Page::where('type',Article::TYPE_PAGE)->where('published',1)->orWhere('deleted','<>',true)orderBy('ordering','desc')->get();
         return view('pages.show',compact('page','pages','id'));
     }
 
@@ -40,7 +40,7 @@ class PagesController extends Controller
         if( !empty($page->out_link) ){
             return redirect($page->out_link);
         }
-        $pages = Page::where('type',Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
+        $pages = Page::where('type',Article::TYPE_PAGE)->where('published',1)->orWhere('deleted','<>',true)->orderBy('ordering','desc')->get();
         return view('pages.show',compact('page','pages'));
     }
 }

@@ -28,12 +28,12 @@ class RecruitController extends Controller
         // if( !empty($page->out_link) ){
         //     return redirect($page->out_link);
         // }
-        $pages = Recruit::where('type',Article::TYPE_RECRUIT)->where('published',1)->orderBy('ordering','desc')->get();
+        $pages = Recruit::where('type',Article::TYPE_RECRUIT)->where('published',1)->orWhere('deleted','<>',true)->orderBy('ordering','desc')->get();
         return view('recruit.show',compact('page','pages','id'));
     }
 
     public function aliasShow($alias){
-        $page = Recruit::where('alias',$alias)->where('type',Recruit::TYPE_RECRUIT)->where('published',1)->first();
+        $page = Recruit::where('alias',$alias)->where('type',Recruit::TYPE_RECRUIT)->orWhere('deleted','<>',true)->where('published',1)->first();
         if( ! $page ){
             abort(404); 
         }
