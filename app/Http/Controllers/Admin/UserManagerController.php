@@ -102,7 +102,8 @@ class UserManagerController extends Controller
      */
     public function create()
     {
-        //
+        $data = new User();
+        return $this->view('forone::'.$this->uri.'.create',compact('data'));
     }
 
     /**
@@ -113,7 +114,32 @@ class UserManagerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only(['phone','name','email','password','is_delete','idno','province_id','city_id','address','sales_manager']);
+        $data['password'] = bcrypt($data['password']);
+        $data['type'] = User::TYPE_EMPLOYEE;
+        $data['idcardpassed'] = 1;
+        $data['idcardpassed_time'] = time();
+
+        // $createUser = Auth::user();
+        // if( $createUser->type == User::TYPE_ADMIN ){
+            // $data['state'] = User::STATE_SYS_CREATED;    
+        // }else{
+            $data['state'] = User::STATE_SYS_CREATED;
+        // }
+        
+        $data['phonepassed'] = 1;
+
+        $createUser = Auth::user();
+        if( $createUser->type == User::TYPE_ADMIN ){
+            $data['referer'] = User::REFERER_SYSTEM;
+        }else{
+            $data['referer'] = User::REFERER_SALES_CREATED;
+            $data['sales_manager'] = $createUser->id;
+        }
+
+        $data['username'] = $data['phone'];
+        User::create($data);
+        return redirect()->route('admin.'.$this->uri.'.index');
     }
 
     /**
@@ -160,4 +186,5 @@ class UserManagerController extends Controller
     {
         //
     }
+
 }

@@ -76,6 +76,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function getRememberToken()
     {
         // TODO: Implement getRememberToken() method.
+        return $this->{$this->getRememberTokenName()};
     }
     /**
      * Set the token value for the "remember me" session.
@@ -86,6 +87,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function setRememberToken($value)
     {
         // TODO: Implement setRememberToken() method.
+        $this->{$this->getRememberTokenName()} = $value;
     }
     /**
      * Get the column name for the "remember me" token.
@@ -95,6 +97,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function getRememberTokenName()
     {
         // TODO: Implement getRememberTokenName() method.
+        return 'remember_token';
     }
     /**
      * Get the e-mail address where password reset links are sent.
@@ -104,6 +107,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function getEmailForPasswordReset()
     {
         // TODO: Implement getEmailForPasswordReset() method.
+        return $this->email;
     }
 
     // public function metas(){
@@ -120,5 +124,21 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function modifiedUser(){
         return $this->hasOne('App\User','id','modified_uid');
+    }
+
+    public static function getSalesManagers($format = false){
+        $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->get();
+        // if( $salesManagers )
+        if( $format ){
+            foreach( $salesManagers as $salesManager ){
+                $tmp[] = [
+                    'label' => $salesManager->name,
+                    'value' => $salesManager->id,
+                ];
+            }
+            return $tmp;
+        }else{
+            return $salesManagers;
+        }
     }
 }
