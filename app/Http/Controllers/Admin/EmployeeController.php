@@ -53,6 +53,7 @@ class EmployeeController extends Controller
                 }],
             ]
         ];
+
         $paginate = User::where('type',User::TYPE_EMPLOYEE)->orderBy('id','desc')->paginate(15);
         $results['items'] = $paginate;
 
@@ -79,14 +80,16 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $data = $request->only(['phone','name','email','password','is_delete','idno','province_id','city_id','address']);
+        $data['password'] = bcrypt($data['password']);
         $data['type'] = User::TYPE_EMPLOYEE;
         $data['idcardpassed'] = 1;
         $data['idcardpassed_time'] = time();
         $data['state'] = User::STATE_SYS_CREATED;
         $data['phonepassed'] = 1;
         $data['referer'] = User::REFERER_SYSTEM;
-        User::create();
-        return redirect()->route('admin.employee.index');
+        $data['username'] = $data['phone'];
+        User::create($data);
+        return redirect()->route('admin.'.$this->uri.'.index');
     }
 
     /**
@@ -112,7 +115,7 @@ class EmployeeController extends Controller
      * @return Response
      */
     public function edit($id)
-    {
+    {  
         $data = User::findOrFail($id);
         if ($data) {
             return $this->view('forone::' . $this->uri. "/edit", compact('data'));
@@ -141,7 +144,7 @@ class EmployeeController extends Controller
             return $this->redirectWithError('邮箱不能重复');
         }
         User::findOrFail($id)->update($request->only(['name', 'email']));
-        return redirect()->route('admin.admins.index');
+        return redirect()->route('admin.'.$this->uri.'.index');
     }
 
     /**

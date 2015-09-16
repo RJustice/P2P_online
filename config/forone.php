@@ -67,6 +67,48 @@ return [
                 ],
             ],
         ],
+        '项目管理' => [            
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '项目列表'  => [
+                    'uri' => 'a',
+                ],
+                '借款人列表'  => [
+                    'uri' => 'b',
+                ],
+            ],  
+        ],
+        '资金管理' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '提现申请'  => [
+                    'uri' => 'c',
+                ],
+                '充值管理'  => [
+                    'uri' => 'd',
+                ],
+                '资金日志' => [
+                    'uri' => 'e',
+                ]
+            ],
+        ],
+        '手动操作' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '快速充值'  => [
+                    'uri' => 'c',
+                ],
+                '冻结资金'  => [
+                    'uri' => 'd',
+                ],
+                '快速扣款' => [
+                    'uri' => 'e',
+                ]
+            ],
+        ]
     ],
 
     'qiniu'                       => [

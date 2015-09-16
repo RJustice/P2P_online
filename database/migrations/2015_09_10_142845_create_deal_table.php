@@ -28,6 +28,7 @@ class CreateDealTable extends Migration
             $table->decimal('min_loan_money',20,2);
             $table->decimal('max_loan_money',20,2);
             $table->decimal('rate',10,2);
+            $table->decimal('daliy_returns',20,2);
             $table->timestamps();
             $table->tinyInteger('is_rec');
             $table->integer('buy_count');  // 多少人投资

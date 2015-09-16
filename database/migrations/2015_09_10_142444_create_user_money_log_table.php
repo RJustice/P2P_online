@@ -23,6 +23,7 @@ class CreateUserMoneyLogTable extends Migration
             $table->date('create_time_ymd');
             $table->integer('create_time_ym');
             $table->integer('create_time_y');
+            $table->string('proof');
 
             // 索引
             $table->index(['user_id','type','created_at']);

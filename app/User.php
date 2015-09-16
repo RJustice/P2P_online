@@ -23,7 +23,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['name','phone','username', 'password','state','email'];
+    // protected $fillable = ['name','phone','username', 'password','state','email'];
+    protected $guarded = ['id'];
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -40,10 +41,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     const TYPE_MEMBER = 'member';
     const TYPE_EMPLOYEE = 'employee';
 
-    const STATE_SYS_CREATED = 4;
-    const STATE_DELETED = 5;
-    const STATE_INVAILD = 0;
-    const STATE_VALID = 1;
+    const STATE_SYS_CREATED = 4; // 后台系统创建 , 需强制更改密码
+    const STATE_DELETED = 5;  // 删除 , 不可登陆
+    const STATE_INVAILD = 0;  // 禁用 , 不可登陆
+    const STATE_VALID = 1;  // 可用
+    const STATE_FREEZE = 3;  // 冻结 , 可登陆, 但不能操作
 
     const REFERER_SYSTEM = 'system';
     const REFERER_SALES_CREATED = 'sales_created';
@@ -110,6 +112,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function recUser(){
         return $this->hasOne('App\User','id','pid');
+    }
+
+    public function salesManager(){
+        return $this->hasOne('App\User','id','sales_manager');
     }
 
     public function modifiedUser(){

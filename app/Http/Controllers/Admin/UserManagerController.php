@@ -31,9 +31,9 @@ class UserManagerController extends Controller
                 ['手机号','phone'],
                 ['身份证号', 'idno'],
                 ['注册时间', 'created_at'],
-                ['推荐人','recUser',function($recUser){
-                    if( $recUser ){
-                        return $recUser->where('type',User::TYPE_EMPLOYEE)->first()->name;
+                ['销售经理','salesManager',function($salesManager){
+                    if( $salesManager ){
+                        return $salesManager->first()->name;
                     }else{
                         return "暂无";
                     }
@@ -48,6 +48,9 @@ class UserManagerController extends Controller
                 //     }
                 //     return Form::form_button($btn_conf,$btn_data);
                 // }],
+                ['操作','other',function(){
+                    return 111;
+                }],
                 ['操作', 'buttons', function ($data) {
                     $buttons = [
                         ['编辑'],
@@ -58,8 +61,11 @@ class UserManagerController extends Controller
                 }],
             ]
         ];
-        $paginate = User::where('type',User::TYPE_MEMBER)
-            ->orderBy('id','desc');
+        $paginate = User::where('type',User::TYPE_MEMBER);
+        if( Auth::user()->type == User::TYPE_EMPLOYEE ){
+            $paginate->where('sales_manager',Auth::user()->id);
+        }
+        $paginate->orderBy('id','desc');
 
         $all = $request->except(['page']);
         if (!sizeof($all)) {
