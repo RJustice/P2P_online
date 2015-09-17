@@ -13,7 +13,7 @@ class Deal extends Model
     const LOANTYPE_FUXIFANBEN = 1;
     const LOANTYPE_DAOQI = 2;
 
-    protected function loanTypeOption(){
+    protected static function loanTypeOption(){
         return [
             self::LOANTYPE_DENGEBENXI => '等额本息',
             self::LOANTYPE_FUXIFANBEN => '月付息到期返本',
@@ -22,7 +22,7 @@ class Deal extends Model
     }
 
     public static function getLoanTypeTitle($loantype){
-        $loantypes = $this->loanTypeOption();
+        $loantypes = self::loanTypeOption();
         if( array_key_exists($loantype, $loantypes)){
             return $loantypes[$loantype];
         }else{
@@ -31,7 +31,7 @@ class Deal extends Model
     }
 
     public static function getLoanTypeOption($format = false){
-        $loantypes = $this->loanTypeOption();
+        $loantypes = self::loanTypeOption();
         if( $format ){
             foreach( $loantypes as $k=>$loantype){
                 $tmp[] = [
@@ -42,6 +42,21 @@ class Deal extends Model
             return $tmp;
         }else{
             return $loantypes;
+        }
+    }
+
+    public static function getDealsOption($format = false){
+        $deals = self::whereRaw('is_effect = 1 and is_deleted = 0')->orderByRaw('sort desc,id desc')->get();
+        if( $deals ){
+            foreach( $deals as $deal ){
+                $tmp[] = [
+                    'label' => $deal->title,
+                    'value' => $deal->id
+                ];
+            }
+            return $tmp;
+        }else{
+            return [];
         }
     }
 }

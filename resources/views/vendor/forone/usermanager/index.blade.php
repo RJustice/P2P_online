@@ -2,11 +2,11 @@
 
 @section('main')
     
-    {!! Html::list_header([
+    {!! Html::ilist_header([
     'new'=>true,
     'search' => true
     ]) !!}
 
-    {!! Html::datagrid($results) !!}
+    {!! Html::idatagrid($results) !!}
 
 @stop

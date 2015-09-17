@@ -70,9 +70,18 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('pages','PagesController');
     Route::resource('recruit','RecruitController');
     Route::resource('articles','ArticlesController');
+    Route::resource('deals','DealsController');
+    Route::resource('money','MoneyController');
+    Route::resource('hand','HandController');
+    Route::resource('logs','LogsController');
     Route::get('category/alists/{id}/edit','ArticlesController@edit');
 
     Route::resource('users','UserManagerController');
+    Route::post('users/remove-ref',['as' => 'admin.users.remove-ref','uses' => 'UserManagerController@removeRef']);
+    // Route::get('users/get-add-ref',['as' => 'admin.users.get-add-ref','uses' => 'UserManagerController@getAddRef']);
+    // Route::post('users/add-ref',['as' => 'admin.users.get-add-ref','uses' => 'UserManagerController@getAddRef']);
+
+
     Route::resource('employee','EmployeeController');
 });
 

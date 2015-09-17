@@ -48,18 +48,33 @@ class UserManagerController extends Controller
                 //     }
                 //     return Form::form_button($btn_conf,$btn_data);
                 // }],
-                ['操作','other',function(){
+                ['操作','Model',function($model){
+                    if( Auth::user()->can(['member_all','member_u','admin']) ){
+                        $memberCtrl = '<li><a href="#" class="btn btn-block btn-warning">禁用</a></li>
+                                <li><a href="#" class="btn btn-block btn-danger">删除</a></li>';
+                    }else{
+                        $memberCtrl = '';
+                    }
+                    if( $model->sales_manager != 0 ){
+                        $removeBtn = Form::iform_button(['name'=>'转移客户','class'=>'btn btn-block btn-danger','uri'=>'remove-ref','method'=>'POST','id'=>$model->id],[]);
+                    }elseif( Auth::user()->can(['member_rm','admin']) ){
+                        $removeBtn = Form::iform_button(['name'=>'分配客户','class'=>'btn btn-block btn-danger','uri'=>$model->id.'#add-ref','method'=>'GET'],[]);;
+                    }else{
+                        $removeBtn = '';
+                    }
                     return '<div class="dropdown">
                               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 操作
                                 <span class="caret"></span>
                               </button>
-                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
+                              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                                <li><a href="#" class="btn btn-block btn-info">查看详情</a></li>
+                                '.$memberCtrl.'
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#" class="btn btn-block btn-success">查看投资</a></li>
+                                <li><a href="#" class="btn btn-block btn-info">增加投资</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li>'.$removeBtn.'</li>
                               </ul>
                             </div>';
                 }],
@@ -73,7 +88,7 @@ class UserManagerController extends Controller
                 // }],
             ]
         ];
-        $paginate = User::where('type',User::TYPE_MEMBER);
+        $paginate = User::whereIn('type',[User::TYPE_MEMBER,User::TYPE_EMPLOYEE]);
         if( Auth::user()->type == User::TYPE_EMPLOYEE ){
             $paginate->where('sales_manager',Auth::user()->id);
         }
@@ -162,7 +177,12 @@ class UserManagerController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = User::findOrFail($id);
+        if( $data ){
+            return view('admin.'.$this->uri.'.show',compact('data'));
+        }else{
+            return $this->redirectWithError('数据未找到');
+        }
     }
 
     /**
@@ -212,7 +232,24 @@ class UserManagerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 
+    public function removeRef(Request $request){
+        if( Auth::user()->can(['member_c','admin']) ){
+            $id = $request->get('id');
+            $user = User::whereRaw('id = ? and sales_manager = ? ',[$id,Auth::user()->id])->first();
+            if( $user ){
+                $user->sales_manager = 0;
+                $user->save();
+                return $this->toIndex('转移成功,请通知主管分配客户');
+            }else{
+                return $this->redirectWithError('无权转移这个客户,因这您不是该客户销售经理或未找到该客户信息');
+            }
+        }
+    }
+
+    public function addRef(Request $request){
+        return '111';
+    }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Forone\Admin\Controllers\BaseController;
+use Forone\Admin\Controllers\BaseController as Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
@@ -29,8 +29,8 @@ class DealsController extends Controller
                 ['理财项目', 'title'],
                 ['收益率','rate'],
                 ['起投资金','min_loan_money'],
-                ['还款方式','loantype',function($loantype){
-                    return Deal::getLoanTypeTitle($loantype);
+                ['还款方式','loan_type',function($loan_type){
+                    return Deal::getLoanTypeTitle($loan_type);
                 }],
                 ['可用','is_effect',function($is_effect){
                     // if( $sModel['published'] ){
@@ -92,7 +92,15 @@ class DealsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only(['titlecolor','deal_sn','title','sub_title','repay_time','rate','loan_type','min_loan_money','max_loan_money','is_effect','is_hot','is_best','is_rec','borrow_amount','load_money','buy_count','intro_info','description']);
+        $data['daliy_returns'] = 10000 * ( $data['rate'] / 100 ) / 365 ;
+        $deal = Deal::create($data);
+        if( $deal ){
+            // To-do Add Admin Control Log
+            return redirect()->route('admin.'.$this->uri.'.index');
+        }else{
+            return 'error';
+        }
     }
 
     /**
@@ -103,7 +111,7 @@ class DealsController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -114,7 +122,12 @@ class DealsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::findOrFail($id);
+        if ($data) {
+            return $this->view('forone::' . $this->uri. "/edit", compact('data'));
+        }else{
+            return $this->redirectWithError('数据未找到');
+        }
     }
 
     /**
@@ -126,7 +139,7 @@ class DealsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return ;
     }
 
     /**
