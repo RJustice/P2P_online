@@ -109,7 +109,7 @@ Route::get('contact',function(){
     return view('single.ditu');
 });
 Route::get('gltd',function(){
-    $pages = \App\Page::where('type',\App\Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
+    $pages = \App\Page::where('type',\App\Article::TYPE_PAGE)->where('published',1)->where('deleted','<>',true)->orderBy('ordering','desc')->get();
     $id = 10;
     return view('single.gltd',compact('pages','id'));
 });

@@ -49,16 +49,28 @@ class UserManagerController extends Controller
                 //     return Form::form_button($btn_conf,$btn_data);
                 // }],
                 ['操作','other',function(){
-                    return 111;
+                    return '<div class="dropdown">
+                              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                操作
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li><a href="#">Separated link</a></li>
+                              </ul>
+                            </div>';
                 }],
-                ['操作', 'buttons', function ($data) {
-                    $buttons = [
-                        ['编辑'],
-                        [['name'=>'删除','class'=>'btn-danger','uri'=>$data['id'],'method'=>'POST'],['deleted'=>1]],
-                        [['name'=>'查看','class'=>'btn-info','uri'=>$data['id'],'method'=>'GET'],[]]
-                    ];
-                    return $buttons;
-                }],
+                // ['操作', 'buttons', function ($data) {
+                //     $buttons = [
+                //         ['编辑'],
+                //         [['name'=>'删除','class'=>'btn-danger','uri'=>$data['id'],'method'=>'POST'],['deleted'=>1]],
+                //         [['name'=>'查看','class'=>'btn-info','uri'=>$data['id'],'method'=>'GET'],[]]
+                //     ];
+                //     return $buttons;
+                // }],
             ]
         ];
         $paginate = User::where('type',User::TYPE_MEMBER);
@@ -161,7 +173,12 @@ class UserManagerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::findOrFail($id);
+        if ($data) {
+            return $this->view('forone::' . $this->uri. "/edit", compact('data'));
+        }else{
+            return $this->redirectWithError('数据未找到');
+        }
     }
 
     /**
@@ -173,7 +190,18 @@ class UserManagerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $name = $request->get('name');
+        $email = $request->get('email');
+        $count = User::whereName($name)->where('id', '!=', $id)->count();
+        if ($count > 0) {
+            return $this->redirectWithError('名称不能重复');
+        }
+        $count = User::whereEmail($email)->where('id', '!=', $id)->count();
+        if ($count > 0) {
+            return $this->redirectWithError('邮箱不能重复');
+        }
+        User::findOrFail($id)->update($request->only(['name', 'email']));
+        return redirect()->route('admin.'.$this->uri.'.index');
     }
 
     /**

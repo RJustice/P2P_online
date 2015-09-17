@@ -72,10 +72,10 @@ return [
             'permission' => ['admin'],
             'children'   => [
                 '项目列表'  => [
-                    'uri' => 'a',
+                    'uri' => 'deal',
                 ],
                 '借款人列表'  => [
-                    'uri' => 'b',
+                    'uri' => 'borrower',
                 ],
             ],  
         ],
@@ -84,13 +84,13 @@ return [
             'permission' => ['admin'],
             'children'   => [
                 '提现申请'  => [
-                    'uri' => 'c',
+                    'uri' => 'carry',
                 ],
                 '充值管理'  => [
-                    'uri' => 'd',
+                    'uri' => 'recharge',
                 ],
                 '资金日志' => [
-                    'uri' => 'e',
+                    'uri' => 'money',
                 ]
             ],
         ],
@@ -99,13 +99,13 @@ return [
             'permission' => ['admin'],
             'children'   => [
                 '快速充值'  => [
-                    'uri' => 'c',
+                    'uri' => 'hand/recharge',
                 ],
                 '冻结资金'  => [
-                    'uri' => 'd',
+                    'uri' => 'hang/freeze',
                 ],
                 '快速扣款' => [
-                    'uri' => 'e',
+                    'uri' => 'hand/debit',
                 ]
             ],
         ]
