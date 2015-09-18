@@ -62,13 +62,14 @@ class UserManagerController extends Controller
                     }else{
                         $removeBtn = '';
                     }
+                    $viewBtn = '<a href="'.route('admin.users.show',['id'=>$model->id]).'" class="btn btn-block btn-info">查看详情</a>';
                     return '<div class="dropdown">
                               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 操作
                                 <span class="caret"></span>
                               </button>
                               <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                                <li><a href="#" class="btn btn-block btn-info">查看详情</a></li>
+                                <li>'.$viewBtn.'</li>
                                 '.$memberCtrl.'
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#" class="btn btn-block btn-success">查看投资</a></li>
@@ -179,7 +180,7 @@ class UserManagerController extends Controller
     {
         $data = User::findOrFail($id);
         if( $data ){
-            return view('admin.'.$this->uri.'.show',compact('data'));
+            return view('forone::'.$this->uri.'.show',compact('data'));
         }else{
             return $this->redirectWithError('数据未找到');
         }

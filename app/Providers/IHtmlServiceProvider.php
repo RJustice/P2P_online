@@ -48,7 +48,7 @@ class IHtmlServiceProvider extends ServiceProvider
     {
         Form::macro('ipanel_end', function ($submit_label = '') {
             if (!$submit_label) {
-                return '';
+                return '</div></div>';
             }
             $result = '</div><footer class="panel-footer">
                             <button type="submit" class="btn btn-info">' . $submit_label . '</button>

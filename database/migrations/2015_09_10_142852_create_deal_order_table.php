@@ -32,14 +32,15 @@ class CreateDealOrderTable extends Migration
             $table->decimal('payment_fee');
             $table->string('bank_id');
             $table->string('referer');
-            $table->string('deal_ids');
+            $table->string('deal_id');
             $table->string('user_name');
             $table->date('create_date');
             $table->date('finish_date');
+            $table->tinyInteger('company_id');
 
             // 索引
             $table->unique('order_sn');
-            $table->index('deal_ids');
+            $table->index('deal_id');
         });
     }
 

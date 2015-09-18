@@ -12,30 +12,15 @@ use App\UserMeta;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
     use Authenticatable, CanResetPassword, EntrustUserTrait;
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
+    
     protected $table = 'users';
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    
     // protected $fillable = ['name','phone','username', 'password','state','email'];
     protected $guarded = ['id'];
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = ['password'];
-    /**
-     * Get the unique identifier for the user.
-     *
-     * @return mixed
-     */
+    
+    protected $hidden = ['password','paypassword'];
+    
+    protected $primaryKey = 'id';
     
     const TYPE_ADMIN = 'admin';
     const TYPE_MEMBER = 'member';
@@ -140,5 +125,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }else{
             return $salesManagers;
         }
+    }
+
+    public function dealOrders(){
+        return $this->hasMany('App\DealOrder');
+    }
+
+    public function company(){
+        return $this->belongsTo('App\Company');
     }
 }

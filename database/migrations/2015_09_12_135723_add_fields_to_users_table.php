@@ -35,8 +35,10 @@ class AddFieldsToUsersTable extends Migration
             $table->string('referer'); // 会员来源
             $table->integer('n_province_id');  // 户籍
             $table->integer('n_city_id');   // 户籍
+            $table->integer('n_county_id');   // 户籍
             $table->integer('province_id');
             $table->integer('city_id');
+            $table->integer('county_id');
             $table->tinyInteger('sex');
             $table->tinyInteger('step');
             $table->integer('byear');
@@ -45,6 +47,7 @@ class AddFieldsToUsersTable extends Migration
             $table->string('address');
             $table->string('paypassword',60);
             $table->integer('modified_uid');
+            $table->integer('company_id')->default(1);
 
             $table->index('idcard');
             $table->index('username');

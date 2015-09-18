@@ -72,7 +72,7 @@ return [
             'permission' => ['admin'],
             'children'   => [
                 '项目列表'  => [
-                    'uri' => 'deal',
+                    'uri' => 'deals',
                 ],
                 '借款人列表'  => [
                     'uri' => 'borrower',
@@ -102,10 +102,13 @@ return [
                     'uri' => 'hand/recharge',
                 ],
                 '冻结资金'  => [
-                    'uri' => 'hang/freeze',
+                    'uri' => 'hand/freeze',
                 ],
                 '快速扣款' => [
                     'uri' => 'hand/debit',
+                ],
+                '线下订单' => [
+                    'uri' => 'hand/offline',
                 ]
             ],
         ]

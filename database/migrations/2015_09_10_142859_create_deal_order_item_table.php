@@ -19,6 +19,7 @@ class CreateDealOrderItemTable extends Migration
             $table->decimal('unit_price',20,2);
             $table->decimal('total_price',20,2);
             $table->string('name');
+            $table->string('sub_title');
             $table->string('verify_code');
             $table->integer('deal_order_id');
         });

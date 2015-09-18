@@ -155,6 +155,7 @@ return [
         Mews\Captcha\CaptchaServiceProvider::class,
 
         App\Providers\SmsServiceProvider::class,
+
     ],
 
     /*
@@ -212,6 +213,7 @@ return [
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
         'Sms' => App\Facades\Sms::class,
+
     ],
 
 ];
