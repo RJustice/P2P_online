@@ -3,7 +3,7 @@
 @section('main')
 {!! Form::ipanel_start($data->name. '的详情') !!}
 <div class="row">
-    <h4>基础信息</h4>
+    <h4 class="alert alert-info">基础信息</h4>
     <div class="col-md-6 col-sm-12">
         <div class="row">
             <div class="col-md-3 col-sm-4">姓名:</div>
@@ -54,7 +54,7 @@
     </div>
 </div>
 <div class="row">
-    <h4>资金状况</h4>
+    <h4 class="alert alert-info">资金状况</h4>
     <div class="col-md-3 col-sm-12">
         <div class="row">
             <div class="col-md-5 col-sm-4">总资金:</div>
@@ -95,7 +95,17 @@
             <p>如果有线下购买请对应销售经理<a href="{{ route('admin.hand.addorder',['id'=> $data->id]) }}" class="btn btn-info">填写信息</a></p>
         </div>
     @else
+        {{-- {!! Html::idatagrid_header([]) !!} --}}
 
+        {!! Html::idatagrid($dealOrders,false) !!}
     @endif
 {!! Form::ipanel_end() !!}
+@if( ! $data->salesManager()->first() )
+{!! Form::ipanel_start('分配用户') !!}
+    <div class="row">
+        {!! Form::open(['url'=>'admin/users/add-ref','class'=>'form-horizontal']) !!}
+        {!! Form::close() !!}
+    </div>
+{!! Form::ipanel_end() !!}
+@endif
 @stop

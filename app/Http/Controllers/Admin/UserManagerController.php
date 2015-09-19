@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\UserMeta;
+use App\DealOrder;
 use Form;
 
 class UserManagerController extends Controller
@@ -30,13 +31,16 @@ class UserManagerController extends Controller
                 ['姓名', 'name'],
                 ['手机号','phone'],
                 ['身份证号', 'idno'],
-                ['注册时间', 'created_at'],
+                // ['注册时间', 'created_at'],
                 ['销售经理','salesManager',function($salesManager){
                     if( $salesManager ){
                         return $salesManager->first()->name;
                     }else{
                         return "暂无";
                     }
+                }],
+                ['区域','Model1',function($model){
+                    return $model->formatRegion();
                 }],
                 // ['禁用状态','sModel',function($sModel){
                 //     if( $sModel['published'] ){
@@ -56,11 +60,11 @@ class UserManagerController extends Controller
                         $memberCtrl = '';
                     }
                     if( $model->sales_manager != 0 ){
-                        $removeBtn = Form::iform_button(['name'=>'转移客户','class'=>'btn btn-block btn-danger','uri'=>'remove-ref','method'=>'POST','id'=>$model->id],[]);
+                        $refBtn = Form::iform_button(['name'=>'转移客户','class'=>'btn btn-block btn-danger','uri'=>'remove-ref','method'=>'POST','id'=>$model->id],[]);
                     }elseif( Auth::user()->can(['member_rm','admin']) ){
-                        $removeBtn = Form::iform_button(['name'=>'分配客户','class'=>'btn btn-block btn-danger','uri'=>$model->id.'#add-ref','method'=>'GET'],[]);;
+                        $refBtn = Form::iform_button(['name'=>'分配客户','class'=>'btn btn-block btn-danger','uri'=>$model->id.'#add-ref','method'=>'GET'],[]);;
                     }else{
-                        $removeBtn = '';
+                        $refBtn = '';
                     }
                     $viewBtn = '<a href="'.route('admin.users.show',['id'=>$model->id]).'" class="btn btn-block btn-info">查看详情</a>';
                     return '<div class="dropdown">
@@ -70,12 +74,13 @@ class UserManagerController extends Controller
                               </button>
                               <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                                 <li>'.$viewBtn.'</li>
+                                <li><a href="'.route('admin.users.edit',['id'=>$model->id]).'" class="btn btn-block btn-primary">编辑用户</a></li>
                                 '.$memberCtrl.'
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#" class="btn btn-block btn-success">查看投资</a></li>
                                 <li><a href="#" class="btn btn-block btn-info">增加投资</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li>'.$removeBtn.'</li>
+                                <li>'.$refBtn.'</li>
                               </ul>
                             </div>';
                 }],
@@ -177,10 +182,35 @@ class UserManagerController extends Controller
      * @return Response
      */
     public function show($id)
-    {
+    {   
+
         $data = User::findOrFail($id);
+
+        // DealOrders 
+        $dealOrders = [
+            'columns' =>[
+                ['编号','order_sn'],
+                ['理财项目','deal_title'],
+                ['利率','deal_rate',function($deal_rate){
+                    return ( $deal_rate / 100 ) . '%';
+                }],
+                ['购买金额','total_money',function($total_money){
+                    return number_format($total_money,2);
+                }],
+                ['开始时间','create_date'],
+                ['结束时间','finish_date',function($finish_date){
+                    return $finish_date;
+                }],
+                // ['来源','referer'],
+            ]
+        ];
+        $dealsPaginate = $data->dealOrders()->where('type',DealOrder::TYPE_LOAN)->where('is_deleted','<>','1')->orderByRaw('create_date desc')->paginate(15);
+
+        $dealOrders['items'] = $dealsPaginate;
+        // End 
+        
         if( $data ){
-            return view('forone::'.$this->uri.'.show',compact('data'));
+            return view('forone::'.$this->uri.'.show',compact('data','dealOrders'));
         }else{
             return $this->redirectWithError('数据未找到');
         }

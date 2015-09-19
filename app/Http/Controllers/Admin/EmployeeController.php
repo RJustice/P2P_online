@@ -29,8 +29,21 @@ class EmployeeController extends Controller
                 ['ID', 'id'],
                 ['姓名', 'name'],
                 ['手机号','phone'],
-                ['电子邮箱', 'email'],
-                ['注册时间', 'created_at'],
+                // ['电子邮箱', 'email'],
+                ['所属','company',function($company){
+                    return $company ? $company->name : '未知!!';
+                }],
+                ['级别','Model',function($model){
+                    return $model->hasRole('employee_m') ? '主管' : '普通';
+                }],
+                // ['区域','Model',function($model){
+                //     return $model->formatRegion();
+                // }],
+                // 
+                // ['入职时间', 'created_at',function($created_at){
+                //     return $created_at->format('Y-m-d');
+                // }],
+                // 
                 // ['推荐人','metas',function($metas){
                 //     return $metas->where('meta_key','rec_user')->first()->meta_value;
                 // }],
@@ -54,7 +67,16 @@ class EmployeeController extends Controller
             ]
         ];
 
-        $paginate = User::where('type',User::TYPE_EMPLOYEE)->orderBy('id','desc')->paginate(15);
+        $paginate = [];
+        if( auth()->user()->hasRole('employee_m') || auth()->user()->hasRole('admin') ){
+            $paginate = User::where('type',User::TYPE_EMPLOYEE);
+            if( auth()->user()->hasRole('employee_m') && ! auth()->user()->hasRole('admin') ){
+                $paginate = $paginate->where('company_id',auth()->user()->company_id);
+            }
+            $paginate = $paginate->orderByRaw('company_id,id')->paginate(15);
+        }
+
+        // $paginate = User::where('type',User::TYPE_EMPLOYEE)->orderByRaw('company_id,id')->paginate(15);
         $results['items'] = $paginate;
 
         return $this->view('forone::' . $this->uri.'.index', compact('results'));

@@ -66,7 +66,7 @@ class IFormServiceProvider extends ServiceProvider
     private function formText()
     {
         $handler = function ($name, $label, $placeholder = '', $percent = 0.5, $modal = false) {
-            $value = ForoneFormServiceProvider::parseValue($this->model, $name);
+            $value = IFormServiceProvider::parseValue($this->model, $name);
             $data = '';
             $input_col = 9;
             if (is_array($placeholder)) {
@@ -80,7 +80,7 @@ class IFormServiceProvider extends ServiceProvider
             return '<div class="form-group col-sm-' . ($percent * 12) . '" ' . $style . '>
                         ' . Form::form_label($label, $data) . '
                         <div class="col-sm-' . $input_col . '">
-                            <input name="' . $name . '" type="text" value="' . $value . '" class="form-control" placeholder="' . $placeholder . '">
+                            <input name="' . $name . '" type="text" value="' . $value . '" class="form-control" placeholder="' . $placeholder . '" autocomplete="off">
                           </div>
                     </div>';
         };
@@ -104,7 +104,7 @@ class IFormServiceProvider extends ServiceProvider
             return '<div class="form-group col-sm-' . ($percent * 12) . '" ' . $style . '>
                         ' . Form::form_label($label, $data) . '
                         <div class="col-sm-' . $input_col . '">
-                            <input name="' . $name . '" type="password" class="form-control" placeholder="' . $placeholder . '">
+                            <input name="' . $name . '" type="password" class="form-control" placeholder="' . $placeholder . '" autocomplete="off">
                           </div>
                     </div>';
         };
@@ -290,7 +290,7 @@ class IFormServiceProvider extends ServiceProvider
     private function formDate()
     {
         Form::macro('iform_date', function ($name, $label, $placeholder = '', $percent = 0.5) {
-            $value = ForoneFormServiceProvider::parseValue($this->model, $name);
+            $value = IFormServiceProvider::parseValue($this->model, $name);
             if (!is_string($placeholder)) {
                 $percent = $placeholder;
             }
@@ -306,7 +306,7 @@ class IFormServiceProvider extends ServiceProvider
     private function formTime()
     {
         Form::macro('iform_time', function ($name, $label, $placeholder = '', $percent = 0.5) {
-            $value = ForoneFormServiceProvider::parseValue($this->model, $name);
+            $value = IFormServiceProvider::parseValue($this->model, $name);
             if (!is_string($placeholder)) {
                 $percent = $placeholder;
             }

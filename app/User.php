@@ -9,6 +9,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use App\UserMeta;
+use App\Region;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
     use Authenticatable, CanResetPassword, EntrustUserTrait;
@@ -133,5 +134,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function company(){
         return $this->belongsTo('App\Company');
+    }
+
+    public function formatRegion(){
+        return Region::formatRegion($this->province_id,$this->city_id,$this->county_id);
     }
 }

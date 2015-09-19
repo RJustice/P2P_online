@@ -32,11 +32,19 @@ class CreateDealOrderTable extends Migration
             $table->decimal('payment_fee');
             $table->string('bank_id');
             $table->string('referer');
-            $table->string('deal_id');
             $table->string('user_name');
             $table->date('create_date');
             $table->date('finish_date');
             $table->tinyInteger('company_id');
+            $table->integer('who_sale');
+            $table->tinyInteger('status')->default(0);
+
+            // Deals 理财项目            
+            $table->integer('deal_id');
+            $table->string('deal_title');
+            $table->string('deal_sub_title');
+            $table->decimal('deal_daliy_returns',20,2);
+            $table->decimal('deal_rate',20,2);
 
             // 索引
             $table->unique('order_sn');

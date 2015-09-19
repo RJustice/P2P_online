@@ -3,12 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Region;
 
 class Company extends Model
 {
     protected $table = 'companys';
     protected $guarded = ['id'];
     protected $primaryKey = 'id';
+    public $timestamps = false;
 
     const STATUS_VAILD = 1;
     const STATUS_INVAILD = 0;
@@ -19,8 +21,8 @@ class Company extends Model
             if( $format ){
                 foreach( $companys as $company ){
                     $tmp[] = [
-                        'label' => $company,
-                        'value' => $company->getKey();
+                        'label' => $company->name,
+                        'value' => $company->getKey(),
                     ];
                 }
                 return $tmp;
@@ -34,5 +36,9 @@ class Company extends Model
 
     public function users(){
         return $this->hasMany('App\User');
+    }
+
+    public function formatRegion(){
+        return Region::formatRegion($this->province_id,$this->city_id,$this->county_id);
     }
 }

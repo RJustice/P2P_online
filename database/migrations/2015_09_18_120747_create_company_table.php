@@ -13,7 +13,7 @@ class CreateCompanyTable extends Migration
     public function up()
     {
         Schema::create('companys',function(Blueprint $table){
-            $table->increment('id');
+            $table->increments('id');
             $table->string('name');
             $table->tinyInteger('status')->default(1);
             $table->integer('province_id');

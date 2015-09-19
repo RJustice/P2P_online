@@ -22,9 +22,9 @@ return [
     'RedirectIfAuthenticatedPath' => 'admin/roles', // 如果授权后直接跳转到指定页面
 
     'menus'                       => [
-        '系统设置' => [
+        '权限设置' => [
             'icon'       => 'mdi-toggle-radio-button-on',
-            'permission' => 'admin',
+            'permission' => ['admin','employee_m'],
             'children'   => [
                 '角色管理'  => [
                     'uri' => 'roles',
@@ -39,7 +39,7 @@ return [
         ],
         '文章管理' => [
             'icon'       => 'mdi-toggle-radio-button-on',
-            'permission' => ['admin','editor'],
+            'permission' => ['admin','editor','employee_m'],
             'children'   => [
                 '分类管理'  => [
                     'uri' => 'category',
@@ -57,7 +57,7 @@ return [
         ],
         '用户管理' => [
             'icon'       => 'mdi-toggle-radio-button-on',
-            'permission' => ['admin','editor'],
+            'permission' => ['admin','editor','employee_m'],
             'children'   => [
                 '会员管理'  => [
                     'uri' => 'users',
@@ -109,6 +109,18 @@ return [
                 ],
                 '线下订单' => [
                     'uri' => 'hand/offline',
+                ]
+            ],
+        ],
+        '系统设置' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '分公司'  => [
+                    'uri' => 'company',
+                ],
+                '系统设置'  => [
+                    'uri' => 'sys',
                 ]
             ],
         ]

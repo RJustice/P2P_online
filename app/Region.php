@@ -55,6 +55,14 @@ class Region extends Model
         }
     }
 
+    public static function formatRegion($province_id,$city_id,$county_id){
+        if( $province_id == 0 || $city_id == 0 || $county_id == 0 ){
+            return '';
+        }
+        $regions = self::whereIn('id',[$province_id,$city_id,$county_id])->get();
+        return $regions[0]->name . '&nbsp;&nbsp;' .$regions[1]->name. '&nbsp;&nbsp;' . $regions[2]->name;
+    }
+
     // public function getZone($town,$format = false){
     //     $zones = self::where('pid',$town)->where('region_level',4)->get();
     //     if( $format ){

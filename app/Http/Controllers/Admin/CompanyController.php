@@ -21,33 +21,23 @@ class CompanyController extends BaseController {
         $results = [
             'columns' => [
                 ['编号', 'id'],
-                ['文章标题', 'title'],
+                ['公司名', 'name'],
                 // ['分类','categoryid',function($categoryid){
                 //     return Category::find($categoryid)->name;
                 // }],
-                ['分类','category.name'],
-                ['创建时间', 'created_at'],
-                ['更新时间', 'updated_at'],
-                ['发布状态','sModel',function($sModel){
-                    if( $sModel['published'] ){
-                        $btn_conf = ['name'=>'是','class'=>'btn-success','uri'=>$sModel['id'],'method'=>'POST','id'=>$sModel['id']];
-                        $btn_data = ['published'=>0];
-                    }else{
-                        $btn_conf = ['name'=>'否','class'=>'btn-danger','uri'=>$sModel['id'],'method'=>'POST','id'=>$sModel['id']];
-                        $btn_data = ['published'=>1];
-                    }
-                    return Form::form_button($btn_conf,$btn_data);
+                ['区域','Model',function($model){
+                    return $model->formatRegion();
                 }],
                 ['操作', 'buttons', function ($data) {
                     $buttons = [
                         ['编辑'],
-                        [['name'=>'删除','class'=>'btn-danger','uri'=>$data['id'],'method'=>'POST'],['deleted'=>1]]
+                        [['name'=>'删除','class'=>'btn-danger','uri'=>$data['id'],'method'=>'POST'],['status'=>0]]
                     ];
                     return $buttons;
                 }],
             ]
         ];
-        $paginate = Company::where('type',Company::TYPE_NORMAL)->where('deleted',false)->orderBy('id','desc')->paginate(15);
+        $paginate = Company::where('status',Company::STATUS_VAILD)->orderBy('id','desc')->paginate(15);
         $results['items'] = $paginate;
 
         return $this->view('forone::' . $this->uri.'.index', compact('results'));

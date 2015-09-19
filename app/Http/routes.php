@@ -78,8 +78,8 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
 
     Route::resource('users','UserManagerController');
     Route::post('users/remove-ref',['as' => 'admin.users.remove-ref','uses' => 'UserManagerController@removeRef']);
-    // Route::get('users/get-add-ref',['as' => 'admin.users.get-add-ref','uses' => 'UserManagerController@getAddRef']);
-    // Route::post('users/add-ref',['as' => 'admin.users.get-add-ref','uses' => 'UserManagerController@getAddRef']);
+    Route::post('users/add-ref',['as' => 'admin.users.get-add-ref','uses' => 'UserManagerController@getAddRef']);
+    
     Route::resource('employee','EmployeeController');
 
     // HandController

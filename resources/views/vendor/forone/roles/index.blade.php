@@ -2,16 +2,16 @@
 
 @section('main')
 
-     {!! Html::list_header([
+     {!! Html::ilist_header([
      'new'=>true,
      ]) !!}
 
-     {!! Html::datagrid($results) !!}
+     {!! Html::idatagrid($results) !!}
 
-     {!! Html::modal_start('modal','分配权限') !!}
+     {!! Html::imodal_start('modal','分配权限') !!}
      <div class="md-whiteframe-z0 bg-white">
          {!! Form::open(['method'=>'POST','url'=>'admin/roles/assign-permission','id'=>'form_id']) !!}
-         {!! Form::hidden_input('id') !!}
+         {!! Form::ihidden_input('id') !!}
          <div class="tab-content p m-b-md b-t b-t-2x">
              @foreach($perms as $perm)
                  <label class="md-switch"><input type="checkbox" name="{{ $perm->name }}"><i class="indigo"></i>{{ $perm->description ? $perm->display_name .'「'.$perm->description.'」' : $perm->display_name }}</label>
@@ -19,7 +19,7 @@
          </div>
          {!! Form::close() !!}
      </div>
-     {!! Html::modal_end() !!}
+     {!! Html::imodal_end() !!}
 @stop
 
 @section('js')

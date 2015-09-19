@@ -12,7 +12,10 @@ class AddFieldsToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {            
+            $table->dropUnique('users_username_unique');
+            $table->dropUnique('users_phone_unique');
+
             $table->string('login_ip');
             $table->tinyInteger('is_delete');
             $table->string('idno',20);
@@ -49,8 +52,13 @@ class AddFieldsToUsersTable extends Migration
             $table->integer('modified_uid');
             $table->integer('company_id')->default(1);
 
-            $table->index('idcard');
-            $table->index('username');
+            // $table->dropUnique('username');
+            // $table->dropUnique('phone');
+
+            $table->unique('username');
+            $table->unique('phone');
+            $table->index('idno');
+            // $table->index('username');
         });
     }
 
@@ -62,7 +70,10 @@ class AddFieldsToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['login_ip','is_delete','idno','idcardpassed','idcardpassed_time','real_name','phonepassed','money','quota','lock_money','sales_manager','pid','verify','code','referer_memo','referral_count','score','login_time','password_verify','referer','n_province_id','n_city_id','province_id','city_id','sex','step','byear','bmonth','bday','address','paypassword']);
+            $table->dropIndex('users_idno_index');
+            // $table->dropUnique('users_username_unique');
+            // $table->dropUnique('users_phone_unique');
+            $table->dropColumn(['login_ip','is_delete','idno','idcardpassed','idcardpassed_time','real_name','phonepassed','money','quota','lock_money','sales_manager','pid','verify','code','referer_memo','referral_count','score','login_time','password_verify','referer','n_province_id','n_city_id','province_id','city_id','sex','step','byear','bmonth','bday','address','paypassword','company_id','modified_uid','n_county_id','county_id']);
         });
     }
 }

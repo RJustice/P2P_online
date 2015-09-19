@@ -69,7 +69,7 @@ class IHtmlServiceProvider extends ServiceProvider
 
     private function dataGrid()
     {
-        Html::macro('idatagrid', function ($data) {
+        Html::macro('idatagrid', function ($data,$panel = true) {
 
             $html = '<table class="table m-b-none" data-sort="false" ui-jp="footable">';
             $columns = $data['columns'];
@@ -118,7 +118,7 @@ class IHtmlServiceProvider extends ServiceProvider
                 }
                 if ($index <= 1) {
                     $class .= 'footable-visible ';
-                } else if ($index < 4) {
+                } else if ($index < 6) {
                     $dataToggle .= ' data-hide="phone"';
                 } else {
                     $dataToggle .= ' data-hide="tablet,phone"';
@@ -222,7 +222,7 @@ class IHtmlServiceProvider extends ServiceProvider
             $html .= '  </td>';
             $html .= ' </tr>';
             $html .= '</tfoot>';
-            $html .= '</table></div></div>';
+            $html .= $panel ? '</table></div></div>' : '</table>';
             $js = "<script>init.push(function(){
                    $('.fancybox').fancybox({
                     openEffect  : 'none',
@@ -237,7 +237,7 @@ class IHtmlServiceProvider extends ServiceProvider
     private function groupLabel()
     {
         Form::macro('igroup_label', function ($name, $label) {
-            $value = ForoneHtmlServiceProvider::parseValue($this->model, $name);
+            $value = IHtmlServiceProvider::parseValue($this->model, $name);
             return '<div class="control-group">
                         <label for="title" class="control-label">' . $label . '</label>
                         <div class="controls">
@@ -358,7 +358,7 @@ class IHtmlServiceProvider extends ServiceProvider
                 $html .= $js;
             }
 
-            $html .= '</div>';
+            // $html .= '</div>';
             return $html;
         };
         Html::macro('ilist_header', $handler);

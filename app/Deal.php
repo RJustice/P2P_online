@@ -59,4 +59,8 @@ class Deal extends Model
             return [];
         }
     }
+
+    public function dealOrders(){
+        return $this->hasMany('App\DealOrder');
+    }
 }
