@@ -22,25 +22,40 @@ class HandController extends Controller
 
 
     // 快速充值
-    public function recharge(){
+    public function getRecharge(){
+        return 'get';
+    }
+
+    public function postRecharge(){
+        return 'post';
+    }
+
+    // 快速冻结资金
+    public function getFreeze(){
 
     }
 
-
-    // 快速冻结资金
-    public function freeze(){
+    public function postFreeze(){
 
     }
 
     // 快速扣款
-    public function debit(){
+    public function getDebit(){
+
+    }
+
+    public function postDebit(){
 
     }
 
 
     // 线下订单录入
-    public function offline(){
+    public function getOffline(){
         // check access
-        return '';
+        return view("forone::".$this->uri.'.offline');
+    }
+
+    public function postOffline(){
+
     }
 }

@@ -92,7 +92,7 @@
     @if( $data->dealOrders ) 
         <div class="alert alert-info">
             <p>该用户暂时没有购买任何理财产品</p>
-            <p>如果有线下购买请对应销售经理<a href="{{ route('admin.hand.addorder',['id'=> $data->id]) }}" class="btn btn-info">填写信息</a></p>
+            <p>如果有线下购买请对应销售经理<a href="{{ route('admin.hand.offline',['id'=> $data->id]) }}" class="btn btn-info">填写信息</a></p>
         </div>
     @else
         {{-- {!! Html::idatagrid_header([]) !!} --}}
@@ -103,7 +103,7 @@
 @if( ! $data->salesManager()->first() )
 {!! Form::ipanel_start('分配用户') !!}
     <div class="row">
-        {!! Form::open(['url'=>'admin/users/add-ref','class'=>'form-horizontal']) !!}
+        {!! Form::open(['url'=>'admin/'.$uri.'/add-ref','class'=>'form-horizontal']) !!}
         {!! Form::close() !!}
     </div>
 {!! Form::ipanel_end() !!}

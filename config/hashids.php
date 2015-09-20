@@ -38,9 +38,9 @@ return [
     'connections' => [
 
         'main' => [
-            'salt' => 'hLQIhGm9wNnOcun8H6PR',
-            'length' => '12',
-            'alphabet' => str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),
+            'salt' => 'hLQIhGm9w',
+            'length' => '8',
+            'alphabet' => str_shuffle('abdefgjklmnopqrvwxyzABDEFGJKLMNOPQRVWXYZ123456789'),
         ],
 
         'alternative' => [

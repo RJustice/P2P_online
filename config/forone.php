@@ -60,7 +60,7 @@ return [
             'permission' => ['admin','editor','employee_m'],
             'children'   => [
                 '会员管理'  => [
-                    'uri' => 'users',
+                    'uri' => 'members',
                 ],
                 '员工管理'  => [
                     'uri' => 'employee',

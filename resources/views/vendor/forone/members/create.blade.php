@@ -6,9 +6,9 @@
 
     {!! Form::ipanel_start('创建'.$page_name) !!}
     @if (Input::old())
-        {!! Form::model(Input::old(),['url'=>'admin/users','class'=>'form-horizontal']) !!}
+        {!! Form::model(Input::old(),['url'=>'admin/'.$uri,'class'=>'form-horizontal']) !!}
     @else
-        {!! Form::open(['url'=>'admin/users','class'=>'form-horizontal']) !!}
+        {!! Form::open(['url'=>'admin/'.$uri,'class'=>'form-horizontal']) !!}
     @endif
     @include('forone::'. $uri.'.form')
     {!! Form::ipanel_end('保存') !!}

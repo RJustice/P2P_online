@@ -76,14 +76,27 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('company','CompanyController');
     Route::get('category/alists/{id}/edit','ArticlesController@edit');
 
-    Route::resource('users','UserManagerController');
-    Route::post('users/remove-ref',['as' => 'admin.users.remove-ref','uses' => 'UserManagerController@removeRef']);
-    Route::post('users/add-ref',['as' => 'admin.users.get-add-ref','uses' => 'UserManagerController@getAddRef']);
+    Route::resource('members','MembersController');
+    Route::post('members/remove-ref',['as' => 'admin.members.remove-ref','uses' => 'MembersController@removeRef']);
+    Route::post('members/add-ref',['as' => 'admin.members.get-add-ref','uses' => 'MembersController@getAddRef']);
     
     Route::resource('employee','EmployeeController');
 
     // HandController
-    Route::get('hand/add-order/{$id}',['as'=>'admin.hand.addorder','uses'=>'HandController@getAddOrder'])->where(['id'=>'[0-9]+']);
+    Route::group(['prefix'=>'hand/{id}'],function(){
+        Route::get('recharge',['as'=>'admin.hand.recharge','uses'=>'HandController@getRecharge']);
+        Route::post('recharge',['as'=>'admin.hand.recharge','uses'=>'HandController@postRecharge']);
+        
+        Route::get('freeze',['as'=>'admin.hand.freeze','uses'=>'HandController@getFreeze']);
+        Route::post('freeze',['as'=>'admin.hand.freeze','uses'=>'HandController@postFreeze']);
+        
+        Route::get('debit',['as'=>'admin.hand.debit','uses'=>'HandController@getDebit']);
+        Route::post('debit',['as'=>'admin.hand.debit','uses'=>'HandController@postDebit']);
+        
+        Route::get('offline',['as'=>'admin.hand.offline','uses'=>'HandController@getOffline']);
+        Route::post('offline',['as'=>'admin.hand.offline','uses'=>'HandController@postOffline']);
+    });
+
 });
 
 

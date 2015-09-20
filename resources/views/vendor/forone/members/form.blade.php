@@ -1,8 +1,9 @@
 {!! Form::iform_text('phone','手机号码','请输入手机号码',1) !!}
 {!! Form::iform_text('name','姓名','请输入真实姓名',1) !!}
-{!! Form::iform_select('company_id','所属',\App\Company::getCompanyOption(true),1) !!}
 {!! Form::iform_text('email','Email','请输入Email地址',1) !!}
+@if( ! str_is('admin.'.$uri.'.edit', Route::current()->getName()) )
 {!! Form::iform_password('password','密码','请输入密码',1) !!}
+@endif
 {!! Form::iform_radio('is_delete','禁用',[[0,'是'],[1,'否',true]],1) !!}
 {!! Form::iform_text('idno','身份证号','请输入正确身份证号码',1) !!}
 {!! Form::iform_radio('sex','性别',[[1,'男'],[0,'女']],1) !!}
@@ -13,6 +14,10 @@
 
 {!! Form::iform_text('address','地址','请输入地址',1) !!}
 
+{{-- @inject('userModel','App\User'); --}}
+@if(Auth::user()->can(['admin']) || Auth::user()->hasRole('employee_m') )
+{!! Form::iform_select('sales_manager','指定销售经理',array_merge([['label'=>'请选择','value'=>0]],\App\User::getSalesManagers(true)),1) !!}
+@endif
 {{-- @if (str_is('admin.admins.create', Route::current()->getName())) --}}
     {{-- {!! Form::igroup_password('password','密码','请输入密码',1) !!} --}}
 {{-- @endif --}}

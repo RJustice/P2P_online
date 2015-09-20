@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 use App\UserMeta;
 use App\Region;
+use Hashids;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
     use Authenticatable, CanResetPassword, EntrustUserTrait;
@@ -105,26 +106,29 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     public function salesManager(){
-        return $this->hasOne('App\User','id','sales_manager');
+        return $this->belongsTo('App\User','sales_manager','id');
     }
 
     public function modifiedUser(){
-        return $this->hasOne('App\User','id','modified_uid');
+        return $this->belongsTo('App\User','modified_uid','id');
     }
 
     public static function getSalesManagers($format = false){
         $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->get();
-        // if( $salesManagers )
-        if( $format ){
-            foreach( $salesManagers as $salesManager ){
-                $tmp[] = [
-                    'label' => $salesManager->name,
-                    'value' => $salesManager->id,
-                ];
+        if( ! $salesManagers->isEmpty() ){
+            if( $format ){
+                foreach( $salesManagers as $salesManager ){
+                    $tmp[] = [
+                        'label' => $salesManager->name,
+                        'value' => $salesManager->id,
+                    ];
+                }
+                return $tmp;
+            }else{
+                return $salesManagers;
             }
-            return $tmp;
         }else{
-            return $salesManagers;
+            return [];
         }
     }
 
@@ -138,5 +142,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function formatRegion(){
         return Region::formatRegion($this->province_id,$this->city_id,$this->county_id);
+    }
+    
+    protected static function createdCallback($user){
+        $hash_id = Hashids::encode($user->id);
+        return $user->update(['hash_id'=>$hash_id]);
+    }
+
+    protected static function deletedCallback($user){
+        return false;
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "064a4a4ac2eeade78483a32071ecc266",
+    "hash": "70ffc3321ecd9b51001f456bab7d1fce",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -667,6 +667,65 @@
             "time": "2015-06-06 16:36:13"
         },
         {
+            "name": "graham-campbell/manager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
+                "reference": "374876bb2cb71b2ffe89cfdf40abd4f798b6552e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/GrahamCampbell/Laravel-Manager/374876bb2cb71b2ffe89cfdf40abd4f798b6552e.zip",
+                "reference": "374876bb2cb71b2ffe89cfdf40abd4f798b6552e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.0.*|5.1.*",
+                "illuminate/support": "5.0.*|5.1.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "graham-campbell/testbench-core": "~1.0",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^4.7.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Manager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com"
+                }
+            ],
+            "description": "Manager Provides Some Manager Functionality For Laravel 5",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Manager",
+                "Laravel-Manager",
+                "connector",
+                "framework",
+                "interface",
+                "laravel",
+                "manager"
+            ],
+            "time": "2015-07-19 11:35:22"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "dev-master",
             "source": {
@@ -836,6 +895,63 @@
                 "uri"
             ],
             "time": "2015-08-15 19:32:36"
+        },
+        {
+            "name": "hashids/hashids",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ivanakimov/hashids.php.git",
+                "reference": "34ec09726ee7ece608af4c7c7c211dc4d8941d1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/ivanakimov/hashids.php/34ec09726ee7ece608af4c7c7c211dc4d8941d1e.zip",
+                "reference": "34ec09726ee7ece608af4c7c7c211dc4d8941d1e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hashids\\": "lib/Hashids/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Akimov",
+                    "email": "ivan@barreleye.com",
+                    "homepage": "https://twitter.com/IvanAkimov"
+                }
+            ],
+            "description": "Generate hashids like YouTube or Bitly from numbers to obfuscate your database primary ids, or navigate to the right shard",
+            "homepage": "http://hashids.org/php",
+            "keywords": [
+                "bitly",
+                "decrypt",
+                "encrypt",
+                "hash",
+                "hashid",
+                "hashids",
+                "ids",
+                "obfuscate",
+                "youtube"
+            ],
+            "time": "2015-08-23 18:17:35"
         },
         {
             "name": "intervention/image",
@@ -2441,6 +2557,68 @@
             "time": "2015-08-25 16:19:32"
         },
         {
+            "name": "vinkla/hashids",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinkla/hashids.git",
+                "reference": "11843bbb668acf029435a2a4ebb8a2e24adb2569"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://packagist.phpcomposer.com/files/vinkla/hashids/11843bbb668acf029435a2a4ebb8a2e24adb2569.zip",
+                "reference": "11843bbb668acf029435a2a4ebb8a2e24adb2569",
+                "shasum": ""
+            },
+            "require": {
+                "graham-campbell/manager": "~2.2",
+                "hashids/hashids": "~1.0",
+                "illuminate/contracts": "5.0.*|5.1.*",
+                "illuminate/support": "5.0.*|5.1.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "~3.0",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^4.7.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vinkla\\Hashids\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Klaiber",
+                    "email": "hello@vinkla.com"
+                }
+            ],
+            "description": "A Hashids bridge for Laravel",
+            "keywords": [
+                "bitly",
+                "decrypt",
+                "encrypt",
+                "hash",
+                "hashid",
+                "hashids",
+                "ids",
+                "laravel",
+                "obfuscate",
+                "youtube"
+            ],
+            "time": "2015-09-18 09:30:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "1.1.x-dev",
             "source": {
@@ -2640,65 +2818,6 @@
                 "fixtures"
             ],
             "time": "2015-08-26 15:00:40"
-        },
-        {
-            "name": "graham-campbell/manager",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
-                "reference": "374876bb2cb71b2ffe89cfdf40abd4f798b6552e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/GrahamCampbell/Laravel-Manager/374876bb2cb71b2ffe89cfdf40abd4f798b6552e.zip",
-                "reference": "374876bb2cb71b2ffe89cfdf40abd4f798b6552e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "5.0.*|5.1.*",
-                "illuminate/support": "5.0.*|5.1.*",
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "graham-campbell/testbench-core": "~1.0",
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.7.6"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.2-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GrahamCampbell\\Manager\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com"
-                }
-            ],
-            "description": "Manager Provides Some Manager Functionality For Laravel 5",
-            "keywords": [
-                "Graham Campbell",
-                "GrahamCampbell",
-                "Laravel Manager",
-                "Laravel-Manager",
-                "connector",
-                "framework",
-                "interface",
-                "laravel",
-                "manager"
-            ],
-            "time": "2015-07-19 11:35:22"
         },
         {
             "name": "guzzle/common",
@@ -2946,63 +3065,6 @@
                 "test"
             ],
             "time": "2015-05-11 14:41:42"
-        },
-        {
-            "name": "hashids/hashids",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ivanakimov/hashids.php.git",
-                "reference": "34ec09726ee7ece608af4c7c7c211dc4d8941d1e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "http://packagist.phpcomposer.com/files/ivanakimov/hashids.php/34ec09726ee7ece608af4c7c7c211dc4d8941d1e.zip",
-                "reference": "34ec09726ee7ece608af4c7c7c211dc4d8941d1e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Hashids\\": "lib/Hashids/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ivan Akimov",
-                    "email": "ivan@barreleye.com",
-                    "homepage": "https://twitter.com/IvanAkimov"
-                }
-            ],
-            "description": "Generate hashids like YouTube or Bitly from numbers to obfuscate your database primary ids, or navigate to the right shard",
-            "homepage": "http://hashids.org/php",
-            "keywords": [
-                "bitly",
-                "decrypt",
-                "encrypt",
-                "hash",
-                "hashid",
-                "hashids",
-                "ids",
-                "obfuscate",
-                "youtube"
-            ],
-            "time": "2015-08-23 18:17:35"
         },
         {
             "name": "illuminate/html",
@@ -4372,7 +4434,8 @@
         "ender/laravel-ueditor": 20,
         "mews/captcha": 20,
         "guzzlehttp/guzzle": 20,
-        "doctrine/dbal": 20
+        "doctrine/dbal": 20,
+        "vinkla/hashids": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

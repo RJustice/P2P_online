@@ -33,15 +33,7 @@ class DealsController extends Controller
                     return Deal::getLoanTypeTitle($loan_type);
                 }],
                 ['可用','is_effect',function($is_effect){
-                    // if( $sModel['published'] ){
-                    //     $btn_conf = ['name'=>'是','class'=>'btn-success','uri'=>$sModel['id'],'method'=>'POST','id'=>$sModel['id']];
-                    //     $btn_data = ['published'=>0];
-                    // }else{
-                    //     $btn_conf = ['name'=>'否','class'=>'btn-danger','uri'=>$sModel['id'],'method'=>'POST','id'=>$sModel['id']];
-                    //     $btn_data = ['published'=>1];
-                    // }
-                    // return Form::form_button($btn_conf,$btn_data);
-                    return $is_effect;
+                    return $is_effect ? '是' : '否';
                 }],
                 ['操作','other',function(){
                     return '<div class="dropdown">

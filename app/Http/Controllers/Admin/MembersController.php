@@ -11,12 +11,12 @@ use App\UserMeta;
 use App\DealOrder;
 use Form;
 
-class UserManagerController extends Controller
+class MembersController extends Controller
 {
 
     function __construct()
     {
-        parent::__construct('usermanager', '用户');
+        parent::__construct('members', '用户');
     }
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class UserManagerController extends Controller
                 // ['注册时间', 'created_at'],
                 ['销售经理','salesManager',function($salesManager){
                     if( $salesManager ){
-                        return $salesManager->first()->name;
+                        return $salesManager->name;
                     }else{
                         return "暂无";
                     }
@@ -66,7 +66,7 @@ class UserManagerController extends Controller
                     }else{
                         $refBtn = '';
                     }
-                    $viewBtn = '<a href="'.route('admin.users.show',['id'=>$model->id]).'" class="btn btn-block btn-info">查看详情</a>';
+                    $viewBtn = '<a href="'.route('admin.'.$this->uri.'.show',['id'=>$model->id]).'" class="btn btn-block btn-info">查看详情</a>';
                     return '<div class="dropdown">
                               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 操作
@@ -74,7 +74,7 @@ class UserManagerController extends Controller
                               </button>
                               <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                                 <li>'.$viewBtn.'</li>
-                                <li><a href="'.route('admin.users.edit',['id'=>$model->id]).'" class="btn btn-block btn-primary">编辑用户</a></li>
+                                <li><a href="'.route('admin.'.$this->uri.'.edit',['id'=>$model->id]).'" class="btn btn-block btn-primary">编辑用户</a></li>
                                 '.$memberCtrl.'
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#" class="btn btn-block btn-success">查看投资</a></li>
@@ -147,9 +147,9 @@ class UserManagerController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['phone','name','email','password','is_delete','idno','province_id','city_id','address','sales_manager']);
+        $data = $request->only(['phone','name','email','password','is_delete','idno','province_id','city_id','county_id','address','sales_manager','sex']);
         $data['password'] = bcrypt($data['password']);
-        $data['type'] = User::TYPE_EMPLOYEE;
+        $data['type'] = User::TYPE_MEMBER;
         $data['idcardpassed'] = 1;
         $data['idcardpassed_time'] = time();
 
@@ -169,6 +169,7 @@ class UserManagerController extends Controller
             $data['referer'] = User::REFERER_SALES_CREATED;
             $data['sales_manager'] = $createUser->id;
         }
+        $data['modified_uid'] = Auth::user()->getKey();
 
         $data['username'] = $data['phone'];
         User::create($data);
@@ -241,17 +242,10 @@ class UserManagerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $name = $request->get('name');
-        $email = $request->get('email');
-        $count = User::whereName($name)->where('id', '!=', $id)->count();
-        if ($count > 0) {
-            return $this->redirectWithError('名称不能重复');
-        }
-        $count = User::whereEmail($email)->where('id', '!=', $id)->count();
-        if ($count > 0) {
-            return $this->redirectWithError('邮箱不能重复');
-        }
-        User::findOrFail($id)->update($request->only(['name', 'email']));
+        $user = User::findOrFail($id);
+        $data = $request->only(['phone','name','email','is_delete','idno','province_id','city_id','county_id','address','sales_manager','sex']);
+        $data['modified_uid'] = Auth::user()->getKey();
+        $user->update($data);
         return redirect()->route('admin.'.$this->uri.'.index');
     }
 
@@ -282,5 +276,13 @@ class UserManagerController extends Controller
 
     public function addRef(Request $request){
         return '111';
+    }
+
+    public function getReset(){
+        return view('forone::'.$this->uri.'.reset');
+    }
+
+    public function postReset(Request $request){
+
     }
 }

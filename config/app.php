@@ -156,6 +156,8 @@ return [
 
         App\Providers\SmsServiceProvider::class,
 
+        Vinkla\Hashids\HashidsServiceProvider::class,
+
     ],
 
     /*
@@ -214,6 +216,7 @@ return [
 
         'Sms' => App\Facades\Sms::class,
 
+        'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
     ],
 
 ];

@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
+use App\User;
+
 class EventServiceProvider extends ServiceProvider
 {
     /**
@@ -28,6 +30,8 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot($events);
 
-        //
+        User::created(function($user){
+            User::createdCallback($user);
+        });
     }
 }

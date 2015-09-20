@@ -17,7 +17,7 @@ class Company extends Model
 
     public static function getCompanyOption($format = false){
         $companys = self::where('status',self::STATUS_VAILD)->get();
-        if( $companys ){
+        if( !$companys->isEmpty() ){
             if( $format ){
                 foreach( $companys as $company ){
                     $tmp[] = [
