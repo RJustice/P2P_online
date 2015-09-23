@@ -6,6 +6,7 @@ use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 use App\User;
+use App\DealOrder;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -32,6 +33,10 @@ class EventServiceProvider extends ServiceProvider
 
         User::created(function($user){
             User::createdCallback($user);
+        });
+
+        DealOrder::saved(function($dealOrder){
+            DealOrder::savedCallback($dealOrder);
         });
     }
 }

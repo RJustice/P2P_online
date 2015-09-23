@@ -64,7 +64,7 @@
     <div class="col-md-3 col-sm-12">
         <div class="row">
             <div class="col-md-5 col-sm-4">可用资金:</div>
-            <div class="col-md-7 col-sm-8">{{ $data->money }}</div>
+            <div class="col-md-7 col-sm-8">{{ $data->can_money }}</div>
         </div>
     </div>
     <div class="col-md-3 col-sm-12">
@@ -76,7 +76,7 @@
     <div class="col-md-3 col-sm-12">
         <div class="row">
             <div class="col-md-5 col-sm-4">红包金额:</div>
-            <div class="col-md-7 col-sm-8">{{ $data->lock_money }}</div>
+            <div class="col-md-7 col-sm-8"></div>
         </div>
     </div>
     {{-- <div class="col-md-4 col-sm-12">
@@ -89,10 +89,10 @@
 {!! Form::ipanel_end() !!}
 
 {!! Form::ipanel_start('理财项目') !!}
-    @if( $data->dealOrders ) 
+    @if( $dealOrders['items']->isEmpty() ) 
         <div class="alert alert-info">
             <p>该用户暂时没有购买任何理财产品</p>
-            <p>如果有线下购买请对应销售经理<a href="{{ route('admin.hand.offline',['id'=> $data->id]) }}" class="btn btn-info">填写信息</a></p>
+            <p>如果有线下投资合同未登记,请<a href="{{ route('admin.hand.{id}.offline',['id'=> $data->id]) }}" class="btn btn-info">登记线下投资</a></p>
         </div>
     @else
         {{-- {!! Html::idatagrid_header([]) !!} --}}

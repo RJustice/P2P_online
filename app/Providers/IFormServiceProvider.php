@@ -298,7 +298,7 @@ class IFormServiceProvider extends ServiceProvider
                         ' . Form::form_label($label) . '
                         <div class="col-sm-9">' .
                 '<input id="' . $name . 'date" name="' . $name . '" type="text" value="' . $value . '" class="form-control" placeholder="' . $placeholder . '">';
-            $js = "<script>init.push(function(){jQuery('#" . $name . "date').datetimepicker({format:'Y-m-d'});})</script>";
+            $js = "<script>init.push(function(){jQuery('#" . $name . "date').datetimepicker({format:'Y-m-d',lang:'zh',timepicker:false});})</script>";
             return $result . '</div></div>' . $js;
         });
     }
@@ -314,7 +314,7 @@ class IFormServiceProvider extends ServiceProvider
                         ' . Form::form_label($label) . '
                         <div class="col-sm-9">' .
                 '<input id="' . $name . 'date" name="' . $name . '" type="text" value="' . $value . '" class="form-control" placeholder="' . $placeholder . '">';
-            $js = "<script>init.push(function(){jQuery('#" . $name . "date').datetimepicker({format:'Y-m-d H:i'});})</script>";
+            $js = "<script>init.push(function(){jQuery('#" . $name . "date').datetimepicker({format:'Y-m-d H:i',lang:'zh'});})</script>";
             return $result . '</div></div>' . $js;
         });
     }

@@ -4,7 +4,7 @@
 @if( ! str_is('admin.'.$uri.'.edit', Route::current()->getName()) )
 {!! Form::iform_password('password','密码','请输入密码',1) !!}
 @endif
-{!! Form::iform_radio('is_delete','禁用',[[0,'是'],[1,'否',true]],1) !!}
+{!! Form::iform_radio('is_delete','禁用',[[1,'是'],[0,'否',true]],1) !!}
 {!! Form::iform_text('idno','身份证号','请输入正确身份证号码',1) !!}
 {!! Form::iform_radio('sex','性别',[[1,'男'],[0,'女']],1) !!}
 {{-- @inject('region','App\Region') --}}

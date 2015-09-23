@@ -16,7 +16,7 @@ class CreateDealOrderTable extends Migration
             $table->increments('id');
             $table->string('order_sn');
             $table->tinyInteger('type');
-            $table->integer('user_id');
+            $table->string('user_id',16);
             $table->timestamps();
             $table->tinyInteger('pay_status');
             $table->decimal('total_price',20,2);
@@ -36,7 +36,8 @@ class CreateDealOrderTable extends Migration
             $table->date('create_date');
             $table->date('finish_date');
             $table->tinyInteger('company_id');
-            $table->integer('who_sale');
+            $table->string('who_sale',25);
+            $table->string('who_confirm',25);
             $table->tinyInteger('status')->default(0);
 
             // Deals 理财项目            

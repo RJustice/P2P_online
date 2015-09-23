@@ -49,6 +49,12 @@ return [
             'alphabet' => 'your-alphabet-string',
         ],
 
+        'proof' => [
+            'salt' => 'm9ls3xSP6wNnGBO',
+            'length' => '16',
+            'alphabet' => str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),
+        ],
+
     ],
 
 ];

@@ -3,7 +3,7 @@
         <div class="box bg-white">
             <div class="navbar md-whiteframe-z1 no-radius blue">
                 <!-- brand -->
-                <a class="navbar-brand">
+                <a class="navbar-brand" href="{{ route('admin') }}">
                     <img src="{{ asset($siteConfig['logo']) }}" alt="." style="width: 24px; height: 24px;">
                     <span class="hidden-folded m-l inline">{{ $siteConfig['site_name'] }}</span>
                 </a>

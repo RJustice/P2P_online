@@ -329,7 +329,7 @@ class IHtmlServiceProvider extends ServiceProvider
 
             if (array_key_exists('search', $data)) {
                 $search = is_bool($data['search']) ? '请输入您想检索的信息' : $data['search'];
-                $html .= '<div class="col-md-3" style="padding-left:0px; float: right;width: 17%">
+                $html .= '<div class="col-md-3" style="padding-left:0px; float: right;">
                                 <input id="keywordsInput" type="text" class="form-control input" name="keywords" value="' . Input::get('keywords') . '" placeholder="' . $search . '"  />
                             </div>';
                 $js = "<script>init.push(function(){

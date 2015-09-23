@@ -63,7 +63,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
         Route::post('roles/assign-permission', ['as' => 'admin.roles.assign-permission', 'uses' => 'RolesController@assignPermission']);
         Route::post('admins/assign-role', ['as' => 'admin.roles.assign-role', 'uses' => 'AdminsController@assignRole']);
     });
-    Route::get('/','DashboardController@index');
+    Route::get('/',['as'=>'admin','uses'=>'DashboardController@index']);
     Route::get('category/alists',['as' => 'admin.category.alists','uses' => 'CategoryController@alists']);
     Route::resource('section','SectionController');
     Route::resource('category','CategoryController');
@@ -79,24 +79,44 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('members','MembersController');
     Route::post('members/remove-ref',['as' => 'admin.members.remove-ref','uses' => 'MembersController@removeRef']);
     Route::post('members/add-ref',['as' => 'admin.members.get-add-ref','uses' => 'MembersController@getAddRef']);
-    
+    Route::get('members/{id}/orders',['as'=>'admin.members.{id}.orders','uses'=>'MembersController@orders']);
+
+
     Route::resource('employee','EmployeeController');
 
     // HandController
     Route::group(['prefix'=>'hand/{id}'],function(){
-        Route::get('recharge',['as'=>'admin.hand.recharge','uses'=>'HandController@getRecharge']);
-        Route::post('recharge',['as'=>'admin.hand.recharge','uses'=>'HandController@postRecharge']);
+        Route::get('recharge',['as'=>'admin.hand.{id}.recharge','uses'=>'HandController@getRecharge']);
+        Route::post('recharge',['as'=>'admin.hand.{id}.recharge','uses'=>'HandController@postRecharge']);
         
-        Route::get('freeze',['as'=>'admin.hand.freeze','uses'=>'HandController@getFreeze']);
-        Route::post('freeze',['as'=>'admin.hand.freeze','uses'=>'HandController@postFreeze']);
+        Route::get('freeze',['as'=>'admin.hand.{id}.freeze','uses'=>'HandController@getFreeze']);
+        Route::post('freeze',['as'=>'admin.hand.{id}.freeze','uses'=>'HandController@postFreeze']);
         
-        Route::get('debit',['as'=>'admin.hand.debit','uses'=>'HandController@getDebit']);
-        Route::post('debit',['as'=>'admin.hand.debit','uses'=>'HandController@postDebit']);
+        Route::get('debit',['as'=>'admin.hand.{id}.debit','uses'=>'HandController@getDebit']);
+        Route::post('debit',['as'=>'admin.hand.{id}.debit','uses'=>'HandController@postDebit']);
         
-        Route::get('offline',['as'=>'admin.hand.offline','uses'=>'HandController@getOffline']);
-        Route::post('offline',['as'=>'admin.hand.offline','uses'=>'HandController@postOffline']);
+        Route::get('offline',['as'=>'admin.hand.{id}.offline','uses'=>'HandController@getOffline']);
+        Route::post('offline',['as'=>'admin.hand.{id}.offline','uses'=>'HandController@postOffline']);
     });
 
+    // CheckController
+    Route::group(['prefix' => 'check'],function(){
+
+        Route::get('list',['as'=>'admin.check.list','uses'=>'CheckController@index']);
+        Route::get('/',['as'=>'admin.check.index',function(){
+            return redirect()->route('admin.check.list');
+        }]);
+        Route::get('recharge',['as'=>'admin.check.recharge','uses'=>'CheckController@recharge']);
+        Route::get('freeze',['as'=>'admin.check.freeze','uses'=>'CheckController@freeze']);
+        Route::get('debit',['as'=>'admin.check.debit','uses'=>'CheckController@debit']);
+        Route::get('offline',['as'=>'admin.check.offline','uses'=>'CheckController@offline']);
+
+        // Route::resource('','CheckController');
+        Route::get('/{sn}',['as'=>'admin.check.show','uses'=>'CheckController@show']);
+        Route::put('/{sn}',['as'=>'admin.check.update','uses'=>'CheckController@update']);
+    });
+
+    Route::post('proof/ajaxupload',['as'=>'admin.proof.ajaxUpload','uses'=>'ProofController@ajaxUpload']);
 });
 
 

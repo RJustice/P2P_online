@@ -152,4 +152,22 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected static function deletedCallback($user){
         return false;
     }
+
+    public static function getMembersOption($format = false){
+        $members = self::where('type','<>',self::TYPE_ADMIN)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('is_deleted',0)->get();
+        // dd($members);
+        if( ! $members->isEmpty() ){
+            foreach( $members as $member){
+                $tmp[] = [
+                    'label' => $member->name . ' - ' . preg_replace('/([0-9]{5})[0-9]{9}([0-9]{4})/i','$1****$2',$member->idno) . ' - ' . preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',$member->phone),
+                    'value' => $member->getKey()
+                ];
+            }
+            return $tmp;
+        }else{
+            return [];
+        }
+
+    }
+
 }

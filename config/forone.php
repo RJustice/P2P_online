@@ -55,6 +55,27 @@ return [
                 ]
             ],
         ],
+        '操作审核' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin','employee_m'],
+            'children'   => [
+                '全部审核项目' => [
+                    'uri' => 'check/list',
+                ],
+                '快速扣款待审核'  => [
+                    'uri' => 'check/debit',
+                ],
+                '线下订单待审核' => [
+                    'uri' => 'check/offline',
+                ],
+                '快速充值待审核' => [
+                    'uri' => 'check/recharge',
+                ],
+                '冻结资金待审核' => [
+                    'uri' => 'check/freeze',
+                ],
+            ],
+        ],
         '用户管理' => [
             'icon'       => 'mdi-toggle-radio-button-on',
             'permission' => ['admin','editor','employee_m'],
@@ -78,19 +99,31 @@ return [
                     'uri' => 'borrower',
                 ],
             ],  
+        ],        
+        '订单管理' => [            
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '投资列表'  => [
+                    'uri' => 'dealorders/order',
+                ],
+                '充值列表' => [
+                    'uri' => 'dealorders/recharge'
+                ]
+            ],  
         ],
         '资金管理' => [
             'icon'       => 'mdi-toggle-radio-button-on',
             'permission' => ['admin'],
             'children'   => [
                 '提现申请'  => [
-                    'uri' => 'carry',
-                ],
-                '充值管理'  => [
-                    'uri' => 'recharge',
+                    'uri' => 'carrys',
                 ],
                 '资金日志' => [
-                    'uri' => 'money',
+                    'uri' => 'moneys',
+                ],
+                '红包管理' => [
+                    'uri' => 'giftmoney',
                 ]
             ],
         ],
@@ -99,16 +132,16 @@ return [
             'permission' => ['admin'],
             'children'   => [
                 '快速充值'  => [
-                    'uri' => 'hand/recharge',
+                    'uri' => 'hand/new/recharge',
                 ],
                 '冻结资金'  => [
-                    'uri' => 'hand/freeze',
+                    'uri' => 'hand/new/freeze',
                 ],
                 '快速扣款' => [
-                    'uri' => 'hand/debit',
+                    'uri' => 'hand/new/debit',
                 ],
                 '线下订单' => [
-                    'uri' => 'hand/offline',
+                    'uri' => 'hand/new/offline',
                 ]
             ],
         ],

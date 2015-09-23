@@ -60,13 +60,13 @@ class MembersController extends Controller
                         $memberCtrl = '';
                     }
                     if( $model->sales_manager != 0 ){
-                        $refBtn = Form::iform_button(['name'=>'转移客户','class'=>'btn btn-block btn-danger','uri'=>'remove-ref','method'=>'POST','id'=>$model->id],[]);
+                        $refBtn = Form::iform_button(['name'=>'转移客户','class'=>'btn btn-block btn-danger','uri'=>'remove-ref','method'=>'POST','id'=>$model->getKey()],[]);
                     }elseif( Auth::user()->can(['member_rm','admin']) ){
-                        $refBtn = Form::iform_button(['name'=>'分配客户','class'=>'btn btn-block btn-danger','uri'=>$model->id.'#add-ref','method'=>'GET'],[]);;
+                        $refBtn = Form::iform_button(['name'=>'分配客户','class'=>'btn btn-block btn-danger','uri'=>$model->getKey().'#add-ref','method'=>'GET'],[]);;
                     }else{
                         $refBtn = '';
                     }
-                    $viewBtn = '<a href="'.route('admin.'.$this->uri.'.show',['id'=>$model->id]).'" class="btn btn-block btn-info">查看详情</a>';
+                    $viewBtn = '<a href="'.route('admin.'.$this->uri.'.show',['id'=>$model->getKey()]).'" class="btn btn-block btn-info">查看详情</a>';
                     return '<div class="dropdown">
                               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 操作
@@ -74,11 +74,11 @@ class MembersController extends Controller
                               </button>
                               <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                                 <li>'.$viewBtn.'</li>
-                                <li><a href="'.route('admin.'.$this->uri.'.edit',['id'=>$model->id]).'" class="btn btn-block btn-primary">编辑用户</a></li>
+                                <li><a href="'.route('admin.'.$this->uri.'.edit',['id'=>$model->getKey()]).'" class="btn btn-block btn-primary">编辑用户</a></li>
                                 '.$memberCtrl.'
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#" class="btn btn-block btn-success">查看投资</a></li>
-                                <li><a href="#" class="btn btn-block btn-info">增加投资</a></li>
+                                <li><a href="'.route("admin.members.{id}.orders").'" class="btn btn-block btn-success">查看投资</a></li>
+                                <li><a href="'.route("admin.hand.{id}.offline",['id'=>$model->getKey()]).'" class="btn btn-block btn-info">线下投资登记</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>'.$refBtn.'</li>
                               </ul>
@@ -96,7 +96,7 @@ class MembersController extends Controller
         ];
         $paginate = User::whereIn('type',[User::TYPE_MEMBER,User::TYPE_EMPLOYEE]);
         if( Auth::user()->type == User::TYPE_EMPLOYEE ){
-            $paginate->where('sales_manager',Auth::user()->id);
+            $paginate->where('sales_manager',Auth::user()->getKey());
         }
         $paginate->orderBy('id','desc');
 
@@ -167,7 +167,7 @@ class MembersController extends Controller
             $data['referer'] = User::REFERER_SYSTEM;
         }else{
             $data['referer'] = User::REFERER_SALES_CREATED;
-            $data['sales_manager'] = $createUser->id;
+            $data['sales_manager'] = $createUser->getKey();
         }
         $data['modified_uid'] = Auth::user()->getKey();
 
@@ -184,7 +184,6 @@ class MembersController extends Controller
      */
     public function show($id)
     {   
-
         $data = User::findOrFail($id);
 
         // DealOrders 
@@ -193,10 +192,10 @@ class MembersController extends Controller
                 ['编号','order_sn'],
                 ['理财项目','deal_title'],
                 ['利率','deal_rate',function($deal_rate){
-                    return ( $deal_rate / 100 ) . '%';
+                    return $deal_rate . ' %';
                 }],
-                ['购买金额','total_money',function($total_money){
-                    return number_format($total_money,2);
+                ['购买金额','total_price',function($total_price){
+                    return number_format($total_price,2);
                 }],
                 ['开始时间','create_date'],
                 ['结束时间','finish_date',function($finish_date){
@@ -205,8 +204,7 @@ class MembersController extends Controller
                 // ['来源','referer'],
             ]
         ];
-        $dealsPaginate = $data->dealOrders()->where('type',DealOrder::TYPE_LOAN)->where('is_deleted','<>','1')->orderByRaw('create_date desc')->paginate(15);
-
+        $dealsPaginate = $data->dealOrders()->whereIn('type',[DealOrder::TYPE_OFFLINE_ORDER,DealOrder::TYPE_ONLINE_ORDER])->where('is_deleted',0)->orderByRaw('create_date desc')->paginate(15);
         $dealOrders['items'] = $dealsPaginate;
         // End 
         
@@ -263,7 +261,7 @@ class MembersController extends Controller
     public function removeRef(Request $request){
         if( Auth::user()->can(['member_c','admin']) ){
             $id = $request->get('id');
-            $user = User::whereRaw('id = ? and sales_manager = ? ',[$id,Auth::user()->id])->first();
+            $user = User::whereRaw('id = ? and sales_manager = ? ',[$id,Auth::user()->getKey()])->first();
             if( $user ){
                 $user->sales_manager = 0;
                 $user->save();

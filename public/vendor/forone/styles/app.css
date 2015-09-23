@@ -214,8 +214,7 @@ sup {
   }
 }
 
-.badge,
-.label {
+.badge,{
   font-weight: bold;
   background-color: #a7abaf;
 }

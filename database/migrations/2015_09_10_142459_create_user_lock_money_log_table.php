@@ -16,7 +16,8 @@ class CreateUserLockMoneyLogTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->decimal('lock_money',20,2);
-            $table->decimal('account_lock_money',20,2);
+            $table->decimal('account_money',20,2);
+            $table->decimal('can_money',20,2);
             $table->text('memo');
             $table->tinyInteger('type');
             $table->timestamp('created_at');
