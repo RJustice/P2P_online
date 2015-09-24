@@ -158,6 +158,7 @@ return [
 
         Vinkla\Hashids\HashidsServiceProvider::class,
 
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -217,6 +218,7 @@ return [
         'Sms' => App\Facades\Sms::class,
 
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

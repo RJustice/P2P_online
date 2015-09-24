@@ -113,8 +113,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsTo('App\User','modified_uid','id');
     }
 
-    public static function getSalesManagers($format = false){
-        $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->get();
+    public static function getSalesManagers($format = false,$company = 0){
+        if( $company ){
+            $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('company_id',$company)->get();
+        }else{
+            $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->get();
+        }
         if( ! $salesManagers->isEmpty() ){
             if( $format ){
                 foreach( $salesManagers as $salesManager ){
@@ -170,4 +174,57 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     }
 
+    public function formatInfo(){
+        return $this->name . ' - ' . preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',$this->phone);
+    }
+
+    public static function getSex($sex){
+        $sexs = [
+            0 => '女',
+            1 => '男'
+        ];
+        if( isset($sexs[$sex]) ){
+            return $sexs[$sex];
+        }else{
+            return "未知";
+        }
+    }
+
+
+    // 来源 referer
+    
+    protected static function referer(){
+        return [
+            self::REFERER_SYSTEM => '系统后台创建',
+            self::REFERER_SALES_CREATED => '销售创建',
+            self::REFERER_NORMAL => '网页注册',
+            self::REFERER_WX => '微信',
+            self::REFERER_OTHER => '其他'
+        ];
+    }
+
+    public static function getRefererTitle($referer){
+        $titles = self::referer();
+        if( isset($titles[$referer]) ){
+            return $titles[$referer];
+        }else{
+            return '未知来源!';
+        }
+    }
+
+    public static function getRefererOption($format = false){
+        $referer = self::referer();
+        if( $format ){
+            foreach($referer as $k=>$v){
+                $tmp[] = [
+                    'label' => $v,
+                    'value' => $k
+                ];
+            }
+            return $tmp;
+        }else{
+            return $referer;
+        }
+    }
+    
 }

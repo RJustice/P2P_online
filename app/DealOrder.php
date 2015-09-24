@@ -38,13 +38,13 @@ class DealOrder extends Model
 
     // const REFERER_OFFLINE = '线下订单';
 
-    public function user(){
-        return $this->belongsTo('App\User');
-    }
+    // public function user(){
+    //     return $this->belongsTo('App\User');
+    // }
 
-    public function item(){
-        return $this->belongsTo('App\Deal');
-    }
+    // public function item(){
+    //     return $this->belongsTo('App\Deal');
+    // }
 
     public static function buildSN($type){
         $pre = '';
@@ -218,6 +218,7 @@ class DealOrder extends Model
             return $status;
         }
     }
+    
     public function member(){
         return $this->belongsTo('App\User','user_id','id');
     }
@@ -236,6 +237,10 @@ class DealOrder extends Model
 
     public function proofs(){
         return $this->hasOne('App\Proof','type_id',$this->getKeyName());
+    }
+
+    public function deal(){
+        return $this->belongsTo('App\Deal','deal_id','id');
     }
 
     protected static function savedCallback($dealOrder){

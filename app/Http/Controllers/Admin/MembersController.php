@@ -185,7 +185,6 @@ class MembersController extends Controller
     public function show($id)
     {   
         $data = User::findOrFail($id);
-
         // DealOrders 
         $dealOrders = [
             'columns' =>[
@@ -261,7 +260,11 @@ class MembersController extends Controller
     public function removeRef(Request $request){
         if( Auth::user()->can(['member_c','admin']) ){
             $id = $request->get('id');
-            $user = User::whereRaw('id = ? and sales_manager = ? ',[$id,Auth::user()->getKey()])->first();
+            $user = User::where('id',$id);
+            if( auth()->user()->hasRole('employee') ){
+                $user = $user->where('sales_manager',auth()->user()->getKey());
+            }
+            $user = $user->first();
             if( $user ){
                 $user->sales_manager = 0;
                 $user->save();
@@ -273,7 +276,27 @@ class MembersController extends Controller
     }
 
     public function addRef(Request $request){
-        return '111';
+        $auth = auth()->user();
+        if( $auth->hasRole('admin') || $auth->hasRole('employee_m') ){
+            $member = User::where('id',$request->get('uid'));
+            $salesManager = User::where('id',$request->get('sales_manager'));
+            if( $auth->hasRole('employee_m') ){
+                $member = $member->where('company_id',$auth->company_id);
+                $salesManager = $salesManager->where('company_id',$auth->company_id);
+            }
+            $member = $member->first();
+            $salesManager = $salesManager->first();
+
+            if( ! $member || ! $salesManager ){
+                return redirect()->back()->withErrors(['default'=>'某些信息未找到,请仔细核对.']);
+            }
+
+            $member->sales_manager = $salesManager->getKey();
+            $member->save();
+        }else{
+            return redirect()->back()->withErrors(['default'=>'您无权执行该操作,需请示有主管权限员工操作']);
+        }
+        return redirect()->back()->withErrors(['default'=>'分配完成,将客户：'.$member->name.' 分配给销售：'.$salesManager->name]);
     }
 
     public function getReset(){

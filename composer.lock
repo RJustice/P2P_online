@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "70ffc3321ecd9b51001f456bab7d1fce",
+    "hash": "02b430bbc375cab876a6fd706be3ab83",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -4435,7 +4435,8 @@
         "mews/captcha": 20,
         "guzzlehttp/guzzle": 20,
         "doctrine/dbal": 20,
-        "vinkla/hashids": 20
+        "vinkla/hashids": 20,
+        "intervention/image": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

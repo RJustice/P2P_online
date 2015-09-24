@@ -423,9 +423,9 @@ class HandController extends Controller
     }
 
     protected function _storageProof($proof,$sn){
-        $path = '/upload/proofs/'.date('Ymd').'/';
+        $path = 'upload/proofs/'.date('Ymd').'/';
         // Storage::makeDirectory($path);
-        $fileId = substr($sn,0,3) . HashIds::connection('proof')->encode(substr($sn, -8)) . mt_rand(1,100) ;
+        $fileId = substr($sn,0,2) .'/'. HashIds::connection('proof')->encode(substr($sn, -8)) . mt_rand(1,100) ;
         if (preg_match('/^(data:\s*image\/(\w+);base64,)/', $proof, $result)){
             $type = $result[2];
             $new_file = $path.$fileId. ".{$type}";

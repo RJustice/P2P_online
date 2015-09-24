@@ -76,10 +76,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('company','CompanyController');
     Route::get('category/alists/{id}/edit','ArticlesController@edit');
 
-    Route::resource('members','MembersController');
-    Route::post('members/remove-ref',['as' => 'admin.members.remove-ref','uses' => 'MembersController@removeRef']);
-    Route::post('members/add-ref',['as' => 'admin.members.get-add-ref','uses' => 'MembersController@getAddRef']);
+    Route::patch('members/remove-ref',['as' => 'admin.members.remove-ref','uses' => 'MembersController@removeRef']);
+    Route::post('members/add-ref',['as' => 'admin.members.get-add-ref','uses' => 'MembersController@addRef']);
     Route::get('members/{id}/orders',['as'=>'admin.members.{id}.orders','uses'=>'MembersController@orders']);
+    Route::resource('members','MembersController');
 
 
     Route::resource('employee','EmployeeController');
@@ -115,6 +115,12 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
         Route::get('/{sn}',['as'=>'admin.check.show','uses'=>'CheckController@show']);
         Route::put('/{sn}',['as'=>'admin.check.update','uses'=>'CheckController@update']);
     });
+
+    // Route::resource('dealorders','DealOrdersController');
+    // Route::get('dealorders',['as'=>'admin.dealorders.index','uses'=>'DealOrdersController@index']);
+    Route::get('dealorders/{sn}',['as'=>'admin.dealorders.show','uses'=>'DealOrdersController@show'])->where(['sn'=>'[A-Z]{2}_[0-9]{14}']);
+    Route::get('dealorders/order',['as'=>'admin.dealorders.order','uses'=>'DealOrdersController@order']);
+    Route::get('dealorders/recharge',['as'=>'admin.dealorders.recharge','uses'=>'DealOrdersController@recharge']);
 
     Route::post('proof/ajaxupload',['as'=>'admin.proof.ajaxUpload','uses'=>'ProofController@ajaxUpload']);
 });
@@ -156,3 +162,20 @@ Route::get('gltd',function(){
     $id = 10;
     return view('single.gltd',compact('pages','id'));
 });
+
+
+// proof
+// ln -s /path/to/laravel/storage/avatars /path/to/laravel/public/avatars
+// 
+Route::get('proof/{filename}/{size}',['as'=>'proof',function($filename,$size){
+    switch($size){
+        case 'full':
+            return Image::make(storage_path() .'\/app/'. implode('/', explode('_', $filename)))->response();
+            break;
+        case 'w350':
+            return Image::make(storage_path() .'\/app/'. implode('/', explode('_', $filename)))->resize(350, null, function ($constraint) {$constraint->aspectRatio();})->response();
+        case '200x200':
+            return Image::make(storage_path() .'\/app/'. implode('/', explode('_', $filename)))->resize(200, 200)->response();
+            break;
+    }
+}]);
