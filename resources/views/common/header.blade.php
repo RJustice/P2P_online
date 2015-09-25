@@ -30,7 +30,7 @@
                     <a href="{{ url('/member/auth/login') }}">我要理财</a>
                 </li>
                 <li rel="3" class="n-3 mr5">
-                    <a href="{{ url('/center') }}">个人中心</a>
+                    <a href="{{ url('/member') }}">个人中心</a>
                 </li>
                 <li rel="5" class="n-5 mr5 @if(Request::is('pages/1')) current @endif">
                     <a href="{{ url('/pages/1') }}">关于我们</a>

@@ -41,7 +41,9 @@ Route::get('/','HomeController@index');
 
 Route::controllers([
     'admin/auth' => 'Auth\AdminAuthController',
-    'member/auth' => 'Auth\MemberAuthController',
+    '
+    
+    /auth' => 'Auth\MemberAuthController',
 ]);
 Route::get('member/confirm','Auth\MemberAuthController@getRegisterStep2');
 
@@ -142,11 +144,37 @@ Route::any('projects',function(){
 
 Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.auth']],function(){
     Route::get('/','CenterController@index');
+    // Route::get('fund/recharge',['as'=>'member.fund.recharge','uses'=>'FundController@getRecharge']);
+    // Route::post('fund/recharge',['as'=>'member.fund.recharge','uses'=>'FundController@postRecharge']);
+
+    Route::get('fund/carry',['as'=>'member.fund.carry','uses'=>'FundController@getCarry']);
+    Route::post('fund/carry',['as'=>'member.fund.carry','uses'=>'FundController@postCarry']);
+    Route::get('carrylogs',['as'=>'member.fund.carrylogs','uses'=>'FundController@carrylogs']);
+
+    Route::get('fund/summarydetail',['as'=>'member.fund.summarydetail','uses'=>'FundController@getSummaryDetail']);
+    Route::get('fund/logs',['as'=>'member.fund.logs','uses'=>'FundController@getLogs']);
+
+    Route::get('account/basic',['as'=>'member.account.basic','uses'=>'AccountController@getBasic']);
+    Route::get('account/authenticate',['as'=>'member.account.authenticate','uses'=>'AccountController@getAuthenticate']);
+    Route::get('account/bankcard',['as'=>'member.account.bankcard','uses'=>'AccountController@getBankcard']);
+    Route::get('account/safe',['as'=>'member.account.safe','uses'=>'AccountController@getSafe']);
+
+    Route::post('account/basic',['as'=>'member.account.basic','uses'=>'AccountController@postBasic']);
+    Route::post('account/authenticate',['as'=>'member.account.authenticate','uses'=>'AccountController@postAuthenticate']);
+    Route::post('account/bankcard',['as'=>'member.account.bankcard','uses'=>'AccountController@postBankcard']);
+    Route::post('account/safe',['as'=>'member.account.safe','uses'=>'AccountController@postSafe']);
+
+    Route::get('invest',['as'=>'member.invest.index','uses'=>'InvestController@index']);
+
+    Route::resource('message','MessageController');
+
+    Route::resource('redpacket','RedpacketController');
+
 });
 
-Route::group(['prefix'=>'invest','namespace'=>'Invest','middleware'=>['member.auth']],function(){
-    Route::get('/','InvestController@index');
-});
+// Route::group(['prefix'=>'invest','namespace'=>'Invest','middleware'=>['member.auth']],function(){
+//     Route::get('/','InvestController@index');
+// });
 
 Route::post('sms/send','SmsController@postSendCode');
 

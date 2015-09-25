@@ -1,0 +1,271 @@
+i,em{font-style:normal;}
+.uc-container{width:1100px;margin-top:20px;padding-bottom:30px;font-family: "Microsoft YaHei","YaHei","微软雅黑"}
+.center-left{float:left;display: inline-block;font-size: 14px;margin-right: 20px;overflow: hidden;width: 200px;background: #fff;}
+.center-right{float:left;width: 880px;display: inline-block;background: #fff}
+
+#uc-cate{margin:auto;padding:0;}
+#uc-cate .c-hd{background: #ececec url("/images/uc_center_icon2.png") no-repeat scroll 0 0;
+    color: #666;
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 1px;
+    padding-left: 48px;}
+#uc-cate .c-hds{ background: #00bef0 url("/images/uc_center_icon1.png") no-repeat scroll 0 0;
+    color: #fff;
+    cursor: pointer;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 1px;
+    padding-left: 48px;}
+#uc-cate .c-hd0{background-position: -1px 0;}
+#uc-cate .c-hd1{background-position: -1px -50px;}
+#uc-cate .c-hd2{background-position: -1px -100px;}
+#uc-cate .c-hd3{background-position: -1px -150px;}
+#uc-cate .c-hd4{background-position: -1px -200px;}
+#uc-cate .c-hd5{background-position: -1px -250px;}
+#uc-cate .c-body{border-top:none;padding-bottom:10px;}
+#uc-cate .c-body li{height:45px;line-height: 45px;padding-left: 30px;}
+#uc-cate .c-body li.act{background: #7fd4f3;height: 45px;margin: 5px;}
+#uc-cate .c-body li a{color:#444;text-decoration: none;}
+#uc-cate .c-body li.act a{color:#fff;}
+
+.personal-panel{padding:10px 20px;}
+.personal-panel .pre-data{padding-top:30px;}
+.personal-panel .pre-money{background: #f7f7f7;height:82px;margin-top:30px;width:100%;}
+
+.pwinl{width:54%;float: left;}
+.pwinr{width:46%;float: left;}
+
+.personal-head{cursor: pointer;float: left;height: 72px;overflow: hidden;width: 72px;}
+.personal-head img{border-radius: 50%;height: 72px;width: 72px;}
+.personal-inf{float: left;padding-left: 15px;}
+.personal-inf .inf-name{color: #666;font-size: 18px;line-height: 36px;}
+.personal-inf .inf-grade{height: 26px;line-height: 30px;padding-top: 6px;}
+.inf-grade i{background: rgba(0, 0, 0, 0) url("/images/personal_icon.png") no-repeat scroll 0 0;display: inline-block;height: 22px;margin-right: 5px;vertical-align: middle;width: 25px;}
+.inf-grade i.i02{background-position: -10px 0;}
+.inf-grade i.i03{background-position: -39px 0;}
+.inf-grade i.i04{background-position: -68px 0;}
+.inf-grade i.i05{background-position: -98px 0;}
+.inf-grade i.i06{background-position: -126px 0;}
+
+.inf-grade i.i02s{background-position: -161px 0;}
+.inf-grade i.i03s{background-position: -190px 0;}
+.inf-grade i.i04s{background-position: -220px 0;}
+.inf-grade i.i05s{background-position: -248px 0;}
+.inf-grade i.i06s{background-position: -278px 0;}
+
+.pre-paid{float: right;overflow: hidden;}
+.pre-paid .p-btn{height: 45px;line-height: 45px;padding-top: 10px;}
+.pre-paid .p-btn a{border-radius: 10px;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    height: 35px;
+    letter-spacing: 2px;
+    line-height: 35px;
+    margin-left: 15px;
+    text-align: center;
+    vertical-align: middle;
+    padding:0 15px;}
+.pre-paid .p-btn a.a-btn01{background: #009dde}
+.pre-paid .p-btn a.a-btn02{background: #ff6600}
+
+.pre-money li{float: left;padding: 1px 4%;position: relative;width: 17%;}
+.pre-money li .income-name{color: #333;font-size: 18px;line-height: 30px;}
+.pre-money li .income-name em{font-size: 12px;}
+.pre-money li i{background: rgba(0, 0, 0, 0) url("/images/personal_icon.png") no-repeat scroll -353px 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 18px;
+    vertical-align: middle;
+    width: 20px;}
+.pre-money li i:hover{background: rgba(0, 0, 0, 0) url("/images/dot.png") no-repeat scroll 0 0;}
+.pre-money li .acount-num{color: #f60;font-size: 18px;line-height: 30px;}
+.bubble{background: #fff none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #999;
+    display: none;
+    left: 174px;
+    line-height: 16px;
+    padding: 7px 0;
+    position: absolute;
+    top: 11px;
+    width: 186px;
+    z-index: 2;}
+.bubble .text{display: block;padding: 0px 15px;cursor: default;color:#999;}
+.bubble .arrow{background: rgba(0, 0, 0, 0) url("/images/personal_icon.png") no-repeat scroll -379px -5px;
+    display: block;
+    height: 11px;
+    left: -6px;
+    margin-top: -5px;
+    position: absolute;
+    top: 50%;
+    width: 7px;
+    z-index: 6;}
+.pre-money .bubble{left:163px;top:0;}
+
+.chart{border: 1px solid #e8e8e8;
+    float: left;
+    height: 270px;
+    overflow: hidden;
+    width: 66%;}
+
+.data-show{border: 1px solid #e8e8e8;
+    border-radius: 5px;
+    float: right;
+    height: 190px;
+    padding: 40px 1.5%;
+    width: 28%;}
+
+.data-show li{color: #666;
+    font-size: 14px;
+    line-height: 48px;
+    position: relative;}
+.data-show li i{background: rgba(0, 0, 0, 0) url("/images/personal_icon.png") no-repeat scroll -353px 0;
+    cursor: pointer;
+    display: inline-block;
+    height: 18px;
+    vertical-align: middle;
+    width: 20px;}
+.data-show li i:hover{background: rgba(0, 0, 0, 0) url("/images/dot.png") no-repeat scroll 0 0;}
+.data-show li em{color:#ff6600;font-size: 12px;}
+.data-show .bubble{left:127px;top:6px;}
+
+.pre-banner{text-align: center;width: 100%;padding-top: 20px;}
+.pre-banner img{width:840px;padding-bottom: 3px;height: 120px;}
+
+.pre-deal-list{padding: 20px 0px 30px;}
+.recommendation{clear:both;}
+.recommendation label{color:#333;font-size: 24px;line-height: 30px;}
+.recommendation span{color:#ccc;font-size: 14px;line-height: 30px;padding-left: 30px;}
+.pre-deal-list li {
+    border: 1px solid #eaeaea;
+    height: 142px;
+    margin-top: 20px;
+}
+.pre-deal-list li:hover {
+    border: 1px solid #c5e3fb;
+}
+.pre-deal-list li .p-name {
+    color: #cccccc;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+}
+.pre-deal-list li .p-name a {
+    color: #ccc;
+    font-size: 14px;
+}
+.pre-deal-list li .p-name a:hover {
+    color: #009dde;
+}
+.pre-deal-list li .p-name span {
+    background: #009dde none repeat scroll 0 0;
+    color: #fff;
+    display: block;
+    float: left;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 15px;
+    text-align: center;
+    width: 106px;
+}
+.pre-deal-list .dllustration {
+    clear: both;
+    overflow: hidden;
+    padding: 30px 0 15px;
+}
+.pre-deal-list .divstyle {
+    float: left;
+    height: 67px;
+    padding: 0 4%;
+}
+.pre-deal-list .divstyle em {
+    color: #ff6600;
+    font-size: 31px;
+    line-height: 42px;
+}
+.pre-deal-list .divstyle em i{color:#ff6600;}
+.pre-deal-list .divstyle01 {
+    border-right: 1px solid #eaeaea;
+    float: left;
+    width: 13%;
+}
+.pre-deal-list .divstyle01 label {
+    color: #999;
+    font-size: 12px;
+    line-height: 21px;
+}
+.pre-deal-list .divstyle02 {
+    border-right: 1px solid #eaeaea;
+    padding-right: 2%;
+    width: 46%;
+}
+.pre-deal-list .divstyle02 .p-details span {
+    color: #666;
+    display: block;
+    float: left;
+    font-size: 14px;
+    width: 50%;
+}
+.pre-deal-list .divstyle02 .p-progress-bar {
+    padding: 10px 0 0;
+}
+.pre-deal-list .divstyle02 .out-progress-bar, .pre-deal-list .divstyle02 .in-progress-bar {
+    border-radius: 2px;
+    display: block;
+    float: left;
+    height: 8px;
+    line-height: 12px;
+    width: 300px;
+}
+.pre-deal-list .divstyle02 .out-progress-bar {
+    background: #dcdcdc none repeat scroll 0 0;
+    overflow: hidden;
+}
+.pre-deal-list .divstyle02 .in-progress-bar {
+    background: #009dde none repeat scroll 0 0;
+}
+.pre-deal-list .divstyle03 {
+    color: #666;
+    font-size: 14px;
+    line-height: 40px;
+    width: 18.5%;
+}
+.pre-deal-list .divstyle03 .a-btn {
+    background: #009dde none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    height: 42px;
+    line-height: 42px;
+    margin: 10px auto 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 158px;
+}
+.pre-deal-list .divstyle03 .a-btn:hover {
+    background: #1eb5fe none repeat scroll 0 0;
+}
+.pre-deal-list .divstyle03 .a-btn i {
+    background: rgba(0, 0, 0, 0) url("/Style/newStatic/res/images/icon/arrow.png") no-repeat scroll 0 0;
+    display: inline-block;
+    height: 14px;
+    margin: 0 0 0 5px;
+    width: 12px;
+}
+.pre-deal-list .divstyle03 .full-btn {
+    background: #e4e4e4 none repeat scroll 0 0;
+    border-radius: 5px;
+    display: block;
+    font-size: 18px;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    width: 158px;
+}
