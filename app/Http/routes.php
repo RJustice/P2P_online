@@ -41,9 +41,7 @@ Route::get('/','HomeController@index');
 
 Route::controllers([
     'admin/auth' => 'Auth\AdminAuthController',
-    '
-    
-    /auth' => 'Auth\MemberAuthController',
+    'member/auth' => 'Auth\MemberAuthController',
 ]);
 Route::get('member/confirm','Auth\MemberAuthController@getRegisterStep2');
 
@@ -158,11 +156,13 @@ Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.
     Route::get('account/authenticate',['as'=>'member.account.authenticate','uses'=>'AccountController@getAuthenticate']);
     Route::get('account/bankcard',['as'=>'member.account.bankcard','uses'=>'AccountController@getBankcard']);
     Route::get('account/safe',['as'=>'member.account.safe','uses'=>'AccountController@getSafe']);
+    Route::get('account/reset',['as'=>'member.account.reset','uses'=>'AccountController@getReset']);
 
     Route::post('account/basic',['as'=>'member.account.basic','uses'=>'AccountController@postBasic']);
     Route::post('account/authenticate',['as'=>'member.account.authenticate','uses'=>'AccountController@postAuthenticate']);
     Route::post('account/bankcard',['as'=>'member.account.bankcard','uses'=>'AccountController@postBankcard']);
     Route::post('account/safe',['as'=>'member.account.safe','uses'=>'AccountController@postSafe']);
+    Route::post('account/reset',['as'=>'member.account.reset','uses'=>'AccountController@postReset']);
 
     Route::get('invest',['as'=>'member.invest.index','uses'=>'InvestController@index']);
 

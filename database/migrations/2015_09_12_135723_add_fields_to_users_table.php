@@ -13,8 +13,8 @@ class AddFieldsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {            
-            $table->dropUnique('users_username_unique');
-            $table->dropUnique('users_phone_unique');
+            // $table->dropUnique('users_username_unique');
+            // $table->dropUnique('users_phone_unique');
 
             $table->string('hash_id',8)->after('id');
             $table->string('login_ip');

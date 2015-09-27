@@ -84,4 +84,13 @@ class AccountController extends Controller
     {
         //
     }
+
+
+    public function getReset(){
+        return 'reset Password';
+    }
+
+    public function postReset(){
+
+    }
 }
