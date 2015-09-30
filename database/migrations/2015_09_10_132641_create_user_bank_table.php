@@ -16,6 +16,7 @@ class CreateUserBankTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->index();
             $table->integer('bank_id')->index();
+            $table->string('bank_name');
             $table->string('bankcard');
             $table->string('real_name');
             $table->string('bankzone');

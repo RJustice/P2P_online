@@ -13,11 +13,11 @@
                 <p class="inf-name">你好, {{ auth()->user()->name }}</p>
                 <p class="inf-grade">
                     <span>                         
-                        <i class="i02 i02s" status="1" title="手机认证"><a href="/user/account/safeinfo" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
-                        <i class="i03" status="0" title="实名认证"><a href="/user/account/realnameauth" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
-                        <i class="i04" status="0" title="支付密码"><a href="/user/account/safeinfo" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
-                        <i class="i05" status="0" title="银行卡绑定"><a href="/user/account/bankcardauth" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
-                        <i class="i06" status="0" title="个人信息"><a href="/user/account/basic" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
+                        <i class="i02 @if(auth()->user()->phonepassed) i02s @endif" status="1" title="手机认证"><a href="javascript:;" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
+                        <i class="i03 @if(auth()->user()->idcardpassed) i03s @endif" status="0" title="实名认证"><a href="{{ route('member.account.authenticate') }}" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
+                        <i class="i04 @if(auth()->user()->paypassword) i04s @endif" status="0" title="支付密码"><a href="{{ route('member.account.safe') }}" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
+                        <i class="i05 @if(auth()->user()->bank) i05s @endif" status="0" title="银行卡绑定"><a href="{{ route('member.account.bankcard') }}" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
+                        <i class="i06 @if(auth()->user()) i06s @endif" status="0" title="个人信息"><a href="{{ route('member.account.basic') }}" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
                     </span>
                 </p>
             </div>
@@ -25,8 +25,8 @@
         <div class="pwinr">
             <div class="pre-paid">
                 <p class="p-btn">
-                    <a href="" class="a-btn01">充值</a>
-                    <a href="" class="a-btn02">提现</a>
+                    {{-- <a href="" class="a-btn01">充值</a> --}}
+                    <a href="{{ route('member.fund.carry') }}" class="a-btn02">提现</a>
                     {{-- <a href="" class="a-btn03">赎回</a> --}}
                 </p>
             </div>
@@ -44,7 +44,7 @@
             </li>
             <li>
                 <p class="income-name">账户余额<em>（元）</em><i></i></p>
-                <p class="acount-num">{{ number_format(auth()->user()->money,2) }}</p>
+                <p class="acount-num">{{ number_format(auth()->user()->can_money,2) }}</p>
                 <span style="display: none;" class="bubble">
                             <label class="text">账户余额 + 待收本金 + 提现中冻结金额</label>
                             <label class="arrow"></label>
@@ -52,7 +52,7 @@
             </li>
             <li>
                 <p class="income-name">冻结资金<em>（元）</em><i></i></p>
-                <p class="acount-num">{{ number_format(auth()->user()->money,2) }}</p>
+                <p class="acount-num">{{ number_format(auth()->user()->lock_money,2) }}</p>
                 <span style="display: none;" class="bubble">
                             <label class="text">账户余额 + 待收本金 + 提现中冻结金额</label>
                             <label class="arrow"></label>

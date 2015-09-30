@@ -15,8 +15,10 @@ class UserMoneyLog extends Model
 
     const TYPE_BALANCE = 0;  // 结存 
     const TYPE_RECHARGE = 1; // 充值
-    const TYPE_CARRY = 2; // 提现
+    const TYPE_CARRY = 2; // 提现申请
     const TYPE_CARRY_FEE = 3; // 提现手续费
+    const TYPE_CARRY_FAIL = 10; // 提现未通过
+    const TYPE_CARRY_CANCEL = 11; // 提现取消
     const TYPE_HAND_RECHARGE = 4; // 人工充值
     const TYPE_REWARD = 5; // 奖励
     const TYPE_OTHER = 6; // 其他费用 
@@ -68,8 +70,10 @@ class UserMoneyLog extends Model
         return [
             self::TYPE_BALANCE => '结存',
             self::TYPE_RECHARGE => '充值',
-            self::TYPE_CARRY => '提现',
+            self::TYPE_CARRY => '提现申请',
             self::TYPE_CARRY_FEE => '提现手续费',
+            self::TYPE_CARRY_FAIL => '提现未通过',
+            self::TYPE_CARRY_CANCEL => '提现取消',
             self::TYPE_HAND_RECHARGE => '人工充值',
             self::TYPE_REWARD => '奖励',
             self::TYPE_OTHER => '其他费用',

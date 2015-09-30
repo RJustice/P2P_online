@@ -27,6 +27,7 @@ class AddFieldsToUsersTable extends Migration
             $table->decimal('money',20,2)->default(0);
             $table->decimal('lock_money',20,2)->default(0);
             $table->decimal('can_money',20,2)->default(0);
+            $table->decimal('waiting_returns',20,2)->default(0);
             $table->integer('sales_manager'); // 销售经理
             $table->integer('pid');  // 推荐人ID
             $table->string('verify');
@@ -76,7 +77,7 @@ class AddFieldsToUsersTable extends Migration
             $table->dropIndex('users_hash_id_index');
             // $table->dropUnique('users_username_unique');
             // $table->dropUnique('users_phone_unique');
-            $table->dropColumn(['hash_id','login_ip','is_deleted','idno','idcardpassed','idcardpassed_time','real_name','phonepassed','money','lock_money','can_money','sales_manager','pid','verify','code','referer_memo','referral_count','score','login_time','password_verify','referer','n_province_id','n_city_id','province_id','city_id','sex','step','byear','bmonth','bday','address','paypassword','company_id','modified_uid','n_county_id','county_id']);
+            $table->dropColumn(['hash_id','login_ip','is_deleted','idno','idcardpassed','idcardpassed_time','real_name','phonepassed','money','lock_money','can_money','waiting_returns','sales_manager','pid','verify','code','referer_memo','referral_count','score','login_time','password_verify','referer','n_province_id','n_city_id','province_id','city_id','sex','step','byear','bmonth','bday','address','paypassword','company_id','modified_uid','n_county_id','county_id']);
         });
     }
 }

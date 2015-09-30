@@ -14,9 +14,9 @@ class RedpacketController extends Controller
      *
      * @return Response
      */
-    public function index()
-    {
-        //
+    public function index($status = '')
+    {   
+        return view('member.redpacket.index',compact('status'));
     }
 
     /**

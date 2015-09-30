@@ -41,10 +41,10 @@ class MemberAuthenticate
             } else {
                 return redirect()->guest('member/auth/login');
             }
+        }elseif( $this->auth->user()->state == User::STATE_SYS_CREATED ){
+            // dd(1);
+            return redirect()->route('sysmember');
         }
-        // }elseif( $this->auth->user()->state == User::STATE_SYS_CREATED ){
-            // return redirect()->route('member.account.reset')->withErros(['reset'=>'客服已为您预设了密码,请务必自行更改!']);
-        // }
 
         return $next($request);
     }

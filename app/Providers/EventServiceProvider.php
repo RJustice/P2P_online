@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 
 use App\User;
 use App\DealOrder;
+use App\UserCarry;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -35,8 +36,24 @@ class EventServiceProvider extends ServiceProvider
             User::createdCallback($user);
         });
 
+        // DealOrder::created(function($dealOrder){
+        //     // 计算收益
+        //     DealOrder::createdCallback($dealOrder);
+        // });
+
         DealOrder::saved(function($dealOrder){
-            DealOrder::savedCallback($dealOrder);
+            if( $dealOrder->isDirty('status') ){
+                DealOrder::savedCallback($dealOrder);
+            }
+        });
+
+        UserCarry::created(function($carry){
+            // var_dump('created call');
+            UserCarry::createdCallback($carry);
+        });
+        UserCarry::updated(function($carry){
+            // var_dump('saved call');
+            UserCarry::updatedCallback($carry);
         });
     }
 }

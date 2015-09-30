@@ -1,7 +1,40 @@
 i,em{font-style:normal;}
+.error {
+    color: #ff0000;
+    padding: 0 10px;
+}
+.f_red{color:#ff0000;}
+.a-btn {
+    background: #009dde none repeat scroll 0 0;
+    color: #fff;
+    float: left;
+    font-family: "微软雅黑";
+    font-size: 20px;
+    line-height: 50px;
+    margin-left: 80px;
+    margin-top: 20px;
+    text-align: center;
+    width: 340px;
+    border:none;
+}
+.btn-group {
+    background: #009dde none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 53px 0 0;
+    text-align: center;
+    width: 80px;
+    border:none;
+}
 .uc-container{width:1100px;margin-top:20px;padding-bottom:30px;font-family: "Microsoft YaHei","YaHei","微软雅黑"}
 .center-left{float:left;display: inline-block;font-size: 14px;margin-right: 20px;overflow: hidden;width: 200px;background: #fff;}
-.center-right{float:left;width: 880px;display: inline-block;background: #fff}
+.center-right{float:left;width: 880px;display: inline-block;background: #fff;}
+.ucenter-bl{background: #fff;border:1px solid #e3e3e3;padding: 0 0 50px;}
+
 
 #uc-cate{margin:auto;padding:0;}
 #uc-cate .c-hd{background: #ececec url("/images/uc_center_icon2.png") no-repeat scroll 0 0;
@@ -253,7 +286,7 @@ i,em{font-style:normal;}
     background: #1eb5fe none repeat scroll 0 0;
 }
 .pre-deal-list .divstyle03 .a-btn i {
-    background: rgba(0, 0, 0, 0) url("/Style/newStatic/res/images/icon/arrow.png") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("/images/arrow.png") no-repeat scroll 0 0;
     display: inline-block;
     height: 14px;
     margin: 0 0 0 5px;
@@ -269,3 +302,493 @@ i,em{font-style:normal;}
     text-align: center;
     width: 158px;
 }
+
+.list-title{border-bottom: 1px solid #e3e3e3;
+    color: #494949;
+    font-family: "Microsoft YaHei";
+    font-size: 12px;
+    height: 48px;
+    line-height: 48px;}
+.list-title div{background-color: #fff;
+    border-right: 1px solid #e3e3e3;
+    cursor: pointer;
+    float: left;
+    font-size: 16px;}
+.list-title div.cur{border-top: 3px solid #00bef0;
+    color: #00bef0;
+    font-weight: bold;
+    height: 45px;
+    line-height: 42px;}
+.list-title div a{color:#555;padding: 0 30px;display: block;}
+.list-title div.cur a{color:#00bef0;}
+
+.tab-box{background-color: #fff;
+    overflow: hidden;}
+
+.pub-tab {
+    padding: 0 2%;
+    width: 96%;
+}
+
+.withdrawal{ overflow: hidden;
+    padding: 50px 0 30px;
+    width: 100%;}
+.withdrawal li{clear: both;
+    color: #666;
+    font-size: 14px;
+    line-height: 30px;
+    padding-bottom: 12px;
+    position: relative;}
+.withdrawal label{color: #3c3c3c;
+    float: left;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    width: 125px;}
+.withdrawal .pb20{padding-bottom: 20px;}
+.withdrawal .blue-color{color:#009dde;}
+.withdrawal .orange-color,.in-management .organe-color{color: #f60;font-size: 14px;padding: 0px 2px;}
+.withdrawal input[type="text"],.withdrawal input[type="password"]{ border: 1px solid #b2b2b2;
+    border-radius: 3px;
+    color: #898989;
+    float: left;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 10px;
+    padding: 0 15px;
+    width: 180px;}
+
+.withdrawal .capital {
+    font-size: 14px;
+    left: 125px;
+    position: absolute;
+    top: 30px;
+}
+
+.withdrawal .error {
+    color: #f00;
+    font-size: 14px;
+    padding: 0 10px;
+}
+.withdrawal .a-btn {
+    background: #009dde none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 0 0 125px;
+    text-align: center;
+    width: 120px;
+    float: left;
+    font-family: "微软雅黑";
+}
+
+.withdrawal h3 {
+    color: #666;
+    font-size: 24px;
+    line-height: 24px;
+    padding: 0 0 15px 125px;
+}
+
+.withdrawal .p-text {
+    color: #666;
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0 0 0 125px;
+}
+
+.search-data {
+    height: 25px;
+    line-height: 25px;
+    padding: 20px 0 0;
+    width: 100%;
+}
+
+.search-data .text-describe {
+    color: #888;
+    float: left;
+    font-size: 14px;
+    height: 25px;
+    line-height: 25px;
+    width: 30%;
+}
+
+.search-data .percent-wid {
+    width: 100%;
+}
+.recharge .search-data .text-describe {
+    width: 40%;
+}
+.search-data .div-search {
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    text-align: right;
+    width: 70%;
+}
+.recharge .search-data .div-search {
+    width: 60%;
+}
+
+.search-data .search-btn {
+    background: #009dde none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 0 0 8px;
+    padding: 4px 6px;
+}
+
+.table-box {
+    clear: both;
+    padding: 30px 0;
+    width: 100%;
+}
+.pub-tab .table-box {
+    padding: 20px 0 0;
+}
+
+.table-box table {
+    border: 1px solid #e2e5e9;
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 0;
+}
+
+
+.table-box th {
+    background: #f7f7f7 none repeat scroll 0 0;
+    border-bottom: 1px solid #e1e1e1;
+    color: #424242;
+    font-weight: bold;
+    height: 58px;
+    line-height: 58px;
+    text-align: center;
+}
+
+.pub-tab .table-box th {
+    color: #323232;
+    height: 52px;
+}
+
+.bank-card th {
+    color: #3c3c3c;
+    font-size: 18px;
+    font-weight: normal;
+    height: 50px;
+}
+
+.table-box td {
+    border-bottom: 1px solid #e1e1e1;
+    color: #424242;
+    height: 40px;
+    padding: 0 10px;
+    text-align: center;
+}
+.pub-tab .table-box td {
+    color: #5e5e5e;
+    /*font-family: "宋体";*/
+    height: 45px;
+    text-align: center;
+}
+
+.tab-box .bank-card td {
+    color: #898989;
+    font-size: 16px;
+    height: 50px;
+}
+.table-box td.blue-color, .table-box td a {
+    color: #009dde;
+}
+.bank-card td a {
+    font-size: 16px;
+}
+
+.bank-card td .gray-color {
+    color: #999;
+}
+
+
+.bank-card .btn {
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    margin: 0 6px;
+    padding: 0 15px;
+}
+.bank-card .bg-blue {
+    background: #009dde none repeat scroll 0 0;
+}
+
+.bank-card .bg-orange {
+    background: #ff6600 none repeat scroll 0 0;
+}
+.pager {
+    clear: both;
+    height: 40px;
+    padding: 30px 0 40px;
+    text-align: center;
+}
+.pub-tab .pager {
+    padding-top: 20px;
+}
+
+.basic-information {
+    overflow: hidden;
+    padding: 20px 0 0;
+    width: 85.5%;
+}
+.m-form em {
+    color: #f00;
+    font-size: 16px;
+    font-style: normal;
+}
+.m-form li {
+    clear: both;
+    line-height: 30px;
+    padding-top: 22px;
+    position: relative;
+}
+
+.m-form label {
+    color: #3c3c3c;
+    float: left;
+    font-size: 16px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 28px 0 0;
+    text-align: right;
+    width: 130px;
+}
+
+.wrap-span {
+    color: #898989;
+    display: block;
+    float: left;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+}
+
+.wrap-span .blue-color {
+    color: #009dde;
+    margin-left: 20px;
+}
+.wrap-span a {
+    font-size: 14px;
+}
+
+.m-form .modfiy a {
+    background: #009dde none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 10px 0 0;
+    padding: 0 15px;
+}
+
+.wrap-span label {
+    color: #898989;
+    padding: 0 25px 0 0;
+    width: auto;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 0 3px 0 0;
+    padding: 0;
+}
+.wrap-span input[type="radio"] {
+    margin: 0 3px 0 0;
+    vertical-align: -1px;
+}
+
+.m-form input[type="text"],.m-form input[type="password"] {
+    border: 1px solid #b5b5b5;
+    border-radius: 3px;
+    color: #898989;
+    float: left;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    padding: 0 15px;
+    width: 472px;
+}
+
+.m-form .unit {
+    color: #666;
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.bf2 .error {
+    left: 150px;
+    position: absolute;
+    top: 47px;
+}
+
+.m-form select {
+    border: 1px solid #b5b5b5;
+    float: left;
+    height: 28px;
+    line-height: 28px;
+}
+
+.span-instructions {
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    padding: 0 15px 0 5px;
+}
+
+.m-form .a-btn {
+    background: #009dde none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    height: 44px;
+    line-height: 44px;
+    margin: 54px 0 0 158px;
+    text-align: center;
+    width: 504px;
+}
+.p-title {
+    font-size: 18px;
+    line-height: 46px;
+     color: #999999;
+    padding: 0 0 0 158px;
+}
+.p-text {
+    font-size: 14px;
+    line-height: 24px;
+     color: #999999;
+    padding: 0 0 0 158px;
+}
+
+
+
+.get-code {
+    background: #009dde none repeat scroll 0 0;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 12px;
+    padding: 0 10px;
+    width: 95px;
+}
+.bank-information .m-form input[type="text"]{width:183px;}
+.bank-information p {
+    color: #999999;
+    padding: 0 30px 0 158px;
+}
+
+
+.security-ul {
+    padding: 0 40px;
+}
+
+.security-ul li {
+    border-bottom: 1px solid #eee;
+    clear: both;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.security-ul li .it .icon {
+    background: rgba(0, 0, 0, 0) url("/images/uc_icon.png") no-repeat scroll 0 0;
+    float: left;
+    height: 30px;
+    margin-right: 30px;
+    width: 34px;
+}
+
+.security-ul li .it .nicheng {
+    background-position: 0 3px;
+}
+.security-ul li .it .reaname {
+    background-position: 0 -29px;
+}
+.security-ul li .it .pwd {
+    background-position: 0 -66px;
+}
+.security-ul li .it .email {
+    background-position: 0 -103px;
+}
+.security-ul li .it .mobile {
+    background-position: 0 -138px;
+}
+.security-ul li .it .paypwd {
+    background-position: 0 -182px;
+}
+
+.security-ul li .it h3 {
+    float: left;
+    font-size: 18px;
+    font-weight: 500;
+    width: 150px;
+}
+
+.security-ul li .it p {
+    float: left;
+    width: 250px;
+}s
+.f_red {
+    color: #ff4e00;
+}
+.security-ul li .it .update {
+    color: #ccc;
+    float: right;
+}
+
+.security-ul li .it .update a {
+    color: #00bef0;
+}
+
+
+.message-box .table-box td, .message-box .table-box th {
+    text-align: left;
+}
+
+.message-box input[type="checkbox"] {
+    margin: 0 30px 0 5px;
+    vertical-align: middle;
+}
+.message-box img {
+    vertical-align: middle;
+    border:none;
+}
+.message-box .del {
+    background: #009dde none repeat scroll 0 0;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 10px;
+    text-align: center;
+    width: 50px;
+}
+
+
+.layer{display: none;padding:15px 30px;}
+.layer p{font-size:14px;font-weight: 600;text-align:center;height:30px;line-height: 30px;}
+.layer p .a-btn{font-size:16px;height:38px;line-height:39px;width:auto;float:none;padding:7px 25px;margin:auto;cursor: pointer;}

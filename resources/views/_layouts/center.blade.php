@@ -5,6 +5,9 @@
     <title>@yield('title','用户中心 -- 农发众诚资产管理有限公司')</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/center.css">
+    <link rel="stylesheet" href="/css/jBox.css">
+    <link rel="stylesheet" href="/css/messenger.css">
+    <link rel="stylesheet" href="/css/messenger-theme-block.css">
     @yield('css')
 </head>
 <body>
@@ -23,7 +26,9 @@
                 @include('common.centermenu')
             </div>
             <div class="center-right">
-                @yield('content')
+                <div class="ucenter-bl">
+                    @yield('content')
+                </div>
             </div>
         </div>
     </div>
@@ -31,6 +36,31 @@
         @include('common.footer')
     </div>
 <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jBox.min.js"></script>
+<script type="text/javascript" src="/js/messenger.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $(".hdc").on('click',function(){
+        var $nextChild = $(this).next('.c-body');
+        if( $nextChild.length == 0 ){
+            window.location.href = $(this).data('href');
+        }else{
+            $nextChild.slideToggle();
+        }
+    });
+    Messenger.options = {
+        extraClasses: 'messenger-fixed messenger-on-top',
+        theme: 'block'
+    }
+    @if( $errors->has('message') )
+        Messenger().post('{{ $errors->first('message') }}');
+    @endif
+
+    @if( $errors->has('error') )
+
+    @endif
+});
+</script>
 @yield('js')
 </body>
 </html>
