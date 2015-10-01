@@ -3,7 +3,7 @@
 @section('content')
 <div class="list-title clearfix">
     <div class="cur">
-        <a href="/index.php?ctl=uc_money">基础信息</a>
+        <a href="javascript:;">基础信息</a>
     </div>
 </div>
 <div class="tab-box clearfix  safe-info">

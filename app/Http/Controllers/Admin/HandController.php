@@ -330,6 +330,7 @@ class HandController extends Controller
         $data['deal_sub_title'] = $deal->sub_title;
         $data['deal_daliy_returns'] = $deal->daliy_returns;
         $data['deal_rate'] = $deal->rate;
+        $data['deal_type'] = $deal->loan_type;
         // $data['order_status'] = DealOrder::ORDER_STATUS_INVALID;
         $data['status'] = DealOrder::STATUS_PENDING;  // 待审核
         $data['user_id'] = $member->getKey();

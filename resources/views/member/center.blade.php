@@ -12,7 +12,7 @@
             <div class="personal-inf">
                 <p class="inf-name">你好, {{ auth()->user()->name }}</p>
                 <p class="inf-grade">
-                    <span>                         
+                    <span>
                         <i class="i02 @if(auth()->user()->phonepassed) i02s @endif" status="1" title="手机认证"><a href="javascript:;" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
                         <i class="i03 @if(auth()->user()->idcardpassed) i03s @endif" status="0" title="实名认证"><a href="{{ route('member.account.authenticate') }}" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
                         <i class="i04 @if(auth()->user()->paypassword) i04s @endif" status="0" title="支付密码"><a href="{{ route('member.account.safe') }}" style="display:inline-block; width:100%; height:100%; pointer:curso"></a></i>
@@ -46,7 +46,7 @@
                 <p class="income-name">账户余额<em>（元）</em><i></i></p>
                 <p class="acount-num">{{ number_format(auth()->user()->can_money,2) }}</p>
                 <span style="display: none;" class="bubble">
-                            <label class="text">账户余额 + 待收本金 + 提现中冻结金额</label>
+                            <label class="text">账户可用资金</label>
                             <label class="arrow"></label>
                         </span>
             </li>
@@ -54,15 +54,15 @@
                 <p class="income-name">冻结资金<em>（元）</em><i></i></p>
                 <p class="acount-num">{{ number_format(auth()->user()->lock_money,2) }}</p>
                 <span style="display: none;" class="bubble">
-                            <label class="text">账户余额 + 待收本金 + 提现中冻结金额</label>
+                            <label class="text">待收本金+提现中冻结金额</label>
                             <label class="arrow"></label>
                         </span>
             </li>
             <li>
                 <p class="income-name">待收收益<em>（元）</em><i></i></p>
-                <p class="acount-num">{{ number_format(auth()->user()->money,2) }}</p>
+                <p class="acount-num">{{ number_format(auth()->user()->waiting_returns,2) }}</p>
                 <span style="display: none;" class="bubble">
-                            <label class="text">账户余额 + 待收本金 + 提现中冻结金额</label>
+                            <label class="text">所有理财产品截止昨天的未到期收益</label>
                             <label class="arrow"></label>
                         </span>
             </li>
@@ -73,9 +73,9 @@
         <div class="data-show">
             <ul>
                 <li>已投金额（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的投资金额</label><label class="arrow"></label></span></li>
-                <li>已获收益（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的投资金额</label><label class="arrow"></label></span></li>
-                <li>待收本金（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的投资金额</label><label class="arrow"></label></span></li>
-                <li>冻结资金（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的投资金额</label><label class="arrow"></label></span></li>
+                <li>已获收益（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的已获收益</label><label class="arrow"></label></span></li>
+                <li>待收本金（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的待收本金</label><label class="arrow"></label></span></li>
+                <li>冻结资金（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的冻结资金</label><label class="arrow"></label></span></li>
             </ul>
         </div>
     </div>
@@ -89,7 +89,7 @@
         </p>
         <ul class="clearfix">
             <li>
-                        <p class="p-name clearfix"><span>农发众诚</span><a href="/invest/2253.html">180T 月回息 </a> </p>
+                        <p class="p-name clearfix"><span>农发众诚</span><a href="javscript:;">180T 月回息 </a> </p>
                         <div class="dllustration clearfix">
                             <div class="divstyle divstyle01"> <em>12.00<i>%</i></em><br>
                                 <label>预期年化收益率</label>
@@ -109,7 +109,7 @@
                                     </span> 
                                 </p>
                             </div>
-                            <div class="divstyle divstyle03"> <a href="/invest/2253.html" class="a-btn">立即投资<i></i></a> </div>
+                            <div class="divstyle divstyle03"> <a href="javascript:;" class="a-btn">立即投资<i></i></a> </div>
                         </div>
                     </li>
         </ul>

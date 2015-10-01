@@ -18,10 +18,7 @@ class HomeController extends Controller
      * @return Response
      */
     public function index()
-    {
-        
-        dd(floor(20/30));
-        
+    {        
         $official_news = Category::where('alias','official-news')->first()->articles()->orderBy('id','desc')->take(4)->get();
         $industry_news = Category::where('alias','industry-news')->first()->articles()->orderBy('id','desc')->take(4)->get();
         //$industry_news = Category::where('alias','industry-news')->get();

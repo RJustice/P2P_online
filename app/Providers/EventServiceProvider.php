@@ -32,6 +32,8 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot($events);
 
+        session(['count'=>1]);
+
         User::created(function($user){
             User::createdCallback($user);
         });

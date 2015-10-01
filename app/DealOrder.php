@@ -249,7 +249,7 @@ class DealOrder extends Model
             switch($dealOrder->type){
                 case self::TYPE_OFFLINE_ORDER :
                     self::_offlineOrderMoneyLog($dealOrder);
-                    self::_signleBuildReturns($dealOrder);
+                    self::_signleBuildReturns(self::find($dealOrder->getKey()));
                     break;
                 case self::TYPE_OFFLINE_RECHARGE :
                     self::_offlineRechargeMoneyLog($dealOrder);
@@ -569,6 +569,7 @@ class DealOrder extends Model
 
     protected static function _signleBuildReturns($dealOrder){
         if( $dealOrder->type == self::TYPE_OFFLINE_ORDER ){
+            // session(['count'=>session('count')+1]);
             switch($dealOrder->deal_type){
                 case Deal::LOANTYPE_DAOQI :
                     self::_singleCalculateDQ($dealOrder);
@@ -592,7 +593,6 @@ class DealOrder extends Model
         $end = date_create($dealOrder->finish_date);
         $daliy = $dealOrder->deal_daliy_returns;
         $today = date_create(date('Y-m-d'));
-
         if( $today > $end ){
             $diff = date_diff($end,$start);
             $dealOrder->order_status = self::ORDER_STATUS_FINISHED;
@@ -606,6 +606,7 @@ class DealOrder extends Model
         // 月数
         $months = floor($days / 30 );
         $jiecunShouyi = $months * 30 * $daliy;
+        // dd($months,$jiecunShouyi);
         if( $jiecunShouyi > 0 ){
             // 写资金日志
             // Start

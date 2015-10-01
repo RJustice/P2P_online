@@ -10,6 +10,7 @@ use App\User;
 use App\UserMeta;
 use App\DealOrder;
 use Form;
+use Hashids;
 
 class MembersController extends Controller
 {
@@ -77,7 +78,7 @@ class MembersController extends Controller
                                 <li><a href="'.route('admin.'.$this->uri.'.edit',['id'=>$model->getKey()]).'" class="btn btn-block btn-primary">编辑用户</a></li>
                                 '.$memberCtrl.'
                                 <li role="separator" class="divider"></li>
-                                <li><a href="'.route("admin.members.{id}.orders").'" class="btn btn-block btn-success">查看投资</a></li>
+                                <li><a href="'.route("admin.members.{id}.orders",['id'=>$model->getKey()]).'" class="btn btn-block btn-success">查看投资</a></li>
                                 <li><a href="'.route("admin.hand.{id}.offline",['id'=>$model->getKey()]).'" class="btn btn-block btn-info">线下投资登记</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>'.$refBtn.'</li>
@@ -147,12 +148,12 @@ class MembersController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['phone','name','email','password','is_delete','idno','province_id','city_id','county_id','address','sales_manager','sex']);
+        $data = $request->only(['phone','name','email','password','is_deleted','idno','province_id','city_id','county_id','address','sales_manager','sex']);
         $data['password'] = bcrypt($data['password']);
         $data['type'] = User::TYPE_MEMBER;
         $data['idcardpassed'] = 1;
         $data['idcardpassed_time'] = time();
-
+        $data['hash_id'] = Hashids::encode();
         // $createUser = Auth::user();
         // if( $createUser->type == User::TYPE_ADMIN ){
             // $data['state'] = User::STATE_SYS_CREATED;    
@@ -184,30 +185,27 @@ class MembersController extends Controller
      */
     public function show($id)
     {   
-        $data = User::findOrFail($id);
-        // DealOrders 
-        $dealOrders = [
-            'columns' =>[
-                ['编号','order_sn'],
-                ['理财项目','deal_title'],
-                ['利率','deal_rate',function($deal_rate){
-                    return $deal_rate . ' %';
-                }],
-                ['购买金额','total_price',function($total_price){
-                    return number_format($total_price,2);
-                }],
-                ['开始时间','create_date'],
-                ['结束时间','finish_date',function($finish_date){
-                    return $finish_date;
-                }],
-                // ['来源','referer'],
-            ]
-        ];
-        $dealsPaginate = $data->dealOrders()->whereIn('type',[DealOrder::TYPE_OFFLINE_ORDER,DealOrder::TYPE_ONLINE_ORDER])->where('is_deleted',0)->orderByRaw('create_date desc')->paginate(15);
-        $dealOrders['items'] = $dealsPaginate;
-        // End 
-        
+        $data = User::find($id);        
         if( $data ){
+             $dealOrders = [
+                'columns' =>[
+                    ['编号','order_sn'],
+                    ['理财项目','deal_title'],
+                    ['利率','deal_rate',function($deal_rate){
+                        return $deal_rate . ' %';
+                    }],
+                    ['购买金额','total_price',function($total_price){
+                        return number_format($total_price,2);
+                    }],
+                    ['开始时间','create_date'],
+                    ['结束时间','finish_date',function($finish_date){
+                        return $finish_date;
+                    }],
+                    // ['来源','referer'],
+                ]
+            ];
+            $dealsPaginate = $data->dealOrders()->whereIn('type',[DealOrder::TYPE_OFFLINE_ORDER,DealOrder::TYPE_ONLINE_ORDER])->where('is_deleted',0)->orderByRaw('create_date desc')->paginate(15);
+            $dealOrders['items'] = $dealsPaginate;
             return view('forone::'.$this->uri.'.show',compact('data','dealOrders'));
         }else{
             return $this->redirectWithError('数据未找到');
@@ -240,7 +238,7 @@ class MembersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $data = $request->only(['phone','name','email','is_delete','idno','province_id','city_id','county_id','address','sales_manager','sex']);
+        $data = $request->only(['phone','name','email','is_deleted','idno','province_id','city_id','county_id','address','sales_manager','sex']);
         $data['modified_uid'] = Auth::user()->getKey();
         $user->update($data);
         return redirect()->route('admin.'.$this->uri.'.index');
