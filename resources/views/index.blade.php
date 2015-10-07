@@ -3,7 +3,7 @@
 <div id="main-adv-box" class="main-adv-box f-l">
     <div id="main-adv-img" class="main-adv-img">
         <span rel="1"><img src="/images/b1.jpg" alt="" style="display:none"></span>
-        <span rel="2"><img src="/images/b2.jpg" alt="" style="display:none"></span>
+        <span rel="2"><img src="/images/b6.jpg" alt="" style="display:none"></span>
         <span rel="3"><img src="/images/b3.jpg" alt="" style="display:none"></span>
         <span rel="4"><img src="/images/b4.jpg" alt="" style="display:none"></span>
     </div>
