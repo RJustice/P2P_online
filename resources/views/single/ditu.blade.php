@@ -88,6 +88,7 @@
             map.setZoomAndCenter(17,[lng,lat]);
             marker.setPosition([lng,lat]);
             map.setFitView();
+            $("html,body").animate({scrollTop:$("#cmap").offset().top},1000);
         });
     });
 </script>
