@@ -1,6 +1,6 @@
 @extends('_layouts.about')
 @section('css')
-
+<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css" />
 @stop
 @section('content')
 <div class="about-box clearfix">
@@ -78,17 +78,20 @@
 </div>
 @stop
 @section('js')
+<script src="http://webapi.amap.com/maps?v=1.3&key=62602e254c75cf7fc1b7dad61b10f23f"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#contact li").on('click',function(){
-            var d = $(this).data('area');
-            var src = $("#cmap img").attr('src');
-            var reg = new RegExp(d+'.jpg');
-            if( reg.test(src)){
-                return false;
-            }
-            $("#cmap img").attr('src','/images/'+d+'.jpg');
-        });
+        // $("#contact li").on('click',function(){
+        //     var d = $(this).data('area');
+        //     var src = $("#cmap img").attr('src');
+        //     var reg = new RegExp(d+'.jpg');
+        //     if( reg.test(src)){
+        //         return false;
+        //     }
+        //     $("#cmap img").attr('src','/images/'+d+'.jpg');
+        // });
+
+        
     });
 </script>
 @stop
