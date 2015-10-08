@@ -101,7 +101,7 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['phone','name','email','password','is_delete','idno','province_id','city_id','address']);
+        $data = $request->only(['phone','name','email','password','is_deleted','idno','province_id','city_id','address']);
         $data['password'] = bcrypt($data['password']);
         $data['type'] = User::TYPE_EMPLOYEE;
         $data['idcardpassed'] = 1;
