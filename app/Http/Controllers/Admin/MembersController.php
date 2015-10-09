@@ -55,8 +55,9 @@ class MembersController extends Controller
                 // }],
                 ['操作','Model',function($model){
                     if( Auth::user()->can(['member_all','member_u','admin']) ){
-                        $memberCtrl = '<li><a href="#" class="btn btn-block btn-warning">禁用</a></li>
-                                <li><a href="#" class="btn btn-block btn-danger">删除</a></li>';
+                        // $memberCtrl = '<li><a href="#" class="btn btn-block btn-warning">禁用</a></li>
+                        //         <li><a href="#" class="btn btn-block btn-danger">删除</a></li>';
+                        $memberCtrl = '';
                     }else{
                         $memberCtrl = '';
                     }

@@ -120,7 +120,7 @@
             $("#sendTip").text('短信验证码发送中……，发送至：');
             off = 1;
             $.ajax({
-                url : '{{ url('sms/test') }}',
+                url : '{{ url('sms/send') }}',
                 type : 'post',
                 data : {_token:'{{ csrf_token() }}'},
                 dataType : 'json',

@@ -42,7 +42,7 @@ class AdminsController extends BaseController {
             ]
         ];
         $roles = Role::all();
-        $paginate = User::where('type',User::TYPE_ADMIN)->orderBy('created_at', 'desc')->paginate();
+        $paginate = User::whereIn('type',[User::TYPE_ADMIN,User::TYPE_EMPLOYEE])->orderBy('created_at', 'desc')->paginate();
         $results['items'] = $paginate;
 
         foreach ($paginate as $user) {

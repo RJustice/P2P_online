@@ -3,7 +3,7 @@
 {!! Form::iform_select('company_id','所属',\App\Company::getCompanyOption(true),1) !!}
 {!! Form::iform_text('email','Email','请输入Email地址',1) !!}
 {!! Form::iform_password('password','密码','请输入密码',1) !!}
-{!! Form::iform_radio('is_delete','禁用',[[0,'是'],[1,'否',true]],1) !!}
+{!! Form::iform_radio('is_deleted','禁用',[[0,'是'],[1,'否',true]],1) !!}
 {!! Form::iform_text('idno','身份证号','请输入正确身份证号码',1) !!}
 {!! Form::iform_radio('sex','性别',[[1,'男'],[0,'女']],1) !!}
 {{-- @inject('region','App\Region') --}}

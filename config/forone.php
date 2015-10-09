@@ -78,7 +78,7 @@ return [
         ],
         '用户管理' => [
             'icon'       => 'mdi-toggle-radio-button-on',
-            'permission' => ['admin','editor','employee_m'],
+            'permission' => ['admin','editor','employee'],
             'children'   => [
                 '会员管理'  => [
                     'uri' => 'members',
@@ -95,9 +95,9 @@ return [
                 '项目列表'  => [
                     'uri' => 'deals',
                 ],
-                '借款人列表'  => [
-                    'uri' => 'borrower',
-                ],
+                // '借款人列表'  => [
+                //     'uri' => 'borrower',
+                // ],
             ],  
         ],        
         '订单管理' => [            
@@ -112,21 +112,21 @@ return [
                 ]
             ],  
         ],
-        '资金管理' => [
-            'icon'       => 'mdi-toggle-radio-button-on',
-            'permission' => ['admin'],
-            'children'   => [
-                '提现申请'  => [
-                    'uri' => 'carrys',
-                ],
-                '资金日志' => [
-                    'uri' => 'moneys',
-                ],
-                '红包管理' => [
-                    'uri' => 'giftmoney',
-                ]
-            ],
-        ],
+        // '资金管理' => [
+        //     'icon'       => 'mdi-toggle-radio-button-on',
+        //     'permission' => ['admin'],
+        //     'children'   => [
+        //         '提现申请'  => [
+        //             'uri' => 'carrys',
+        //         ],
+        //         '资金日志' => [
+        //             'uri' => 'moneys',
+        //         ],
+        //         '红包管理' => [
+        //             'uri' => 'giftmoney',
+        //         ]
+        //     ],
+        // ],
         '手动操作' => [
             'icon'       => 'mdi-toggle-radio-button-on',
             'permission' => ['admin'],
@@ -152,9 +152,9 @@ return [
                 '分公司'  => [
                     'uri' => 'company',
                 ],
-                '系统设置'  => [
-                    'uri' => 'sys',
-                ]
+                // '系统设置'  => [
+                //     'uri' => 'sys',
+                // ]
             ],
         ]
     ],

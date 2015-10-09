@@ -18,11 +18,11 @@
         </ul>
     </div>
     <div class="hdc {{ str_is('member.invest.index',Route::current()->getName()) ? 'c-hds':'c-hd' }} c-hd3" data-href="{{ route('member.invest.index') }}">投资管理</div>
-    <div class="hdc {{ str_is('member.message.index',Route::current()->getName()) ? 'c-hds':'c-hd' }} c-hd4">消息管理</div>
+    {{-- <div class="hdc {{ str_is('member.message.index',Route::current()->getName()) ? 'c-hds':'c-hd' }} c-hd4">消息管理</div>
     <div class="c-body">
         <ul class="uc-menu">
             <li class="{{ str_is('member.message.index',Route::current()->getName()) ? 'act' : '' }}"><a href="{{ route('member.message.index') }}" class="uc-cate">系统消息</a></li>
         </ul>
     </div>
-    <div class="hdc {{ str_is('member.redpacket',Route::current()->getName()) ? 'c-hds':'c-hd' }} c-hd5" data-href="{{ route('member.redpacket') }}">红包管理</div>
+    <div class="hdc {{ str_is('member.redpacket',Route::current()->getName()) ? 'c-hds':'c-hd' }} c-hd5" data-href="{{ route('member.redpacket') }}">红包管理</div> --}}
 </div>

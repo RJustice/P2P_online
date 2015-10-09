@@ -118,6 +118,7 @@
 @stop
 
 @section('js')
+<script src="http://code.highcharts.com/highcharts.js"></script>
 <script type="text/javascript">
     $(function(){
         $('.income-name i').hover(function(){
@@ -130,6 +131,67 @@
             $(this).siblings('.bubble').show();
         },function(){
             $(this).siblings('.bubble').hide();
+        });
+
+
+        $("#chart").highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '投资与收益'
+            },
+            xAxis: {
+                categories: [
+                    '1月',
+                    '2月',
+                    '3月',
+                    '4月',
+                    '5月',
+                    '6月',
+                    '7月',
+                    '8月',
+                    '9月',
+                    '10月',
+                    '11月',
+                    '12月',
+                ]
+            },
+            yAxis: [{
+                min: 0,
+                title: {
+                    text: '投资(元)'
+                }
+            },{
+                title: {
+                    text: '收益(元)'
+                },
+                opposite: true
+            }],
+            legend: {
+                shared: true
+            },
+            plotOptions: {
+                column: {
+                    grouping: false,
+                    shadow: false,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: '投资',
+                color: 'rgba(165,170,217,1)',
+                data: [0,0,0,0,0,0,0,0,0,0,0,0],
+                pointPadding: 0.4,
+                pointPlacement:-0.1
+            },{
+                name: '收益',
+                color: 'rgba(248,161,63,1)',
+                data: [0,0,0,0,0,0,0,0,0,0,0,0],
+                pointPadding: 0.4,
+                pointPlacement:0.1,
+                yAxis: 1
+            }]
         });
     });
 </script>

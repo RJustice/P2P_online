@@ -35,28 +35,28 @@ class DealsController extends Controller
                 ['可用','is_effect',function($is_effect){
                     return $is_effect ? '是' : '否';
                 }],
-                ['操作','other',function(){
-                    return '<div class="dropdown">
-                              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                操作
-                                <span class="caret"></span>
-                              </button>
-                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li><a href="#">Separated link</a></li>
-                              </ul>
-                            </div>';
-                }],
-                // ['操作', 'buttons', function ($data) {
-                //     $buttons = [
-                //         ['编辑'],
-                //         [['name'=>'删除','class'=>'btn-danger','uri'=>$data['id'],'method'=>'POST'],['deleted'=>1]]
-                //     ];
-                //     return $buttons;
+                // ['操作','other',function(){
+                //     return '<div class="dropdown">
+                //               <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                //                 操作
+                //                 <span class="caret"></span>
+                //               </button>
+                //               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                //                 <li><a href="#">Action</a></li>
+                //                 <li><a href="#">Another action</a></li>
+                //                 <li role="separator" class="divider"></li>
+                //                 <li><a href="#">Something else here</a></li>
+                //                 <li><a href="#">Separated link</a></li>
+                //               </ul>
+                //             </div>';
                 // }],
+                ['操作', 'buttons', function ($data) {
+                    $buttons = [
+                        ['编辑'],
+                        [['name'=>'删除','class'=>'btn-danger','uri'=>$data['id'],'method'=>'POST'],['is_deleted'=>1]]
+                    ];
+                    return $buttons;
+                }],
             ]
         ];
         $paginate = Deal::where('is_effect',1)->where('is_deleted',0)->orderByRaw('sort desc,id desc')->paginate(15);
@@ -114,7 +114,7 @@ class DealsController extends Controller
      */
     public function edit($id)
     {
-        $data = User::findOrFail($id);
+        $data = Deal::findOrFail($id);
         if ($data) {
             return $this->view('forone::' . $this->uri. "/edit", compact('data'));
         }else{
@@ -131,7 +131,12 @@ class DealsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return ;
+        $deal = Deal::findOrFail($id);
+        $data = $request->only(['titlecolor','deal_sn','title','sub_title','repay_time','rate','loan_type','min_loan_money','max_loan_money','is_effect','is_hot','is_best','is_rec','borrow_amount','load_money','buy_count','intro_info','description']);
+        // $data['modified_uid'] = Auth::user()->getKey();
+        $data['daliy_returns'] = 10000 * ( $data['rate'] / 100 ) / 365 ;
+        $deal->update($data);
+        return redirect()->route('admin.'.$this->uri.'.index');
     }
 
     /**
