@@ -6,7 +6,7 @@
 @endif
 {!! Form::iform_radio('is_deleted','禁用',[[1,'是'],[0,'否',true]],1) !!}
 {!! Form::iform_text('idno','身份证号','请输入正确身份证号码',1) !!}
-{!! Form::iform_radio('sex','性别',[[1,'男',ture],[0,'女']],1) !!}
+{!! Form::iform_radio('sex','性别',[[1,'男',true],[0,'女']],1) !!}
 {{-- @inject('region','App\Region') --}}
 {!! Form::iform_select('province_id','省份',[],1/3) !!}
 {!! Form::iform_select('city_id','市',[],1/3) !!}
