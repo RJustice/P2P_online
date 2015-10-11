@@ -11,6 +11,7 @@ use App\UserMeta;
 use App\DealOrder;
 use Form;
 use Hashids;
+use Validator;
 
 class MembersController extends Controller
 {
@@ -176,7 +177,16 @@ class MembersController extends Controller
 
         $data['username'] = $data['phone'];
 
-
+        $validator = Validator::make($data, [
+            'phone' => 'required|unique:users',
+            'name' => 'required',
+            'idno' => 'required|unique:users',            
+            // 'email' => 'required|email|unique:users',
+            // 'password' => 'required|max:20',
+        ]);
+        if( $validator->fails() ){
+            return redirect()->route('admin.'.$this->uri.'.create')->withErrors($validator);
+        }
         User::create($data);
         return redirect()->route('admin.'.$this->uri.'.index');
     }
