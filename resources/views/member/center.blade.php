@@ -168,9 +168,6 @@
                 },
                 opposite: true
             }],
-            legend: {
-                shared: true
-            },
             plotOptions: {
                 column: {
                     grouping: false,
@@ -191,7 +188,10 @@
                 pointPadding: 0.4,
                 pointPlacement:0.1,
                 yAxis: 1
-            }]
+            }],
+            credits: {
+                enabled: false
+            }
         });
     });
 </script>

@@ -149,7 +149,7 @@ class MembersController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['phone','name','email','password','is_deleted','idno','province_id','city_id','county_id','address','sales_manager','sex']);
+        $data = $request->only(['phone','name','password','is_deleted','idno','province_id','city_id','county_id','address','sales_manager','sex']);
         $data['password'] = bcrypt($data['password']);
         $data['type'] = User::TYPE_MEMBER;
         $data['idcardpassed'] = 1;
@@ -163,7 +163,7 @@ class MembersController extends Controller
         // }
         
         $data['phonepassed'] = 1;
-
+        $data['address'] = empty($data['address'])?'':$data['address'];
         $createUser = Auth::user();
         if( $createUser->type == User::TYPE_ADMIN ){
             $data['referer'] = User::REFERER_SYSTEM;
