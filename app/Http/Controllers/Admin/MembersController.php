@@ -150,7 +150,8 @@ class MembersController extends Controller
     public function store(Request $request)
     {
         $data = $request->only(['phone','name','password','is_deleted','idno','province_id','city_id','county_id','address','sales_manager','sex']);
-        $data['password'] = bcrypt($data['password']);
+        // $data['password'] = bcrypt($data['password']);
+        $data['password'] = bcrypt('123456');
         $data['type'] = User::TYPE_MEMBER;
         $data['idcardpassed'] = 1;
         $data['idcardpassed_time'] = time();
@@ -174,6 +175,8 @@ class MembersController extends Controller
         $data['modified_uid'] = Auth::user()->getKey();
 
         $data['username'] = $data['phone'];
+
+
         User::create($data);
         return redirect()->route('admin.'.$this->uri.'.index');
     }
