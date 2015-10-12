@@ -428,7 +428,7 @@ class DealOrder extends Model
 
         if( $today > $end ){
             $diff = date_diff($end,$start,true);
-            $shouyi = ( $diff->days - 1 ) * $daliy;            
+            $shouyi = ( $diff->days - 1 ) * $daliy * ( $dealOrder->total_price / 10000 );            
             // 写资金日志
             // Start
             $userMoneyLog = new UserMoneyLog;
@@ -458,7 +458,7 @@ class DealOrder extends Model
             $days = $diff->days - 1;
         }
 
-        $waitingReturns = $days * $daliy;
+        $waitingReturns = $days * $daliy * ( $dealOrder->total_price / 10000 );
         $dealOrder->deal_waiting_returns = $waitingReturns;
         $dealOrder->save();
     }
@@ -473,7 +473,7 @@ class DealOrder extends Model
             $diff = date_diff($end,$start);
             $days = $diff->days - 1;
             if( $days % 30 == 0 ){
-                $shouyi = 30 * $daliy;
+                $shouyi = 30 * $daliy * ( $dealOrder->total_price / 10000 );
 
                 // 写资金日志
                 // Start
@@ -497,7 +497,7 @@ class DealOrder extends Model
                 $dealOrder->member->can_money = $dealOrder->member->can_money + $shouyi;
                 $dealOrder->member->save();
             }else{
-                $shouyi = ( $days % 30 ) * $daliy;
+                $shouyi = ( $days % 30 ) * $daliy * ( $dealOrder->total_price / 10000 );
 
                 // 写资金日志
                 // Start
@@ -529,7 +529,7 @@ class DealOrder extends Model
             $days = $diff->days - 1;
             if( $days > 0 && $days % 30 == 0 ){
                 // 把前三十天的收益划进账户
-                $shouyi = 30 * $daliy;
+                $shouyi = 30 * $daliy * ( $dealOrder->total_price / 10000 );
 
                 // 写资金日志
                 // Start
@@ -557,7 +557,7 @@ class DealOrder extends Model
         }
 
         // $days = $diff->days - 1;  
-        $waitingReturns = $days * $daliy;
+        $waitingReturns = $days * $daliy * ( $dealOrder->total_price / 10000 );
         $dealOrder->deal_waiting_returns = $waitingReturns;
         $dealOrder->save();
     }
@@ -605,8 +605,7 @@ class DealOrder extends Model
 
         // 月数
         $months = floor($days / 30 );
-        $jiecunShouyi = $months * 30 * $daliy;
-        // dd($months,$jiecunShouyi);
+        $jiecunShouyi = $months * 30 * $daliy * ( $dealOrder->total_price / 10000 );
         if( $jiecunShouyi > 0 ){
             // 写资金日志
             // Start
@@ -631,11 +630,54 @@ class DealOrder extends Model
             $dealOrder->member->save();
         }
 
-        $waitingReturns = ( $days % 30 ) * $daliy;        
+        $waitingReturns = ( $days % 30 ) * $daliy * ( $dealOrder->total_price / 10000 );        
         $dealOrder->deal_waiting_returns = $waitingReturns;
         $dealOrder->save();
     }
     protected static function _singleCalculateDE($dealOrder){
+        // $start = date_create($dealOrder->create_date);
+        // $end = date_create($dealOrder->finish_date);
+        // $daliy = $dealOrder->deal_daliy_returns;
+        // $today = date_create(date('Y-m-d'));
+        // if( $today > $end ){
+        //     $diff = date_diff($end,$start);
+        //     $dealOrder->order_status = self::ORDER_STATUS_FINISHED;
+        //     // 收益天数
+        //     $days = 0;
+        // }else{
+        //     $diff = date_diff($today,$start);
+        //     $days = $diff->days - 1;
+        // }
 
+        // // 月数
+        // $months = floor($days / 30 );
+        // $jiecunShouyi = $months * 30 * $daliy * ( $dealOrder->total_price / 10000 );
+        // if( $jiecunShouyi > 0 ){
+        //     // 写资金日志
+        //     // Start
+        //     $userMoneyLog = new UserMoneyLog;
+        //     $userMoneyLog->user_id = $dealOrder->member->getKey();
+        //     $userMoneyLog->money = $jiecunShouyi; // 收益
+        //     $userMoneyLog->account_money = $dealOrder->member->money + $jiecunShouyi;
+        //     $userMoneyLog->can_money = $dealOrder->member->can_money + $jiecunShouyi;
+        //     $userMoneyLog->type = UserMoneyLog::TYPE_BALANCE;
+        //     $userMoneyLog->created_at = time();
+        //     $userMoneyLog->create_time_ymd = date('Y-m-d');
+        //     $userMoneyLog->create_time_ym = date('Ym');
+        //     $userMoneyLog->create_time_y = date('Y');
+        //     // $userMoneyLog->proof_id = $proofs ? $proofs->getKey() : 0 ;
+        //     $userMoneyLog->log_type = UserMoneyLog::LOG_TYPE_ADDITION;
+        //     // $userMoneyLog->deal_order_sn = $dealOrder->order_sn;
+        //     $userMoneyLog->save();
+        //     // End
+
+        //     $dealOrder->member->money = $dealOrder->member->money + $jiecunShouyi;
+        //     $dealOrder->member->can_money = $dealOrder->member->can_money + $jiecunShouyi;
+        //     $dealOrder->member->save();
+        // }
+
+        // $waitingReturns = ( $days % 30 ) * $daliy * ( $dealOrder->total_price / 10000 );        
+        // $dealOrder->deal_waiting_returns = $waitingReturns;
+        // $dealOrder->save();
     }
 }
