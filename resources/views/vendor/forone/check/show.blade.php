@@ -35,7 +35,7 @@ span.price{font-size:14px;font-weight: 600;color:#ff5a13;letter-spacing: 1px;}
         @endif
         <ul class="list-group col-md-12 col-sm-12">
             <li class="list-group-item">
-                <span class="labelx col-sm-3">备注：</span>{{ $data->admin_meno }}&nbsp;
+                <span class="labelx col-sm-3">订单备注：</span>{{ $data->admin_meno }}&nbsp;
             </li>
             <li class="list-group-item">
                 <span class="labelx col-sm-3">客户：</span>{{ $data->member->name }}&nbsp;
