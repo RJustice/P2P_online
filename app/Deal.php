@@ -15,7 +15,7 @@ class Deal extends Model
 
     protected static function loanTypeOption(){
         return [
-            self::LOANTYPE_DENGEBENXI => '等额本息',
+            // self::LOANTYPE_DENGEBENXI => '等额本息',
             self::LOANTYPE_FUXIFANBEN => '月付息到期返本',
             self::LOANTYPE_DAOQI => '到期付息返本',
         ];

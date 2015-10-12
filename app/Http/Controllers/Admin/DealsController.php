@@ -103,7 +103,12 @@ class DealsController extends Controller
      */
     public function show($id)
     {
-        
+        $data = Deal::find($id);
+        if( $data ){
+            return $this->view('forone::' . $this->uri. "/show", compact('data'));
+        }else{
+            return $this->redirectWithError('数据未找到');
+        }
     }
 
     /**

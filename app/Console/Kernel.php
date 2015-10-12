@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function(){
             \App\DealOrder::buildReturns();
+            \App\User::buildReturns();
         })->daily();
     }
 }

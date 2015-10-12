@@ -38,6 +38,9 @@ class CheckController extends Controller
             ['类型','type',function($type){
                 return DealOrder::getOrderTypeTitle($type);
             }],
+            ['客户','Model3',function($model){
+                return $model->member->name .' - '. $model->member->phone;
+            }],
             ['提交人员','Model1',function($model){
                 // dd($model);
                 return $model->whoSales->name;
