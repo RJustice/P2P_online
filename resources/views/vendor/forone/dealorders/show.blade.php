@@ -1,7 +1,7 @@
 @extends('forone::layouts.master')
 @section('css')
 <style type="text/css">
-span.labelx{font-size:14px;font-weight: 600;text-align:right;color:#000;width:85px;margin-right:15px;display: inline-block;}
+span.labelx{font-size:14px;font-weight: 600;text-align:right;color:#000;display: inline-block;}
 span.price{font-size:14px;font-weight: 600;color:#ff5a13;letter-spacing: 1px;}
 </style>
 @stop
@@ -15,28 +15,28 @@ span.price{font-size:14px;font-weight: 600;color:#ff5a13;letter-spacing: 1px;}
                     <h4>客户信息</h4>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <span class="labelx">姓名：</span>{{ $data->member->name }}&nbsp;&nbsp;&nbsp;({{ App\User::getSex($data->member->sex) }})&nbsp;
+                            <span class="labelx col-sm-3">姓名：</span>{{ $data->member->name }}&nbsp;&nbsp;&nbsp;({{ App\User::getSex($data->member->sex) }})&nbsp;
                         </li>
                         <li class="list-group-item">
-                            <span class="labelx">电话：</span>{{ $data->member->phone }}&nbsp;
+                            <span class="labelx col-sm-3">电话：</span>{{ $data->member->phone }}&nbsp;
                         </li>                        
                         <li class="list-group-item">
-                            <span class="labelx">区域：</span>{{ $data->member->formatRegion() }}&nbsp;
+                            <span class="labelx col-sm-3">区域：</span>{{ $data->member->formatRegion() }}&nbsp;
                         </li>
                         <li class="list-group-item">
-                            <span class="labelx">住址：</span>{{ $data->member->address }}&nbsp;
+                            <span class="labelx col-sm-3">住址：</span>{{ $data->member->address }}&nbsp;
                         </li>
                         <li class="list-group-item">
-                            <span class="labelx">身份证：</span>{{ $data->member->idno }}&nbsp;
+                            <span class="labelx col-sm-3">身份证：</span>{{ $data->member->idno }}&nbsp;
                         </li>
                         <li class="list-group-item">
-                            <span class="labelx">邮箱：</span>{{ $data->member->email }}&nbsp;
+                            <span class="labelx col-sm-3">邮箱：</span>{{ $data->member->email }}&nbsp;
                         </li>
                         <li class="list-group-item">
-                            <span class="labelx">注册时间：</span>{{ $data->member->created_at->format('Y-m-d') }}&nbsp;
+                            <span class="labelx col-sm-3">注册时间：</span>{{ $data->member->created_at->format('Y-m-d') }}&nbsp;
                         </li>
                         <li class="list-group-item">
-                            <span class="labelx">注册来源：</span>{{ App\User::getRefererTitle($data->member->referer) }}&nbsp;
+                            <span class="labelx col-sm-3">注册来源：</span>{{ App\User::getRefererTitle($data->member->referer) }}&nbsp;
                         </li>
                     </ul>
                     {{-- {!! Form::ipanel_end() !!} --}}
@@ -79,20 +79,23 @@ span.price{font-size:14px;font-weight: 600;color:#ff5a13;letter-spacing: 1px;}
             <div class="row">
                 <div class="col-sm-12">
                     <ul class="list-group">
-                        <li class="list-group-item"><span class="labelx">订单编号：</span>{{ $data->order_sn }}</li>
-                        <li class="list-group-item"><span class="labelx">订单金额：</span><span class="price">{{ number_format($data->total_price,2) }}</span></li>
+                        <li class="list-group-item"><span class="labelx col-sm-3">订单编号：</span>{{ $data->order_sn }}</li>
+                        <li class="list-group-item"><span class="labelx col-sm-3">订单金额：</span><span class="price">{{ number_format($data->total_price,2) }}</span></li>
                         @if( in_array($data->type,[App\DealOrder::TYPE_OFFLINE_ORDER,App\DealOrder::TYPE_ONLINE_ORDER]))
                         <li class="list-group-item list-group-item-info">
-                            <span class="labelx">理财名称：</span><a href="{{ route('admin.deals.show',['id'=>$data->deal_id]) }}" title="查看理财项目">{{ $data->deal_title }}</a>
+                            <span class="labelx col-sm-3">理财名称：</span><a href="{{ route('admin.deals.show',['id'=>$data->deal_id]) }}" title="查看理财项目">{{ $data->deal_title }}</a>
                         </li>
                         <li class="list-group-item list-group-item-info">
-                            <span class="labelx">预期年收益：</span>{{ $data->deal_rate }}
+                            <span class="labelx col-sm-3">预期年收益：</span>{{ $data->deal_rate }}
                         </li>
                         <li class="list-group-item list-group-item-info">
-                            <span class="labelx">开始时间：</span>{{ $data->create_date }}
+                            <span class="labelx col-sm-3">开始时间：</span>{{ $data->create_date }}
                         </li>
                         <li class="list-group-item list-group-item-info">
-                            <span class="labelx">结束时间：</span>{{ $data->finish_date }} @if( strtotime($data->finish_date) - time() <= 5 * 24 * 60 * 60  ) <span class="label label-warning">即将到期</span> @endif
+                            <span class="labelx col-sm-3">结束时间：</span>{{ $data->finish_date }} @if( strtotime($data->finish_date) - time() <= 5 * 24 * 60 * 60  ) <span class="label label-warning">即将到期</span> @endif
+                        </li>
+                        <li class="list-group-item list-group-item-info">
+                            <span class="labelx col-sm-3">备注：</span>{{ $data->admin_meno }}
                         </li>
                         @endif
                     </ul>
