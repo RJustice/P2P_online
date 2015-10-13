@@ -29,7 +29,7 @@ class CreateDealTable extends Migration
             $table->decimal('min_loan_money',20,2)->default(0);
             $table->decimal('max_loan_money',20,2)->default(0);
             $table->decimal('rate',10,2);
-            $table->decimal('daliy_returns',20,2);
+            $table->decimal('daily_returns',20,2);
             $table->decimal('user_loan_manage_fee',20,2);
             $table->integer('repay_time');
             $table->timestamps();

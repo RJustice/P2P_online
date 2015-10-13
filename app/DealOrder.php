@@ -404,11 +404,11 @@ class DealOrder extends Model
     //  
     protected static function buildReturns(){
         $dealOrders = self::where('status',self::STATUS_PASSED)->where('is_deleted',0)->whereIn('type',[self::TYPE_OFFLINE_ORDER,self::TYPE_ONLINE_ORDER])->where('order_status',self::ORDER_STATUS_VALID);
-        // dd($dealOrders->count());
-        $userWaiting = 0;
+        // dd($dealOrders->count());        
         $users = [];
         $dealOrders->chunk(200,function($dealOrders) use(&$users){
             foreach($dealOrders as $dealOrder){
+                $userWaiting = 0;
                 if( $dealOrder->build_date == date('Y-m-d') ){
                     continue;
                 }
@@ -426,7 +426,6 @@ class DealOrder extends Model
                 $users[$dealOrder->user_id] = isset($users[$dealOrder->user_id]) ? ( $users[$dealOrder->user_id] + $userWaiting ) : $userWaiting;
             }
         });
-
         foreach( $users as $id=>$waiting ){
             User::find($id)->update(['waiting_returns'=>$waiting]);
         }
@@ -435,12 +434,12 @@ class DealOrder extends Model
     protected static function _calculateDQ($dealOrder){
         $start = date_create($dealOrder->create_date);
         $end = date_create($dealOrder->finish_date);
-        $daliy = $dealOrder->deal_daliy_returns;
+        $daily = $dealOrder->deal_daily_returns;
         $today = date_create(date('Y-m-d'));
 
         if( $today > $end ){
             $diff = date_diff($end,$start,true);
-            $shouyi = ( $diff->days - 1 ) * $daliy * ( $dealOrder->total_price / 10000 );            
+            $shouyi = ( $diff->days - 1 ) * $daily * ( $dealOrder->total_price / 10000 );            
             // 写资金日志
             // Start
             $userMoneyLog = new UserMoneyLog;
@@ -449,7 +448,7 @@ class DealOrder extends Model
             $userMoneyLog->account_money = $dealOrder->member->money + $shouyi;
             $userMoneyLog->can_money = $dealOrder->member->can_money + $shouyi;
             $userMoneyLog->type = UserMoneyLog::TYPE_BALANCE;
-            $userMoneyLog->created_at = time();
+            $userMoneyLog->created_at = date("Y-m-d H:i:s");
             $userMoneyLog->create_time_ymd = date('Y-m-d');
             $userMoneyLog->create_time_ym = date('Ym');
             $userMoneyLog->create_time_y = date('Y');
@@ -469,7 +468,7 @@ class DealOrder extends Model
             $diff = date_diff($today,$start,true);
             $days = $diff->days - 1;
         }
-        $waitingReturns = $days * $daliy * ( $dealOrder->total_price / 10000 );
+        $waitingReturns = $days * $daily * ( $dealOrder->total_price / 10000 );
         $dealOrder->deal_waiting_returns = $waitingReturns;
         $dealOrder->build_date = date('Y-m-d');
         $dealOrder->save();
@@ -479,14 +478,14 @@ class DealOrder extends Model
     protected static function _calculateFX($dealOrder){
         $start = date_create($dealOrder->create_date);
         $end = date_create($dealOrder->finish_date);
-        $daliy = $dealOrder->deal_daliy_returns;
+        $daily = $dealOrder->deal_daily_returns;
         $today = date_create(date('Y-m-d'));
 
         if( $today > $end ){
             $diff = date_diff($end,$start);
             $days = $diff->days - 1;
             if( $days % 30 == 0 ){
-                $shouyi = 30 * $daliy * ( $dealOrder->total_price / 10000 );
+                $shouyi = 30 * $daily * ( $dealOrder->total_price / 10000 );
 
                 // 写资金日志
                 // Start
@@ -496,7 +495,7 @@ class DealOrder extends Model
                 $userMoneyLog->account_money = $dealOrder->member->money + $shouyi;
                 $userMoneyLog->can_money = $dealOrder->member->can_money + $shouyi;
                 $userMoneyLog->type = UserMoneyLog::TYPE_BALANCE;
-                $userMoneyLog->created_at = time();
+                $userMoneyLog->created_at = date("Y-m-d H:i:s");
                 $userMoneyLog->create_time_ymd = date('Y-m-d');
                 $userMoneyLog->create_time_ym = date('Ym');
                 $userMoneyLog->create_time_y = date('Y');
@@ -510,7 +509,7 @@ class DealOrder extends Model
                 $dealOrder->member->can_money = $dealOrder->member->can_money + $shouyi;
                 $dealOrder->member->save();
             }else{
-                $shouyi = ( $days % 30 ) * $daliy * ( $dealOrder->total_price / 10000 );
+                $shouyi = ( $days % 30 ) * $daily * ( $dealOrder->total_price / 10000 );
 
                 // 写资金日志
                 // Start
@@ -520,7 +519,7 @@ class DealOrder extends Model
                 $userMoneyLog->account_money = $dealOrder->member->money + $shouyi;
                 $userMoneyLog->can_money = $dealOrder->member->can_money + $shouyi;
                 $userMoneyLog->type = UserMoneyLog::TYPE_BALANCE;
-                $userMoneyLog->created_at = time();
+                $userMoneyLog->created_at = date("Y-m-d H:i:s");
                 $userMoneyLog->create_time_ymd = date('Y-m-d');
                 $userMoneyLog->create_time_ym = date('Ym');
                 $userMoneyLog->create_time_y = date('Y');
@@ -540,9 +539,9 @@ class DealOrder extends Model
             $diff = date_diff($today,$start,true);
             // if 48 天
             $days = $diff->days - 1;
-            if( $days > 0 && $days % 30 == 0 ){
+            // if( $days > 0 && $days % 30 == 0 ){
                 // 把前三十天的收益划进账户
-                $shouyi = 30 * $daliy * ( $dealOrder->total_price / 10000 );
+                $shouyi = floor( $days / 30 ) * 30 * $daily * ( $dealOrder->total_price / 10000 );
 
                 // 写资金日志
                 // Start
@@ -552,7 +551,7 @@ class DealOrder extends Model
                 $userMoneyLog->account_money = $dealOrder->member->money + $shouyi;
                 $userMoneyLog->can_money = $dealOrder->member->can_money + $shouyi;
                 $userMoneyLog->type = UserMoneyLog::TYPE_BALANCE;
-                $userMoneyLog->created_at = time();
+                $userMoneyLog->created_at = date('Y-m-d H:i:s');
                 $userMoneyLog->create_time_ymd = date('Y-m-d');
                 $userMoneyLog->create_time_ym = date('Ym');
                 $userMoneyLog->create_time_y = date('Y');
@@ -565,12 +564,12 @@ class DealOrder extends Model
                 $dealOrder->member->money = $dealOrder->member->money + $shouyi;
                 $dealOrder->member->can_money = $dealOrder->member->can_money + $shouyi;
                 $dealOrder->member->save();
-            }
+            // }
             $days = $days % 30;
         }
 
         // $days = $diff->days - 1;  
-        $waitingReturns = $days * $daliy * ( $dealOrder->total_price / 10000 );
+        $waitingReturns = $days * $daily * ( $dealOrder->total_price / 10000 );
         $dealOrder->deal_waiting_returns = $waitingReturns;
         $dealOrder->build_date = date('Y-m-d');
         $dealOrder->save();
@@ -592,9 +591,9 @@ class DealOrder extends Model
                 case Deal::LOANTYPE_FUXIFANBEN :
                     self::_singleCalculateFX($dealOrder);
                     break;
-                case Deal::LOANTYPE_DENGEBENXI :
-                    self::_singleCalculateDE($dealOrder);
-                    break;
+                // case Deal::LOANTYPE_DENGEBENXI :
+                //     self::_singleCalculateDE($dealOrder);
+                //     break;
             }
         }
     }
@@ -603,24 +602,22 @@ class DealOrder extends Model
         self::_calculateDQ($dealOrder);
     }
     protected static function _singleCalculateFX($dealOrder){
-
+        // dd($dealOrder);
         $start = date_create($dealOrder->create_date);
         $end = date_create($dealOrder->finish_date);
-        $daliy = $dealOrder->deal_daliy_returns;
+        $daily = $dealOrder->deal_daily_returns;
         $today = date_create(date('Y-m-d'));
         if( $today > $end ){
             $diff = date_diff($end,$start);
+            $days = $diff->days - 1;
+            $jiecunShouyi = $days * $daily * ( $dealOrder->total_price / 10000 );
+            $days = 0;            
             $dealOrder->order_status = self::ORDER_STATUS_FINISHED;
-            // 收益天数
-            $days = 0;
         }else{
             $diff = date_diff($today,$start);
             $days = $diff->days - 1;
+            $jiecunShouyi = floor( $days / 30 ) * 30 * $daily * ( $dealOrder->total_price / 10000 );
         }
-
-        // 月数
-        $months = floor($days / 30 );
-        $jiecunShouyi = $months * 30 * $daliy * ( $dealOrder->total_price / 10000 );
         if( $jiecunShouyi > 0 ){
             // 写资金日志
             // Start
@@ -630,7 +627,7 @@ class DealOrder extends Model
             $userMoneyLog->account_money = $dealOrder->member->money + $jiecunShouyi;
             $userMoneyLog->can_money = $dealOrder->member->can_money + $jiecunShouyi;
             $userMoneyLog->type = UserMoneyLog::TYPE_BALANCE;
-            $userMoneyLog->created_at = time();
+            $userMoneyLog->created_at = date("Y-m-d H:i:s");
             $userMoneyLog->create_time_ymd = date('Y-m-d');
             $userMoneyLog->create_time_ym = date('Ym');
             $userMoneyLog->create_time_y = date('Y');
@@ -645,16 +642,19 @@ class DealOrder extends Model
             $dealOrder->member->save();
         }
 
-        $waitingReturns = ( $days % 30 ) * $daliy * ( $dealOrder->total_price / 10000 );        
+        $waitingReturns = ( $days % 30 ) * $daily * ( $dealOrder->total_price / 10000 );        
         $dealOrder->deal_waiting_returns = $waitingReturns;
         $dealOrder->build_date = date('Y-m-d');
         $dealOrder->save();
+        $dealOrder->member->waiting_returns = $waitingReturns;
+        $dealOrder->member->save();
         return $waitingReturns;
     }
+
     protected static function _singleCalculateDE($dealOrder){
         // $start = date_create($dealOrder->create_date);
         // $end = date_create($dealOrder->finish_date);
-        // $daliy = $dealOrder->deal_daliy_returns;
+        // $daily = $dealOrder->deal_daily_returns;
         // $today = date_create(date('Y-m-d'));
         // if( $today > $end ){
         //     $diff = date_diff($end,$start);
@@ -668,7 +668,7 @@ class DealOrder extends Model
 
         // // 月数
         // $months = floor($days / 30 );
-        // $jiecunShouyi = $months * 30 * $daliy * ( $dealOrder->total_price / 10000 );
+        // $jiecunShouyi = $months * 30 * $daily * ( $dealOrder->total_price / 10000 );
         // if( $jiecunShouyi > 0 ){
         //     // 写资金日志
         //     // Start
@@ -693,8 +693,38 @@ class DealOrder extends Model
         //     $dealOrder->member->save();
         // }
 
-        // $waitingReturns = ( $days % 30 ) * $daliy * ( $dealOrder->total_price / 10000 );        
+        // $waitingReturns = ( $days % 30 ) * $daily * ( $dealOrder->total_price / 10000 );        
         // $dealOrder->deal_waiting_returns = $waitingReturns;
         // $dealOrder->save();
+    }
+
+
+    protected static function OrderStatusCallback($dealOrder){
+        if( in_array($dealOrder->type, [self::TYPE_OFFLINE_ORDER,self::TYPE_ONLINE_ORDER]) && $dealOrder->status == self::STATUS_PASSED ){
+            // 返还本金 
+            
+            // 写资金日志
+            // Start
+            $userMoneyLog = new UserMoneyLog;
+            $userMoneyLog->user_id = $dealOrder->member->getKey();
+            $userMoneyLog->money = $dealOrder->total_price; // 本金
+            $userMoneyLog->account_money = $dealOrder->member->money;
+            $userMoneyLog->can_money = $dealOrder->member->can_money + $dealOrder->total_price;
+            $userMoneyLog->type = UserMoneyLog::TYPE_BALANCE;
+            $userMoneyLog->created_at = date("Y-m-d H:i:s");
+            $userMoneyLog->create_time_ymd = date('Y-m-d');
+            $userMoneyLog->create_time_ym = date('Ym');
+            $userMoneyLog->create_time_y = date('Y');
+            // $userMoneyLog->proof_id = $proofs ? $proofs->getKey() : 0 ;
+            $userMoneyLog->log_type = UserMoneyLog::LOG_TYPE_UNLOCK;
+            // $userMoneyLog->deal_order_sn = $dealOrder->order_sn;
+            $userMoneyLog->save();
+            // End
+
+            $dealOrder->member->lock_money = $dealOrder->member->lock_money - $dealOrder->total_price;
+            $dealOrder->member->can_money = $dealOrder->member->can_money + $dealOrder->total_price;
+            $dealOrder->member->save();
+
+        }
     }
 }

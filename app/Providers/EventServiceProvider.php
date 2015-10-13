@@ -47,6 +47,9 @@ class EventServiceProvider extends ServiceProvider
             if( $dealOrder->isDirty('status') ){
                 DealOrder::savedCallback($dealOrder);
             }
+            if( $dealOrder->isDirty('order_status') && $dealOrder->order_status == \App\DealOrder::ORDER_STATUS_FINISHED ){
+                DealOrder::OrderStatusCallback($dealOrder);
+            }
         });
 
         UserCarry::created(function($carry){

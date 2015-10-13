@@ -85,7 +85,7 @@ class DealsController extends Controller
     public function store(Request $request)
     {
         $data = $request->only(['titlecolor','deal_sn','title','sub_title','repay_time','rate','loan_type','min_loan_money','max_loan_money','is_effect','is_hot','is_best','is_rec','borrow_amount','load_money','buy_count','intro_info','description']);
-        $data['daliy_returns'] = 10000 * ( $data['rate'] / 100 ) / 365 ;
+        $data['daily_returns'] = 10000 * ( $data['rate'] / 100 ) / 365 ;
         $deal = Deal::create($data);
         if( $deal ){
             // To-do Add Admin Control Log
@@ -139,7 +139,7 @@ class DealsController extends Controller
         $deal = Deal::findOrFail($id);
         $data = $request->only(['titlecolor','deal_sn','title','sub_title','repay_time','rate','loan_type','min_loan_money','max_loan_money','is_effect','is_hot','is_best','is_rec','borrow_amount','load_money','buy_count','intro_info','description']);
         // $data['modified_uid'] = Auth::user()->getKey();
-        $data['daliy_returns'] = 10000 * ( $data['rate'] / 100 ) / 365 ;
+        $data['daily_returns'] = 10000 * ( $data['rate'] / 100 ) / 365 ;
         $deal->update($data);
         return redirect()->route('admin.'.$this->uri.'.index');
     }

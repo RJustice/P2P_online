@@ -18,7 +18,7 @@ span.price{font-size:14px;font-weight: 600;color:#ff5a13;letter-spacing: 1px;}
                 <span class="labelx col-sm-3">预计年收益：</span>{{ $data->rate }} %&nbsp;
             </li>                        
             <li class="list-group-item">
-                <span class="labelx col-sm-3">万元日收益：</span>{{ $data->daliy_returns }}&nbsp;
+                <span class="labelx col-sm-3">万元日收益：</span>{{ $data->daily_returns }}&nbsp;
             </li>
             <li class="list-group-item">
                 <span class="labelx col-sm-3">期限：</span>{{ $data->repay_time }} 天&nbsp;

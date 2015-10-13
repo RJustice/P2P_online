@@ -29,6 +29,7 @@ class UserMoneyLog extends Model
     const LOG_TYPE_ADDITION = 1; // 增加资金
     const LOG_TYPE_LOCK = 2; // 冻结资金
     const LOG_TYPE_DEDUCTION = 3; // 扣除
+    const LOG_TYPE_UNLOCK = 4; // 解冻
 
     
     // Log Type  日志操作类型
@@ -36,7 +37,8 @@ class UserMoneyLog extends Model
         return [
             self::LOG_TYPE_ADDITION => '增加资金',
             self::LOG_TYPE_LOCK => '冻结资金',
-            self::LOG_TYPE_DEDUCTION => '扣除金额'
+            self::LOG_TYPE_DEDUCTION => '扣除金额',
+            self::LOG_TYPE_UNLOCK => '解冻'
         ];
     }
 

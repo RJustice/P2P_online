@@ -53,7 +53,7 @@ span.price{font-size:14px;font-weight: 600;color:#ff5a13;letter-spacing: 1px;}
                 <span class="labelx col-sm-3">开始时间：</span>{{ $data->create_date }}
             </li>
             <li class="list-group-item list-group-item-info">
-                <span class="labelx col-sm-3">结束时间：</span>{{ $data->finish_date }} @if( strtotime($data->finish_date) - time() <= 5 * 24 * 60 * 60  ) <span class="label label-warning">即将到期</span> @endif
+                <span class="labelx col-sm-3">结束时间：</span>{{ $data->finish_date }} @if(strtotime($data->finish_date) - time() <= 0 ) <span class="label label-danger">已经到期</span> @elseif( strtotime($data->finish_date) - time() <= 5 * 24 * 60 * 60 && strtotime($data->finish_date) - time() > 0 ) <span class="label label-warning">即将到期</span> @endif
             </li>
         </ul>
         <ul class="list-group col-md-12 col-sm-12">

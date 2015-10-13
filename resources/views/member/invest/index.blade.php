@@ -38,7 +38,7 @@
                     <td>{{ $dealOrder->create_date }}</td>
                     <td>{{ number_format($dealOrder->total_price,2) }}</td>
                     <td>{{ $dealOrder->deal_rate }}</td>
-                    <td>{{ $dealOrder->deal_daliy_returns }}</td>
+                    <td>{{ $dealOrder->deal_daily_returns }}</td>
                     <td>{{ $dealOrder->finish_date }}</td>
                     {{-- <td>{{ }}</td> --}}
                     {{-- <td></td> --}}

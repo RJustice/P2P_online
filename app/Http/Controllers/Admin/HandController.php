@@ -42,7 +42,7 @@ class HandController extends Controller
 
         // $data['deal_title'] = $deal->title;
         // $data['deal_sub_title'] = $deal->sub_title;
-        // $data['deal_daliy_returns'] = $deal->daliy_returns;
+        // $data['deal_daily_returns'] = $deal->daily_returns;
         // $data['deal_rate'] = $deal->rate;
         // $data['order_status'] = DealOrder::ORDER_STATUS_INVALID;
         
@@ -138,7 +138,7 @@ class HandController extends Controller
 
         // $data['deal_title'] = $deal->title;
         // $data['deal_sub_title'] = $deal->sub_title;
-        // $data['deal_daliy_returns'] = $deal->daliy_returns;
+        // $data['deal_daily_returns'] = $deal->daily_returns;
         // $data['deal_rate'] = $deal->rate;
         // $data['order_status'] = DealOrder::ORDER_STATUS_INVALID;
         
@@ -238,7 +238,7 @@ class HandController extends Controller
 
         // $data['deal_title'] = $deal->title;
         // $data['deal_sub_title'] = $deal->sub_title;
-        // $data['deal_daliy_returns'] = $deal->daliy_returns;
+        // $data['deal_daily_returns'] = $deal->daily_returns;
         // $data['deal_rate'] = $deal->rate;
         // $data['order_status'] = DealOrder::ORDER_STATUS_INVALID;
         
@@ -328,7 +328,7 @@ class HandController extends Controller
         $data['deal_id'] = $request->get('deal_id');
         $data['deal_title'] = $deal->title;
         $data['deal_sub_title'] = $deal->sub_title;
-        $data['deal_daliy_returns'] = $deal->daliy_returns;
+        $data['deal_daily_returns'] = $deal->daily_returns;
         $data['deal_rate'] = $deal->rate;
         $data['deal_type'] = $deal->loan_type;
         // $data['order_status'] = DealOrder::ORDER_STATUS_INVALID;

@@ -44,7 +44,7 @@ class CreateDealOrderTable extends Migration
             $table->integer('deal_id');
             $table->string('deal_title');
             $table->string('deal_sub_title');
-            $table->decimal('deal_daliy_returns',20,2);
+            $table->decimal('deal_daily_returns',20,2);
             $table->decimal('deal_rate',20,2);
             $table->decimal('deal_waiting_returns',20,2);
             $table->tinyInteger('deal_type')->default(-1);
