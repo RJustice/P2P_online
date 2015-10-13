@@ -407,7 +407,7 @@ class DealOrder extends Model
         // dd($dealOrders->count());
         $userWaiting = 0;
         $users = [];
-        $dealOrders->chunk(200,function($dealOrders){
+        $dealOrders->chunk(200,function($dealOrders) use(&$users){
             foreach($dealOrders as $dealOrder){
                 if( $dealOrder->build_date == date('Y-m-d') ){
                     continue;
@@ -423,7 +423,7 @@ class DealOrder extends Model
                     //     $userWaiting[$dealOrder->user_id] = self::_calculateDE($dealOrder);
                     //     break;
                 }
-                $users[$dealOrder->user_id] = isset($users[$dealOrder->user_id]) ? ( $users[$dealOrder->user_id] + $waitingReturns ) : $waitingReturns;
+                $users[$dealOrder->user_id] = isset($users[$dealOrder->user_id]) ? ( $users[$dealOrder->user_id] + $userWaiting ) : $userWaiting;
             }
         });
 

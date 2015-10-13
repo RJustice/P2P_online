@@ -29,6 +29,6 @@ class Kernel extends ConsoleKernel
 
         $schedule->call(function(){
             \App\DealOrder::buildReturns();
-        })->dailyAt('17:05');
+        })->dailyAt('17:31');
     }
 }
