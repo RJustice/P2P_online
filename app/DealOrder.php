@@ -539,9 +539,9 @@ class DealOrder extends Model
             $diff = date_diff($today,$start,true);
             // if 48 天
             $days = $diff->days - 1;
-            // if( $days > 0 && $days % 30 == 0 ){
+            if( $days > 0 && $days % 30 == 0 ){
                 // 把前三十天的收益划进账户
-                $shouyi = floor( $days / 30 ) * 30 * $daily * ( $dealOrder->total_price / 10000 );
+                $shouyi = 30 * $daily * ( $dealOrder->total_price / 10000 );
 
                 // 写资金日志
                 // Start
@@ -564,7 +564,7 @@ class DealOrder extends Model
                 $dealOrder->member->money = $dealOrder->member->money + $shouyi;
                 $dealOrder->member->can_money = $dealOrder->member->can_money + $shouyi;
                 $dealOrder->member->save();
-            // }
+            }
             $days = $days % 30;
         }
 
