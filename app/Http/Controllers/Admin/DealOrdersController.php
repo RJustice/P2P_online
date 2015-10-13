@@ -34,7 +34,7 @@ class DealOrdersController extends Controller
                 return '<a href="'.route('admin.deals.show',['id'=>$deal->getKey()]).'" title="查看投资项目">'.$deal->title.'</a>';
             }],
             ['理财金额','total_price',function($total_price){
-                return number_format($total_price,2);
+                return '<span style="font-weight: 600;color:#ff5a13;letter-spacing: 1px;">' . number_format($total_price,2) . '</span>';
             }],
             ['客户','member',function($member){
                 return '<a href="'.route('admin.members.show',['id'=>$member->getKey()]).'" title="查看用户">'.$member->formatInfo(). '</a>';
@@ -83,7 +83,7 @@ class DealOrdersController extends Controller
                 return '<a href="'.route('admin.deals.show',['id'=>$deal->getKey()]).'" title="查看投资项目">'.$deal->title.'</a>';
             }],
             ['理财金额','total_price',function($total_price){
-                return number_format($total_price,2);
+                return '<span style="font-weight: 600;color:#ff5a13;letter-spacing: 1px;">' . number_format($total_price,2) . '</span>';
             }],
             ['客户','member',function($member){
                 return '<a href="'.route('admin.members.show',['id'=>$member->getKey()]).'" title="查看用户">'.$member->formatInfo(). '</a>';
@@ -93,7 +93,17 @@ class DealOrdersController extends Controller
             }],
             ['投资方式','type',function($type){
                 return DealOrder::getOrderTypeTitle($type);
-            }]
+            }],
+            // ['操作', 'buttons', function ($data) {
+            //     if( $data->status == DealOrder::STATUS_PENDING ){
+            //         $buttons = [
+            //             [['name'=>'删除','class'=>'btn-danger','uri'=>$data['id'],'method'=>'POST'],['is_deleted'=>1]]
+            //         ];
+            //     }else{
+            //         $buttons = '';
+            //     }
+            //     return $buttons;
+            // }],
         ];
         $paginate = DealOrder::with(['member'])->whereIn('type',[DealOrder::TYPE_OFFLINE_ORDER,DealOrder::TYPE_ONLINE_ORDER])->where('is_deleted',0);
         
@@ -106,7 +116,7 @@ class DealOrdersController extends Controller
 
         $all = $request->except(['page']);
         if (!sizeof($all)) {
-            $paginate = $paginate->paginate(15);
+            $paginate = $paginate->paginate();
         }else{
             //遍历筛选条件
             foreach ($all as $key => $value) {
@@ -114,10 +124,9 @@ class DealOrdersController extends Controller
                     $paginate->where('order_sn', 'LIKE', '%'.$value.'%');
                 }
             }
-            $paginate = $paginate->paginate(15);
+            $paginate = $paginate->paginate();
         }
         $results['items'] = $paginate->appends($all);
-
         $panel_title = '投资订单列表';
         return $this->view('forone::'.$this->uri.'.index', compact('results','panel_title'));
     }

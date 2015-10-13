@@ -49,6 +49,8 @@ class CreateDealOrderTable extends Migration
             $table->decimal('deal_waiting_returns',20,2);
             $table->tinyInteger('deal_type')->default(-1);
 
+            $table->date('build_date');
+
             // 索引
             $table->unique('order_sn');
             $table->index('deal_id');

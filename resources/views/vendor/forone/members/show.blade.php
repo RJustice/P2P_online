@@ -58,25 +58,25 @@
     <div class="col-md-3 col-sm-12">
         <div class="row">
             <div class="col-md-5 col-sm-4">总资金:</div>
-            <div class="col-md-7 col-sm-8">{{ $data->money }}</div>
+            <div class="col-md-7 col-sm-8">{{ number_format($data->money,2) }}</div>
         </div>
     </div>
     <div class="col-md-3 col-sm-12">
         <div class="row">
             <div class="col-md-5 col-sm-4">可用资金:</div>
-            <div class="col-md-7 col-sm-8">{{ $data->can_money }}</div>
+            <div class="col-md-7 col-sm-8">{{ number_format($data->can_money,2) }}</div>
         </div>
     </div>
     <div class="col-md-3 col-sm-12">
         <div class="row">
             <div class="col-md-5 col-sm-4">冻结资金:</div>
-            <div class="col-md-7 col-sm-8">{{ $data->lock_money }}</div>
+            <div class="col-md-7 col-sm-8">{{ number_format($data->lock_money,2) }}</div>
         </div>
     </div>
     <div class="col-md-3 col-sm-12">
         <div class="row">
-            <div class="col-md-5 col-sm-4">红包金额:</div>
-            <div class="col-md-7 col-sm-8"></div>
+            <div class="col-md-5 col-sm-4">待收益:</div>
+            <div class="col-md-7 col-sm-8">{{ number_format($data->waiting_returns,2) }}</div>
         </div>
     </div>
     {{-- <div class="col-md-4 col-sm-12">

@@ -406,9 +406,12 @@ class DealOrder extends Model
         $dealOrders = self::where('status',self::STATUS_PASSED)->where('is_deleted',0)->whereIn('type',[self::TYPE_OFFLINE_ORDER,self::TYPE_ONLINE_ORDER])->where('order_status',self::ORDER_STATUS_VALID);
         // dd($dealOrders->count());
         $userWaiting = 0;
-        DB::update('update users set waiting_returns = 0');
+        $users = [];
         $dealOrders->chunk(200,function($dealOrders){
             foreach($dealOrders as $dealOrder){
+                if( $dealOrder->build_date == date('Y-m-d') ){
+                    continue;
+                }
                 switch($dealOrder->deal_type){
                     case Deal::LOANTYPE_DAOQI :
                         $userWaiting = self::_calculateDQ($dealOrder);
@@ -420,10 +423,13 @@ class DealOrder extends Model
                     //     $userWaiting[$dealOrder->user_id] = self::_calculateDE($dealOrder);
                     //     break;
                 }
-                $dealOrder->member->waiting_returns = $dealOrder->member->waiting_returns + $userWaiting;
-                $dealOrder->member->save();
+                $users[$dealOrder->user_id] = isset($users[$dealOrder->user_id]) ? ( $users[$dealOrder->user_id] + $waitingReturns ) : $waitingReturns;
             }
         });
+
+        foreach( $users as $id=>$waiting ){
+            User::find($id)->update(['waiting_returns'=>$waiting]);
+        }
     }
     
     protected static function _calculateDQ($dealOrder){
@@ -465,6 +471,7 @@ class DealOrder extends Model
         }
         $waitingReturns = $days * $daliy * ( $dealOrder->total_price / 10000 );
         $dealOrder->deal_waiting_returns = $waitingReturns;
+        $dealOrder->build_date = date('Y-m-d');
         $dealOrder->save();
         return $waitingReturns;
     }
@@ -565,6 +572,7 @@ class DealOrder extends Model
         // $days = $diff->days - 1;  
         $waitingReturns = $days * $daliy * ( $dealOrder->total_price / 10000 );
         $dealOrder->deal_waiting_returns = $waitingReturns;
+        $dealOrder->build_date = date('Y-m-d');
         $dealOrder->save();
         return $waitingReturns;
     }
@@ -639,6 +647,7 @@ class DealOrder extends Model
 
         $waitingReturns = ( $days % 30 ) * $daliy * ( $dealOrder->total_price / 10000 );        
         $dealOrder->deal_waiting_returns = $waitingReturns;
+        $dealOrder->build_date = date('Y-m-d');
         $dealOrder->save();
         return $waitingReturns;
     }

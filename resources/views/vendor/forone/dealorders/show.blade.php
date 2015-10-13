@@ -8,7 +8,7 @@ span.price{font-size:14px;font-weight: 600;color:#ff5a13;letter-spacing: 1px;}
 @section('main')
 <div class="row">
     <div class="col-sm-12">
-        {!! Form::ipanel_start('查看 : '.$data->order_sn) !!}
+        {!! Form::ipanel_start('查看 : '.$data->order_sn.'') !!}
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                     {{-- {!! Form::ipanel_start('客户信息') !!} --}}
