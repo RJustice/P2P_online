@@ -35,6 +35,7 @@ class MemberExtraController extends Controller
             return redirect()->guest('member/auth/login');
         }
         if( auth()->user()->state == User::STATE_SYS_CREATED ){
+            session(['smsphone'=>auth()->user()->phone]);
             return view('member.sysmemberresetpwd');
         }else{
             return redirect()->route('member');
