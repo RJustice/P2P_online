@@ -20,12 +20,11 @@
         <div class="clearfix">
             @if(Session::has('refresh_error')) <p class="error-info">{{ Session::get('refresh_error') }}</p>@endif
         </div>
-        <div class="process p_01" style="height:40px;">
+        <div class="process p_01" style="">
             <p style="text-align:center;font-size:18px;font-weight:600;line-height:40px;height:40px;">欢迎选择我们农发众诚进行投资理财，我们将是您最好的选择。</p>
             <p style="text-align:center;font-size:18px;font-weight:600;line-height:40px;height:40px;">
-                请您填写信息，我们会有理财专员跟您联系。
+                请您填写信息，我们会有理财专员跟您联系。<a href="{{ url('contact')}}" style="color:#0697da;">点击查看分公司地图</a>，客服电话：400-6090-290
             </p>
-            或者可以去往我们的各地分公司，<a href="{{ url('contact')}}" style="color:#0697da;">点击查看分公司地图</a>
         </div>
         <div class="register-content">
             {!! Form::open(['method'=>'post','action'=>'Auth\MemberAuthController@postRegister','id'=>'register-form']) !!}
