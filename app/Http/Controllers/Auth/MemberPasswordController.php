@@ -52,7 +52,7 @@ class MemberPasswordController extends Controller
             session(['smsphone'=>$request->get('phone')]);
             session(['pwdphone'=>$request->get('phone')]);
             // $smsStatus = Sms::sendVerCode(Session::get('smsphone'));
-            $smsStatus = Sms::testSend(Session::get('smsphone'));
+            $smsStatus = Sms::sendVerCode(Session::get('smsphone'));
             if( $smsStatus ){
                 return redirect()->route('password.forgettwo');
             }else{
