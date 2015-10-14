@@ -47,12 +47,12 @@ class FundController extends Controller
             $paypwd = $request->get('paypwd');
             // $this->member = auth()->user();
             
-            // if( ! Sms::check($smscode) ){
-            //     $return = [
-            //         'code' => 1
-            //     ];
-            //     return response()->json($return);
-            // }
+            if( ! Sms::check($smscode) ){
+                $return = [
+                    'code' => 1
+                ];
+                return response()->json($return);
+            }
             if( $money > $this->member->can_money ){
                 $return = [
                     'code' => 3
