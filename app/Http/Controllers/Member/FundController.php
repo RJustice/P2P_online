@@ -46,12 +46,13 @@ class FundController extends Controller
             $smscode = $request->get('smscode');
             $paypwd = $request->get('paypwd');
             // $this->member = auth()->user();
-            if( ! Sms::check($smscode) ){
-                $return = [
-                    'code' => 1
-                ];
-                return response()->json($return);
-            }
+            
+            // if( ! Sms::check($smscode) ){
+            //     $return = [
+            //         'code' => 1
+            //     ];
+            //     return response()->json($return);
+            // }
             if( $money > $this->member->can_money ){
                 $return = [
                     'code' => 3
@@ -74,7 +75,6 @@ class FundController extends Controller
             $userCarry->status = UserCarry::STATUS_PENDING;
             $userCarry->real_name = $this->member->name;
             $userCarry->bankzone = $this->member->bank->bankzone;
-            $userCarry->create_date = date('Y-m-d');
             $userCarry->region_lv1 = $this->member->bank->region_lv1;
             $userCarry->region_lv2 = $this->member->bank->region_lv2;
             $userCarry->region_lv3 = $this->member->bank->region_lv3;
