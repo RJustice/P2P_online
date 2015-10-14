@@ -29,10 +29,10 @@ class CreateUserCarryTable extends Migration
             $table->integer('region_lv3');
             $table->integer('region_lv4');
             $table->string('bankzone');
-            $table->date('create_date');
+            $table->date('passed_date');
+            $table->integer('passed_uid');
 
             // 索引
-            $table->index('create_date');
         });
     }
 

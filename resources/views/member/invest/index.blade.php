@@ -34,7 +34,7 @@
             @if( $dealOrders )
                 @foreach( $dealOrders as $dealOrder )
                 <tr>
-                    <td>{{ $dealOrder->deal_sub_title }}</td>
+                    <td>{{ $dealOrder->deal_title }}</td>
                     <td>{{ $dealOrder->create_date }}</td>
                     <td>{{ number_format($dealOrder->total_price,2) }}</td>
                     <td>{{ $dealOrder->deal_rate }}</td>

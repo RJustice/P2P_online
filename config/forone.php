@@ -112,21 +112,30 @@ return [
                 ]
             ],  
         ],
-        // '资金管理' => [
-        //     'icon'       => 'mdi-toggle-radio-button-on',
-        //     'permission' => ['admin'],
-        //     'children'   => [
-        //         '提现申请'  => [
-        //             'uri' => 'carrys',
-        //         ],
-        //         '资金日志' => [
-        //             'uri' => 'moneys',
-        //         ],
-        //         '红包管理' => [
-        //             'uri' => 'giftmoney',
-        //         ]
-        //     ],
-        // ],
+        '提现申请' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '待处理申请'  => [
+                    'uri' => 'carrys',
+                ],
+                '已通过申请' => [
+                    'uri' => 'carrys-passed',
+                ],                
+                '未通过申请' => [
+                    'uri' => 'carrys-unpassed',
+                ],
+                '已取消申请' => [
+                    'uri' => 'carrys-cancel',
+                ]
+                // '资金日志' => [
+                //     'uri' => 'moneys',
+                // ],
+                // '红包管理' => [
+                //     'uri' => 'giftmoney',
+                // ]
+            ],
+        ],
         '手动操作' => [
             'icon'       => 'mdi-toggle-radio-button-on',
             'permission' => ['admin'],

@@ -53,12 +53,13 @@ class EventServiceProvider extends ServiceProvider
         });
 
         UserCarry::created(function($carry){
-            // var_dump('created call');
             UserCarry::createdCallback($carry);
         });
+        
         UserCarry::updated(function($carry){
-            // var_dump('saved call');
-            UserCarry::updatedCallback($carry);
+            if( $carry->isDirty('status') ){
+                UserCarry::updatedCallback($carry);
+            }
         });
     }
 }

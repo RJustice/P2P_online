@@ -81,6 +81,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('money','MoneyController');
     Route::resource('logs','LogsController');
     Route::resource('company','CompanyController');
+    Route::resource('carrys','CarryController');
+    Route::resource('carrys-passed','CarryController@passed');
+    Route::resource('carrys-unpassed','CarryController@unpassed');
+    Route::resource('carrys-cancel','CarryController@cancel');
     Route::get('category/alists/{id}/edit','ArticlesController@edit');
 
     Route::patch('members/remove-ref',['as' => 'admin.members.remove-ref','uses' => 'MembersController@removeRef']);
@@ -191,6 +195,9 @@ Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.
 
 // Route::group(['prefix'=>'invest','namespace'=>'Invest','middleware'=>['member.auth']],function(){
 //     Route::get('/','InvestController@index');
+// });
+// Route::get('invest',function(){
+//     return view('contact.form');
 // });
 
 Route::post('sms/send','SmsController@postSendCode');
