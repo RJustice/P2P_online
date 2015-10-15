@@ -11,7 +11,7 @@
     <div class="col-sm-12">
     {!! Form::iform_select('deal_id','理财项目',array_merge([['label'=>'请选择','value'=>0]],\App\Deal::getDealsOption(true)),1) !!}
     @if( str_is('new',$uid) )
-    {!! Form::iform_select('uid','选择客户',array_merge([['label'=>'请选择','value'=>0]],\App\User::getMembersOption(true)),1) !!}
+    @include("forone::common.memberselect")    
     @else
     <input type="hidden" name="uid" value="{{ $uid }}">
     @endif

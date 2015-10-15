@@ -10,11 +10,11 @@
 <div class="row">
     <div class="col-sm-12">
         @if( str_is('new',$uid) )
-        {!! Form::iform_select('uid','选择客户',array_merge([['label'=>'请选择','value'=>0]],\App\User::getMembersOption(true)),1) !!}
+        @include("forone::common.memberselect")
         @else
         <input type="hidden" name="uid" value="{{ $uid }}">
         @endif
-        {!! Form::iform_text('total_price','冻结资金','请输入要冻结的金额',1) !!}
+        {!! Form::iform_text('total_price','扣款金额','请输入要扣款的金额',1) !!}
         {!! Form::iform_text('admin_memo','备注','请输入备注,操作理由等',1) !!}        
     </div>
 </div>
