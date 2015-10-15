@@ -28,7 +28,8 @@ class ContactController extends BaseController
                 ['称呼', 'Model1',function($model){
                     return '<a href="'.route('admin.'.$this->uri.'.show',['id'=>$model->getKey()]).'">'.$model->title.'</a>';
                 }],
-                ['电话','phone'],
+                ['电话','phone'return '<a href="'.route('admin.'.$this->uri.'.show',['id'=>$model->getKey()]).'">'.$model->title.'</a>';
+                }],
                 ['类型','type',function($type){
                     return $type == 1 ? '投资理财' : '借贷';
                 }],
