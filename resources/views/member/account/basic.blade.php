@@ -7,11 +7,11 @@
     </div>
 </div>
 <div class="tab-box clearfix  basic-info">
-    <div style="display:block" class="m-form basic-information bf1">
+    <div style="display:block" class="m-form basic-information bf1" id="basic-table">
         <ul>
             <li class="clearfix">
                 <label>用户名</label>
-                <span class=" wrap-span">同手机号码</span> <span class="modfiy">{{-- <a id="modify" href="javascript:void(0);">修改信息</a> --}}</span>
+                <span class=" wrap-span">同手机号码</span> <span class="modfiy"><a class="modify" href="javascript:void(0);">修改信息</a></span>
             </li>
             <li class="clearfix">
                 <label>手机号码</label>
@@ -29,7 +29,7 @@
                 <span class=" wrap-span">{{ App\User::getSex(auth()->user()->sex) }}</span> </li>
             <li class="clearfix">
                 <label>年龄</label>
-                <span class=" wrap-span">{{ App\User::getAge(auth()->user()->byear) }}岁</span>
+                <span class=" wrap-span">{{ App\User::getAge(auth()->user()) }}</span>
             </li>
             <li class="clearfix">
                 <label>邮箱</label>
@@ -64,146 +64,176 @@
             </li> --}}
         </ul>
     </div>
-    <div style="display:none" class="m-form  basic-information bf2">
+    <div style="display:none" class="m-form  basic-information bf2" id="basic-form">
+        {!! Form::open(['method'=>'post','route'=>'member.account.basic','id'=>'basic-edit-form']) !!}
         <ul>
             <li class="clearfix">
                 <label>用户名</label>
-                <span class=" wrap-span">RJustice</span> </li>
+                <span class=" wrap-span">{{ auth()->user()->phone }} (无法修改)</span> <span class="modfiy"><a class="modify" href="javascript:void(0);">取消修改</a></span>
+            </li>
             <li class="clearfix">
                 <label>手机号码</label>
-                <span class=" wrap-span">137****1803<a id="modifypho" class="blue-color" href="javascript:;">修改</a></span> </li>
-           <li class="clearfix">
+                <span class=" wrap-span">{{ preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',auth()->user()->phone) }}{{-- <a id="modify-pho" class="blue-color" href="javascript:;">修改</a></span> </li> --}}
+            <li class="clearfix">
                 <label>真实姓名</label>
-                <span class=" wrap-span">
-                                                <span class=" wrap-span">*雯雯</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                           </span>
+                <span class=" wrap-span"><span class=" wrap-span">{{ App\User::hiddenXin(auth()->user()->name) }}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </li>
             <li class="clearfix">
                 <label>身份证号</label>
-                <span class=" wrap-span">
-                                                <span class=" wrap-span">37028********80045</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            </span>
+                <span class=" wrap-span"><span class=" wrap-span">{{ preg_replace('/([0-9]{4})[0-9]{10}([0-9]{4})/i','$1*******$2',auth()->user()->idno) }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </li>
             <li class="clearfix">
                 <label>性别</label>
-                <span class=" wrap-span">
-                                                <label>
-                        <input type="radio" value="男" placeholder="" name="sex"> 男
-                    </label>
-                    <label>
-                        <input type="radio" value="女" placeholder="" name="sex"> 女
-                    </label>                            </span>
-                <span class="error sex"></span>
-            </li>
+                <span class=" wrap-span"><label for="sex"><input type="radio" name="sex" id="" value="1" {{ auth()->user()->sex == 1 ? 'checked' : '' }}>男</label><label for="sex"><input type="radio" name="sex" id="" value="0" {{ auth()->user()->sex == 0 ? 'checked' : '' }}>女</label></span> </li>
             <li class="clearfix">
                 <label>年龄</label>
-                <input type="text" onkeyup="value=this.value.replace(/[^0-9]/g,'');value=this.value.substr(0,3);" value="0" placeholder="" id="age" name="age">
-                <strong class="unit">岁</strong>
-                <span class="error age"></span>
+                <span class=" wrap-span">{{ App\User::getAge(auth()->user()) }}</span>
             </li>
             <li class="clearfix">
                 <label>邮箱</label>
-                <input type="text" value="" placeholder="" id="user_email" name="user_email">
-                <span class="error user_email"></span>
+                <span class=" wrap-span"><input type="text" name="email" id="" value="{{ auth()->user()->email }}"></span>
             </li>
             <li class="clearfix">
-                <label>当前居住城市</label>
-                <div class="fl div-select">
-                    <select id="province_now" name="province_now"><option value="0" selected="selected">请选择省份</option>
-<option value="2">北京</option>
-<option value="3">安徽</option>
-<option value="4">福建</option>
-<option value="5">甘肃</option>
-<option value="6">广东</option>
-<option value="7">广西</option>
-<option value="8">贵州</option>
-<option value="9">海南</option>
-<option value="10">河北</option>
-<option value="11">河南</option>
-<option value="12">黑龙江</option>
-<option value="13">湖北</option>
-<option value="14">湖南</option>
-<option value="15">吉林</option>
-<option value="16">江苏</option>
-<option value="17">江西</option>
-<option value="18">辽宁</option>
-<option value="19">内蒙古</option>
-<option value="20">宁夏</option>
-<option value="21">青海</option>
-<option value="22">山东</option>
-<option value="23">山西</option>
-<option value="24">陕西</option>
-<option value="25">上海</option>
-<option value="26">四川</option>
-<option value="27">天津</option>
-<option value="28">西藏</option>
-<option value="29">新疆</option>
-<option value="30">云南</option>
-<option value="31">浙江</option>
-<option value="32">重庆</option>
-<option value="33">香港</option>
-<option value="34">澳门</option>
-<option value="35">台湾</option></select>
-                    <span class="span-instructions">（省/直辖市）</span> </div>
-                <div class="fl div-select">
-                    <select id="city_now" name="city_now"><option value="">--请先选择省份--</option></select>
-                    <span class="span-instructions">（市）</span> </div>
-                <div class="fl div-select">
-                    <select id="area_now" name="area_now"><option value="">--请先选择省份--</option></select>
-                    <span class="span-instructions">（区）</span> </div>
+                <label>居住地址</label>
+                <span style="float:left;margin:0 10px;">省：</span>{!! Form::select('province_id',[]) !!}
+                <span style="float:left;margin:0 10px;">市：</span>{!! Form::select('city_id',[]) !!}
+                <span style="float:left;margin:0 10px;">区/县：</span>{!! Form::select('county_id',[]) !!}
             </li>
             <li class="clearfix">
+                <label for="">&nbsp;</label><input type="text" name="address" id="" value="{{ auth()->user()->address }}">
+            {{-- <li class="clearfix">
                 <label>最高学历</label>
-                <span class=" wrap-span">
-                                                <label>
-                        <input type="radio" valadate-tag="false" value="高中以下" placeholder="" name="education"> 高中以下
-                    </label>
-                    <label>
-                        <input type="radio" value="大专或本科" placeholder="" name="education">大专或本科
-                    </label>
-                    <label>
-                        <input type="radio" value="硕士或硕士以上" placeholder="" name="education">硕士或硕士以上
-                    </label>                            </span>
-                <span class="error education"></span>
+                <span class=" wrap-span"></span>
             </li>
             <li class="clearfix">
-                <label>月  收  入</label>
-                <span class=" wrap-span">
-                                                <label><input type="radio" value="5000以下" placeholder="" name="income">5000以下 </label>
-                    <label><input type="radio" value="5000-10000" placeholder="" name="income">5000-10000 </label>
-                    <label><input type="radio" value="10000-50000" placeholder="" name="income">10000-50000 </label>
-                    <label><input type="radio" value="50000以上" placeholder="" name="income">50000以上</label>                            </span>
-                <span class="error income"></span>
+                <label>月收入</label>
+                <span class=" wrap-span"></span>
             </li>
             <li class="clearfix">
                 <label>职业</label>
-                <input type="text" value="" id="zy" placeholder="" name="zy">
-                <span class="error zy"></span>
+                <span class=" wrap-span"></span>
             </li>
             <li class="clearfix">
                 <label>紧急联系人</label>
-                <input type="text" value="" id="contact1" placeholder="" name="contact1">
-                <span class="error contact1"></span>
+                <span class=" wrap-span"></span>
             </li>
             <li class="clearfix">
                 <label>联系人手机</label>
-                <input type="text" value="" id="contact1_tel" placeholder="" name="contact1_tel">
-                <span class="error telerror"></span>
+                <span class=" wrap-span"></span>
             </li>
             <li class="clearfix">
                 <label>与紧急联系人关系</label>
-                <select id="contact1_re" name="contact1_re">
-                    <option value="">请选择</option>
-                                                <option value="配偶">配偶</option>
-                    <option value="父亲">父亲</option>
-                    <option value="母亲">母亲</option>
-                    <option value="子女">子女</option>
-                    <option value="朋友">朋友</option>
-                    <option value="其他">其他</option>                            </select>
-            </li>
+                <span class=" wrap-span"></span>
+            </li> --}}
             <li><a id="preserve" class="a-btn" href="javascript:;">保存</a></li>
         </ul>
+        {!! Form::close() !!}
     </div>
 </div>
 @stop
 
 @section('js')
+    <script type="text/javascript">
+    $(function(){
+
+        $(".modify").on('click',function(){
+            if( $('#basic-table').is(':hidden') ){
+                $("#basic-form").hide();
+                $("#basic-table").show();
+            }else{
+                $("#basic-form").show();
+                $("#basic-table").hide();
+            }
+        });
+
+        $("#preserve").click(function(){
+            $("#basic-edit-form").submit();
+        });
+    });
+    </script>
+    <script type="text/javascript" src="/js/region.js"></script>
+    <script type="text/javascript">
+    
+    var provinceSelected = {{ ! auth()->user()->province_id ? 16 : auth()->user()->province_id }};
+    var citySelected = {{ ! auth()->user()->city_id ? 223 : auth()->user()->city_id }};
+    var countySelected ={{ ! auth()->user()->county_id ? 1883 : auth()->user()->county_id }};
+    var initProvinceData = regionConf.r1.c;
+    var initCityData = initProvinceData['r'+provinceSelected].c;
+    var initCountyData = initCityData['r'+citySelected].c;
+
+    function initProvinceSelect(data){
+        var  o = "<option value=\"0\">请选择</option>";
+        var selected = '';
+        for(var k in data){
+            selected = '';
+            if( data[k].i == provinceSelected ){
+                selected = 'selected="selected"';
+            }
+            o += "<option value="+data[k].i+" "+selected+">"+data[k].n+"</option>";
+        }
+        return o;
+    }
+
+    function initCitySelect(data){
+        var  o = "<option value=\"0\">请选择</option>";
+        var selected = '';
+        for(var k in data){
+            selected = '';
+            if( data[k].i == citySelected ){
+                selected = 'selected="selected"';
+            }
+            o += "<option value="+data[k].i+" "+selected+">"+data[k].n+"</option>";
+        }
+        return o;
+    }
+
+    function initCountySelect(data){
+        var  o = "<option value=\"0\">请选择</option>";
+        var selected = '';
+        for(var k in data){
+            selected = '';
+            if( data[k].i == countySelected ){
+                selected = 'selected="selected"';
+            }
+            o += "<option value="+data[k].i+" "+selected+">"+data[k].n+"</option>";
+        }
+        return o;
+    }
+
+
+    $(function(){
+        var provinceSelect = $("select[name=province_id]");
+        var citySelect = $("select[name=city_id]");
+        var countySelect = $("select[name=county_id]");
+        var province,city,county;
+        // console.log(provinceSelect);
+        provinceSelect.html(initProvinceSelect(initProvinceData));
+        citySelect.html(initCitySelect(initCityData));
+        countySelect.html(initCountySelect(initCountyData));
+
+        provinceSelect.on('change',function(){
+            var v = $(this).val();
+            if( v == 0 ){
+                citySelect.html(initCitySelect({}));
+                countySelect.html(initCountySelect({}));
+            }else{
+                var r = "r"+v;
+                city = regionConf.r1.c[r].c;
+                citySelect.html(initCitySelect(regionConf.r1.c[r].c));
+                countySelect.html(initCountySelect({}));
+            }
+        });
+
+        citySelect.on('change',function(){
+            var v = $(this).val();
+            if( v == 0 ){
+                countySelect.html(initCountySelect({}));
+            }else{
+                var r = "r"+v;
+                city = regionConf.r1.c['r'+provinceSelect.val()].c;
+                countySelect.html(initCountySelect(city[r].c));
+            }
+        });
+    });
+    </script>
 @stop

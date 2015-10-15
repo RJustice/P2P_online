@@ -154,6 +154,7 @@ class CarryController extends BaseController
         $carry->status = $request->get('status');
         $carry->passed_date = date('Y-m-d');
         $carry->passed_uid = auth()->user()->getKey();
+        $carry->msg = $request->get('msg');
         $carry->save();
 
         // 操作记录

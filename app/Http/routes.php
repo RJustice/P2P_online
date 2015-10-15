@@ -85,6 +85,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('carrys-passed','CarryController@passed');
     Route::resource('carrys-unpassed','CarryController@unpassed');
     Route::resource('carrys-cancel','CarryController@cancel');
+    Route::resource('contacts','ContactController');
     Route::get('category/alists/{id}/edit','ArticlesController@edit');
 
     Route::patch('members/remove-ref',['as' => 'admin.members.remove-ref','uses' => 'MembersController@removeRef']);
@@ -196,9 +197,14 @@ Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.
 // Route::group(['prefix'=>'invest','namespace'=>'Invest','middleware'=>['member.auth']],function(){
 //     Route::get('/','InvestController@index');
 // });
-// Route::get('invest',function(){
-//     return view('contact.form');
-// });
+Route::get('invest',function(){
+    return view('contact.form');
+});
+
+
+Route::post('contact/licai','ContactController@licai');
+Route::get('contact/success',['as'=>'contact.success','uses'=>'ContactController@success']);
+Route::get('contact/licai','ContactController@index');
 
 Route::post('sms/send','SmsController@postSendCode');
 

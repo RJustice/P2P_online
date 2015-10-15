@@ -4,7 +4,7 @@
     <div class="c-body">
         <ul class="uc-menu">
             <li class="{{ str_is('member.fund.carry',Route::current()->getName()) || str_is('member.fund.carrylogs',Route::current()->getName()) ? 'act' : '' }}"><a href="{{ route('member.fund.carry') }}" class="uc-cate">提现</a></li>
-            <li class="{{ str_is('member.fund.summarydetail',Route::current()->getName()) || str_is('member.fund.logs',Route::current()->getName()) ? 'act' : '' }}"><a href="{{ route('member.fund.summarydetail') }}" class="uc-cate">资金明细</a></li>
+            <li class="{{ str_is('member.fund.summarydetail',Route::current()->getName()) || str_is('member.fund.logs',Route::current()->getName()) ? 'act' : '' }}"><a href="{{ route('member.fund.logs') }}" class="uc-cate">资金明细</a></li>
         </ul>
     </div>
     <div class="hdc {{ in_array(Route::current()->getName(),['member.account.basic','member.account.authenticate','member.account.bankcard','member.account.safe','member.account.resetpwd']) ? 'c-hds':'c-hd' }} c-hd2">账户管理</div>

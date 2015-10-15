@@ -29,8 +29,15 @@ class AccountController extends Controller
         return view('member.account.basic');
     }
 
-    public function postBasic(){
-
+    public function postBasic(Request $request){
+        $this->member->address = $request->get('address');
+        $this->member->province_id = $request->get('province_id');
+        $this->member->city_id = $request->get('city_id');
+        $this->member->county_id = $request->get('county_id');
+        $this->member->sex = $request->get('sex');
+        $this->member->email = $request->get('email');
+        $this->member->save();
+        return redirect()->route('member.account.basic');
     }
 
     public function getAuthenticate(){

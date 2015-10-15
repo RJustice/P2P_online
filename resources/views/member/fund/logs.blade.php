@@ -4,11 +4,11 @@
 
 @section('content')
 <div class="list-title clearfix">
-    <div class="">
+    {{-- <div class="">
         <a href="{{ route('member.fund.summarydetail') }}">资金明细</a>
-    </div>
+    </div> --}}
     <div class="cur">
-        <a href="{{ route('member.fund.logs') }}">历史明细</a>
+        <a href="{{ route('member.fund.logs') }}">资金明细</a>
     </div>
 </div>
 <div class="tab-box clearfix pub-tab">    

@@ -27,7 +27,7 @@
                     <a href="{{ url('/') }}">首页</a>
                 </li>
                 <li rel="2" class="n-2 mr5">
-                    <a href="{{ url('/member/auth/login') }}">我要理财</a>
+                    <a href="{{ url('/invest') }}">我要理财</a>
                 </li>
                 <li rel="3" class="n-3 mr5">
                     <a href="{{ url('/member') }}">个人中心</a>

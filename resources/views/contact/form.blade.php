@@ -3,6 +3,7 @@
 <style type="text/css">
 .wrap-box{width:100%;margin-bottom: 100px;padding: 0;background: #f5f5f5}
 </style>
+<link rel="stylesheet" href="/css/validationEngine.jquery.css">
 @stop
 @section('content')
 <div class="about-box clearfix">
@@ -27,20 +28,19 @@
             </p>
         </div>
         <div class="register-content">
-            {!! Form::open(['method'=>'post','action'=>'Auth\MemberAuthController@postRegister','id'=>'register-form']) !!}
+            {!! Form::open(['method'=>'post','action'=>'ContactController@licai','id'=>'contact-form']) !!}
+            <div class="f-row">
+                <label for="title">您的称呼：</label>
+                {!! Form::text('title',old('title'),['id'=>'title','class'=>($errors->has('title')?'check-fail':'') . ' validate[required]','placehoder'=>'请如您的称呼','style'=>'width:78%']) !!}
+            </div>
             <div class="f-row">
                 <label for="phone">手机号码：</label>
-                {!! Form::text('phone',old('phone'),['id'=>'phone','class'=>($errors->has('phone')?'check-fail':'') . ' validate[required,custom[mobile]]','placehoder'=>'请输入手机号码','style'=>'width:78%']) !!}
+                {!! Form::text('phone',old('title'),['id'=>'phone','class'=>'validate[required]','style'=>'width:78%']) !!}
                 <p class="error-info">@if($errors->has('phone')) {{ $errors->first('phone') }} @endif</p>
             </div>
             <div class="f-row">
-                <label for="password">密码：</label>
-                {!! Form::password('password',['id'=>'password','class'=>'validate[required,funcCall[checkPWD]]','style'=>'width:78%']) !!}
-                <p class="error-info">@if($errors->has('password')) {{ $errors->first('password') }} @endif</p>
-            </div>
-            <div class="f-row">
-                <label for="password_confirmation ">确认密码：</label>
-                {!! Form::password('password_confirmation ',['id'=>'pwd-confirm','class'=>'validate[required,equals[password]]','style'=>'width:78%']) !!}
+                <label for="password_confirmation ">留言：</label>
+                {!! Form::textarea('msg',old('msg'),['id'=>'msg','class'=>'','style'=>'width:78%']) !!}
                 <p class="error-info">@if($errors->has('password_confirmation')) {{ $errors->first('password_confirmation') }} @endif</p>
             </div>
             <div class="f-row clearfix">
@@ -49,24 +49,39 @@
                 {!! HTML::image(captcha_src('custom'),'Captcha Img',['id'=>'captcha-img','style'=>'margin-top:6px;margin-right:5px;']) !!}
                 <span class="refresh"></span>
                 <p class="error-info">@if($errors->has('vercode')) {{ $errors->first('vercode') }} @endif</p>
-            </div>
+            </div>            
             <div class="f-row">
-                <label for="rec_user">推荐人：</label>
-                {!! Form::text('rec_user','',['id'=>'rec-user','class'=>'validate[funcCall[checkRecUser]]','style'=>'width:78%']) !!}
-                <p class="error-info">@if($errors->has('rec_user')) {{ $errors->first('rec_user') }} @endif</p>
-            </div>
-            <div class="f-row">
-                <label for=""></label>
-                <input type="checkbox" name="agreement" id="agreement" value="1" checked class="validate[required]">同意<a href="{{ url('member/agreement') }}" target="_blank">《农发众诚用户注册协议》</a>
-                <p class="error-info">@if($errors->has('agreement')) {{ $errors->first('agreement') }} @endif</p>
-            </div>
-            <div class="f-row">
-                {!! Form::hidden('step',1) !!}
-                <button class="btn-login submit">下一步</button>
+                <button class="btn-login submit">提交</button>
             </div>
             {!! Form::close() !!}
         </div>
     </div>
     </div>
 </div>
+@stop
+@section('js')
+<script src="/js/jquery.validationEngine-zh_CN.js"></script> 
+<script src="/js/jquery.validationEngine.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("span.refresh").on('click',function(){
+            var src = $('#captcha-img').attr('src');
+            queryPos = src.indexOf('?');
+            if(queryPos != -1) {
+               src = src.substring(0, queryPos);
+            }    
+            $('#captcha-img').attr('src', src + '?' + Math.random());
+            return false;
+        });
+
+        $('#contact-form').validationEngine('attach', { 
+          promptPosition: 'centerRight', 
+          scroll: false,
+          autoHidePrompt:true,
+          autoHideDelay:5000,
+          addSuccessCssClassToField:'check-success',
+          addFailureCssClassToField:'check-fail'
+        }); 
+    });
+</script>
 @stop

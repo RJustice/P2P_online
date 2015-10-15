@@ -10,7 +10,7 @@
     </dl>
     <dl>
      <dt>安全保障</dt>
-     <dd><a target="_blank" href="{{ url('/pages',['id'=>11]) }}">平台安全</a></dd>
+     <dd><a target="_blank" href="{{ url('/pages',['id'=>36]) }}">平台安全</a></dd>
      <dd><a target="_blank" href="{{ url('/pages',['id'=>12]) }}">服务说明</a></dd>
     </dl>
    </div><!--end of nav-->

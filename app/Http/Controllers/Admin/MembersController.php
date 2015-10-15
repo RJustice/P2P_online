@@ -80,7 +80,6 @@ class MembersController extends Controller
                                 <li><a href="'.route('admin.'.$this->uri.'.edit',['id'=>$model->getKey()]).'" class="btn btn-block btn-primary">编辑用户</a></li>
                                 '.$memberCtrl.'
                                 <li role="separator" class="divider"></li>
-                                <li><a href="'.route("admin.members.{id}.orders",['id'=>$model->getKey()]).'" class="btn btn-block btn-success">查看投资</a></li>
                                 <li><a href="'.route("admin.hand.{id}.offline",['id'=>$model->getKey()]).'" class="btn btn-block btn-info">线下投资登记</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li>'.$refBtn.'</li>

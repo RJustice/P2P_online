@@ -72,10 +72,10 @@
         <div id="chart" class="chart"></div>
         <div class="data-show">
             <ul>
-                <li>已投金额（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的投资金额</label><label class="arrow"></label></span></li>
-                <li>已获收益（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的已获收益</label><label class="arrow"></label></span></li>
-                <li>待收本金（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的待收本金</label><label class="arrow"></label></span></li>
-                <li>冻结资金（元）<i></i>：<em style="font-size:12px;">0.00</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的冻结资金</label><label class="arrow"></label></span></li>
+                <li>已投金额（元）<i></i>：<em style="font-size:12px;">{{ number_format($data['ready']) }}</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的投资金额</label><label class="arrow"></label></span></li>
+                <li>已获收益（元）<i></i>：<em style="font-size:12px;">{{ number_format($data['yihuo']) }}</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的已获收益</label><label class="arrow"></label></span></li>
+                <li>待收本金（元）<i></i>：<em style="font-size:12px;">{{ number_format($data['benjin']) }}</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的待收本金</label><label class="arrow"></label></span></li>
+                <li>冻结资金（元）<i></i>：<em style="font-size:12px;">{{ number_format(auth()->user()->lock_money) }}</em><span style="display:none;" class="bubble"><label class="text">投资人在农发众诚所有的冻结资金</label><label class="arrow"></label></span></li>
             </ul>
         </div>
     </div>
@@ -109,7 +109,7 @@
                                     </span> 
                                 </p>
                             </div>
-                            <div class="divstyle divstyle03"> <a href="javascript:;" class="a-btn">立即投资<i></i></a> </div>
+                            <div class="divstyle divstyle03"> <a href="{{ url('/invest') }}" class="a-btn">立即投资<i></i></a> </div>
                         </div>
                     </li>
         </ul>
@@ -178,13 +178,13 @@
             series: [{
                 name: '投资',
                 color: 'rgba(165,170,217,1)',
-                data: [0,0,0,0,0,0,0,0,0,0,0,0],
+                data: [{{ implode(',',$data['touzi']) }}],
                 pointPadding: 0.4,
                 pointPlacement:-0.1
             },{
                 name: '收益',
                 color: 'rgba(248,161,63,1)',
-                data: [0,0,0,0,0,0,0,0,0,0,0,0],
+                data: [{{ implode(',',$data['shouyi']) }}],
                 pointPadding: 0.4,
                 pointPlacement:0.1,
                 yAxis: 1

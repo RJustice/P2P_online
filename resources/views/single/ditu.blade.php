@@ -26,7 +26,7 @@
                     </li>
                     <li class="" data-lng="120.269748" data-lat="32.019893">
                         <p class="area">靖江</p>
-                        <p>台州市  靖江市人民北路  41号</p>
+                        <p>靖江市人民北路  41号</p>
                     </li>
                     <li class="" data-lng="117.190283" data-lat="34.257879">
                         <p class="area">徐州</p>
@@ -35,10 +35,6 @@
                     <li class="" data-lng="120.038086" data-lat="32.168736">
                         <p class="area">泰兴</p>
                         <p>泰兴中兴大道  195-7</p>
-                    </li>
-                    <li class="" data-lng="120.273751" data-lat="32.026854">
-                        <p class="area">泰州</p>
-                        <p>泰州市  靖江市人民北路41号  五楼</p>
                     </li>
                     <li class="" data-lng="119.95738" data-lat="31.778919">
                         <p class="area">常州</p>

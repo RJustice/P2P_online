@@ -12,7 +12,7 @@
             <div class="it cf clearfix">
                 <div class="icon nicheng"></div>
                 <h3>个人信息</h3>
-                <p class="f_red">未完善</p>
+                <p class="f_red"></p>
                 <div class="update"><a href="{{ route('member.account.basic') }}">修改</a></div>
             </div>
         </li>

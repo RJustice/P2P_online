@@ -154,6 +154,15 @@ return [
                 ]
             ],
         ],
+        '咨询' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin',''],
+            'children'   => [
+                '在线咨询'  => [
+                    'uri' => 'contacts',
+                ]
+            ],
+        ],
         '系统设置' => [
             'icon'       => 'mdi-toggle-radio-button-on',
             'permission' => ['admin'],

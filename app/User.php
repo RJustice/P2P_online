@@ -194,8 +194,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }
     }
 
-    public static function getAge($byear){
-        return date('Y')-$byear + 1;
+    public static function getAge($user){
+        $byear = substr($user->idno,6,4);
+        return $user->idcardpassed ? ( date('Y')-$byear + 1 ).'岁' : '身份证未认证';
     }
 
 
