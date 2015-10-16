@@ -66,7 +66,7 @@
         // });
         var map = new AMap.Map("cmap", {
           resizeEnable: true,
-          center: [119.95738,31.778919],
+          center: [116.493446,39.938612],
           zoom: 17
         });
 
@@ -75,7 +75,7 @@
                 size:new AMap.Size(24,36),
                 image:"{{ asset('images/map-marker-icon.png') }}",
             }),
-            position:[119.95738,31.778919]
+            position:[116.493446,39.938612]
         });
         marker.setMap(map);
         $(".address-list li").on('click',function(){
