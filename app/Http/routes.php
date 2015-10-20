@@ -81,6 +81,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('money','MoneyController');
     Route::resource('logs','LogsController');
     Route::resource('company','CompanyController');
+    Route::resource('borrowers','BorrowerController');
     Route::resource('carrys','CarryController');
     Route::resource('carrys-passed','CarryController@passed');
     Route::resource('carrys-unpassed','CarryController@unpassed');
