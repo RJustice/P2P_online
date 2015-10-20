@@ -19,6 +19,7 @@ class UserMoneyLog extends Model
     const TYPE_CARRY_FEE = 3; // 提现手续费
     const TYPE_CARRY_FAIL = 10; // 提现未通过
     const TYPE_CARRY_CANCEL = 11; // 提现取消
+    const TYPE_CARRY_PASSED = 12; // 提现通过
     const TYPE_HAND_RECHARGE = 4; // 人工充值
     const TYPE_REWARD = 5; // 奖励
     const TYPE_OTHER = 6; // 其他费用 

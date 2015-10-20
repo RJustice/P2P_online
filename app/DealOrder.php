@@ -275,7 +275,7 @@ class DealOrder extends Model
         $userMoneyLog->account_money = $member->money + $dealOrder->total_price;
         $userMoneyLog->can_money = $member->can_money + $dealOrder->total_price;
         $userMoneyLog->type = UserMoneyLog::TYPE_OFFLINE_ORDER;
-        $userMoneyLog->created_at = strtotime($dealOrder->create_date);
+        $userMoneyLog->created_at = date("Y-m-d H:i:s");
         $userMoneyLog->create_time_ymd = $dealOrder->create_date;
         $userMoneyLog->create_time_ym = date('Ym',strtotime($dealOrder->create_date));
         $userMoneyLog->create_time_y = date('Y',strtotime($dealOrder->create_date));
@@ -298,7 +298,7 @@ class DealOrder extends Model
         $userLockMoneyLog->account_money = $member->money;
         $userLockMoneyLog->can_money = $member->can_money - $dealOrder->total_price;
         $userLockMoneyLog->type = UserMoneyLog::TYPE_OFFLINE_ORDER;
-        $userLockMoneyLog->created_at = strtotime($dealOrder->create_date);
+        $userLockMoneyLog->created_at = date("Y-m-d H:i:s");
         $userLockMoneyLog->create_time_ymd = date('Ymd',strtotime($dealOrder->create_date));
         $userLockMoneyLog->create_time_ym = date('Ym',strtotime($dealOrder->create_date));
         $userLockMoneyLog->create_time_y = date('Y',strtotime($dealOrder->create_date));
@@ -326,7 +326,7 @@ class DealOrder extends Model
         $userMoneyLog->account_money = $member->money + $dealOrder->total_price;
         $userMoneyLog->can_money = $member->can_money + $dealOrder->total_price;
         $userMoneyLog->type = UserMoneyLog::TYPE_HAND_RECHARGE;
-        $userMoneyLog->created_at = strtotime($dealOrder->create_date);
+        $userMoneyLog->created_at = date("Y-m-d H:i:s");
         $userMoneyLog->create_time_ymd = $dealOrder->create_date;
         $userMoneyLog->create_time_ym = date('Ym',strtotime($dealOrder->create_date));
         $userMoneyLog->create_time_y = date('Y',strtotime($dealOrder->create_date));
@@ -353,7 +353,7 @@ class DealOrder extends Model
         $userDebitMoneyLog->account_money = $member->money - $dealOrder->total_price;
         $userDebitMoneyLog->can_money = $member->can_money - $dealOrder->total_price;
         $userDebitMoneyLog->type = UserMoneyLog::TYPE_HAND_DEBIT;
-        $userDebitMoneyLog->created_at = strtotime($dealOrder->create_date);
+        $userDebitMoneyLog->created_at = date("Y-m-d H:i:s");
         $userDebitMoneyLog->create_time_ymd = $dealOrder->create_date;
         $userDebitMoneyLog->create_time_ym = date('Ym',strtotime($dealOrder->create_date));
         $userDebitMoneyLog->create_time_y = date('Y',strtotime($dealOrder->create_date));
@@ -379,7 +379,7 @@ class DealOrder extends Model
         $userLockMoneyLog->account_money = $member->money;
         $userLockMoneyLog->can_money = $member->can_money - $dealOrder->total_price;
         $userLockMoneyLog->type = UserMoneyLog::TYPE_HAND_FREEZE;
-        $userLockMoneyLog->created_at = strtotime($dealOrder->create_date);
+        $userLockMoneyLog->created_at = date("Y-m-d H:i:s");
         $userLockMoneyLog->create_time_ymd = date('Ymd',strtotime($dealOrder->create_date));
         $userLockMoneyLog->create_time_ym = date('Ym',strtotime($dealOrder->create_date));
         $userLockMoneyLog->create_time_y = date('Y',strtotime($dealOrder->create_date));

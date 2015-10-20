@@ -65,7 +65,7 @@ class UserCarry extends Model
         $userDebitMoneyLog->money = $carry->money;
         $userDebitMoneyLog->account_money = $member->money - $carry->money;
         $userDebitMoneyLog->can_money = $member->can_money;
-        $userDebitMoneyLog->type = UserMoneyLog::TYPE_CARRY;
+        $userDebitMoneyLog->type = UserMoneyLog::TYPE_CARRY_PASSED;
         $userDebitMoneyLog->created_at = date('Y-m-d H:i:s');
         $userDebitMoneyLog->create_time_ymd = date('Y-m-d');
         $userDebitMoneyLog->create_time_ym = date('Ym');
@@ -104,7 +104,7 @@ class UserCarry extends Model
         $userRefundMoneyLog->create_time_ym = date('Ym');
         $userRefundMoneyLog->create_time_y = date('Y');
         // $userRefundMoneyLog->proof_id = $proofs ? $proofs->getKey() : 0 ;
-        $userRefundMoneyLog->log_type = UserMoneyLog::LOG_TYPE_DEDUCTION;
+        $userRefundMoneyLog->log_type = UserMoneyLog::LOG_TYPE_UNLOCK;
         // $userRefundMoneyLog->deal_order_sn = $carry->order_sn;
         $userRefundMoneyLog->save();
 
