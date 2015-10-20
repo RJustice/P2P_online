@@ -48,7 +48,7 @@
                         @foreach( $logs  as $log )
                         <tr>
                             <td>{{ App\UserMoneyLog::getLogTypeTitle($log->type) }}</td>
-                            <td>{{ $log->created_at->format('Y-m-d H:i') }}</td>
+                            {{-- <td>{{ $log->created_at->format('Y-m-d H:i') }}</td> --}}
                             <td>{{ $log->money }}</td>
                             <td>{{ $log->can_money }}</td>
                             <td>{{ $log->account_money }}</td>
