@@ -27,6 +27,7 @@ class DealOrder extends Model
     const TYPE_OFFLINE_RECHARGE = 4;// 线下充值
     const TYPE_HAND_FREEZE = 5;     // 冻结资金
     const TYPE_HAND_DEBIT = 6;      // 快速扣款
+    const TYPE_POST_INVEST = 7;     // POS单投资
 
     // 字段: status
     const STATUS_NOT_PASSED = 0;    // 未通过审核
@@ -68,6 +69,9 @@ class DealOrder extends Model
                 break;
             case self::TYPE_HAND_DEBIT :
                 $pre = 'HD_';
+                break;
+            case self::TYPE_POST_INVEST :
+                $pre = 'PI_';
                 break;
             default:
                 $pre = 'DD_';
@@ -123,6 +127,7 @@ class DealOrder extends Model
             self::TYPE_OFFLINE_RECHARGE => '线下充值',
             self::TYPE_HAND_FREEZE => '手动冻结',
             self::TYPE_HAND_DEBIT => '手动扣款',
+            self::TYPE_POST_INVEST => 'POS单投资'
         ];
     }
 
@@ -261,8 +266,65 @@ class DealOrder extends Model
                 case self::TYPE_HAND_FREEZE :
                     self::_handFreezeMoneyLog($dealOrder);
                     break;
+                case self::TYPE_ONLINE_ORDER :
+                    self::_onlineOrderMoneyLog($dealOrder);
+                    break;
+                case self::TYPE_POST_INVEST : 
+                    self::_posInvestOrderMoneyLog($dealOrder);
+                    break;
             }
         }
+    }
+
+    // 使用POS单投资
+    protected static function _posInvestOrderMoneyLog($dealOrder){
+        $member = $dealOrder->member;
+
+        $userMoneyLog = new UserMoneyLog();
+        $userMoneyLog->user_id = $member->getKey();
+        $userMoneyLog->money = $dealOrder->total_price;
+        $userMoneyLog->account_money = $member->money + $dealOrder->total_price;
+        $userMoneyLog->can_money = $member->can_money;
+        $userMoneyLog->type = UserMoneyLog::TYPE_POS_INVEST;
+        $userMoneyLog->created_at = date("Y-m-d H:i:s");
+        $userMoneyLog->create_time_ymd = $dealOrder->create_date;
+        $userMoneyLog->create_time_ym = date('Ym',strtotime($dealOrder->create_date));
+        $userMoneyLog->create_time_y = date('Y',strtotime($dealOrder->create_date));
+        $userMoneyLog->proof_id = 0 ;
+        $userMoneyLog->log_type = UserMoneyLog::LOG_TYPE_INVEST;
+        $userMoneyLog->deal_order_sn = $dealOrder->order_sn;
+        $userMoneyLog->save();
+
+        // 用户资金变化
+        $member->money = $member->money + $userMoneyLog->money;
+        // $member->can_money = $member->can_money - $dealOrder->total_price;
+        $member->save();
+    }
+
+    // 使用余额投资
+    protected static function _onlineOrderMoneyLog($dealOrder){
+        $member = $dealOrder->member;
+
+        $userMoneyLog = new UserMoneyLog();
+        $userMoneyLog->user_id = $member->getKey();
+        $userMoneyLog->money = $dealOrder->total_price;
+        $userMoneyLog->account_money = $member->money;
+        $userMoneyLog->can_money = $member->can_money - $dealOrder->total_price;
+        $userMoneyLog->type = UserMoneyLog::TYPE_BALANCE_INVEST;
+        $userMoneyLog->created_at = date("Y-m-d H:i:s");
+        $userMoneyLog->create_time_ymd = $dealOrder->create_date;
+        $userMoneyLog->create_time_ym = date('Ym',strtotime($dealOrder->create_date));
+        $userMoneyLog->create_time_y = date('Y',strtotime($dealOrder->create_date));
+        $userMoneyLog->proof_id = 0 ;
+        $userMoneyLog->log_type = UserMoneyLog::LOG_TYPE_INVEST;
+        $userMoneyLog->deal_order_sn = $dealOrder->order_sn;
+        $userMoneyLog->save();
+
+
+        // 用户资金变化
+        // $member->money = $member->money + $userMoneyLog->money;
+        $member->can_money = $member->can_money - $dealOrder->total_price;
+        $member->save();
     }
 
     protected static function _offlineOrderMoneyLog($dealOrder){
@@ -273,46 +335,46 @@ class DealOrder extends Model
         $userMoneyLog->user_id = $member->getKey();
         $userMoneyLog->money = $dealOrder->total_price;
         $userMoneyLog->account_money = $member->money + $dealOrder->total_price;
-        $userMoneyLog->can_money = $member->can_money + $dealOrder->total_price;
+        $userMoneyLog->can_money = $member->can_money;
         $userMoneyLog->type = UserMoneyLog::TYPE_OFFLINE_ORDER;
         $userMoneyLog->created_at = date("Y-m-d H:i:s");
         $userMoneyLog->create_time_ymd = $dealOrder->create_date;
         $userMoneyLog->create_time_ym = date('Ym',strtotime($dealOrder->create_date));
         $userMoneyLog->create_time_y = date('Y',strtotime($dealOrder->create_date));
         $userMoneyLog->proof_id = $proofs ? $proofs->getKey() : 0 ;
-        $userMoneyLog->log_type = UserMoneyLog::LOG_TYPE_ADDITION;
+        $userMoneyLog->log_type = UserMoneyLog::LOG_TYPE_INVEST;
         $userMoneyLog->deal_order_sn = $dealOrder->order_sn;
         $userMoneyLog->save();
 
 
         // 用户资金变化
         $member->money = $member->money + $userMoneyLog->money;
-        $member->can_money = $member->can_money + $dealOrder->total_price;
+        // $member->can_money = $member->can_money + $dealOrder->total_price;
         $member->save();
 
 
-        $userLockMoneyLog = new UserMoneyLog();
-        $userLockMoneyLog->user_id = $member->getKey();
-        $userLockMoneyLog->money = $dealOrder->total_price;
-        // 当前账户余额
-        $userLockMoneyLog->account_money = $member->money;
-        $userLockMoneyLog->can_money = $member->can_money - $dealOrder->total_price;
-        $userLockMoneyLog->type = UserMoneyLog::TYPE_OFFLINE_ORDER;
-        $userLockMoneyLog->created_at = date("Y-m-d H:i:s");
-        $userLockMoneyLog->create_time_ymd = date('Ymd',strtotime($dealOrder->create_date));
-        $userLockMoneyLog->create_time_ym = date('Ym',strtotime($dealOrder->create_date));
-        $userLockMoneyLog->create_time_y = date('Y',strtotime($dealOrder->create_date));
-        $userLockMoneyLog->proof_id = $proofs ? $proofs->getKey() : 0 ;
-        $userLockMoneyLog->log_type = UserMoneyLog::LOG_TYPE_LOCK;
-        $userLockMoneyLog->deal_order_sn = $dealOrder->order_sn;
-        $userLockMoneyLog->save();
+        // $userLockMoneyLog = new UserMoneyLog();
+        // $userLockMoneyLog->user_id = $member->getKey();
+        // $userLockMoneyLog->money = $dealOrder->total_price;
+        // // 当前账户余额
+        // $userLockMoneyLog->account_money = $member->money;
+        // $userLockMoneyLog->can_money = $member->can_money - $dealOrder->total_price;
+        // $userLockMoneyLog->type = UserMoneyLog::TYPE_OFFLINE_ORDER;
+        // $userLockMoneyLog->created_at = date("Y-m-d H:i:s");
+        // $userLockMoneyLog->create_time_ymd = date('Ymd',strtotime($dealOrder->create_date));
+        // $userLockMoneyLog->create_time_ym = date('Ym',strtotime($dealOrder->create_date));
+        // $userLockMoneyLog->create_time_y = date('Y',strtotime($dealOrder->create_date));
+        // $userLockMoneyLog->proof_id = $proofs ? $proofs->getKey() : 0 ;
+        // $userLockMoneyLog->log_type = UserMoneyLog::LOG_TYPE_LOCK;
+        // $userLockMoneyLog->deal_order_sn = $dealOrder->order_sn;
+        // $userLockMoneyLog->save();
 
-        // 用户冻结资金变化
-        $member->lock_money = $member->lock_money + $userLockMoneyLog->money;
-        // 用户可用资金变化
-        $member->can_money = $member->can_money - $userLockMoneyLog->money;
-        // 保存信息
-        $member->save();
+        // // 用户冻结资金变化
+        // $member->lock_money = $member->lock_money + $userLockMoneyLog->money;
+        // // 用户可用资金变化
+        // $member->can_money = $member->can_money - $userLockMoneyLog->money;
+        // // 保存信息
+        // $member->save();
     }
 
 

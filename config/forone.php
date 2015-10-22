@@ -108,7 +108,10 @@ return [
                     'uri' => 'dealorders/order',
                 ],
                 '充值列表' => [
-                    'uri' => 'dealorders/recharge'
+                    'uri' => 'dealorders/recharge',
+                ],
+                'POS订单' => [
+                    'uri' => 'posorders',
                 ]
             ],  
         ],

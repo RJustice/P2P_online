@@ -17,7 +17,7 @@ class CenterController extends Controller
      */
     public function index()
     {
-        $dealOrders = auth()->user()->dealOrders()->whereIn('type',[\App\DealOrder::TYPE_OFFLINE_ORDER,\App\DealOrder::TYPE_ONLINE_ORDER])->where('status',\App\DealOrder::STATUS_PASSED)->where('order_status','<>',\App\DealOrder::ORDER_STATUS_INVALID)->get();
+        $dealOrders = auth()->user()->dealOrders()->whereIn('type',[\App\DealOrder::TYPE_OFFLINE_ORDER,\App\DealOrder::TYPE_ONLINE_ORDER,\App\DealOrder::TYPE_POST_INVEST])->where('status',\App\DealOrder::STATUS_PASSED)->where('order_status','<>',\App\DealOrder::ORDER_STATUS_INVALID)->get();
         $data = [
             'ready' => 0,
             'yihuo' => 0,
@@ -44,7 +44,8 @@ class CenterController extends Controller
             if( $dealOrder->order_status == \App\DealOrder::ORDER_STATUS_VALID ){
                 $data['benjin'] = $data['benjin'] + $dealOrder->total_price;
             }
-            if( $dealOrder->deal_type == \App\Deal::LOANTYPE_FUXIFANBEN ){
+            // dd($days);
+            if( $dealOrder->deal_type == \App\Deal::LOANTYPE_FUXIFANBEN && $days > 30){
                 $data['yihuo'] = $data['yihuo'] + $yihuo;
 
                 $m_shouyi = 30 * $dealOrder->deal_daily_returns * ( $dealOrder->total_price / 10000 ) ;
@@ -53,8 +54,9 @@ class CenterController extends Controller
                     $data['shouyi'][$m+$i] = $m_shouyi;
                 }
             }
-            $data['touzi'][$m-1] = $dealOrder->total_price;
+            $data['touzi'][$m-1] = $data['touzi'][$m-1] + $dealOrder->total_price;
         }
+        // dd($data);
         return view('member.center',compact('data'));
     }
 }

@@ -136,6 +136,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::get('dealorders/recharge',['as'=>'admin.dealorders.recharge','uses'=>'DealOrdersController@recharge']);
 
     Route::post('proof/ajaxupload',['as'=>'admin.proof.ajaxUpload','uses'=>'ProofController@ajaxUpload']);
+
+    Route::get('posorders',['as'=>'admin.posorders.index','uses'=>'PosOrderController@index']);
+    Route::get('posorders/show/{sn}',['as'=>'admin.posorders.show','uses'=>'PosOrderController@show']);
+    Route::put('posorders/{sn}',['as'=>'admin.posorders.update','uses'=>'PosOrderController@update']);
 });
 
 
@@ -198,10 +202,14 @@ Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.
 // Route::group(['prefix'=>'invest','namespace'=>'Invest','middleware'=>['member.auth']],function(){
 //     Route::get('/','InvestController@index');
 // });
-Route::get('invest',function(){
-    return view('contact.form');
-});
+// Route::get('invest',function(){
+//     return view('contact.form');
+// });
 
+Route::get('invest/checkmoney','InvestController@checkmoney');
+Route::get('invest','InvestController@index');
+Route::post('invest/doinvest','InvestController@doinvest');
+Route::post('invest/posinvest','InvestController@posinvest');
 
 Route::post('contact/licai','ContactController@licai');
 Route::get('contact/success',['as'=>'contact.success','uses'=>'ContactController@success']);

@@ -26,11 +26,15 @@ class UserMoneyLog extends Model
     const TYPE_OFFLINE_ORDER = 7; // 线下订单登记
     const TYPE_HAND_FREEZE = 8; // 人工冻结
     const TYPE_HAND_DEBIT = 9; // 快速扣款
+    const TYPE_BALANCE_INVEST = 13; // 余额投资
+    const TYPE_POS_INVEST = 14 ; // POS投资
+    const TYPE_POS_BALANCE = 15; // POS余额转入
 
     const LOG_TYPE_ADDITION = 1; // 增加资金
     const LOG_TYPE_LOCK = 2; // 冻结资金
     const LOG_TYPE_DEDUCTION = 3; // 扣除
     const LOG_TYPE_UNLOCK = 4; // 解冻
+    const LOG_TYPE_INVEST = 5; // 投资
 
     
     // Log Type  日志操作类型
@@ -39,7 +43,8 @@ class UserMoneyLog extends Model
             self::LOG_TYPE_ADDITION => '增加资金',
             self::LOG_TYPE_LOCK => '冻结资金',
             self::LOG_TYPE_DEDUCTION => '扣除金额',
-            self::LOG_TYPE_UNLOCK => '解冻'
+            self::LOG_TYPE_UNLOCK => '解冻',
+            self::LOG_TYPE_INVEST => '投资理财'
         ];
     }
 
@@ -77,12 +82,16 @@ class UserMoneyLog extends Model
             self::TYPE_CARRY_FEE => '提现手续费',
             self::TYPE_CARRY_FAIL => '提现未通过',
             self::TYPE_CARRY_CANCEL => '提现取消',
+            self::TYPE_CARRY_PASSED => '提现通过',
             self::TYPE_HAND_RECHARGE => '人工充值',
             self::TYPE_REWARD => '奖励',
             self::TYPE_OTHER => '其他费用',
             self::TYPE_OFFLINE_ORDER => '线下订单登记',
             self::TYPE_HAND_FREEZE => '人工冻结',
             self::TYPE_HAND_DEBIT => '快速扣款',
+            self::TYPE_BALANCE_INVEST => '余额投资',
+            self::TYPE_POS_INVEST => 'POS单投资',
+            self::TYPE_POS_BALANCE => 'POS余额转入'
         ];
     }
 
