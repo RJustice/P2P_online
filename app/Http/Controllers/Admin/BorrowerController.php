@@ -24,6 +24,7 @@ class BorrowerController extends BaseController
     {
         $results = [
             'columns' => [
+                ['编号','id'],
                 ['姓名', 'name'],
                 ['身份证号','idno'],
                 ['用途','use'],
