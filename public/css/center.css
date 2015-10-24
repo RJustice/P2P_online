@@ -792,3 +792,5 @@ input[type="checkbox"], input[type="radio"] {
 .layer{display: none;padding:15px 30px;}
 .layer p{font-size:14px;font-weight: 600;text-align:center;height:30px;line-height: 30px;}
 .layer p .a-btn{font-size:16px;height:38px;line-height:39px;width:auto;float:none;padding:7px 25px;margin:auto;cursor: pointer;}
+
+.money{color:#f60;font-size:14px;letter-spacing: 1px;font-weight: 600;}

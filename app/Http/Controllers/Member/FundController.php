@@ -10,6 +10,7 @@ use Sms;
 use Hash;
 use App\UserCarry;
 use App\UserMoneyLog;
+use App\DealOrder;
 use Session;
 
 class FundController extends Controller
@@ -90,7 +91,7 @@ class FundController extends Controller
         return response()->json($return);
     }
 
-    public function carrylogs(){
+    public function carryLogs(){
         $logs = UserCarry::where('user_id',$this->member->getKey())->orderBy('id','desc');
         $logs = $logs->paginate(30);
         return view('member.fund.carrylogs',compact('logs'));
@@ -116,5 +117,27 @@ class FundController extends Controller
         $logs = UserMoneyLog::where('user_id',$this->member->getKey())->orderBy('id','desc');
         $logs = $logs->paginate(30);
         return view('member.fund.logs',compact('logs'));
+    }
+
+
+    public function getRedeem(){
+        $dealOrders = $this->member->dealOrders()->where('order_status',DealOrder::ORDER_STATUS_VALID)->get();
+        if( $dealOrders->isEmpty() ){
+            return view('member.errors.noorder');
+        }else{
+            return view('member.fund.redeem',compact('dealOrders'));
+        }
+    }
+
+    public function postRedeem(){
+
+    }
+
+    public function redeemLogs(){
+
+    }
+
+    public function redeemCancel(){
+
     }
 }

@@ -22,7 +22,7 @@ class HomeController extends Controller
     {   
         $official_news = Category::where('alias','official-news')->first()->articles()->orderBy('id','desc')->take(4)->get();
         $industry_news = Category::where('alias','industry-news')->first()->articles()->orderBy('id','desc')->take(4)->get();
-        $deals = Deal::where('is_effect',1)->where('is_deleted',0)->where('published',1)->orderByRaw('sort desc')->get();
+        $deals = Deal::where('is_effect',1)->where('is_deleted',0)->where('published',1)->orderByRaw('sort desc')->take(6)->get();
         //$industry_news = Category::where('alias','industry-news')->get();
         return view('index',compact('official_news','industry_news','deals'));
     }

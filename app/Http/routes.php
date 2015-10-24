@@ -83,9 +83,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('company','CompanyController');
     Route::resource('borrowers','BorrowerController');
     Route::resource('carrys','CarryController');
-    Route::resource('carrys-passed','CarryController@passed');
-    Route::resource('carrys-unpassed','CarryController@unpassed');
-    Route::resource('carrys-cancel','CarryController@cancel');
+    Route::get('carrys-passed','CarryController@passed');
+    Route::get('carrys-unpassed','CarryController@unpassed');
+    Route::get('carrys-cancel','CarryController@cancel');
     Route::resource('contacts','ContactController');
     Route::get('category/alists/{id}/edit','ArticlesController@edit');
 
@@ -164,8 +164,15 @@ Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.
 
     Route::get('fund/carry',['as'=>'member.fund.carry','uses'=>'FundController@getCarry']);
     Route::post('fund/carry',['as'=>'member.fund.carry','uses'=>'FundController@postCarry']);
-    Route::get('fund/carrylogs',['as'=>'member.fund.carrylogs','uses'=>'FundController@carrylogs']);
+    Route::get('fund/carrylogs',['as'=>'member.fund.carrylogs','uses'=>'FundController@carryLogs']);
     Route::post('fund/carry-cancel',['as'=>'member.fund.carrycancel','uses'=>'FundController@carryCancel']);
+
+    // 赎回
+    Route::get('fund/redeem/{id?}',['as'=>'member.fund.redeem','uses'=>'FundController@getRedeem']);
+    Route::post('fund/redeem',['as'=>'member.fund.redeem','uses'=>'FundController@postRedeem']);
+    Route::get('fund/redeemlogs',['as'=>'member.fund.redeemlogs','uses'=>'FundController@redeemLogs']);
+    Route::post('fund/redeem-cancel',['as'=>'member.fund.redeemcancel','uses'=>'FundController@redeemCancel']);
+
 
     Route::get('fund/summarydetail',['as'=>'member.fund.summarydetail','uses'=>'FundController@getSummaryDetail']);
     Route::get('fund/logs',['as'=>'member.fund.logs','uses'=>'FundController@getLogs']);
