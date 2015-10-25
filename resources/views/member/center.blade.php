@@ -27,7 +27,7 @@
                 <p class="p-btn">
                     {{-- <a href="" class="a-btn01">充值</a> --}}
                     <a href="{{ route('member.fund.carry') }}" class="a-btn02">提现</a>
-                    <a href="{{ route('member.invest.index') }}" class="a-btn03">赎回</a>
+                    <a href="{{ route('member.fund.redeem') }}" class="a-btn03">赎回</a>
                 </p>
             </div>
         </div>
@@ -68,7 +68,7 @@
             </li>
             <li>
                 <p class="income-name">累计收益<em>（元）</em><i></i></p>
-                <p class="acount-num">{{ number_format($data['yihuo'],2) }}</p>
+                <p class="acount-num">{{ number_format($data['leiji'],2) }}</p>
                 <span style="display: none;" class="bubble">
                             <label class="text">所有理财产品截止当日0点的已获收益</label>
                             <label class="arrow"></label>

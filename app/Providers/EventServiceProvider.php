@@ -71,6 +71,9 @@ class EventServiceProvider extends ServiceProvider
             if( $orderToRedeem->isDirty('status') && $orderToRedeem->status == OrderToRedeem::STATUS_PASSED ){
                 OrderToRedeem::passedCallback($orderToRedeem);
             }
+            if( $orderToRedeem->isDirty('status') && $orderToRedeem->status == OrderToRedeem::STATUS_UNPASSED ){
+                OrderToRedeem::unpassCallback($orderToRedeem);
+            }
         });
     }
 }

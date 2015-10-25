@@ -2,6 +2,7 @@
 @section('css')
 <style type="text/css">
 .wrap-box{width:100%;margin-bottom: 100px;padding: 0;background: #f5f5f5}
+select{height:35px;line-height: 35px;margin:0 7px;}
 </style>
 <link rel="stylesheet" href="/css/validationEngine.jquery.css">
 @stop
@@ -12,7 +13,7 @@
             <h2>
                 <a href="{{ url('/') }}">首页</a>
                 <img src="/images/arrow03.png" alt="">
-                <span id="aboutus"><a href="javascript:;">我要理财</a></span>
+                <span id="aboutus"><a href="javascript:;">我要借款</a></span>
             </h2>
         </div>
     </div>
@@ -22,9 +23,9 @@
             @if(Session::has('refresh_error')) <p class="error-info">{{ Session::get('refresh_error') }}</p>@endif
         </div>
         <div class="process p_01" style="">
-            <p style="text-align:center;font-size:18px;font-weight:600;line-height:40px;height:40px;">欢迎选择我们农发众诚进行投资理财，我们将是您最好的选择。</p>
+            <p style="text-align:center;font-size:18px;font-weight:600;line-height:40px;height:40px;">欢迎选择我们农发众诚进行借款投资，我们将是您最好的选择。</p>
             <p style="text-align:center;font-size:18px;font-weight:600;line-height:40px;height:40px;">
-                请您填写信息，我们会有理财专员跟您联系。<a href="{{ url('contact')}}" style="color:#0697da;">点击查看分公司地图</a>，客服电话：400-6090-290
+                请您填写信息，我们会有专员跟您联系。<a href="{{ url('contact')}}" style="color:#0697da;">点击查看分公司地图</a>，客服电话：400-6090-290
             </p>
         </div>
         <div class="register-content">
@@ -39,6 +40,16 @@
                 <p class="error-info">@if($errors->has('phone')) {{ $errors->first('phone') }} @endif</p>
             </div>
             <div class="f-row">
+                <label for="phone">所在地：</label>
+                {!! Form::select('province_id',[]) !!}<span class="span-instructions">（省/直辖市）</span>
+                {!! Form::select('city_id',[]) !!}<span class="span-instructions">（市）</span>            
+                {!! Form::select('county_id',[]) !!}<span class="span-instructions">（区/地级市）</span>
+            </div>                        
+            <div class="f-row">
+                <label for="phone">方便时间：</label>
+                {!! Form::select('fb_time',["全天"=>"全天","上午8:00 ~ 10:00"=>"上午8:00 ~ 10:00","上午10:00 ~ 12:00"=>"上午10:00 ~ 12:00","中午11:00 ~ 13:00"=>"中午11:00 ~ 13:00","下午13:00 ~ 17:00"=>"下午13:00 ~ 17:00","下午17:00 ~ 21:00"=>"下午17:00 ~ 21:00"]) !!}
+            </div>
+            <div class="f-row clearfix">
                 <label for="password_confirmation ">留言：</label>
                 {!! Form::textarea('msg',old('msg'),['id'=>'msg','class'=>'','style'=>'width:78%']) !!}
                 <p class="error-info">@if($errors->has('password_confirmation')) {{ $errors->first('password_confirmation') }} @endif</p>
@@ -60,8 +71,10 @@
 </div>
 @stop
 @section('js')
+@parent
 <script src="/js/jquery.validationEngine-zh_CN.js"></script> 
 <script src="/js/jquery.validationEngine.min.js"></script>
+@include('common.regionjs',['uri'=>'contact'])
 <script type="text/javascript">
     $(document).ready(function(){
         $("span.refresh").on('click',function(){

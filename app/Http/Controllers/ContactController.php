@@ -27,8 +27,12 @@ class ContactController extends Controller
         $contact->title = $request->get('title');
         $contact->msg = $request->get('msg');
         $contact->phone = $request->get('phone');
+        $contact->province_id = $request->get('province_id');
+        $contact->city_id = $request->get('city_id');
+        $contact->county_id = $request->get('county_id');
+        $contact->fb_time = $request->get('fb_time');
         $contact->status = 0;
-        $contact->type = 1;
+        $contact->type = 2;
         $contact->save();
         return redirect()->route('contact.success');
     }

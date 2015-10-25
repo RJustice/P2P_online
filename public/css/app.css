@@ -828,7 +828,7 @@ background-size: contain;}
 .g-list ul li{ float: left; margin:16px 20px; position: relative;}
 .g-list ul li .m-list{height:385px; border-radius: 30px; overflow: hidden;}
 .g-list ul li .m-list{ text-align: center; }
-.g-list ul li .m-list01{ width: 350px;background: #fff; box-shadow: 1px 2px 7px #b4b4b4;}
+.g-list ul li .m-list01{ width: 350px;background: #fff; box-shadow: 1px 2px 7px #989898;}
 .g-list ul li .m-list .padding-lr {padding: 20px 25px 0px 30px; }
 .g-list ul li .m-list .padding-lr.inner { padding: 10px 25px 0px 30px; }
 .g-list ul li .m-list .top-icon{ padding: 10px 0  11px 8px;}

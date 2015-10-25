@@ -93,7 +93,9 @@ class UserMoneyLog extends Model
             self::TYPE_HAND_DEBIT => '快速扣款',
             self::TYPE_BALANCE_INVEST => '余额投资',
             self::TYPE_POS_INVEST => 'POS单投资',
-            self::TYPE_POS_BALANCE => 'POS余额转入'
+            self::TYPE_POS_BALANCE => 'POS余额转入',
+            self::TYPE_REDEEM => '赎回',
+            self::TYPE_REDEEM_FEE => '赎回手续费',
         ];
     }
 

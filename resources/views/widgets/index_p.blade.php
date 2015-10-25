@@ -57,7 +57,7 @@
                             </dl>
                         </div>
                         <p class="p-text03">付息方式：{{ \App\Deal::getLoanTypeTitle($deal->loan_type) }}</p>
-                        <p class="p-text04">赎回方式：T+10 ， 投资满30天即可申请赎回，赎回期内同等计息</p>
+                        <p class="p-text04">赎回方式：T+10 ， 计息截止日期赎回当日0点</p>
                     </div>
                 </div>
                     <div class="pop-investment pop-investment-left">

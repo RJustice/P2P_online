@@ -20,6 +20,8 @@ class CreateOrderToRedeem extends Migration
             $table->decimal('order_return');
             $table->integer('user_id');
             $table->tinyInteger('status')->default(0);
+            $table->integer('who_confirm');
+            $table->text('meno');
             $table->timestamps();
 
             $table->unique(['order_id','user_id','status']);

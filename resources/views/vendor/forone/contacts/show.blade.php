@@ -16,7 +16,13 @@ span.price{font-size:14px;font-weight: 600;color:#ff5a13;letter-spacing: 1px;}
             </li>
             <li class="list-group-item">
                 <span class="labelx col-sm-3">电话：</span><span class="price">{{ $data->phone }}</span>&nbsp;
-            </li>                        
+            </li>
+            <li class="list-group-item">
+                <span class="labelx col-sm-3">所在地：</span>{{ App\Region::formatRegion($data->province_id,$data->city_id,$data->county_id) }}&nbsp;
+            </li>
+            <li class="list-group-item">
+                <span class="labelx col-sm-3">方便时间：</span>{{ $data->fb_time }}&nbsp;
+            </li>                       
             <li class="list-group-item">
                 <span class="labelx col-sm-3">留言：</span>{{ $data->msg }}&nbsp;
             </li>

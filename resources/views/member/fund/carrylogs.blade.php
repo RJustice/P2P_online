@@ -21,8 +21,6 @@
          起止日期<input class="Wdate" id="start-time" value="" type="text">-<input class="Wdate" id="end-time" value="" type="text"><span class="search-btn" id="charge-search-btn">搜&nbsp;&nbsp;索</span>
        </div>
    </div> --}}
-<div id="Idiv" style="display:none;position:absolute;z-index:1000;background:#67a3d9;height: 200px;width:100px;">
-</div>
    <div class="table-box clearfix">
        <table cellpadding="0" cellspacing="0">
             <colgroup>

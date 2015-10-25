@@ -49,6 +49,7 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('category','CategoryController');
     Route::resource('pages','PagesController');
     Route::resource('recruit','RecruitController');
+    Route::resource('dealexp','DealExpController');
     Route::resource('articles','ArticlesController');
     Route::resource('deals','DealsController');
     Route::resource('money','MoneyController');
@@ -113,6 +114,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::get('posorders',['as'=>'admin.posorders.index','uses'=>'PosOrderController@index']);
     Route::get('posorders/show/{sn}',['as'=>'admin.posorders.show','uses'=>'PosOrderController@show']);
     Route::put('posorders/{sn}',['as'=>'admin.posorders.update','uses'=>'PosOrderController@update']);
+
+    Route::resource('redeem','RedeemController');
+    // Route::get('redeem',['as'=>'admin.redeem.index','uses'=>'RedeemController@index']);
+    // Route::get('redeem/show/{sn}',['as'=>'admin.redeem.show','uses'=>'RedeemController@show']);
+    // Route::put('redeem/{sn}',['as'=>'admin.redeem.update','uses'=>'RedeemController@update']);
 });
 
 
@@ -125,6 +131,8 @@ Route::get('pages/{alias}','PagesController@aliasShow')->where(['alias' => '[A-Z
 
 Route::get('recruit/{id}','RecruitController@show')->where(['id'=>'[0-9]+']);
 Route::get('recruit/{alias}','RecruitController@aliasShow')->where(['alias' => '[A-Za-z_-]+']);
+
+Route::get('dealexp/{id}','DealExpController@show')->where(['id'=>'[0-9]+']);
 
 Route::any('projects',function(){
     return view('projects');
@@ -141,7 +149,7 @@ Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.
     Route::post('fund/carry-cancel',['as'=>'member.fund.carrycancel','uses'=>'FundController@carryCancel']);
 
     // 赎回
-    Route::get('fund/redeem/{id?}',['as'=>'member.fund.redeem','uses'=>'FundController@getRedeem']);
+    Route::get('fund/redeem/{id?}',['as'=>'member.fund.redeem.{id?}','uses'=>'FundController@getRedeem']);
     Route::post('fund/redeem',['as'=>'member.fund.redeem','uses'=>'FundController@postRedeem']);
     Route::get('fund/redeemlogs',['as'=>'member.fund.redeemlogs','uses'=>'FundController@redeemLogs']);
     
@@ -186,9 +194,10 @@ Route::get('invest','InvestController@index');
 Route::post('invest/doinvest','InvestController@doinvest');
 Route::post('invest/posinvest','InvestController@posinvest');
 
+
 Route::post('contact/licai','ContactController@licai');
 Route::get('contact/success',['as'=>'contact.success','uses'=>'ContactController@success']);
-Route::get('contact/licai','ContactController@index');
+Route::get('contact/jiekuan','ContactController@index');
 
 Route::post('sms/send','SmsController@postSendCode');
 

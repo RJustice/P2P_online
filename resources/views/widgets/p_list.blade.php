@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="tp-pattern">
-                            起投金额：<span>{{ $deal->min_loan_money }}</span>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：{{ \App\Deal::getLoanTypeTitle($deal->loan_type) }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            起投金额：<span>{{ $deal->min_loan_money }}</span>元&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;反息方式：{{ \App\Deal::getLoanTypeTitle($deal->loan_type) }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{ $deal->exp_link }}" target="_blank" style="background: #ff8213 none repeat scroll 0 0;border: 1px solid #f7f7f7;border-radius: 5px;color: #fff;display: block;font-size: 14px;height: 27px;line-height: 27px;text-align: center;transition: all 0.8s ease 0s;width: 140px;display:inline-block;">查看说明</a>
                         </div>
                     </div>
                 </div>

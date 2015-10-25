@@ -30,6 +30,9 @@
                     <a href="{{ url('/invest') }}">我要理财</a>
                 </li>
                 <li rel="3" class="n-3 mr5">
+                    <a href="{{ url('contact/jiekuan') }}">我要借款</a>
+                </li>
+                <li rel="4" class="n-4 mr5">
                     <a href="{{ url('/member') }}">个人中心</a>
                 </li>
                 <li rel="5" class="n-5 mr5 @if(Request::is('pages/1')) current @endif">

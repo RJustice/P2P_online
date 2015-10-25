@@ -132,10 +132,10 @@ class FundController extends Controller
     public function postRedeem(Request $request){
         $return = [];
         if ($request->ajax()) {
-            $dealOrderId = $request->get('dealid');
+            $dealOrderId = $request->get('orderid');
             $smscode = $request->get('smscode');
             $paypwd = $request->get('paypwd');
-            $dealOrder = DealOrder::find($dealOrderId);
+            $dealOrder = DealOrder::where('order_status',DealOrder::ORDER_STATUS_VALID)->where('user_id',$this->member->getKey())->where('id',$dealOrderId)->first();
             if( ! $dealOrder ){
                 $return = [
                     'code' => 3
@@ -154,8 +154,8 @@ class FundController extends Controller
                 return response()->json($return);
             }
 
-            $orderToRedeem = new OrderToRedeem;
-            $orderToRedeem->order_id = $dealOrder->id;
+            $orderToRedeem = new OrderToRedeem();
+            $orderToRedeem->order_id = $dealOrder->getKey();
             $orderToRedeem->order_sn = $dealOrder->order_sn;
             $orderToRedeem->order_money = $dealOrder->total_price;
             $orderToRedeem->order_return = $dealOrder->deal_waiting_returns;
@@ -172,7 +172,9 @@ class FundController extends Controller
     }
 
     public function redeemLogs(){
-
+        $logs = OrderToRedeem::where('user_id',$this->member->getKey())->orderBy('id','desc');
+        $logs = $logs->paginate(30);
+        return view('member.fund.redeemlogs',compact('logs'));
     }
 
     public function redeemCancel(){

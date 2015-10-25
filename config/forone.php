@@ -52,6 +52,9 @@ return [
                 ],
                 '招聘管理' => [
                     'uri' => 'recruit',
+                ],
+                '理财项目说明' => [
+                    'uri' => 'dealexp'
                 ]
             ],
         ],
@@ -131,12 +134,15 @@ return [
                 '已取消申请' => [
                     'uri' => 'carrys-cancel',
                 ]
-                // '资金日志' => [
-                //     'uri' => 'moneys',
-                // ],
-                // '红包管理' => [
-                //     'uri' => 'giftmoney',
-                // ]
+            ],
+        ],
+        '赎回申请' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '赎回申请列表'  => [
+                    'uri' => 'redeem',
+                ],
             ],
         ],
         '手动操作' => [

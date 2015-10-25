@@ -26,6 +26,7 @@ class CenterController extends Controller
             'touzi' => [0,0,0,0,0,0,0,0,0,0,0,0],
             'shouyi' => [0,0,0,0,0,0,0,0,0,0,0,0],
             'leiji' => 0,
+            'redeem_returns' => 0
         ];
         foreach( $dealOrders as $dealOrder ){
             $m = date('m',strtotime($dealOrder->create_date));
@@ -34,6 +35,9 @@ class CenterController extends Controller
             $now = date_create(date('Y-m-d'));
             if( $dealOrder->order_status == \App\DealOrder::ORDER_STATUS_FINISHED ){
                 $diff = date_diff($end,$start);
+            }elseif($dealOrder->order_status == \App\DealOrder::ORDER_STATUS_REDEEM || $dealOrder->order_status == \App\DealOrder::ORDER_STATUS_REDEEM_FINISHED ){
+                $redeemDate = date_create($dealOrder->redeem_date);
+                $diff = date_diff($redeemDate,$start);
             }else{
                 $diff = date_diff($now,$start);
             }
@@ -42,7 +46,7 @@ class CenterController extends Controller
             $yihuo = $zong - $dealOrder->deal_waiting_returns;
 
             $data['ready'] = $data['ready'] + $dealOrder->total_price;
-            if( $dealOrder->order_status == \App\DealOrder::ORDER_STATUS_VALID ){
+            if( $dealOrder->order_status == \App\DealOrder::ORDER_STATUS_VALID || $dealOrder->order_status == \App\DealOrder::ORDER_STATUS_REDEEM ){
                 $data['benjin'] = $data['benjin'] + $dealOrder->total_price;
             }
             // dd($days);
@@ -57,6 +61,9 @@ class CenterController extends Controller
             }
             $data['touzi'][$m-1] = $data['touzi'][$m-1] + $dealOrder->total_price;
             
+            $data['leiji'] = $data['leiji'] + $zong;
+
+            // if( $dealOrder->order_status == \App\DealOrder::ORDER_STATUS_REDEEM || $dealOrder->order_status == \App\DealOrder::ORDER_STATUS_REDEEM_FINISHED ) 
         }
         // dd($data);
         return view('member.center',compact('data'));
