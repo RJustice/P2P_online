@@ -7,6 +7,7 @@ use App\User;
 use App\Company;
 use App\UserMoneyLog;
 use App\Deal;
+use App\OrderToBorrower;
 use DB;
 
 class DealOrder extends Model
@@ -255,7 +256,9 @@ class DealOrder extends Model
             switch($dealOrder->type){
                 case self::TYPE_OFFLINE_ORDER :
                     self::_offlineOrderMoneyLog($dealOrder);
-                    self::_signleBuildReturns(self::find($dealOrder->getKey()));
+                    $dealOrderCopy = self::find($dealOrder->getKey());
+                    self::_signleBuildReturns($dealOrderCopy);
+                    // OrderToBorrower::assignBorrowersByOrder($dealOrderCopy);
                     break;
                 case self::TYPE_OFFLINE_RECHARGE :
                     self::_offlineRechargeMoneyLog($dealOrder);
@@ -268,9 +271,13 @@ class DealOrder extends Model
                     break;
                 case self::TYPE_ONLINE_ORDER :
                     self::_onlineOrderMoneyLog($dealOrder);
+                    // $dealOrderCopy = self::find($dealOrder->getKey());
+                    // OrderToBorrower::assignBorrowersByOrder($dealOrderCopy);
                     break;
                 case self::TYPE_POST_INVEST : 
                     self::_posInvestOrderMoneyLog($dealOrder);
+                    // $dealOrderCopy = self::find($dealOrder->getKey());
+                    // OrderToBorrower::assignBorrowersByOrder($dealOrderCopy);
                     break;
             }
         }

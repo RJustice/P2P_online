@@ -33,7 +33,7 @@
             <tbody>
             @if( $dealOrders )
                 @foreach( $dealOrders as $dealOrder )
-                <tr>
+                <tr class="more-info" id="more-info-{{ $dealOrder->getKey() }}">
                     <td>{{ $dealOrder->deal_title }}</td>
                     <td>{{ $dealOrder->create_date }}</td>
                     <td>{{ number_format($dealOrder->total_price,2) }}</td>

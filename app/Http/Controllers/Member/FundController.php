@@ -117,4 +117,16 @@ class FundController extends Controller
         $logs = $logs->paginate(30);
         return view('member.fund.logs',compact('logs'));
     }
+
+    public function getredeem(){
+        
+    }
+
+    public function postredeem(Request $request){
+        
+    }
+
+    public function redeemCancel(){
+        
+    }
 }

@@ -89,7 +89,7 @@ i,em{font-style:normal;}
 .inf-grade i.i06s{background-position: -278px 0;}
 
 .pre-paid{float: right;overflow: hidden;}
-.pre-paid .p-btn{height: 45px;line-height: 45px;padding-top: 10px;}
+.pre-paid .p-btn{height: 45px;line-height: 45px;padding-top: 10px;cursor: pointer;}
 .pre-paid .p-btn a{border-radius: 10px;
     color: #fff;
     display: inline-block;
@@ -104,6 +104,7 @@ i,em{font-style:normal;}
     padding:0 15px;}
 .pre-paid .p-btn a.a-btn01{background: #009dde}
 .pre-paid .p-btn a.a-btn02{background: #ff6600}
+.pre-paid .p-btn a.a-btn03{background: #006699}
 
 .pre-money li{float: left;padding: 1px 4%;position: relative;width: 17%;}
 .pre-money li .income-name{color: #333;font-size: 18px;line-height: 30px;}

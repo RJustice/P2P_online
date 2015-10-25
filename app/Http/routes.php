@@ -167,6 +167,12 @@ Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.
     Route::get('fund/carrylogs',['as'=>'member.fund.carrylogs','uses'=>'FundController@carrylogs']);
     Route::post('fund/carry-cancel',['as'=>'member.fund.carrycancel','uses'=>'FundController@carryCancel']);
 
+    // 赎回
+    Route::get('fund/redeem',['as'=>'member.fund.redeem','uses'=>'FundController@getredeem']);
+    Route::post('fund/redeem',['as'=>'member.fund.redeem','uses'=>'FundController@postredeem']);
+    Route::post('fund/redeem-cancel',['as'=>'member.fund.redeemcancel','uses'=>'FundController@redeemCancel']);
+
+
     Route::get('fund/summarydetail',['as'=>'member.fund.summarydetail','uses'=>'FundController@getSummaryDetail']);
     Route::get('fund/logs',['as'=>'member.fund.logs','uses'=>'FundController@getLogs']);
 

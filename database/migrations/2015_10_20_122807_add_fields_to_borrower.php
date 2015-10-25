@@ -13,7 +13,7 @@ class AddFieldsToBorrower extends Migration
     public function up()
     {
         Schema::table('borrowers', function (Blueprint $table) {
-            $table->decimal('has_assign_money',20,2);
+            // $table->decimal('has_assign_money',20,2);
         });
     }
 

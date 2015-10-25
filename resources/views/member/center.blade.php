@@ -27,7 +27,7 @@
                 <p class="p-btn">
                     {{-- <a href="" class="a-btn01">充值</a> --}}
                     <a href="{{ route('member.fund.carry') }}" class="a-btn02">提现</a>
-                    {{-- <a href="" class="a-btn03">赎回</a> --}}
+                    <a href="{{ route('member.invest.index') }}" class="a-btn03">赎回</a>
                 </p>
             </div>
         </div>
