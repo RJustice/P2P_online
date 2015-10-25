@@ -8,6 +8,7 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use App\User;
 use App\DealOrder;
 use App\UserCarry;
+use App\OrderToRedeem;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -59,6 +60,16 @@ class EventServiceProvider extends ServiceProvider
         UserCarry::updated(function($carry){
             if( $carry->isDirty('status') ){
                 UserCarry::updatedCallback($carry);
+            }
+        });
+
+        OrderToRedeem::created(function($orderToRedeem){
+            OrderToRedeem::createdCallback($orderToRedeem);
+        });
+
+        OrderToRedeem::saved(function($orderToRedeem){
+            if( $orderToRedeem->isDirty('status') && $orderToRedeem->status == OrderToRedeem::STATUS_PASSED ){
+                OrderToRedeem::passedCallback($orderToRedeem);
             }
         });
     }

@@ -10,35 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-// Route::get('testsms',function(){
-//     return var_dump(Sms::send());
-// });
+
 Route::get('youxiang',function(){
     return redirect('http://qiye.163.com/login/?from=ym');
 });
 Route::get('/','HomeController@index');
-// Route::get('/',function(){
-//     return \App\Article::find(1);
-// });
-
-// Route::group(['prefix' => 'demo'],function(){
-//     Route::get('/',function(){
-//         return view('demo.index');
-//     });
-//     Route::get('about',function(){
-//         return view('demo.about');
-//     });
-//     Route::get('article/{id?}',function(){
-//         return view('demo.article');
-//     });
-//     Route::get('project/{id?}',function(){
-//         return view('demo.project');
-//     });
-//     Route::get('articles',function(){
-//         return view('demo.articles');
-//     });
-// });
-
 Route::controllers([
     'admin/auth' => 'Auth\AdminAuthController',
     'member/auth' => 'Auth\MemberAuthController',
@@ -58,9 +34,6 @@ Route::get('member/finish',function(){
 
 Route::get('sysreset',['as'=>'sysmember','uses'=>'MemberExtraController@getSysMemberResetPWD']);
 Route::post('sysreset',['as'=>'sysmember','uses'=>'MemberExtraController@postSysMemberResetPWD']);
-// Route::get('member',function(){
-//     return redirect('member/auth/login');
-// });
 
 Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admin.auth']],function(){
     Route::group(['namespace' => 'Permissions'],function(){
@@ -83,9 +56,9 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::resource('company','CompanyController');
     Route::resource('borrowers','BorrowerController');
     Route::resource('carrys','CarryController');
-    Route::resource('carrys-passed','CarryController@passed');
-    Route::resource('carrys-unpassed','CarryController@unpassed');
-    Route::resource('carrys-cancel','CarryController@cancel');
+    Route::get('carrys-passed','CarryController@passed');
+    Route::get('carrys-unpassed','CarryController@unpassed');
+    Route::get('carrys-cancel','CarryController@cancel');
     Route::resource('contacts','ContactController');
     Route::get('category/alists/{id}/edit','ArticlesController@edit');
 
@@ -164,12 +137,14 @@ Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.
 
     Route::get('fund/carry',['as'=>'member.fund.carry','uses'=>'FundController@getCarry']);
     Route::post('fund/carry',['as'=>'member.fund.carry','uses'=>'FundController@postCarry']);
-    Route::get('fund/carrylogs',['as'=>'member.fund.carrylogs','uses'=>'FundController@carrylogs']);
+    Route::get('fund/carrylogs',['as'=>'member.fund.carrylogs','uses'=>'FundController@carryLogs']);
     Route::post('fund/carry-cancel',['as'=>'member.fund.carrycancel','uses'=>'FundController@carryCancel']);
 
     // 赎回
-    Route::get('fund/redeem',['as'=>'member.fund.redeem','uses'=>'FundController@getredeem']);
-    Route::post('fund/redeem',['as'=>'member.fund.redeem','uses'=>'FundController@postredeem']);
+    Route::get('fund/redeem/{id?}',['as'=>'member.fund.redeem','uses'=>'FundController@getRedeem']);
+    Route::post('fund/redeem',['as'=>'member.fund.redeem','uses'=>'FundController@postRedeem']);
+    Route::get('fund/redeemlogs',['as'=>'member.fund.redeemlogs','uses'=>'FundController@redeemLogs']);
+    
     Route::post('fund/redeem-cancel',['as'=>'member.fund.redeemcancel','uses'=>'FundController@redeemCancel']);
 
 
@@ -205,12 +180,6 @@ Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.
 
 });
 
-// Route::group(['prefix'=>'invest','namespace'=>'Invest','middleware'=>['member.auth']],function(){
-//     Route::get('/','InvestController@index');
-// });
-// Route::get('invest',function(){
-//     return view('contact.form');
-// });
 
 Route::get('invest/checkmoney','InvestController@checkmoney');
 Route::get('invest','InvestController@index');
@@ -228,8 +197,6 @@ Route::post('sms/test','SmsController@postTestSendCode');
 Route::get('count/{type?}','CountController@index');
 
 Route::get('contact',function(){
-    // $pages = \App\Page::where('type',\App\Article::TYPE_PAGE)->where('published',1)->orderBy('ordering','desc')->get();
-    // $id = 2;
     return view('single.ditu');
 });
 Route::get('gltd',function(){

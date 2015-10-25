@@ -54,7 +54,7 @@ class PosOrderController extends BaseController
                 return '<span class="label '.$style.'">'.DealOrder::getPassStatusTitle($status).'</span>';
             }],
         ];
-        $paginate = DealOrder::with(['member'])->where('type',DealOrder::TYPE_POST_INVEST)->where('is_deleted',0);
+        $paginate = DealOrder::with(['member'])->where('type',DealOrder::TYPE_POS_INVEST)->where('is_deleted',0);
         
         if( auth()->user()->hasRole('employee') ){
             $paginate->where('who_sale',auth()->user()->getKey());

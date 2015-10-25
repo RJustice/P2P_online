@@ -153,10 +153,10 @@ $(function(){
 
     });
     function ac(){
-      var txtPassword = $("#J_Deposit").val();
+      var money = $("#J_Deposit").val();
       var password = $("#txtPassword").val();
       var textcode = $("#txtcode").val();
-      if(!txtPassword ||txtPassword == 0 ) {
+      if(!money ||money == 0 ) {
           $('.error:eq(0)').text("输入的金额不能为空或0!");
       }
       if(!password) {

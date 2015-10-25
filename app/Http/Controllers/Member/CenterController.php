@@ -17,7 +17,7 @@ class CenterController extends Controller
      */
     public function index()
     {
-        $dealOrders = auth()->user()->dealOrders()->whereIn('type',[\App\DealOrder::TYPE_OFFLINE_ORDER,\App\DealOrder::TYPE_ONLINE_ORDER,\App\DealOrder::TYPE_POST_INVEST])->where('status',\App\DealOrder::STATUS_PASSED)->where('order_status','<>',\App\DealOrder::ORDER_STATUS_INVALID)->get();
+        $dealOrders = auth()->user()->dealOrders()->whereIn('type',[\App\DealOrder::TYPE_OFFLINE_ORDER,\App\DealOrder::TYPE_ONLINE_ORDER,\App\DealOrder::TYPE_POS_INVEST])->where('status',\App\DealOrder::STATUS_PASSED)->where('order_status','<>',\App\DealOrder::ORDER_STATUS_INVALID)->get();
         $data = [
             'ready' => 0,
             'yihuo' => 0,
@@ -25,6 +25,7 @@ class CenterController extends Controller
             'lock' => 0,
             'touzi' => [0,0,0,0,0,0,0,0,0,0,0,0],
             'shouyi' => [0,0,0,0,0,0,0,0,0,0,0,0],
+            'leiji' => 0,
         ];
         foreach( $dealOrders as $dealOrder ){
             $m = date('m',strtotime($dealOrder->create_date));
@@ -55,6 +56,7 @@ class CenterController extends Controller
                 }
             }
             $data['touzi'][$m-1] = $data['touzi'][$m-1] + $dealOrder->total_price;
+            
         }
         // dd($data);
         return view('member.center',compact('data'));
