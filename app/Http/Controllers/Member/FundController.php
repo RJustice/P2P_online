@@ -11,6 +11,7 @@ use Hash;
 use App\UserCarry;
 use App\UserMoneyLog;
 use App\DealOrder;
+use App\OrderToRedeem;
 use Session;
 
 class FundController extends Controller
@@ -120,17 +121,55 @@ class FundController extends Controller
     }
 
 
-    public function getRedeem(){
+    public function getRedeem($id = 0){
         $dealOrders = $this->member->dealOrders()->where('order_status',DealOrder::ORDER_STATUS_VALID)->get();
         if( $dealOrders->isEmpty() ){
             return view('member.errors.noorder');
         }else{
-            return view('member.fund.redeem',compact('dealOrders'));
+            return view('member.fund.redeem',compact('dealOrders','id'));
         }
     }
 
-    public function postRedeem(){
+    public function postRedeem(Request $request){
+        $return = [];
+        if ($request->ajax()) {
+            $dealOrderId = $request->get('dealid');
+            $smscode = $request->get('smscode');
+            $paypwd = $request->get('paypwd');
+            $dealOrder = DealOrder::find($dealOrderId);
+            if( ! $dealOrder ){
+                $return = [
+                    'code' => 3
+                ];
+            }
+            if( ! Sms::check($smscode) ){
+                $return = [
+                    'code' => 1
+                ];
+                return response()->json($return);
+            }
+            if( ! Hash::check($paypwd,$this->member->paypassword) ){
+                $return = [
+                    'code' => 2
+                ];
+                return response()->json($return);
+            }
 
+            $orderToRedeem = new OrderToRedeem;
+            $orderToRedeem->order_id = $dealOrder->id;
+            $orderToRedeem->order_sn = $dealOrder->order_sn;
+            $orderToRedeem->order_money = $dealOrder->total_price;
+            $orderToRedeem->order_return = $dealOrder->deal_waiting_returns;
+            $orderToRedeem->user_id = $this->member->getKey();
+            $orderToRedeem->status = OrderToRedeem::STATUS_PENDING;
+            $orderToRedeem->save();
+
+            $return = [
+                'code' => 0
+            ];
+            Session::forget('sms');
+        }
+        return response()->json($return);
     }
 
     public function redeemLogs(){

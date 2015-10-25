@@ -19,6 +19,8 @@ class DealOrder extends Model
     const ORDER_STATUS_FINISHED = 2;// 订单完成
     const ORDER_STATUS_INVALID = 0; // 订单失效
     const ORDER_STATUS_VALID = 1;   // 订单生效中
+    const ORDER_STATUS_REDEEM = 3;  // 赎回中
+    const ORDER_STATUS_REDEEM_FINISHED = 4; //赎回完成
 
     // 字段: type
     const TYPE_OFFLINE_ORDER = 1;   // 线下订单
@@ -27,7 +29,7 @@ class DealOrder extends Model
     const TYPE_OFFLINE_RECHARGE = 4;// 线下充值
     const TYPE_HAND_FREEZE = 5;     // 冻结资金
     const TYPE_HAND_DEBIT = 6;      // 快速扣款
-    const TYPE_POST_INVEST = 7;     // POS单投资
+    const TYPE_POS_INVEST = 7;     // POS单投资
 
     // 字段: status
     const STATUS_NOT_PASSED = 0;    // 未通过审核
@@ -70,7 +72,7 @@ class DealOrder extends Model
             case self::TYPE_HAND_DEBIT :
                 $pre = 'HD_';
                 break;
-            case self::TYPE_POST_INVEST :
+            case self::TYPE_POS_INVEST :
                 $pre = 'PI_';
                 break;
             default:
@@ -88,7 +90,9 @@ class DealOrder extends Model
         return [
             self::ORDER_STATUS_VALID => '生效中',
             self::ORDER_STATUS_INVALID => '失效',
-            self::ORDER_STATUS_FINISHED => '已完成'
+            self::ORDER_STATUS_FINISHED => '已完成',
+            self::ORDER_STATUS_REDEEM => '赎回中',
+            self::ORDER_STATUS_REDEEM_FINISHED => '已赎回'
         ];
     }
 
@@ -127,7 +131,7 @@ class DealOrder extends Model
             self::TYPE_OFFLINE_RECHARGE => '线下充值',
             self::TYPE_HAND_FREEZE => '手动冻结',
             self::TYPE_HAND_DEBIT => '手动扣款',
-            self::TYPE_POST_INVEST => 'POS单投资'
+            self::TYPE_POS_INVEST => 'POS单投资'
         ];
     }
 
@@ -269,7 +273,7 @@ class DealOrder extends Model
                 case self::TYPE_ONLINE_ORDER :
                     self::_onlineOrderMoneyLog($dealOrder);
                     break;
-                case self::TYPE_POST_INVEST : 
+                case self::TYPE_POS_INVEST : 
                     self::_posInvestOrderMoneyLog($dealOrder);
                     break;
             }
@@ -762,7 +766,7 @@ class DealOrder extends Model
 
 
     protected static function OrderStatusCallback($dealOrder){
-        if( in_array($dealOrder->type, [self::TYPE_OFFLINE_ORDER,self::TYPE_ONLINE_ORDER]) && $dealOrder->status == self::STATUS_PASSED ){
+        if( in_array($dealOrder->type, [self::TYPE_OFFLINE_ORDER,self::TYPE_ONLINE_ORDER,self::TYPE_POS_INVEST]) && $dealOrder->status == self::STATUS_PASSED ){
             // 返还本金 
             
             // 写资金日志

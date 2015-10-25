@@ -29,6 +29,8 @@ class UserMoneyLog extends Model
     const TYPE_BALANCE_INVEST = 13; // 余额投资
     const TYPE_POS_INVEST = 14 ; // POS投资
     const TYPE_POS_BALANCE = 15; // POS余额转入
+    const TYPE_REDEEM = 16; // 赎回
+    const TYPE_REDEEM_FEE = 17; // 赎回手续费
 
     const LOG_TYPE_ADDITION = 1; // 增加资金
     const LOG_TYPE_LOCK = 2; // 冻结资金

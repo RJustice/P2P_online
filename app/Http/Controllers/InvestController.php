@@ -135,7 +135,7 @@ class InvestController extends Controller
             // $data['order_status'] = DealOrder::ORDER_STATUS_INVALID;
             $data['status'] = DealOrder::STATUS_PENDING;  // 待审核
             $data['user_id'] = $member->getKey();
-            $data['type'] = DealOrder::TYPE_POST_INVEST;
+            $data['type'] = DealOrder::TYPE_POS_INVEST;
             $data['pay_status'] = DealOrder::PAY_STATUS_FINISH;
             $data['pay_amount'] = $money;
             // 判断订单状态
@@ -149,7 +149,7 @@ class InvestController extends Controller
             $data['company_id'] = 1;
             $data['who_sale'] = 1;
 
-            $data['order_sn'] = DealOrder::buildSN(DealOrder::TYPE_POST_INVEST);
+            $data['order_sn'] = DealOrder::buildSN(DealOrder::TYPE_POS_INVEST);
 
             // 上传文件
             $file = $request->file('pospic');

@@ -46,23 +46,31 @@
                 <p class="income-name">账户余额<em>（元）</em><i></i></p>
                 <p class="acount-num">{{ number_format(auth()->user()->can_money,2) }}</p>
                 <span style="display: none;" class="bubble">
-                            <label class="text">账户可用资金</label>
+                            <label class="text">账户内投资人可自由支配的资金</label>
                             <label class="arrow"></label>
                         </span>
             </li>
-            <li>
+            {{-- <li>
                 <p class="income-name">冻结资金<em>（元）</em><i></i></p>
                 <p class="acount-num">{{ number_format(auth()->user()->lock_money,2) }}</p>
                 <span style="display: none;" class="bubble">
                             <label class="text">待收本金+提现中冻结金额</label>
                             <label class="arrow"></label>
                         </span>
-            </li>
+            </li> --}}
             <li>
                 <p class="income-name">待收收益<em>（元）</em><i></i></p>
                 <p class="acount-num">{{ number_format(auth()->user()->waiting_returns,2) }}</p>
                 <span style="display: none;" class="bubble">
                             <label class="text">所有理财产品截止昨天的未到期收益</label>
+                            <label class="arrow"></label>
+                        </span>
+            </li>
+            <li>
+                <p class="income-name">累计收益<em>（元）</em><i></i></p>
+                <p class="acount-num">{{ number_format($data['yihuo'],2) }}</p>
+                <span style="display: none;" class="bubble">
+                            <label class="text">所有理财产品截止当日0点的已获收益</label>
                             <label class="arrow"></label>
                         </span>
             </li>
