@@ -194,7 +194,6 @@ Route::get('invest','InvestController@index');
 Route::post('invest/doinvest','InvestController@doinvest');
 Route::post('invest/posinvest','InvestController@posinvest');
 
-
 Route::post('contact/licai','ContactController@licai');
 Route::get('contact/success',['as'=>'contact.success','uses'=>'ContactController@success']);
 Route::get('contact/jiekuan','ContactController@index');
