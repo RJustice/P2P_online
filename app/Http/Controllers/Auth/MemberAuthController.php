@@ -145,7 +145,6 @@ class MemberAuthController extends Controller
                 return redirect(url('member/confirm'))
                     ->withErrors(['e'=>Sms::getError()]);
             }
-
             $user = $this->create(Session::get('register'));
             if( $user ){
                 Auth::login($user);
@@ -171,7 +170,7 @@ class MemberAuthController extends Controller
             'password' => 'required',
             'password_confirmation'=> 'confirmed',
             'agreement' => 'accepted',
-            'rec_user' => 'sometimes|exists:users,phone',
+            'rec_user' => 'sometimes|exists:users,phone,state,1',
             'vercode' => 'required|check'
         ]);
         // $v->sometimes('rec_user','required|exists:users,phone,type,'.User::TYPE_EMPLOYEE,function($request){
@@ -196,7 +195,7 @@ class MemberAuthController extends Controller
                 'type' => User::TYPE_MEMBER,
                 'password' => Hash::make($data['password']),
                 'state' => 1,
-                'sales_manager' => User::find($data['rec_user'])->getKey()
+                'sales_manager' => User::where('phone',$data['rec_user'])->where('state',1)->first()->getKey()
             ]);
         Session::forget('sms');
         Session::forget('register');
