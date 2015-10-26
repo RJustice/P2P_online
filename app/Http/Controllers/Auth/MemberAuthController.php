@@ -195,7 +195,8 @@ class MemberAuthController extends Controller
                 'email' => '',
                 'type' => User::TYPE_MEMBER,
                 'password' => Hash::make($data['password']),
-                'state' => 1
+                'state' => 1,
+                'sales_manager' => User::find($data['rec_user'])->getKey()
             ]);
         Session::forget('sms');
         Session::forget('register');
