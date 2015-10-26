@@ -69,7 +69,7 @@ class EmployeeController extends Controller
 
         $paginate = [];
         if( auth()->user()->hasRole('employee_m') || auth()->user()->hasRole('admin') ){
-            $paginate = User::where('type',User::TYPE_EMPLOYEE);
+            $paginate = User::where('type',User::TYPE_EMPLOYEE)->where('is_deleted',0);
             if( auth()->user()->hasRole('employee_m') && ! auth()->user()->hasRole('admin') ){
                 $paginate = $paginate->where('company_id',auth()->user()->company_id);
             }
