@@ -31,10 +31,10 @@ class DealExpController extends BaseController {
                 ['发布状态','sModel',function($sModel){
                     if( $sModel['published'] ){
                         $btn_conf = ['name'=>'是','class'=>'btn-success','uri'=>$sModel['id'],'method'=>'POST','id'=>$sModel['id']];
-                        $btn_data = ['published'=>false];
+                        $btn_data = ['published'=>0];
                     }else{
                         $btn_conf = ['name'=>'否','class'=>'btn-danger','uri'=>$sModel['id'],'method'=>'POST','id'=>$sModel['id']];
-                        $btn_data = ['published'=>true];
+                        $btn_data = ['published'=>1];
                     }
                     return Form::form_button($btn_conf,$btn_data);
                 }],
@@ -72,6 +72,11 @@ class DealExpController extends BaseController {
     {
         $dealExp = DealExp::create($request->except('_method','id', '_token','_url'));
         $deal = Deal::find($request->get('deal_id'));
+
+        if( !$deal ){
+            return $this->redirectWithError('未选择对应项目');
+        }
+
         $deal->exp_link = url('dealexp/show',['id'=>$dealExp->getKey()]);
         $deal->save();
         return $this->toIndex('保存成功');
@@ -103,11 +108,18 @@ class DealExpController extends BaseController {
     {
         $data = $request->except('id', '_token','_method','_url');
         $dealExp = DealExp::find($id);
+
+        if( !$dealExp ){
+            return $this->redirectWithError('未找到数据');
+        }
+
         $dealExp->update($data);
 
         $deal = Deal::find($request->get('deal_id'));
+        if( !$deal ){
+            return $this->redirectWithError('未选择对应项目');
+        }
         $deal->exp_link = url('dealexp',['id'=>$dealExp->getKey()]);
-        $deal->title = '8888';
         $deal->save();
 
         return $this->toIndex();
