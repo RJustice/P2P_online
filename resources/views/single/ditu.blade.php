@@ -43,16 +43,16 @@
                 </ul>
             </div>
         </div>
-        <div class="map-wrap">
+        {{-- <div class="map-wrap">
             <div id="cmap">
                 
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 @stop
 @section('js')
-<script src="http://webapi.amap.com/maps?v=1.3&key=62602e254c75cf7fc1b7dad61b10f23f"></script>
+{{-- <script src="http://webapi.amap.com/maps?v=1.3&key=62602e254c75cf7fc1b7dad61b10f23f"></script> --}}
 <script type="text/javascript">
     $(document).ready(function(){
         // $(".address-list li").on('click',function(){
@@ -64,28 +64,28 @@
         //     }
         //     $("#cmap img").attr('src','/images/maps/'+d+'.jpg');
         // });
-        var map = new AMap.Map("cmap", {
-          resizeEnable: true,
-          center: [116.493446,39.938612],
-          zoom: 17
-        });
+        // var map = new AMap.Map("cmap", {
+        //   resizeEnable: true,
+        //   center: [116.493446,39.938612],
+        //   zoom: 17
+        // });
 
-        var marker = new AMap.Marker({
-            icon: new AMap.Icon({
-                size:new AMap.Size(24,36),
-                image:"{{ asset('images/map-marker-icon.png') }}",
-            }),
-            position:[116.493446,39.938612]
-        });
-        marker.setMap(map);
-        $(".address-list li").on('click',function(){
-            var lng = $(this).data('lng');
-            var lat = $(this).data('lat')
-            map.setZoomAndCenter(17,[lng,lat]);
-            marker.setPosition([lng,lat]);
-            map.setFitView();
-            $("html,body").animate({scrollTop:$("#cmap").offset().top},1000);
-        });
+        // var marker = new AMap.Marker({
+        //     icon: new AMap.Icon({
+        //         size:new AMap.Size(24,36),
+        //         image:"{{ asset('images/map-marker-icon.png') }}",
+        //     }),
+        //     position:[116.493446,39.938612]
+        // });
+        // marker.setMap(map);
+        // $(".address-list li").on('click',function(){
+        //     var lng = $(this).data('lng');
+        //     var lat = $(this).data('lat')
+        //     map.setZoomAndCenter(17,[lng,lat]);
+        //     marker.setPosition([lng,lat]);
+        //     map.setFitView();
+        //     $("html,body").animate({scrollTop:$("#cmap").offset().top},1000);
+        // });
     });
 </script>
 @stop
