@@ -149,7 +149,7 @@ class MembersController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only(['phone','name','password','is_deleted','idno','province_id','city_id','county_id','address','sales_manager','sex']);
+        $data = $request->only(['phone','name','password','is_deleted','idno','province_id','city_id','county_id','address','sales_manager','sex','type']);
         // $data['password'] = bcrypt($data['password']);
         $data['password'] = bcrypt('123456');
         $data['type'] = User::TYPE_MEMBER;
@@ -251,7 +251,7 @@ class MembersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $data = $request->only(['phone','name','email','is_deleted','idno','province_id','city_id','county_id','address','sales_manager','sex']);
+        $data = $request->only(['phone','name','email','is_deleted','idno','province_id','city_id','county_id','address','sales_manager','sex','type']);
         if( isset($data['is_deleted']) && $data['is_deleted'] == 1 ){
             $user->username = 'D_'.$user->username;
             $user->phone = 'D_'.$user->phone;

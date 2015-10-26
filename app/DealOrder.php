@@ -652,7 +652,6 @@ class DealOrder extends Model
             $days = 0;
         }
 
-        // $days = $diff->days - 1;  
         $waitingReturns = $days * $daily * ( $dealOrder->total_price / 10000 );
         $dealOrder->deal_waiting_returns = $waitingReturns;
         $dealOrder->build_date = date('Y-m-d');
@@ -729,7 +728,7 @@ class DealOrder extends Model
         if( $today == $start ){
             $days = 0;
         }
-        
+
         $waitingReturns = ( $days % 30 ) * $daily * ( $dealOrder->total_price / 10000 );        
         $dealOrder->deal_waiting_returns = $waitingReturns;
         $dealOrder->build_date = date('Y-m-d');

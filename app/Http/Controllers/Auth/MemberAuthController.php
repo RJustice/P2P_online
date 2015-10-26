@@ -171,7 +171,7 @@ class MemberAuthController extends Controller
             'password' => 'required',
             'password_confirmation'=> 'confirmed',
             'agreement' => 'accepted',
-            'rec_user' => 'sometimes|exists:users,phone,type,'.User::TYPE_EMPLOYEE.',state,1',
+            'rec_user' => 'sometimes|exists:users,phone',
             'vercode' => 'required|check'
         ]);
         // $v->sometimes('rec_user','required|exists:users,phone,type,'.User::TYPE_EMPLOYEE,function($request){
