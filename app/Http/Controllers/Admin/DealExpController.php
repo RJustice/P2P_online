@@ -31,10 +31,10 @@ class DealExpController extends BaseController {
                 ['发布状态','sModel',function($sModel){
                     if( $sModel['published'] ){
                         $btn_conf = ['name'=>'是','class'=>'btn-success','uri'=>$sModel['id'],'method'=>'POST','id'=>$sModel['id']];
-                        $btn_data = ['published'=>0];
+                        $btn_data = ['published'=>0,'deal_id'=>$sModel->deal_id];
                     }else{
                         $btn_conf = ['name'=>'否','class'=>'btn-danger','uri'=>$sModel['id'],'method'=>'POST','id'=>$sModel['id']];
-                        $btn_data = ['published'=>1];
+                        $btn_data = ['published'=>1,'deal_id'=>$sModel->deal_id];
                     }
                     return Form::form_button($btn_conf,$btn_data);
                 }],
