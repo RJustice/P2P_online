@@ -77,7 +77,7 @@ class DealExpController extends BaseController {
             return $this->redirectWithError('未选择对应项目');
         }
 
-        $deal->exp_link = url('dealexp/show',['id'=>$dealExp->getKey()]);
+        $deal->exp_link = url('dealexp',['id'=>$dealExp->getKey()]);
         $deal->save();
         return $this->toIndex('保存成功');
     }
