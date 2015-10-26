@@ -545,6 +545,9 @@ class DealOrder extends Model
             $diff = date_diff($today,$start,true);
             $days = $diff->days - 1;
         }
+        if( $today == $start ){
+            $days = 0;
+        }
         $waitingReturns = $days * $daily * ( $dealOrder->total_price / 10000 );
         $dealOrder->deal_waiting_returns = $waitingReturns;
         $dealOrder->build_date = date('Y-m-d');
@@ -645,6 +648,10 @@ class DealOrder extends Model
             $days = $days % 30;
         }
 
+        if( $today == $start ){
+            $days = 0;
+        }
+
         // $days = $diff->days - 1;  
         $waitingReturns = $days * $daily * ( $dealOrder->total_price / 10000 );
         $dealOrder->deal_waiting_returns = $waitingReturns;
@@ -688,7 +695,7 @@ class DealOrder extends Model
             $diff = date_diff($end,$start);
             $days = $diff->days - 1;
             $jiecunShouyi = $days * $daily * ( $dealOrder->total_price / 10000 );
-            $days = 0;            
+            $days = 0;
             $dealOrder->order_status = self::ORDER_STATUS_FINISHED;
         }else{
             $diff = date_diff($today,$start);
@@ -719,6 +726,10 @@ class DealOrder extends Model
             $dealOrder->member->save();
         }
 
+        if( $today == $start ){
+            $days = 0;
+        }
+        
         $waitingReturns = ( $days % 30 ) * $daily * ( $dealOrder->total_price / 10000 );        
         $dealOrder->deal_waiting_returns = $waitingReturns;
         $dealOrder->build_date = date('Y-m-d');

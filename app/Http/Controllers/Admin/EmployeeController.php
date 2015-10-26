@@ -164,10 +164,11 @@ class EmployeeController extends Controller
         $user = User::findOrFail($id);
         $data = $request->only(['phone','name','company_id','email','is_deleted','idno','province_id','city_id','county_id','address','sex']);
         if( isset($data['is_deleted']) && $data['is_deleted'] == 1 ){
-            $user->username = 'D_'.$user->username;
-            $user->phone = 'D_'.$user->phone;
-            $user->idno = 'D_'.$user->idno;
-            $user->is_deleted = 1;
+            // $user->username = 'D_'.$user->username;
+            // $user->phone = 'D_'.$user->phone;
+            // $user->idno = 'D_'.$user->idno;
+            // $user->is_deleted = 1;
+            $user->type = User::TYPE_MEMBER;
             $user->save();
             return redirect()->route('admin.'.$this->uri.'.index');
         }
