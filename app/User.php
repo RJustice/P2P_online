@@ -115,9 +115,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public static function getSalesManagers($format = false,$company = 0){
         if( $company ){
-            $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('company_id',$company)->get();
+            $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('company_id',$company)->where('is_deleted',0)->get();
         }else{
-            $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->get();
+            $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('is_deleted',0)->get();
         }
         if( ! $salesManagers->isEmpty() ){
             if( $format ){

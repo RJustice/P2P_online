@@ -16,7 +16,7 @@
 
 {{-- @inject('userModel','App\User'); --}}
 @if(Auth::user()->can(['admin']) || Auth::user()->hasRole('employee_m') )
-{!! Form::iform_select('sales_manager','指定销售经理',array_merge([['label'=>'请选择','value'=>0]],\App\User::getSalesManagers(true)),1) !!}
+@include("forone::common.employeeselect")
 {!! Form::iform_radio('type','是否为员工',[[App\User::TYPE_MEMBER,'否',true],[App\User::TYPE_EMPLOYEE,'是']],1) !!}
 @endif
 {{-- @if (str_is('admin.admins.create', Route::current()->getName())) --}}
