@@ -21,7 +21,8 @@
 @section('content')
 <div class="wrap">
     <div class="feature">
-        <a class="fea1">
+        <img src="/images/i_b_1.png" alt="" style="width:100%;margin:10px 0;">
+        {{-- <a class="fea1">
             <i></i>
             <h3>信用审查</h3>
             <span>农发众诚引进国际最先进的德国IPC技术,通过科学的流程审查和风控流程,严格控制风险,保障出借人资金安全.</span>
@@ -35,7 +36,7 @@
             <i></i>
             <h3>增强认知</h3>
             <span>农发众诚本着对客户负责的态度,从风险理论,如何催收等方面进行加强,有效降低用户资金风险,告知用户资金用途</span>
-        </a>
+        </a> --}}
     </div>
     <div class="recom-num clearfix">
         <div class="num">
@@ -64,7 +65,7 @@
         <div class="proj clearfix">
             <div class="top-item tbtj-project clearfix">
                 <div class="pic">
-                    <a href="javascript:;"><img src="/images/nfb.jpg" alt=""></a>
+                    <a href="javascript:;"><img src="/images/nfb1.jpg" alt=""></a>
                 </div>
                 <div class="info">
                     <h3><a href="javascript:;">农富宝180T</a></h3>

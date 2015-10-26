@@ -115,7 +115,10 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
     Route::get('posorders/show/{sn}',['as'=>'admin.posorders.show','uses'=>'PosOrderController@show']);
     Route::put('posorders/{sn}',['as'=>'admin.posorders.update','uses'=>'PosOrderController@update']);
 
-    Route::resource('redeem','RedeemController');
+    Route::resource('redeem','RedeemController');    
+    Route::get('redeem-passed','RedeemController@passed');
+    Route::get('redeem-unpassed','RedeemController@unpassed');
+    Route::get('redeem-cancel','RedeemController@cancel');
     // Route::get('redeem',['as'=>'admin.redeem.index','uses'=>'RedeemController@index']);
     // Route::get('redeem/show/{sn}',['as'=>'admin.redeem.show','uses'=>'RedeemController@show']);
     // Route::put('redeem/{sn}',['as'=>'admin.redeem.update','uses'=>'RedeemController@update']);

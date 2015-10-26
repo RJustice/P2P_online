@@ -140,9 +140,15 @@ return [
             'icon'       => 'mdi-toggle-radio-button-on',
             'permission' => ['admin'],
             'children'   => [
-                '赎回申请列表'  => [
+                '待处理赎回申请'  => [
                     'uri' => 'redeem',
                 ],
+                '已通过申请' => [
+                    'uri' => 'redeem-passed',
+                ],                
+                '未通过申请' => [
+                    'uri' => 'redeem-unpassed',
+                ]
             ],
         ],
         '手动操作' => [

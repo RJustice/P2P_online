@@ -110,7 +110,13 @@ class EmployeeController extends Controller
         $data['phonepassed'] = 1;
         $data['referer'] = User::REFERER_SYSTEM;
         $data['username'] = $data['phone'];
-        User::create($data);
+        $user = User::where('username',$data['username'])->first();
+        if( ! $user ){
+            User::create($data);
+        }else{
+            $user->type = User::TYPE_EMPLOYEE;
+            $user->save();
+        }
         return redirect()->route('admin.'.$this->uri.'.index');
     }
 
@@ -155,17 +161,10 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $name = $request->get('name');
-        $email = $request->get('email');
-        $count = User::whereName($name)->where('id', '!=', $id)->count();
-        if ($count > 0) {
-            return $this->redirectWithError('名称不能重复');
-        }
-        $count = User::whereEmail($email)->where('id', '!=', $id)->count();
-        if ($count > 0) {
-            return $this->redirectWithError('邮箱不能重复');
-        }
-        User::findOrFail($id)->update($request->only(['name', 'email']));
+        $user = User::findOrFail($id);
+        $data = $request->only(['phone','name','company_id','email','is_deleted','idno','province_id','city_id','county_id','address','sex']);
+        $data['modified_uid'] = Auth::user()->getKey();
+        $user->update($data);
         return redirect()->route('admin.'.$this->uri.'.index');
     }
 
