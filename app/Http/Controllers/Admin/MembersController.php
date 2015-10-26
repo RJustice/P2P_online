@@ -307,7 +307,7 @@ class MembersController extends Controller
             $salesManager = $salesManager->first();
 
             if( ! $member || ! $salesManager ){
-                return redirect()->back()->withErrors(['default'=>'某些信息未找到,请仔细核对.']);
+                return redirect()->back()->withErrors(['default'=>'未选择销售经理.']);
             }
 
             $member->sales_manager = $salesManager->getKey();

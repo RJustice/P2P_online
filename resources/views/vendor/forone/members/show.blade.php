@@ -101,11 +101,13 @@
     @endif
 {!! Form::ipanel_end() !!}
 @if( ! $data->salesManager()->first() )
+{!! Form::open(['url'=>'admin/'.$uri.'/add-ref','class'=>'form-horizontal']) !!}
 {!! Form::ipanel_start('分配用户') !!}
     <div class="row">
-        {!! Form::open(['url'=>'admin/'.$uri.'/add-ref','class'=>'form-horizontal']) !!}
-        {!! Form::close() !!}
+        <input type="hidden" name="uid" value="{{ $data->getKey() }}">
+        @include("forone::common.employeeselect")
     </div>
-{!! Form::ipanel_end() !!}
+{!! Form::ipanel_end('保存') !!}
+{!! Form::close() !!}
 @endif
 @stop
