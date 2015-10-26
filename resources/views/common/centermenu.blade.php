@@ -17,8 +17,7 @@
             <li class="{{ str_is('member.account.resetpwd',Route::current()->getName()) ? 'act' : '' }}"><a href="{{ route('member.account.resetpwd') }}" class="uc-cate">修改密码</a></li>
         </ul>
     </div>
-    <div class="hdc {{ str_is('member.invest.index',Route::current()->getName()) ? 'c-hds':'c-hd' }} c-hd3" data-
-    href="{{ route('member.invest.index') }}">投资管理</div>
+    <div class="hdc {{ str_is('member.invest.index',Route::current()->getName()) ? 'c-hds':'c-hd' }} c-hd3" data-href="{{ route('member.invest.index') }}">投资管理</div>
     <div class="hdc {{ in_array(Route::current()->getName(),['member.fund.redeem','member.fund.redeemlogs','member.fund.redeem.{id?}']) ? 'c-hds':'c-hd' }} c-hd1">管理赎回</div>
     <div class="c-body">
         <ul class="uc-menu">
