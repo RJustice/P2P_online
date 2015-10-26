@@ -61,6 +61,9 @@ span.price{font-size:14px;font-weight: 600;color:#ff5a13;letter-spacing: 1px;}
                     $start = date_create($data->dealOrder->create_date);
                     $diff = date_diff($redeem,$start);
                     $days = $diff->days - 1;
+                    if( $start == $redeem ){
+                        $days = 0;
+                    }                    
                 ?>
                 (月回息,已付:<span class="price">{{ number_format($days * $data->dealOrder->deal_daily_returns * ( $data->dealOrder->total_price / 10000 ) - $data->order_return,2) }}</span>)
                 @endif
