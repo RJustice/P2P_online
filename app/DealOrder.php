@@ -255,6 +255,10 @@ class DealOrder extends Model
         return $this->belongsTo('App\Deal','deal_id','id');
     }
 
+    public function borrowers(){
+        return $this->hasMany('App\OrderToBorrower','order_id','id');
+    }
+
     protected static function savedCallback($dealOrder){
         if( $dealOrder->status == self::STATUS_PASSED ){
             switch($dealOrder->type){

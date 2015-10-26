@@ -19,7 +19,7 @@ class InvestController extends Controller
     }
 
     public function index(){
-        $dealOrders = $this->member->dealOrders()->whereIn('type',[DealOrder::TYPE_OFFLINE_ORDER,DealOrder::TYPE_ONLINE_ORDER])->orderBy('id','desc');
+        $dealOrders = $this->member->dealOrders()->with('borrowers')->whereIn('type',[DealOrder::TYPE_OFFLINE_ORDER,DealOrder::TYPE_ONLINE_ORDER])->orderBy('id','desc');
         $dealOrders = $dealOrders->paginate(20);
         return view('member.invest.index',compact('dealOrders'));
     }

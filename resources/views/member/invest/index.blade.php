@@ -1,4 +1,12 @@
 @extends('_layouts.center')
+@section('css')
+@parent
+<style type="text/css">
+    .more-info{cursor: pointer;}
+    .more-info-bo{display: none;}
+    .redeem-btn{width:120px;height:35px;line-height:35px;text-align:center;background:#009dde;color:#fff;display:inline-block;font-size:14px;font-weight:600;}
+</style>
+@stop
 
 @section('content')
 <div class="list-title clearfix">
@@ -30,13 +38,30 @@
             <tbody>
             @if( $dealOrders )
                 @foreach( $dealOrders as $dealOrder )
-                <tr class="more-info" id="more-info-{{ $dealOrder->getKey() }}">
+                <tr class="more-info @if($dealOrder->order_status == App\DealOrder::ORDER_STATUS_REDEEM_FINISHED ) no-click @endif" id="more-info-{{ $dealOrder->getKey() }}">
                     <td>{{ $dealOrder->deal_title }}</td>
                     <td>{{ $dealOrder->create_date }}</td>
-                    <td>{{ number_format($dealOrder->total_price,2) }}</td>
+                    <td><span class="money">{{ number_format($dealOrder->total_price,2) }}</span></td>
                     <td>{{ $dealOrder->deal_rate }}</td>
                     <td>{{ $dealOrder->finish_date }}</td>
-                    <td>@if($dealOrder->order_status == App\DealOrder::ORDER_STATUS_VALID) <a href="{{ route('member.fund.redeem.{id?}',[$dealOrder->getKey()]) }}" style="width:120px;height:35px;line-height:35px;text-align:center;background:#009dde;color:#fff;display:inline-block;font-size:14px;font-weight:600;">赎回</a> @endif</td>
+                    <td>
+                    @if($dealOrder->order_status == App\DealOrder::ORDER_STATUS_VALID) 
+                        <a href="{{ route('member.fund.redeem',['id'=>$dealOrder->getKey()]) }}" class="redeem-btn">赎回</a> 
+                    @elseif($dealOrder->order_status == App\DealOrder::ORDER_STATUS_REDEEM ) 
+                        赎回处理中 
+                    @elseif($dealOrder->order_status == App\DealOrder::ORDER_STATUS_REDEEM_FINISHED ) 
+                        已赎回 
+                    @endif
+                    </td>
+                </tr>
+                <tr class="more-info-bo">
+                    <td colspan="6">
+                    @if( $dealOrder->has_assign && ( $dealOrder->order_status == App\DealOrder::ORDER_STATUS_VALID || $dealOrder->order_status == App\DealOrder::ORDER_STATUS_REDEEM ) )
+                        @foreach( $dealOrder->borrowers as $borrower)
+                        <p>债务人：{{ $borrower->borrower->formatInfo() }}&nbsp;&nbsp;&nbsp;金额：{{ number_format($borrower->money) }}</p>
+                        @endforeach
+                    @endif
+                    </td>
                 </tr>
                 @endforeach
             @endif
@@ -48,4 +73,16 @@
 @stop
 
 @section('js')
+@parent
+<script type="text/javascript">
+    $(function(){
+        $(".more-info").on('click',function(){
+            if( $(this).hasClass('no-click') ){
+                return;
+            }
+            $(".more-info-bo").hide();
+            $(this).next('tr.more-info-bo').show();
+        });
+    });
+</script>
 @stop

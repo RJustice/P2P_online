@@ -108,4 +108,12 @@ class OrderToBorrower extends Model
         $return[count($return)-1] = $return[count($return)-1] + $m * 10000 + $n;
         return $return;
     }
+
+    public function order(){
+        return $this->belongsTo('App\DealOrder','order_id','id');
+    }
+
+    public function borrower(){
+        return $this->hasOne('App\Borrower','id','borrower_id');
+    }
 }

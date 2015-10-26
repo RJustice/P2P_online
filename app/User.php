@@ -163,7 +163,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         if( ! $members->isEmpty() ){
             foreach( $members as $member){
                 $tmp[] = [
-                    'label' => $member->name . ' - ' . preg_replace('/([0-9]{5})[0-9]{9}([0-9]{4})/i','$1****$2',$member->idno) . ' - ' . preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',$member->phone),
+                    'label' => $member->name . ' - ' . preg_replace('/([0-9]{5})[0-9]{9}([0-9]{4}|[0-9]{3}X)/i','$1****$2',$member->idno) . ' - ' . preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',$member->phone),
                     'value' => $member->getKey()
                 ];
             }
@@ -176,7 +176,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function formatInfo($idno = false ){
         if( $idno ){
-            return $this->name . ' - ' . preg_replace('/([0-9]{5})[0-9]{9}([0-9]{4})/i','$1****$2',$this->idno);
+            return $this->name . ' - ' . preg_replace('/([0-9]{5})[0-9]{9}([0-9]{4}|[0-9]{3}X)/i','$1****$2',$this->idno);
         }else{
             return $this->name . ' - ' . preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',$this->phone);
         }
