@@ -34,7 +34,7 @@ class MembersController extends Controller
                 ['手机号','phone'],
                 ['身份证号', 'idno'],
                 // ['注册时间', 'created_at'],
-                ['销售经理','salesManager',function($salesManager){
+                ['经理人','salesManager',function($salesManager){
                     if( $salesManager ){
                         return $salesManager->name;
                     }else{

@@ -174,11 +174,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     }
 
-    public function formatInfo($idno = false ){
+    public function formatInfo($idno = false ,$name = true ){
         if( $idno ){
-            return $this->name . ' - ' . preg_replace('/([0-9]{5})[0-9]{9}([0-9]{4}|[0-9]{3}X)/i','$1****$2',$this->idno);
+            if( $this->idcardpassed ){
+                return $name ? $this->name . ' - ' . preg_replace('/([0-9]{5})[0-9]{9}([0-9]{4}|[0-9]{3}X)/i','$1****$2',$this->idno) : preg_replace('/([0-9]{5})[0-9]{9}([0-9]{4}|[0-9]{3}X)/i','$1****$2',$this->idno);
+            }else{
+                return "尚未认证";
+            }
         }else{
-            return $this->name . ' - ' . preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',$this->phone);
+            return $name ? $this->name . ' - ' . preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',$this->phone) : preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',$this->phone);
         }
     }
 
@@ -249,4 +253,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function bank(){
         return $this->hasOne('App\UserBank');
     }
+
+    public function getTotalDealMoney(){
+        $sum = $this->dealOrders()
+            ->whereIn('type',[DealOrder::TYPE_OFFLINE_ORDER,DealOrder::TYPE_ONLINE_ORDER,DealOrder::TYPE_POS_INVEST])
+            ->where('status','<>',DealOrder::STATUS_NOT_PASSED)
+            ->sum('total_price');
+        return $sum;
+    }
+
 }

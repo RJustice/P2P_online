@@ -60,7 +60,7 @@ class EmployeeController extends Controller
                 ['操作', 'buttons', function ($data) {
                     $buttons = [
                         ['编辑'],
-                        [['name'=>'删除','class'=>'btn-danger','uri'=>$data['id'],'method'=>'POST'],['deleted'=>1]]
+                        [['name'=>'删除','class'=>'btn-danger','uri'=>$data['id'],'method'=>'POST'],['is_deleted'=>1]]
                     ];
                     return $buttons;
                 }],
@@ -163,7 +163,9 @@ class EmployeeController extends Controller
     {
         $user = User::findOrFail($id);
         $data = $request->only(['phone','name','company_id','email','is_deleted','idno','province_id','city_id','county_id','address','sex']);
+        // dd($data['is_deleted']);
         if( isset($data['is_deleted']) && $data['is_deleted'] == 1 ){
+            // dd(2);
             // $user->username = 'D_'.$user->username;
             // $user->phone = 'D_'.$user->phone;
             // $user->idno = 'D_'.$user->idno;
@@ -172,6 +174,7 @@ class EmployeeController extends Controller
             $user->save();
             return redirect()->route('admin.'.$this->uri.'.index');
         }
+        // dd(1);
         $data['modified_uid'] = Auth::user()->getKey();
         $user->update($data);
         return redirect()->route('admin.'.$this->uri.'.index');

@@ -189,6 +189,8 @@ Route::group(['prefix'=>'member','namespace'=>'Member','middleware' => ['member.
     // Route::resource('redpacket','RedpacketController');
     Route::get('redpacket/{status?}',['as'=>'member.redpacket','uses'=>'RedpacketController@index']);
 
+    Route::resource('mycustomer','MyCustomerController');
+
 });
 
 

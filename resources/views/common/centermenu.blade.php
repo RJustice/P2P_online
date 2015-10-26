@@ -1,5 +1,8 @@
 <div id="uc-cate">
     <div class="hdc {{ str_is('member',Route::current()->getName()) ? 'c-hds':'c-hd' }} c-hd0" data-href="{{ route('member') }}">我的账户</div>
+    @if( auth()->user()->type == App\User::TYPE_EMPLOYEE)
+    <div class="hdc {{ str_is('member.mycustomer.index',Route::current()->getName()) || str_is('member.mycustomer.show',Route::current()->getName()) ? 'c-hds':'c-hd' }} c-hd4" data-href="{{ route('member.mycustomer.index') }}">我的客户</div>
+    @endif
     <div class="hdc {{ in_array(Route::current()->getName(),['member.fund.recharge','member.fund.carry','member.fund.summarydetail','member.fund.logs','member.fund.carrylogs']) ? 'c-hds':'c-hd' }} c-hd1">资金管理</div>
     <div class="c-body">
         <ul class="uc-menu">
@@ -18,7 +21,7 @@
         </ul>
     </div>
     <div class="hdc {{ str_is('member.invest.index',Route::current()->getName()) ? 'c-hds':'c-hd' }} c-hd3" data-href="{{ route('member.invest.index') }}">投资管理</div>
-    <div class="hdc {{ in_array(Route::current()->getName(),['member.fund.redeem','member.fund.redeemlogs','member.fund.redeem.{id?}']) ? 'c-hds':'c-hd' }} c-hd1">管理赎回</div>
+    <div class="hdc {{ in_array(Route::current()->getName(),['member.fund.redeem','member.fund.redeemlogs','member.fund.redeem.{id?}']) ? 'c-hds':'c-hd' }} c-hd5">管理赎回</div>
     <div class="c-body">
         <ul class="uc-menu">
             <li class="{{ str_is('member.fund.redeem',Route::current()->getName()) ? 'act' : '' }}"><a href="{{ route('member.fund.redeem') }}" class="uc-cate">我要赎回</a></li>
