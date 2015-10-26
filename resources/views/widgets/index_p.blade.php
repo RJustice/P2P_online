@@ -17,9 +17,9 @@
             <div class="m-list m-list01">
                 <div class="padding-lr">
                     <div class="top-icon">
-                        <a href="{{ url('invest',['id'=>$deal->getKey()]) }}"><i class="icon-{{ $k+1 }}"></i><p>{{ $deal->title }}<i></i></p></a>
+                        <a href="javascript:;"><i class="icon-{{ $k+1 }}"></i><p>{{ $deal->title }}<i></i></p></a>
                     </div>
-                    <a href="{{ url('invest',['id'=>$deal->getKey()]) }}">
+                    <a href="javascript;">
                         <div class="m-subject clearfix">
                             <dl class="subject-left">
                                 <dt class="the-big">{{ $deal->rate }}<em>%</em></dt>
@@ -64,7 +64,7 @@
                 <!-- pop-investment-left -->
                     <span class="close01">关闭</span>
                     <h3><i></i>{{ $deal->title }}</h3>
-                    <p class="z-text01"><a href="{{ url('invest',['id'=>$deal->getKey()]) }}">{{ $deal->title }}</a></p>
+                    <p class="z-text01"><a href="javascript:;">{{ $deal->title }}</a></p>
                     <div class="m-progress">
                         <div class="progress-bar">
                             <div style="width:{{ number_format($deal->load_money / 10000000,2)*100 }}%" class="z-bar"><em></em></div>

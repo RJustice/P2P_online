@@ -14,7 +14,7 @@
 Route::get('youxiang',function(){
     return redirect('http://qiye.163.com/login/?from=ym');
 });
-Route::get('/','HomeController@index');
+Route::get('/',['as'=>'home','uses'=>'HomeController@index']);
 Route::controllers([
     'admin/auth' => 'Auth\AdminAuthController',
     'member/auth' => 'Auth\MemberAuthController',
