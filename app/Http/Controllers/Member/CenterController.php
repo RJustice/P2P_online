@@ -42,6 +42,9 @@ class CenterController extends Controller
                 $diff = date_diff($now,$start);
             }
             $days = $diff->days - 1;
+            if( $now == $start ){
+                $days = 0;
+            }
             $zong = $days * $dealOrder->deal_daily_returns * ( $dealOrder->total_price / 10000 );
             $yihuo = $zong - $dealOrder->deal_waiting_returns;
 
