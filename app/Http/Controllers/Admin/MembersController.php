@@ -18,7 +18,7 @@ class MembersController extends Controller
 
     function __construct()
     {
-        parent::__construct('members', '用户');
+        parent::__construct('members', '客户');
     }
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class MembersController extends Controller
                 ['手机号','phone'],
                 ['身份证号', 'idno'],
                 // ['注册时间', 'created_at'],
-                ['经理人','salesManager',function($salesManager){
+                ['业务员','salesManager',function($salesManager){
                     if( $salesManager ){
                         return $salesManager->name;
                     }else{
@@ -77,7 +77,7 @@ class MembersController extends Controller
                               </button>
                               <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
                                 <li>'.$viewBtn.'</li>
-                                <li><a href="'.route('admin.'.$this->uri.'.edit',['id'=>$model->getKey()]).'" class="btn btn-block btn-primary">编辑用户</a></li>
+                                <li><a href="'.route('admin.'.$this->uri.'.edit',['id'=>$model->getKey()]).'" class="btn btn-block btn-primary">编辑客户</a></li>
                                 '.$memberCtrl.'
                                 <li role="separator" class="divider"></li>
                                 <li><a href="'.route("admin.hand.{id}.offline",['id'=>$model->getKey()]).'" class="btn btn-block btn-info">线下投资登记</a></li>

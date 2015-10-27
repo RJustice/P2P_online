@@ -83,7 +83,7 @@ return [
             'icon'       => 'mdi-toggle-radio-button-on',
             'permission' => ['admin','editor','employee'],
             'children'   => [
-                '会员管理'  => [
+                '客户管理'  => [
                     'uri' => 'members',
                 ],
                 '员工管理'  => [
