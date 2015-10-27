@@ -101,6 +101,7 @@
     @endif
 {!! Form::ipanel_end() !!}
 @if( ! $data->salesManager()->first() )
+<a name="add-ref"></a>
 {!! Form::open(['url'=>'admin/'.$uri.'/add-ref','class'=>'form-horizontal']) !!}
 {!! Form::ipanel_start('分配用户') !!}
     <div class="row">

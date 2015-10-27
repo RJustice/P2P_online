@@ -67,11 +67,11 @@
                     <p class="z-text01"><a href="javascript:;">{{ $deal->title }}</a></p>
                     <div class="m-progress">
                         <div class="progress-bar">
-                            <div style="width:{{ number_format($deal->load_money / 10000000,2)*100 }}%" class="z-bar"><em></em></div>
+                            <div style="width:{{ number_format($deal->load_money / $deal->borrow_amount *100 ,2) }}%" class="z-bar"><em></em></div>
                         </div>
                         <p class="z-total">
-                            <span>总额：<em>1000</em>万元</span>
-                            <span>可投：<em>{{ number_format(( 10000000 - $deal->load_money ) / 10000,2) }}万元</em></span>
+                            <span>总额：<em>{{ floor($deal->borrow_amount / 10000) }}</em>万元</span>
+                            <span>可投：<em>{{ number_format(( $deal->borrow_amount - $deal->load_money ) / 10000,2) }}万元</em></span>
                         </p>
                     </div>
                     <div style=" position: relative;" class="row-mg">

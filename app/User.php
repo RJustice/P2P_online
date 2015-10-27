@@ -115,15 +115,17 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public static function getSalesManagers($format = false,$company = 0){
         if( $company ){
-            $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('company_id',$company)->where('is_deleted',0)->get();
+            // $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('company_id',$company)->where('is_deleted',0)->get();
+            $salesManagers = self::whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('company_id',$company)->where('is_deleted',0)->get();
         }else{
-            $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('is_deleted',0)->get();
+            // $salesManagers = self::where('type',self::TYPE_EMPLOYEE)->whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('is_deleted',0)->get();
+            $salesManagers = self::whereIn('state',[self::STATE_VALID,self::STATE_SYS_CREATED])->where('is_deleted',0)->get();
         }
         if( ! $salesManagers->isEmpty() ){
             if( $format ){
                 foreach( $salesManagers as $salesManager ){
                     $tmp[] = [
-                        'label' => $salesManager->name,
+                        'label' => $salesManager->name . ' - ' . preg_replace('/([0-9]{5})[0-9]{9}([0-9]{4}|[0-9]{3}X)/i','$1****$2',$salesManager->idno) . ' - ' . preg_replace('/([0-9]{3})[0-9]{4}([0-9]{4})/i','$1****$2',$salesManager->phone),
                         'value' => $salesManager->id,
                     ];
                 }
