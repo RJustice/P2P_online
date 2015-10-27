@@ -1,5 +1,13 @@
 @extends('_layouts.center')
-
+<style type="text/css">
+    .alert{width:475px;margin:20px 0 20px 155px;border: 1px solid transparent;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 15px;}
+    .alert-danger{ background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;}
+</style>
 @section('content')
 <div class="list-title clearfix">
     <div class="cur">
@@ -24,6 +32,13 @@
     @else
     {!! Form::open(['route'=>'member.account.authenticate','class'=>'auth-form','id'=>'auth-form']) !!}
     <div class="m-form">
+        @if( count($errors) > 0)
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+            @endforeach
+        </div>
+        @endif
         <ul class="clearfix">
             <li class="clearfix">
                 <label><em>*</em>真实姓名</label>

@@ -46,7 +46,16 @@ class AccountController extends Controller
 
     public function postAuthenticate(Request $request){
         $real_name = $request->get('real_name');
-        $idno = $request->get('idno');        
+        $idno = $request->get('idno');
+        $validator = Validator::make(['real_name'=>$real_name,'idno'=>$idno], [
+            'real_name' => 'required',
+            'idno' => 'required|unique:users'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
         if( ! $this->_validationFilterIDcard($idno) ){
             return redirect()->back()->withErrors(['error'=>'认证信息不正确,请核对信息重新提交']);
         }else{

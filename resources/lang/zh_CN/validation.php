@@ -112,6 +112,9 @@ return [
         'idno' =>[
             'required' => '身份证号必填',
             'unique' => '身份证号不能重复,该用户已经注册',
+        ],
+        'real_name' => [
+            'required' => '姓名必填'
         ]
     ],
 
