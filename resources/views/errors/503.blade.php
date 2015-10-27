@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">正在维护,即将回来<br >热线:400-6090-290</div>
             </div>
         </div>
     </body>

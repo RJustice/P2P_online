@@ -314,6 +314,9 @@ class DealOrder extends Model
         $member->money = $member->money + $userMoneyLog->money;
         // $member->can_money = $member->can_money - $dealOrder->total_price;
         $member->save();
+
+        $dealOrder->deal->load_money = $dealOrder->deal->load_money + $dealOrder->total_price;
+        $dealOrder->deal->save();
     }
 
     // 使用余额投资
@@ -340,6 +343,9 @@ class DealOrder extends Model
         // $member->money = $member->money + $userMoneyLog->money;
         $member->can_money = $member->can_money - $dealOrder->total_price;
         $member->save();
+
+        $dealOrder->deal->load_money = $dealOrder->deal->load_money + $dealOrder->total_price;
+        $dealOrder->deal->save();
     }
 
     protected static function _offlineOrderMoneyLog($dealOrder){
@@ -390,6 +396,8 @@ class DealOrder extends Model
         // $member->can_money = $member->can_money - $userLockMoneyLog->money;
         // // 保存信息
         // $member->save();
+        $dealOrder->deal->load_money = $dealOrder->deal->load_money + $dealOrder->total_price;
+        $dealOrder->deal->save();
     }
 
 

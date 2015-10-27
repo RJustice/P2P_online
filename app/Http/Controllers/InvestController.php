@@ -52,6 +52,10 @@ class InvestController extends Controller
             if( $money > $member->can_money ){
                 return response()->json(['code'=>2],200);
             }
+            if( $money > $deal->borrow_amount - $deal->load_money ){
+                $load = $deal->load_money > $deal->borrow_amount ? $deal->borrow_amount : $deal->load_money;
+                return response()->json(['code'=>7,'can'=>$load],200);
+            }
             if( ! Hash::check($paypass,$member->paypassword) ){
                 return response()->json(['code'=>3],200);
             }

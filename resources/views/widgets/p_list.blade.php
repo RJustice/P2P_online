@@ -34,10 +34,16 @@
                             <div class="divstyle divstyle03 supportcss3">
                                 <p class="p-progress-bar clearfix">
                                     <span class="out-progress-bar clearfix">
-                                        <span class="in-progress-bar" id="pj1-progress" style="width:{{ number_format($deal->load_money / $deal->borrow_amount * 100,2) }}%" ></span>
+                                        <span class="in-progress-bar" id="pj{{ $deal->getKey()}}-progress" style="width:{{ $deal->load_money > $deal->borrow_amount ? 100 : number_format($deal->load_money / $deal->borrow_amount * 100,2) }}%" ></span>
                                     </span>
                                 </p>
-                                <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;" id="pj1">已投： <span class="pj-has">{{ floor($deal->load_money / 10000 ) }}</span> 万元  /  总额：{{ floor( $deal->borrow_amount / 10000 ) }} 万元</p>
+                                <p style="width:300px;overflow:hidden;line-height:40px;color:#999;font-size:16px;" id="pj{{ $deal->getKey() }}">
+                                @if( $deal->load_money < $deal->borrow_amount)
+                                已投： <span class="pj-has">{{ $deal->load_money > $deal->borrow_amount ? floor($deal->borrow_amount / 10000 ) : floor($deal->load_money / 10000 ) }}</span> 万元  /  总额：{{ floor( $deal->borrow_amount / 10000 ) }} 万元
+                                @else
+                                该项目已经完成投资，期待下期
+                                @endif
+                                </p>
                             </div>
                         </div>
                         <div class="tp-pattern">
@@ -359,27 +365,37 @@
 <div id="pospic-error-alert" class="layer">
     <p>POS单格式错误,必须是JPEG、JPG、PNG，大小不大于500KB</p>
 </div>
+<div id="dealload-error-alert" class="layer">
+    <p>投资金额超过本项目最后可投金额，请重新填写金额. (@﹏@)~  </p>
+</div>
 @section('js')
     @parent
     <script type="text/javascript" src="{{ asset('js/jBox.min.js') }}"></script>
     <script type="text/javascript">
-    var balanceInvestModal,posInvestModal,balanceLessAlert,notSignAlert,payChooseAlert,networkErrorAlert,paypassErrorAlert,dealErrorAlert,noPaypassAlert,pospicErrorAlert;
+    var balanceInvestModal,posInvestModal,balanceLessAlert,notSignAlert,payChooseAlert,networkErrorAlert,paypassErrorAlert,dealErrorAlert,noPaypassAlert,pospicErrorAlert,dealloadErrorAlert;
     var dealTitle,dealMoney,dealEarning,balanceMoney,dealMin,dealRate,dealID;
     var formSign,submitSuccess = false;
-    $(function(){
-        var deals = {
+    var deals = {
             @foreach($deals as $jsk=>$jsd)
-            {{ $jsd->getKey() }}:{daily:{{ $jsd->daily_returns}},days:{{ $jsd->repay_time}} }@if($jsk!=count($deals)) , @endif
+            {{ $jsd->getKey() }}:{daily:{{ $jsd->daily_returns}},days:{{ $jsd->repay_time}},min:{{ $jsd->min_loan_money }},total:{{ $jsd->borrow_amount }},load:{{ $jsd->load_money > $jsd->borrow_amount ? $jsd->borrow_amount : $jsd->load_money }}}@if($jsk!=count($deals)) , @endif
             @endforeach
         };
+    $(function(){        
         $(".money-input").on('keyup',function(){
             var id = $(this).data('id');
+            var min = deals[id].min;
+            var total = deals[id].total;
+            var load = deals[id].load;
             var date = deals[id].days;
             var daily = deals[id].daily;
             var tz = $(this).val();
             var $sy = $("#h_ys"+id);
             var sy = '';
             if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) ){
+                if( tz >= ( total - load ) ){
+                    tz = total - load;
+                    $(this).val(tz);
+                }
                 sy = ( tz / 10000 * daily ) * date;
                 $sy.text(sy.toFixed(3));
             }else{
@@ -395,13 +411,21 @@
             $(".pass-input-error").html('')
             $(".posno-input-error").html('')
             $(".pospic-input-error").html('')
+            $(this).select();
         });
 
         $("#balance-invest .binvest-money-input").on('keyup',function(){
             var tz = $(this).val();
             var $sy = $("#balance-invest .binvest-expect-input");
             var sy = '';
+            var min = deals[dealID].min;
+            var total = deals[dealID].total;
+            var load = deals[dealID].load;
             if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) && parseFloat(tz) <= parseFloat(balanceMoney) ){
+                if( tz >= ( total - load ) ){
+                    tz = total - load;
+                    $(this).val(tz);
+                }
                 dealMoney = tz;
                 sy = buildEarnin(dealID,dealMoney);
                 $sy.val(sy);
@@ -435,6 +459,17 @@
             var daily = deals[id].daily;
             var earning = ( money / 10000 * daily ) * date;
             return  earning.toFixed(3);
+        }
+
+        function buildLoadMoney(id){
+            var load = deals[id].load;
+            var total = deals[id].total;
+            if( load >= total ){
+                $("#pj"+id).text("该项目已经完成投资，期待下期");
+            }
+            $("#pj"+id).find('.pj-has').text(Math.ceil(load/10000));
+            var w = load / total * 100;
+            $("#pj"+id+"-progress").css({width:w.toFixed(2)+"%"});
         }
 
         balanceInvestModal = new jBox('Modal',{
@@ -522,6 +557,11 @@
                         }else if( data.code == 6 ){
                             balanceInvestModal.close();
                             notSignAlert.open();
+                        }else if( data.code == 7 ){
+                            balanceInvestModal.close();
+                            dealloadErrorAlert.open();
+                            deals[dealID].load = parseFloat(data.can);
+                            buildLoadMoney(dealID);
                         }
                     },
                     error:function(){
@@ -571,7 +611,14 @@
             var tz = $(this).val();
             var $sy = $("#pos-invest .pinvest-expect-input");
             var sy = '';
+            var min = deals[dealID].min;
+            var total = deals[dealID].total;
+            var load = deals[dealID].load;
             if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) ){
+                if( tz >= ( total - load ) ){
+                    tz = total - load;
+                    $(this).val(tz);
+                }
                 dealMoney = tz;
                 sy = buildEarnin(dealID,dealMoney);
                 $sy.val(sy);
@@ -768,6 +815,14 @@
             closeButton: 'title'
         });
 
+        dealloadErrorAlert = new jBox('Modal',{
+            title : '超出项目可投',
+            content: $("#dealload-error-alert"),
+            animation : 'pulse',
+            width:500,
+            overlay : true,
+            closeButton: 'title'
+        });
         payChooseAlert = new jBox('Modal',{
             title : '支付方式选择',
             content: $("#paychoose-alert"),
