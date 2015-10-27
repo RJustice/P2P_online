@@ -315,7 +315,7 @@ class DealOrder extends Model
         // $member->can_money = $member->can_money - $dealOrder->total_price;
         $member->save();
 
-        $dealOrder->deal->load_money = $dealOrder->deal->load_money + $dealOrder->total_price;
+        $dealOrder->deal->load_money = ( $dealOrder->deal->load_money + $dealOrder->total_price ) > $dealOrder->deal->borrow_amount ? $dealOrder->deal->borrow_amount : ( $dealOrder->deal->load_money + $dealOrder->total_price );
         $dealOrder->deal->save();
     }
 
@@ -344,7 +344,7 @@ class DealOrder extends Model
         $member->can_money = $member->can_money - $dealOrder->total_price;
         $member->save();
 
-        $dealOrder->deal->load_money = $dealOrder->deal->load_money + $dealOrder->total_price;
+        $dealOrder->deal->load_money = ( $dealOrder->deal->load_money + $dealOrder->total_price ) > $dealOrder->deal->borrow_amount ? $dealOrder->deal->borrow_amount : ( $dealOrder->deal->load_money + $dealOrder->total_price );
         $dealOrder->deal->save();
     }
 
@@ -396,7 +396,7 @@ class DealOrder extends Model
         // $member->can_money = $member->can_money - $userLockMoneyLog->money;
         // // 保存信息
         // $member->save();
-        $dealOrder->deal->load_money = $dealOrder->deal->load_money + $dealOrder->total_price;
+        $dealOrder->deal->load_money = ( $dealOrder->deal->load_money + $dealOrder->total_price ) > $dealOrder->deal->borrow_amount ? $dealOrder->deal->borrow_amount : ( $dealOrder->deal->load_money + $dealOrder->total_price );
         $dealOrder->deal->save();
     }
 

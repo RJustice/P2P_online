@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Article;
 use App\Category;
 use App\Deal;
+use App\User;
 use Redirect, Input;
 
 class HomeController extends Controller
@@ -23,8 +24,10 @@ class HomeController extends Controller
         $official_news = Category::where('alias','official-news')->first()->articles()->orderBy('id','desc')->take(4)->get();
         $industry_news = Category::where('alias','industry-news')->first()->articles()->orderBy('id','desc')->take(4)->get();
         $deals = Deal::where('is_effect',1)->where('is_deleted',0)->where('published',1)->orderByRaw('sort desc')->take(6)->get();
+        $memberCount = User::where('is_deleted',0)->count() + 4520;
+        $dealCount = Deal::where('is_deleted',0)->sum('load_money');
         //$industry_news = Category::where('alias','industry-news')->get();
-        return view('index',compact('official_news','industry_news','deals'));
+        return view('index',compact('official_news','industry_news','deals','memberCount','dealCount'));
     }
 
 }

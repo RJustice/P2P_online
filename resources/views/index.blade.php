@@ -45,13 +45,13 @@
                     <div class="reg-num">
                         <div>已在农发众诚投资的用户</div>
                         <div class="rn" id="reg-count">
-                            0000
+                            {{ $memberCount }}
                         </div>
                     </div>
                     <div class="tnum">
                         <div>投资已在农发众诚完成</div>
                         <div class="tn" id="pj-total">
-                            000,000,000
+                            {{ number_format($dealCount,2) }}
                         </div>
                     </div>
                 </div>
@@ -127,36 +127,36 @@
 @section('js')
 <script type="text/javascript" src="/js/main_adv.js"></script>
 <script type="text/javascript">
-    function updateCount(){
-        $.ajax({
-            url : '{{ url('count') }}',
-            data : {},
-            dataType : 'json',
-            type : 'get',
-            success : function(data){
-                var register = data.register;
-                var projects = data.projects;
-                var total = data.total.toString();
-                $("#reg-count").text(register);
-                $("#pj-total").text(total.replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g,'$1,'));
-                for( k in projects ){
-                    if( projects[k].c == 'done' ){
-                        $("#"+k).text("投资已满,敬请期待下一期!");
-                        $("#"+k).css({color:'#5cb85c',fontSize:'18px'});
-                    }else{
-                        $("#"+k+" span.pj-has").text(projects[k].c);
-                    }
-                    console.log(typeof projects[k].c);
-                    var p = projects[k].c / projects[k].t * 100;
-                    $("#"+k+'-progress').animate({width:p.toFixed(2)+"%"});
-                }
-            }
-        });
-    }
+    // function updateCount(){
+    //     $.ajax({
+    //         url : '{{ url('count') }}',
+    //         data : {},
+    //         dataType : 'json',
+    //         type : 'get',
+    //         success : function(data){
+    //             var register = data.register;
+    //             var projects = data.projects;
+    //             var total = data.total.toString();
+    //             $("#reg-count").text(register);
+    //             $("#pj-total").text(total.replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g,'$1,'));
+    //             for( k in projects ){
+    //                 if( projects[k].c == 'done' ){
+    //                     $("#"+k).text("投资已满,敬请期待下一期!");
+    //                     $("#"+k).css({color:'#5cb85c',fontSize:'18px'});
+    //                 }else{
+    //                     $("#"+k+" span.pj-has").text(projects[k].c);
+    //                 }
+    //                 console.log(typeof projects[k].c);
+    //                 var p = projects[k].c / projects[k].t * 100;
+    //                 $("#"+k+'-progress').animate({width:p.toFixed(2)+"%"});
+    //             }
+    //         }
+    //     });
+    // }
 
     $(document).ready(function(){
-        updateCount();
-        setInterval(updateCount,600000);
+        // updateCount();
+        // setInterval(updateCount,600000);
         $(".new-title li:not(.news-more)").click(function() {
             var e = $(this).index();
             $(".new-title li").removeClass("selected"), $(this).addClass("selected"), $(".iarrow").hide(), $(this).children(".iarrow").show(), $(".news-more").hide(), $(e == 0 ? "#news_company" : "#news_industry").show(), $(".new-cntent").hide(), $(".new-cntent").eq(e).show()

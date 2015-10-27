@@ -67,11 +67,16 @@
                     <p class="z-text01"><a href="javascript:;">{{ $deal->title }}</a></p>
                     <div class="m-progress">
                         <div class="progress-bar">
-                            <div style="width:{{ number_format($deal->load_money / $deal->borrow_amount *100 ,2) }}%" class="z-bar"><em></em></div>
+                            <div id="pj{{ $deal->getKey()}}-progress" style="width:{{ $deal->load_money > $deal->borrow_amount ? 100 : number_format($deal->load_money / $deal->borrow_amount * 100,2) }}%" class="z-bar"><em></em></div>
                         </div>
-                        <p class="z-total">
-                            <span>总额：<em>{{ floor($deal->borrow_amount / 10000) }}</em>万元</span>
-                            <span>可投：<em>{{ number_format(( $deal->borrow_amount - $deal->load_money ) / 10000,2) }}万元</em></span>
+                        <p class="z-total" id="pj{{ $deal->getKey() }}">
+                        @if( $deal->load_money < $deal->borrow_amount)
+                        <span>总额：<em>{{ floor($deal->borrow_amount / 10000) }}</em>万元</span>
+                        <span>已投：<em class="pj-has">{{ $deal->load_money > $deal->borrow_amount ? floor($deal->borrow_amount / 10000 ) : floor($deal->load_money / 10000 ) }}万元</em></span>
+                        @else
+                        该项目已经完成投资，期待下期
+                        @endif
+                            
                         </p>
                     </div>
                     <div style=" position: relative;" class="row-mg">
@@ -384,6 +389,9 @@
 <div id="pospic-error-alert" class="layer">
     <p>POS单格式错误,必须是JPEG、JPG、PNG，大小不大于500KB</p>
 </div>
+<div id="dealload-error-alert" class="layer">
+    <p>投资金额超过本项目最后可投金额，请重新填写金额. (@﹏@)~  </p>
+</div>
 @section('js')
     @parent    
     <script type="text/javascript" src="{{ asset('js/jBox.min.js') }}"></script>
@@ -404,482 +412,507 @@
                 var $bigShow = $(this).closest(".invest-box").find(".big-show");
                 $bigShow.animate({width:0},800);
             });
-
-            // var deals = {
-            //     @foreach($deals as $jsk=>$jsd)
-            //     {{ $jsd->getKey() }}:{daily:{{ $jsd->daily_returns}},days:{{ $jsd->repay_time}} }@if($jsk!=count($deals)) , @endif
-            //     @endforeach
-            // };
-            // $(".money-input").on('keyup',function(){
-            //     var id = $(this).data('id');
-            //     var date = deals[id].days;
-            //     var daily = deals[id].daily;
-            //     var tz = $(this).val();
-            //     var $sy = $("#h_ys"+id);
-            //     var sy = '';
-            //     if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) ){
-            //         sy = ( tz / 10000 * daily ) * date;
-            //         $sy.text(sy.toFixed(3));
-            //     }else{
-            //         $sy.text(0);
-            //         return;
-            //     }
-            // });
         });
 
-        var balanceInvestModal,posInvestModal,balanceLessAlert,notSignAlert,payChooseAlert,networkErrorAlert,paypassErrorAlert,dealErrorAlert,noPaypassAlert,pospicErrorAlert;
-        var dealTitle,dealMoney,dealEarning,balanceMoney,dealMin,dealRate,dealID;
-        var formSign,submitSuccess = false;
-        $(function(){
-            var deals = {
-                @foreach($deals as $jsk=>$jsd)
-                {{ $jsd->getKey() }}:{daily:{{ $jsd->daily_returns}},days:{{ $jsd->repay_time}} }@if($jsk!=count($deals)) , @endif
-                @endforeach
-            };
-            $(".money-input").on('keyup',function(){
-                var id = $(this).data('id');
-                var date = deals[id].days;
-                var daily = deals[id].daily;
-                var tz = $(this).val();
-                var $sy = $("#h_ys"+id);
-                var sy = '';
-                if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) ){
-                    sy = ( tz / 10000 * daily ) * date;
-                    $sy.text(sy.toFixed(3));
-                }else{
-                    $sy.text(0);
-                    $("#h_jx_notice"+id).html('请输入正确数字');
-                    return;
+    var balanceInvestModal,posInvestModal,balanceLessAlert,notSignAlert,payChooseAlert,networkErrorAlert,paypassErrorAlert,dealErrorAlert,noPaypassAlert,pospicErrorAlert,dealloadErrorAlert;
+    var dealTitle,dealMoney,dealEarning,balanceMoney,dealMin,dealRate,dealID;
+    var formSign,submitSuccess = false;
+    var deals = {
+            @foreach($deals as $jsk=>$jsd)
+            {{ $jsd->getKey() }}:{daily:{{ $jsd->daily_returns}},days:{{ $jsd->repay_time}},min:{{ $jsd->min_loan_money }},total:{{ $jsd->borrow_amount }},load:{{ $jsd->load_money > $jsd->borrow_amount ? $jsd->borrow_amount : $jsd->load_money }}}@if($jsk!=count($deals)) , @endif
+            @endforeach
+        };
+    $(function(){        
+        $(".money-input").on('keyup',function(){
+            var id = $(this).data('id');
+            var min = deals[id].min;
+            var total = deals[id].total;
+            var load = deals[id].load;
+            var date = deals[id].days;
+            var daily = deals[id].daily;
+            var tz = $(this).val();
+            var $sy = $("#h_ys"+id);
+            var sy = '';
+            if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) ){
+                if( tz >= ( total - load ) ){
+                    tz = total - load;
+                    $(this).val(tz);
                 }
-            });
-            $('.money-input,#balance-invest .binvest-money-input,.pass-input,#pos-invest .pinvest-money-input,#pos-invest .pinvest-posno-input').on('focus',function(){
-                var id = $(this).data('id');
-                $("#h_jx_notice"+id).html('');
-                $(".money-input-error").html('');
-                $(".pass-input-error").html('')
-                $(".posno-input-error").html('')
-                $(".pospic-input-error").html('')
-            });
+                sy = ( tz / 10000 * daily ) * date;
+                $sy.text(sy.toFixed(3));
+            }else{
+                $sy.text(0);
+                $("#h_jx_notice"+id).html('请输入正确数字');
+                return;
+            }
+        });
+        $('.money-input,#balance-invest .binvest-money-input,.pass-input,#pos-invest .pinvest-money-input,#pos-invest .pinvest-posno-input').on('focus',function(){
+            var id = $(this).data('id');
+            $("#h_jx_notice"+id).html('');
+            $(".money-input-error").html('');
+            $(".pass-input-error").html('')
+            $(".posno-input-error").html('')
+            $(".pospic-input-error").html('')
+            $(this).select();
+        });
 
-            $("#balance-invest .binvest-money-input").on('keyup',function(){
-                var tz = $(this).val();
-                var $sy = $("#balance-invest .binvest-expect-input");
-                var sy = '';
-                if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) && parseFloat(tz) <= parseFloat(balanceMoney) ){
-                    dealMoney = tz;
-                    sy = buildEarnin(dealID,dealMoney);
-                    $sy.val(sy);
-                }else{
-                    $sy.val(0);
-                    $("#balance-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元,不大于余额'+balanceMoney+'元');
-                    formSign = false;
-                    return;
+        $("#balance-invest .binvest-money-input").on('keyup',function(){
+            var tz = $(this).val();
+            var $sy = $("#balance-invest .binvest-expect-input");
+            var sy = '';
+            var min = deals[dealID].min;
+            var total = deals[dealID].total;
+            var load = deals[dealID].load;
+            if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) && parseFloat(tz) <= parseFloat(balanceMoney) ){
+                if( tz >= ( total - load ) ){
+                    tz = total - load;
+                    $(this).val(tz);
                 }
-            });
+                dealMoney = tz;
+                sy = buildEarnin(dealID,dealMoney);
+                $sy.val(sy);
+            }else{
+                $sy.val(0);
+                $("#balance-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元,不大于余额'+balanceMoney+'元');
+                formSign = false;
+                return;
+            }
+        });
 
-            $("#balance-invest .binvest-money-input").on('blur',function(){
-                var tz = $(this).val();
-                var $sy = $("#balance-invest .binvest-expect-input");
-                // var sy = '';
-                if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) && parseFloat(tz) <= parseFloat(balanceMoney) ){
-                    // dealMoney = tz;
-                    // sy = buildEarnin(dealID,dealMoney);
-                    // $sy.val(sy);
-                    return;
-                }else{
-                    $sy.val(0);
-                    $("#balance-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元,不大于余额'+balanceMoney+'元');
-                    formSign = false;
-                    return;
-                }
-            });
+        $("#balance-invest .binvest-money-input").on('blur',function(){
+            var tz = $(this).val();
+            var $sy = $("#balance-invest .binvest-expect-input");
+            // var sy = '';
+            if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) && parseFloat(tz) <= parseFloat(balanceMoney) ){
+                // dealMoney = tz;
+                // sy = buildEarnin(dealID,dealMoney);
+                // $sy.val(sy);
+                return;
+            }else{
+                $sy.val(0);
+                $("#balance-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元,不大于余额'+balanceMoney+'元');
+                formSign = false;
+                return;
+            }
+        });
 
-            function buildEarnin(id,money){
-                var date = deals[id].days;
-                var daily = deals[id].daily;
-                var earning = ( money / 10000 * daily ) * date;
-                return  earning.toFixed(3);
+        function buildEarnin(id,money){
+            var date = deals[id].days;
+            var daily = deals[id].daily;
+            var earning = ( money / 10000 * daily ) * date;
+            return  earning.toFixed(3);
+        }
+
+        function buildLoadMoney(id){
+            var load = deals[id].load;
+            var total = deals[id].total;
+            if( load >= total ){
+                $("#pj"+id).text("该项目已经完成投资，期待下期");
+            }
+            $("#pj"+id).find('.pj-has').text(Math.ceil(load/10000));
+            var w = load / total * 100;
+            $("#pj"+id+"-progress").css({width:w.toFixed(2)+"%"});
+        }
+
+        balanceInvestModal = new jBox('Modal',{
+            title : '我要理财',
+            content: $("#balance-invest"),
+            animation : 'pulse',
+            height:500,
+            overlay : true,
+            closeOnEsc : false,
+            closeOnClick : false,
+            closeButton: 'title',
+            onOpen:function(){
+                $("#balance-invest .binvest-deal-title").html(dealTitle);
+                $("#balance-invest .binvest-deal-rate").html(dealRate);
+                $("#balance-invest .binvest-money-input").val(dealMoney);
+                $("#balance-invest .binvest-expect-input").val(buildEarnin(dealID,dealMoney));
+                $("#balance-invest .binvest-money").html(dealMoney);
+                $("#balance-invest .binvest-earnings").html(buildEarnin(dealID,dealMoney));
+                $("#balance-invest .binvest-balance").html(balanceMoney);
+                // submitSuccess = false;
+            },
+            onClose:function(){
+                formSign = false;
+                $("#balance-invest #binvest-step3,#balance-invest #binvest-step2").hide();
+                $("#balance-invest #binvest-step1").show();
+                $("#balance-invest .binvest-submit").removeClass('disabled');
+            }
+        });
+
+        $("#balance-invest .next-step02").on('click',function(){
+            var tz = $("#balance-invest .binvest-money-input").val();
+            var $sy = $("#balance-invest .binvest-expect-input");
+            formSign = true;
+            if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) && parseFloat(tz) <= parseFloat(balanceMoney) ){
+                dealMoney = tz;
+                dealEarning = buildEarnin(dealID,dealMoney);
+            }else{
+                $sy.val(0);
+                $("#balance-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元,不大于余额'+balanceMoney+'元');
+                formSign = false;
+            }
+            if( $.trim($("#balance-invest .pass-input").val()) == '' ){
+                $("#balance-invest .pass-input-error").html('请输入支付密码');
+                formSign = false;
             }
 
-            balanceInvestModal = new jBox('Modal',{
-                title : '我要理财',
-                content: $("#balance-invest"),
-                animation : 'pulse',
-                height:500,
-                overlay : true,
-                closeOnEsc : false,
-                closeOnClick : false,
-                closeButton: 'title',
-                onOpen:function(){
-                    $("#balance-invest .binvest-deal-title").html(dealTitle);
-                    $("#balance-invest .binvest-deal-rate").html(dealRate);
-                    $("#balance-invest .binvest-money-input").val(dealMoney);
-                    $("#balance-invest .binvest-expect-input").val(buildEarnin(dealID,dealMoney));
-                    $("#balance-invest .binvest-money").html(dealMoney);
-                    $("#balance-invest .binvest-earnings").html(buildEarnin(dealID,dealMoney));
-                    $("#balance-invest .binvest-balance").html(balanceMoney);
-                    // submitSuccess = false;
-                },
-                onClose:function(){
-                    formSign = false;
-                    $("#balance-invest #binvest-step3,#balance-invest #binvest-step2").hide();
-                    $("#balance-invest #binvest-step1").show();
-                    $("#balance-invest .binvest-submit").removeClass('disabled');
-                }
-            });
-
-            $("#balance-invest .next-step02").on('click',function(){
-                var tz = $("#balance-invest .binvest-money-input").val();
-                var $sy = $("#balance-invest .binvest-expect-input");
-                formSign = true;
-                if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) && parseFloat(tz) <= parseFloat(balanceMoney) ){
-                    dealMoney = tz;
-                    dealEarning = buildEarnin(dealID,dealMoney);
-                }else{
-                    $sy.val(0);
-                    $("#balance-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元,不大于余额'+balanceMoney+'元');
-                    formSign = false;
-                }
-                if( $.trim($("#balance-invest .pass-input").val()) == '' ){
-                    $("#balance-invest .pass-input-error").html('请输入支付密码');
-                    formSign = false;
-                }
-
-                if( $("#balance-invest .agree-check").prop('checked') == false ){
-                    $("#balance-invest .agree-error").show();
-                    formSign = false;
-                }
-                if( formSign ){
-                    $("#balance-invest #binvest-step1").hide();
-                    $("#balance-invest .binvest-money").html(dealMoney);
-                    $("#balance-invest .binvest-earnings").html(dealEarning);                
-                    $("#balance-invest #binvest-step2").show();
-                }
-            });
-
-            $("#balance-invest .binvest-submit").on('click',function(){
-                if( formSign && ! $(this).hasClass("disabled") ){
-                    $(this).addClass('disabled');
-                    $.ajax({
-                        url:"{{ url('invest/doinvest') }}",
-                        type:'post',
-                        dataType:'json',
-                        data:{_token:'{{ csrf_token()}}',money:dealMoney,paypass:$("#balance-invest .pass-input").val(),id:dealID},
-                        success:function(data){
-                            if( data.code == 1 ){
-                                $("#balance-invest #binvest-step2").hide();
-                                $("#balance-invest #binvest-step3").show();
-                                setTimeout("balanceInvestModal.close()",5000);
-                            }else if( data.code == 2 ){
-                                balanceLessAlert.open();
-                                balanceInvestModal.close();
-                            }else if( data.code == 3 ){
-                                paypassErrorAlert.open();
-                                $("#balance-invest #binvest-step2").hide();
-                                $("#balance-invest #binvest-step1").show();
-                            }else if( data.code == 4 ){
-                                balanceInvestModal.close();
-                                dealErrorAlert.open();
-                            }else if( data.code == 5 ){
-                                balanceInvestModal.close();
-                                noPaypassAlert.open();
-                            }else if( data.code == 6 ){
-                                balanceInvestModal.close();
-                                notSignAlert.open();
-                            }
-                        },
-                        error:function(){
-                            balanceInvestModal.close();
-                            networkErrorAlert.open();
-                            return;
-                        }
-                    });
-                }
-            });
-
-            $("#balance-invest .agree-check").click(function(){
-                if($(this).prop('checked')){
-                    $("#balance-invest .agree-error").hide();
-                }
-            });
-
-            posInvestModal = new jBox('Modal',{
-                title : '我要理财',
-                content: $("#pos-invest"),
-                animation : 'pulse',
-                height:500,
-                overlay : true,
-                closeOnEsc : false,
-                closeOnClick : false,
-                closeButton: 'title',
-                onOpen:function(){
-                    $("#pos-invest .deal-id").val(dealID);
-                    $("#pos-invest .pinvest-deal-title").html(dealTitle);
-                    $("#pos-invest .pinvest-deal-rate").html(dealRate);
-                    $("#pos-invest .pinvest-money-input").val(dealMoney);
-                    $("#pos-invest .pinvest-expect-input").val(buildEarnin(dealID,dealMoney));
-                    $("#pos-invest .pinvest-money").html(dealMoney);
-                    $("#pos-invest .pinvest-earnings").html(buildEarnin(dealID,dealMoney));
-                    $("#pos-invest .pinvest-balance").html(balanceMoney);
-                    // submitSuccess = false;
-                },
-                onClose:function(){
-                    formSign = false;
-                    $("#pos-invest #pinvest-step3,#pos-invest #pinvest-step2").hide();
-                    $("#pos-invest #pinvest-step1").show();
-                    $("#pos-invest .pinvest-submit").removeClass('disabled');
-                }
-            });
-            
-            $("#pos-invest .pinvest-money-input").on('keyup',function(){
-                var tz = $(this).val();
-                var $sy = $("#pos-invest .pinvest-expect-input");
-                var sy = '';
-                if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) ){
-                    dealMoney = tz;
-                    sy = buildEarnin(dealID,dealMoney);
-                    $sy.val(sy);
-                }else{
-                    $sy.val(0);
-                    $("#pos-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元');
-                    formSign = false;
-                    return;
-                }
-            });
-
-            $("#pos-invest .pinvest-money-input").on('blur',function(){
-                var tz = $(this).val();
-                var $sy = $("#pos-invest .pinvest-expect-input");
-                // var sy = '';
-                if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) ){
-                    // dealMoney = tz;
-                    // sy = buildEarnin(dealID,dealMoney);
-                    // $sy.val(sy);
-                    return;
-                }else{
-                    $sy.val(0);
-                    $("#pos-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元');
-                    formSign = false;
-                    return;
-                }
-            });
-
-            $("#pos-invest .next-step02").on('click',function(){
-                var tz = $("#pos-invest .pinvest-money-input").val();
-                var $sy = $("#pos-invest .pinvest-expect-input");
-                formSign = true;
-                if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) ){
-                    dealMoney = tz;
-                    dealEarning = buildEarnin(dealID,dealMoney);
-                }else{
-                    $sy.val(0);
-                    $("#pos-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元');
-                    formSign = false;
-                }
-                if( $.trim($("#pos-invest .pass-input").val()) == '' ){
-                    $("#pos-invest .pass-input-error").html('请输入支付密码');
-                    formSign = false;
-                }
-
-                if( $("#pos-invest .agree-check").prop('checked') == false ){
-                    $("#pos-invest .agree-error").show();
-                    formSign = false;
-                }
-
-                if( $.trim($("#pos-invest .pinvest-posno-input").val()) == '' ){
-                    $("#pos-invest .posno-input-error").html('请输入POS单号');
-                    formSign = false;
-                }
-
-                if( $.trim($("#pos-invest .pinvest-pospic-input").val()) == '' ){
-                    $("#pos-invest .pospic-input-error").html('请选择POS单照片');
-                    formSign = false;
-                }
-
-                var file = $("#pos-invest .pinvest-pospic-input")[0].files[0];
-                var size = file.size / 1024;
-                var filetype = file.type;
-                console.log(filetype);
-                if( size > 500 ){
-                    $("#pos-invest .pospic-input-error").html('图片不能大于500K');
-                    formSign = false;
-                }
-
-                if( filetype != 'image/jpeg' && filetype != 'image/png' && filetype != 'image/jpg' ){
-                    $("#pos-invest .pospic-input-error").html('图片格式不正确, 只能jpeg,jpg,png');
-                    formSign = false;
-                }
-
-                if( formSign ){
-                    $("#pos-invest #pinvest-step1").hide();
-                    $("#pos-invest .pinvest-money").html(dealMoney);
-                    $("#pos-invest .pinvest-earnings").html(dealEarning);                
-                    $("#pos-invest #pinvest-step2").show();
-                }
-            });
-            $("#pos-invest .pinvest-submit").on('click',function(){
-                $("#pos-invest-form").submit();
-            });
-            // $("#pos-invest .pinvest-submit").on('click',function(){
-            //     if( formSign && ! $(this).hasClass("disabled") ){
-            //         $(this).addClass('disabled');
-            //         $.ajax({
-            //             url:"{{ url('invest/posinvest') }}",
-            //             type:'post',
-            //             dataType:'json',
-            //             data:{_token:'{{ csrf_token()}}',money:dealMoney,paypass:$("#pos-invest .pass-input").val(),id:dealID,posno:$("#pos-invest .pinvest-posno-input").val(),pospic:$("#pos-invest .pinvest-pospic-input")[0].files[0]},
-            //             enctype: 'multipart/form-data',
-            //             // contentType: false,
-            //             success:function(data){
-            //                 if( data.code == 1 ){
-            //                     $("#pos-invest #pinvest-step2").hide();
-            //                     $("#pos-invest #pinvest-step3").show();
-            //                     setTimeout("balanceInvestModal.close()",5000);
-            //                 }else if( data.code == 2 ){
-            //                     balanceLessAlert.open();
-            //                     balanceInvestModal.close();
-            //                 }else if( data.code == 3 ){
-            //                     paypassErrorAlert.open();
-            //                     $("#pos-invest #pinvest-step2").hide();
-            //                     $("#pos-invest #pinvest-step1").show();
-            //                 }else if( data.code == 4 ){
-            //                     balanceInvestModal.close();
-            //                     dealErrorAlert.open();
-            //                 }else if( data.code == 5 ){
-            //                     balanceInvestModal.close();
-            //                     noPaypassAlert.open();
-            //                 }else if( data.code == 6 ){
-            //                     balanceInvestModal.close();
-            //                     notSignAlert.open();
-            //                 }
-            //             },
-            //             error:function(){
-            //                 balanceInvestModal.close();
-            //                 networkErrorAlert.open();
-            //                 return;
-            //             }
-            //         });
-            //     }
-            // });
-
-            $(".agree-check").click(function(){
-                if($(this).prop('checked')){
-                    $(".agree-error").hide();
-                }
-            });
-
-            balanceLessAlert = new jBox('Modal',{
-                title : '账户余额不足',
-                content: $("#balance-less-alert"),
-                animation : 'pulse',
-                width:500,
-                overlay : true,
-                closeButton: 'title',
-                onOpen:function(){
-                    $("#balance-less-alert .balance-money").html(balanceMoney);
-                    $("#balance-less-alert .invest-money").html(dealMoney);
-                }
-            });
-
-            notSignAlert = new jBox('Modal',{
-                title : '没有登录',
-                content: $("#not-signin-alert"),
-                animation : 'pulse',
-                width:500,
-                overlay : true,
-                closeButton: 'title'
-            });
-
-            pospicErrorAlert = new jBox('Modal',{
-                title : 'POS单格式错误',
-                content: $("#pospic-error-alert"),
-                animation : 'pulse',
-                width:500,
-                overlay : true,
-                closeButton: 'title'
-            });
-            networkErrorAlert = new jBox('Modal',{
-                title : '网络错误',
-                content: $("#network-error-alert"),
-                animation : 'pulse',
-                width:500,
-                overlay : true,
-                closeButton: 'title'
-            });
-
-            paypassErrorAlert = new jBox('Modal',{
-                title : '支付密码错误',
-                content: $("#paypass-error-alert"),
-                animation : 'pulse',
-                width:500,
-                overlay : true,
-                closeButton: 'title'
-            });
-            noPaypassAlert = new jBox('Modal',{
-                title : '未设置支付密码',
-                content: $("#nopaypass-error-alert"),
-                animation : 'pulse',
-                width:500,
-                overlay : true,
-                closeButton: 'title'
-            });
-            dealErrorAlert = new jBox('Modal',{
-                title : '无此项目',
-                content: $("#deal-error-alert"),
-                animation : 'pulse',
-                width:500,
-                overlay : true,
-                closeButton: 'title'
-            });
-
-            payChooseAlert = new jBox('Modal',{
-                title : '支付方式选择',
-                content: $("#paychoose-alert"),
-                animation : 'pulse',
-                width:500,
-                overlay : true,
-                closeButton: 'title',
-                onOpen:function(){
-                    $("#paychoose-alert .balance-money").html(balanceMoney);
-                    $("#paychoose-alert .invest-money").html(dealMoney);
-                }
-            });
-
-            $(".invest-layer").on('click',function(){
-                var id = $(this).data('id');
-                dealID = id;
-                dealTitle = $(this).data('name');
-                dealMoney = $("#h_enter_value"+id).val();
-                dealEarning = $('#h_ys'+id).text();
-                dealMin = $(this).data('startmoney');
-                dealRate = $(this).data('borrowinterestrate');
-                if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(dealMoney)  && parseFloat(dealMoney) >= parseFloat(dealMin)){
-                    $.ajax({
-                        url: '{{ url('invest/checkmoney') }}',
-                        type:'get',
-                        dateType:'json',
-                        success:function(data){
-                            if( data.code == 1 ){
-                                // 余额不足
-                                balanceMoney = data.balance;
-                                balanceLessAlert.open();
-                            }else if(data.code == 2 ){
-                                // 未登录
-                                notSignAlert.open();
-                            }else if(data.code == 3 ){
-                                balanceMoney = data.balance;
-                                if( parseFloat(dealMoney) > parseFloat(balanceMoney) ){
-                                    balanceLessAlert.open();
-                                }else{
-                                    payChooseAlert.open();
-                                }                            
-                            }
-                        }
-                    });
-                }else{
-                    $("#h_jx_notice"+id).html('请输入投资金额,不小于'+dealMin+'元');
-                }
-            });
+            if( $("#balance-invest .agree-check").prop('checked') == false ){
+                $("#balance-invest .agree-error").show();
+                formSign = false;
+            }
+            if( formSign ){
+                $("#balance-invest #binvest-step1").hide();
+                $("#balance-invest .binvest-money").html(dealMoney);
+                $("#balance-invest .binvest-earnings").html(dealEarning);                
+                $("#balance-invest #binvest-step2").show();
+            }
         });
+
+        $("#balance-invest .binvest-submit").on('click',function(){
+            if( formSign && ! $(this).hasClass("disabled") ){
+                $(this).addClass('disabled');
+                $.ajax({
+                    url:"{{ url('invest/doinvest') }}",
+                    type:'post',
+                    dataType:'json',
+                    data:{_token:'{{ csrf_token()}}',money:dealMoney,paypass:$("#balance-invest .pass-input").val(),id:dealID},
+                    success:function(data){
+                        if( data.code == 1 ){
+                            $("#balance-invest #binvest-step2").hide();
+                            $("#balance-invest #binvest-step3").show();
+                            setTimeout("balanceInvestModal.close()",5000);
+                        }else if( data.code == 2 ){
+                            balanceLessAlert.open();
+                            balanceInvestModal.close();
+                        }else if( data.code == 3 ){
+                            paypassErrorAlert.open();
+                            $("#balance-invest #binvest-step2").hide();
+                            $("#balance-invest #binvest-step1").show();
+                        }else if( data.code == 4 ){
+                            balanceInvestModal.close();
+                            dealErrorAlert.open();
+                        }else if( data.code == 5 ){
+                            balanceInvestModal.close();
+                            noPaypassAlert.open();
+                        }else if( data.code == 6 ){
+                            balanceInvestModal.close();
+                            notSignAlert.open();
+                        }else if( data.code == 7 ){
+                            balanceInvestModal.close();
+                            dealloadErrorAlert.open();
+                            deals[dealID].load = parseFloat(data.can);
+                            buildLoadMoney(dealID);
+                        }
+                    },
+                    error:function(){
+                        balanceInvestModal.close();
+                        networkErrorAlert.open();
+                        return;
+                    }
+                });
+            }
+        });
+
+        $("#balance-invest .agree-check").click(function(){
+            if($(this).prop('checked')){
+                $("#balance-invest .agree-error").hide();
+            }
+        });
+
+        posInvestModal = new jBox('Modal',{
+            title : '我要理财',
+            content: $("#pos-invest"),
+            animation : 'pulse',
+            height:500,
+            overlay : true,
+            closeOnEsc : false,
+            closeOnClick : false,
+            closeButton: 'title',
+            onOpen:function(){
+                $("#pos-invest .deal-id").val(dealID);
+                $("#pos-invest .pinvest-deal-title").html(dealTitle);
+                $("#pos-invest .pinvest-deal-rate").html(dealRate);
+                $("#pos-invest .pinvest-money-input").val(dealMoney);
+                $("#pos-invest .pinvest-expect-input").val(buildEarnin(dealID,dealMoney));
+                $("#pos-invest .pinvest-money").html(dealMoney);
+                $("#pos-invest .pinvest-earnings").html(buildEarnin(dealID,dealMoney));
+                $("#pos-invest .pinvest-balance").html(balanceMoney);
+                // submitSuccess = false;
+            },
+            onClose:function(){
+                formSign = false;
+                $("#pos-invest #pinvest-step3,#pos-invest #pinvest-step2").hide();
+                $("#pos-invest #pinvest-step1").show();
+                $("#pos-invest .pinvest-submit").removeClass('disabled');
+            }
+        });
+        
+        $("#pos-invest .pinvest-money-input").on('keyup',function(){
+            var tz = $(this).val();
+            var $sy = $("#pos-invest .pinvest-expect-input");
+            var sy = '';
+            var min = deals[dealID].min;
+            var total = deals[dealID].total;
+            var load = deals[dealID].load;
+            if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) ){
+                if( tz >= ( total - load ) ){
+                    tz = total - load;
+                    $(this).val(tz);
+                }
+                dealMoney = tz;
+                sy = buildEarnin(dealID,dealMoney);
+                $sy.val(sy);
+            }else{
+                $sy.val(0);
+                $("#pos-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元');
+                formSign = false;
+                return;
+            }
+        });
+
+        $("#pos-invest .pinvest-money-input").on('blur',function(){
+            var tz = $(this).val();
+            var $sy = $("#pos-invest .pinvest-expect-input");
+            // var sy = '';
+            if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) ){
+                // dealMoney = tz;
+                // sy = buildEarnin(dealID,dealMoney);
+                // $sy.val(sy);
+                return;
+            }else{
+                $sy.val(0);
+                $("#pos-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元');
+                formSign = false;
+                return;
+            }
+        });
+
+        $("#pos-invest .next-step02").on('click',function(){
+            var tz = $("#pos-invest .pinvest-money-input").val();
+            var $sy = $("#pos-invest .pinvest-expect-input");
+            formSign = true;
+            if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(tz) && parseFloat(tz) >= parseFloat(dealMin) ){
+                dealMoney = tz;
+                dealEarning = buildEarnin(dealID,dealMoney);
+            }else{
+                $sy.val(0);
+                $("#pos-invest .money-input-error").html('请输入正确资金,并且不小于'+dealMin+'元');
+                formSign = false;
+            }
+            if( $.trim($("#pos-invest .pass-input").val()) == '' ){
+                $("#pos-invest .pass-input-error").html('请输入支付密码');
+                formSign = false;
+            }
+
+            if( $("#pos-invest .agree-check").prop('checked') == false ){
+                $("#pos-invest .agree-error").show();
+                formSign = false;
+            }
+
+            if( $.trim($("#pos-invest .pinvest-posno-input").val()) == '' ){
+                $("#pos-invest .posno-input-error").html('请输入POS单号');
+                formSign = false;
+            }
+
+            if( $.trim($("#pos-invest .pinvest-pospic-input").val()) == '' ){
+                $("#pos-invest .pospic-input-error").html('请选择POS单照片');
+                formSign = false;
+            }
+
+            var file = $("#pos-invest .pinvest-pospic-input")[0].files[0];
+            var size = file.size / 1024;
+            var filetype = file.type;
+            console.log(filetype);
+            if( size > 500 ){
+                $("#pos-invest .pospic-input-error").html('图片不能大于500K');
+                formSign = false;
+            }
+
+            if( filetype != 'image/jpeg' && filetype != 'image/png' && filetype != 'image/jpg' ){
+                $("#pos-invest .pospic-input-error").html('图片格式不正确, 只能jpeg,jpg,png');
+                formSign = false;
+            }
+
+            if( formSign ){
+                $("#pos-invest #pinvest-step1").hide();
+                $("#pos-invest .pinvest-money").html(dealMoney);
+                $("#pos-invest .pinvest-earnings").html(dealEarning);                
+                $("#pos-invest #pinvest-step2").show();
+            }
+        });
+        $("#pos-invest .pinvest-submit").on('click',function(){
+            $("#pos-invest-form").submit();
+        });
+        // $("#pos-invest .pinvest-submit").on('click',function(){
+        //     if( formSign && ! $(this).hasClass("disabled") ){
+        //         $(this).addClass('disabled');
+        //         $.ajax({
+        //             url:"{{ url('invest/posinvest') }}",
+        //             type:'post',
+        //             dataType:'json',
+        //             data:{_token:'{{ csrf_token()}}',money:dealMoney,paypass:$("#pos-invest .pass-input").val(),id:dealID,posno:$("#pos-invest .pinvest-posno-input").val(),pospic:$("#pos-invest .pinvest-pospic-input")[0].files[0]},
+        //             enctype: 'multipart/form-data',
+        //             // contentType: false,
+        //             success:function(data){
+        //                 if( data.code == 1 ){
+        //                     $("#pos-invest #pinvest-step2").hide();
+        //                     $("#pos-invest #pinvest-step3").show();
+        //                     setTimeout("balanceInvestModal.close()",5000);
+        //                 }else if( data.code == 2 ){
+        //                     balanceLessAlert.open();
+        //                     balanceInvestModal.close();
+        //                 }else if( data.code == 3 ){
+        //                     paypassErrorAlert.open();
+        //                     $("#pos-invest #pinvest-step2").hide();
+        //                     $("#pos-invest #pinvest-step1").show();
+        //                 }else if( data.code == 4 ){
+        //                     balanceInvestModal.close();
+        //                     dealErrorAlert.open();
+        //                 }else if( data.code == 5 ){
+        //                     balanceInvestModal.close();
+        //                     noPaypassAlert.open();
+        //                 }else if( data.code == 6 ){
+        //                     balanceInvestModal.close();
+        //                     notSignAlert.open();
+        //                 }
+        //             },
+        //             error:function(){
+        //                 balanceInvestModal.close();
+        //                 networkErrorAlert.open();
+        //                 return;
+        //             }
+        //         });
+        //     }
+        // });
+
+        $(".agree-check").click(function(){
+            if($(this).prop('checked')){
+                $(".agree-error").hide();
+            }
+        });
+
+        balanceLessAlert = new jBox('Modal',{
+            title : '账户余额不足',
+            content: $("#balance-less-alert"),
+            animation : 'pulse',
+            width:500,
+            overlay : true,
+            closeButton: 'title',
+            onOpen:function(){
+                $("#balance-less-alert .balance-money").html(balanceMoney);
+                $("#balance-less-alert .invest-money").html(dealMoney);
+            }
+        });
+
+        notSignAlert = new jBox('Modal',{
+            title : '没有登录',
+            content: $("#not-signin-alert"),
+            animation : 'pulse',
+            width:500,
+            overlay : true,
+            closeButton: 'title'
+        });
+
+        pospicErrorAlert = new jBox('Modal',{
+            title : 'POS单格式错误',
+            content: $("#pospic-error-alert"),
+            animation : 'pulse',
+            width:500,
+            overlay : true,
+            closeButton: 'title'
+        });
+        networkErrorAlert = new jBox('Modal',{
+            title : '网络错误',
+            content: $("#network-error-alert"),
+            animation : 'pulse',
+            width:500,
+            overlay : true,
+            closeButton: 'title'
+        });
+
+        paypassErrorAlert = new jBox('Modal',{
+            title : '支付密码错误',
+            content: $("#paypass-error-alert"),
+            animation : 'pulse',
+            width:500,
+            overlay : true,
+            closeButton: 'title'
+        });
+        noPaypassAlert = new jBox('Modal',{
+            title : '未设置支付密码',
+            content: $("#nopaypass-error-alert"),
+            animation : 'pulse',
+            width:500,
+            overlay : true,
+            closeButton: 'title'
+        });
+        dealErrorAlert = new jBox('Modal',{
+            title : '无此项目',
+            content: $("#deal-error-alert"),
+            animation : 'pulse',
+            width:500,
+            overlay : true,
+            closeButton: 'title'
+        });
+
+        dealloadErrorAlert = new jBox('Modal',{
+            title : '超出项目可投',
+            content: $("#dealload-error-alert"),
+            animation : 'pulse',
+            width:500,
+            overlay : true,
+            closeButton: 'title'
+        });
+        payChooseAlert = new jBox('Modal',{
+            title : '支付方式选择',
+            content: $("#paychoose-alert"),
+            animation : 'pulse',
+            width:500,
+            overlay : true,
+            closeButton: 'title',
+            onOpen:function(){
+                $("#paychoose-alert .balance-money").html(balanceMoney);
+                $("#paychoose-alert .invest-money").html(dealMoney);
+            }
+        });
+
+        $(".invest-layer").on('click',function(){
+            var id = $(this).data('id');
+            dealID = id;
+            dealTitle = $(this).data('name');
+            dealMoney = $("#h_enter_value"+id).val();
+            dealEarning = $('#h_ys'+id).text();
+            dealMin = $(this).data('startmoney');
+            dealRate = $(this).data('borrowinterestrate');
+            if( /^([1-9]\d*|0)(\.\d*[1-9])?$/.test(dealMoney)  && parseFloat(dealMoney) >= parseFloat(dealMin)){
+                $.ajax({
+                    url: '{{ url('invest/checkmoney') }}',
+                    type:'get',
+                    dateType:'json',
+                    success:function(data){
+                        if( data.code == 1 ){
+                            // 余额不足
+                            balanceMoney = data.balance;
+                            balanceLessAlert.open();
+                        }else if(data.code == 2 ){
+                            // 未登录
+                            notSignAlert.open();
+                        }else if(data.code == 3 ){
+                            balanceMoney = data.balance;
+                            if( parseFloat(dealMoney) > parseFloat(balanceMoney) ){
+                                balanceLessAlert.open();
+                            }else{
+                                payChooseAlert.open();
+                            }                            
+                        }
+                    }
+                });
+            }else{
+                $("#h_jx_notice"+id).html('请输入投资金额,不小于'+dealMin+'元');
+            }
+        });
+    });
     </script>
 @stop
