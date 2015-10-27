@@ -897,7 +897,7 @@ background-size: contain;}
 .g-list ul li .m-list .padding-lr{padding: 20px 15px 0px; }
 .g-list ul li .m-list01{ width: 333px;}
 .g-list ul li .m-list .top-icon{padding:0px 0 20px 8px;}
-.g-list ul li .m-list .top-icon p{ font-size: 30px;}
+.g-list ul li .m-list .top-icon p{ font-size: 24px;}
 .g-list ul li .m-list .m-subject dl dt.the-big{ font-size: 44px;}
 .big-show-right{ right:0;}
 .g-list ul li .m-list .btn-investment{ padding-top:0; height: 46px;}
@@ -915,7 +915,7 @@ background-size: contain;}
 .g-list ul li .m-list .top-icon i.icon-4{ background-position:0 -118px; width: 80px; }
 .g-list ul li .m-list .top-icon i.icon-5{ background-position:-90px -118px; width: 116px; }
 .g-list ul li .m-list .top-icon i.icon-6{ background-position:-210px -118px;  width: 110px;}
-.g-list ul li .m-list .top-icon p{ line-height: 34px;}
+.g-list ul li .m-list .top-icon p{ line-height: 34px;height:34px;overflow: hidden;}
 .g-list ul li .m-list { height: 350px;}
 .derivatives-content .derivatives-up .derup-left .lf-op{ padding: 0 10px 30px 0;}
 .derivatives-content .derivatives-up .derup-right{ padding: 20px 0 0;}
