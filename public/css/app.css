@@ -842,8 +842,8 @@ background-size: contain;}
 .g-list ul li .m-list .top-icon p{ font-size: 34px; color: #6b6b6b; position: relative;}
 .g-list ul li .m-list .top-icon p i{ background: none; display: inline-block; width: 83px; height: 25px; position: absolute;top: 0px;}
 .g-list ul li .m-list .m-subject{margin-bottom:5px;}
-.g-list ul li .m-list .m-subject dl.subject-left{ float: left; text-align: left;}
-.g-list ul li .m-list .m-subject dl.subject-right{ float: right; text-align: left;}
+.g-list ul li .m-list .m-subject dl.subject-left{ float: left; text-align: left;margin-left:15px;}
+.g-list ul li .m-list .m-subject dl.subject-right{ float: right; text-align: left;margin-right:15px;}
 .g-list ul li .m-list .m-subject dl dt{ color: #0195ff;}
 .g-list ul li .m-list .m-subject dl dt.the-big{ font-size: 50px; height: 50px; line-height: 50px;}
 .g-list ul li .m-list .m-subject dl dt.the-big  em{ font-size: 30px;}
