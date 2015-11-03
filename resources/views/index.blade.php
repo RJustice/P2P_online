@@ -2,10 +2,10 @@
 @section('main_ad')
 <div id="main-adv-box" class="main-adv-box f-l">
     <div id="main-adv-img" class="main-adv-img">
-        <span rel="1"><img src="/images/b1.jpg" alt="" style="display:none"></span>
-        <span rel="2"><img src="/images/b6.jpg" alt="" style="display:none"></span>
-        <span rel="3"><img src="/images/b3.jpg" alt="" style="display:none"></span>
-        <span rel="4"><img src="/images/b4.jpg" alt="" style="display:none"></span>
+        <a href="{{ url('articles/60') }}" target="_blank"><span rel="1"><img src="/images/banners/4.jpg" alt="" style="display:none"></span></a>
+        <span rel="2"><img src="/images/banners/1.jpg" alt="" style="display:none"></span>
+        <span rel="3"><img src="/images/banners/2.jpg" alt="" style="display:none"></span>
+        <span rel="4"><img src="/images/banners/3.jpg" alt="" style="display:none"></span>
     </div>
     <div id="main-adv-ctl" class="main-adv-ctl">
         <ul>
