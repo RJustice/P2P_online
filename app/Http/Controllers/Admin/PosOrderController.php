@@ -70,7 +70,7 @@ class PosOrderController extends BaseController
             //遍历筛选条件
             foreach ($all as $key => $value) {
                 if ($key == 'keywords') { //检索的关键词，定义检索关键词的检索语句
-                    $paginate->where('order_sn', 'LIKE', '%'.$value.'%');
+                    $paginate->where('mobile', 'LIKE', '%'.$value.'%')->where('user_name','LIKE','%'.$value.'%');
                 }
             }
             $paginate = $paginate->paginate();
