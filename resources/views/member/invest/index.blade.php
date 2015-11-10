@@ -4,7 +4,7 @@
 <style type="text/css">
     .more-info{cursor: pointer;}
     .more-info-bo{display: none;}
-    .redeem-btn{width:120px;height:35px;line-height:35px;text-align:center;background:#009dde;color:#fff;display:inline-block;font-size:14px;font-weight:600;}
+    .table-box td a.redeem-btn{width:120px;height:35px;line-height:35px;text-align:center;background:#009dde;color:#fff;display:inline-block;font-size:14px;font-weight:600;}
 </style>
 @stop
 
