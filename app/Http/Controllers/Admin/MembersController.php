@@ -217,7 +217,7 @@ class MembersController extends Controller
                     // ['来源','referer'],
                 ]
             ];
-            $dealsPaginate = $data->dealOrders()->whereIn('type',[DealOrder::TYPE_OFFLINE_ORDER,DealOrder::TYPE_ONLINE_ORDER])->where('is_deleted',0)->orderByRaw('create_date desc')->paginate(15);
+            $dealsPaginate = $data->dealOrders()->whereIn('type',[DealOrder::TYPE_OFFLINE_ORDER,DealOrder::TYPE_ONLINE_ORDER,DealOrder::TYPE_POS_INVEST])->where('is_deleted',0)->where('status',DealOrder::STATUS_PASSED)->orderByRaw('create_date desc')->paginate(15);
             $dealOrders['items'] = $dealsPaginate;
             return view('forone::'.$this->uri.'.show',compact('data','dealOrders'));
         }else{
