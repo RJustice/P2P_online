@@ -816,7 +816,7 @@ class DealOrder extends Model
             $userMoneyLog->save();
             // End
 
-            $dealOrder->member->lock_money = $dealOrder->member->lock_money - $dealOrder->total_price;
+            // $dealOrder->member->lock_money = $dealOrder->member->lock_money - $dealOrder->total_price;
             $dealOrder->member->can_money = $dealOrder->member->can_money + $dealOrder->total_price;
             $dealOrder->member->save();
 
