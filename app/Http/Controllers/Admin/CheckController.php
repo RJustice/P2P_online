@@ -82,7 +82,7 @@ class CheckController extends Controller
             //遍历筛选条件
             foreach ($all as $key => $value) {
                 if ($key == 'keywords') { //检索的关键词，定义检索关键词的检索语句
-                    $paginate->where('mobile', 'LIKE', '%'.$value.'%')->where('user_name','LIKE','%'.$value.'%');
+                    $paginate->where('mobile', 'like', '%'.$value.'%')->orWhere('user_name','like','%'.$value.'%');
                 }
             }
             $paginate = $paginate->paginate(15);
@@ -150,7 +150,7 @@ class CheckController extends Controller
             //遍历筛选条件
             foreach ($all as $key => $value) {
                 if ($key == 'keywords') { //检索的关键词，定义检索关键词的检索语句
-                    $paginate->where('mobile', 'LIKE', '%'.$value.'%')->where('user_name','LIKE','%'.$value.'%');
+                    $paginate->where('mobile', 'like', '%'.$value.'%')->orWhere('user_name','like','%'.$value.'%');
                 }
             }
             $paginate = $paginate->paginate(15);
@@ -173,7 +173,7 @@ class CheckController extends Controller
             //遍历筛选条件
             foreach ($all as $key => $value) {
                 if ($key == 'keywords') { //检索的关键词，定义检索关键词的检索语句
-                    $paginate->where('mobile', 'LIKE', '%'.$value.'%')->where('user_name','LIKE','%'.$value.'%');
+                    $paginate->where('mobile', 'like', '%'.$value.'%')->orWhere('user_name','like','%'.$value.'%');
                 }
             }
             $paginate = $paginate->paginate(15);
@@ -196,7 +196,7 @@ class CheckController extends Controller
             //遍历筛选条件
             foreach ($all as $key => $value) {
                 if ($key == 'keywords') { //检索的关键词，定义检索关键词的检索语句
-                    $paginate->where('mobile', 'LIKE', '%'.$value.'%')->where('user_name','LIKE','%'.$value.'%');
+                    $paginate->where('mobile', 'like', '%'.$value.'%')->orWhere('user_name','like','%'.$value.'%');
                 }
             }
             $paginate = $paginate->paginate(15);
@@ -219,7 +219,7 @@ class CheckController extends Controller
             //遍历筛选条件
             foreach ($all as $key => $value) {
                 if ($key == 'keywords') { //检索的关键词，定义检索关键词的检索语句
-                    $paginate->where('mobile', 'LIKE', '%'.$value.'%')->where('user_name','LIKE','%'.$value.'%');
+                    $paginate->where('mobile', 'like', '%'.$value.'%')->orWhere('user_name','like','%'.$value.'%');
                 }
             }
             $paginate = $paginate->paginate(15);
