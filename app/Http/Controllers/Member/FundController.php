@@ -53,21 +53,21 @@ class FundController extends Controller
                 $return = [
                     'code' => 1
                 ];
-                Session::forget('sms');
+                // Session::forget('sms');
                 return response()->json($return);
             }
             if( $money > $this->member->can_money ){
                 $return = [
                     'code' => 3
                 ];
-                Session::forget('sms');
+                // Session::forget('sms');
                 return response()->json($return);
             }
             if( ! Hash::check($paypwd,$this->member->paypassword) ){
                 $return = [
                     'code' => 2
                 ];
-                Session::forget('sms');
+                // Session::forget('sms');
                 return response()->json($return);
             }
 
@@ -91,6 +91,7 @@ class FundController extends Controller
                 'code' => 0
             ];
             Session::forget('sms');
+            Session::forget('smsphone');
         }
         return response()->json($return);
     }

@@ -99,6 +99,13 @@ class MemberAuthController extends Controller
             ->withErrors(['e'=>$this->getFailedLoginMessage()]);
     }
 
+
+    public function getLogout(){
+        Auth::logout();
+        Session::flush();
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+    }
+
     public function getRegister(){
         return view('member.register');
     }
