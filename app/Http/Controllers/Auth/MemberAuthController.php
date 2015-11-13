@@ -84,6 +84,8 @@ class MemberAuthController extends Controller
         $credentials = $this->getCredentials($request);
 
         if (Auth::attempt($credentials, $request->has('remember'))) {
+            Session::forget('sms');
+            Session::forget('smsphone');
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
