@@ -53,18 +53,21 @@ class FundController extends Controller
                 $return = [
                     'code' => 1
                 ];
+                Session::forget('sms');
                 return response()->json($return);
             }
             if( $money > $this->member->can_money ){
                 $return = [
                     'code' => 3
                 ];
+                Session::forget('sms');
                 return response()->json($return);
             }
             if( ! Hash::check($paypwd,$this->member->paypassword) ){
                 $return = [
                     'code' => 2
                 ];
+                Session::forget('sms');
                 return response()->json($return);
             }
 
@@ -121,7 +124,7 @@ class FundController extends Controller
     }
 
     public function getRedeem($id = 0){
-        $dealOrders = $this->member->dealOrders()->where('order_status',DealOrder::ORDER_STATUS_VALID)->get();
+        $dealOrders = $this->member->dealOrders()->where('order_status',DealOrder::ORDER_STATUS_VALID)->where('status',DealOrder::STATUS_PASSED)->get();
         if( $dealOrders->isEmpty() ){
             return view('member.errors.noorder');
         }else{
@@ -135,7 +138,7 @@ class FundController extends Controller
             $dealOrderId = $request->get('orderid');
             $smscode = $request->get('smscode');
             $paypwd = $request->get('paypwd');
-            $dealOrder = DealOrder::where('order_status',DealOrder::ORDER_STATUS_VALID)->where('user_id',$this->member->getKey())->where('id',$dealOrderId)->first();
+            $dealOrder = DealOrder::where('order_status',DealOrder::ORDER_STATUS_VALID)->where('status',DealOrder::STATUS_PASSED)->where('user_id',$this->member->getKey())->where('id',$dealOrderId)->first();
             if( ! $dealOrder ){
                 $return = [
                     'code' => 3
