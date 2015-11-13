@@ -19,16 +19,15 @@
           <li class="clearfix"><label>可提金额：</label><em class="orange-color" id="cash">{{ number_format(auth()->user()->can_money,2) }}</em> 元</li>
           <li class="clearfix pb20"><label>提现金额：</label><input placeholder="" id="J_Deposit" value="" type="text">元<span class="capital"></span><span class="error-hint"><i class="error"></i></span></li>
           <li class="clearfix"><label>手续费：</label>当前免收手续费，后期收取费用会另行通知</li>
-          <li class="clearfix"><label>到账提示：</label>72小时-24小时（72小时内到账，到账时间因各个银行不同）</li>
+          <li class="clearfix"><label>到账提示：</label>三个工作日内到账</li>
           <li class="clearfix"><label>支付密码：</label><input placeholder="" name="" id="txtPassword" type="password">&nbsp;&nbsp;&nbsp;<a href="{{ route('member.account.resetpay.{ctl}',['ctl'=>'find']) }}" class="blue-color">忘记密码？</a><span class="error"></span></li>
           <li><label>手机验证码：</label><input placeholder="" name="" id="txtcode" type="text"><span class="bank-information"><a href="javascript:void(0);" class="get-code" id="re-sms">获取短信验证码</a></span><span class="error"></span></li>
           <li><a href="javascript:void(0);" class="a-btn" onclick="ac()">提&nbsp;&nbsp;现</a></li>
           <li style="padding-top:20px">
               <h3>温馨提示：</h3>
               <p class="p-text">1、尊敬的{{ App\User::hiddenXin(auth()->user()->name) }}，提现操作涉及您的资金变动，请仔细核对您的提现信息；</p>
-              <p class="p-text">2、工作日，15点前的提现一般可当日到达；500万元以上的提现，预计在48小时内可到达； 周末及法定假日顺延；</p>
-              <p class="p-text">3、每月10日至13日为提现高峰期，可能会出现提现处理滞后（48-72小时左右），请您提前做好资金安排； </p>
-              <p class="p-text">4、涉及到您的资金安全，请仔细操作。 </p>
+              <p class="p-text">2、工作日，三个工作日内到账； 周末及法定假日顺延；</p>
+              <p class="p-text">3、涉及到您的资金安全，请仔细操作。 </p>
           </li>
         </ul>
     </div>
@@ -56,7 +55,7 @@
     <p><a onClick="javascript:alertModal.close();" class="a-btn">确定</a></p>
 </div>
 <div id="alert-success" class="layer">
-    <p>提现申请成功,72小时内到账.</p>
+    <p>提现申请成功,三个工作日内到账.</p>
     <p><a onClick="javascript:alertModal.close();" class="a-btn">确定</a></p>
 </div>
 <div id="alert-sms-send" class="layer">
