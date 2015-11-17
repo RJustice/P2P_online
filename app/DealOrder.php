@@ -524,7 +524,8 @@ class DealOrder extends Model
 
         if( $today > $end ){
             $diff = date_diff($end,$start,true);
-            $shouyi = ( $diff->days - 1 ) * $daily * ( $dealOrder->total_price / 10000 );            
+            // $shouyi = ( $diff->days - 1 ) * $daily * ( $dealOrder->total_price / 10000 );            
+            $shouyi = ( $diff->days ) * $daily * ( $dealOrder->total_price / 10000 );            
             // 写资金日志
             // Start
             $userMoneyLog = new UserMoneyLog;
@@ -551,7 +552,8 @@ class DealOrder extends Model
             $days = 0;
         }else{
             $diff = date_diff($today,$start,true);
-            $days = $diff->days - 1;
+            // $days = $diff->days - 1;
+            $days = $diff->days;
         }
         if( $today == $start ){
             $days = 0;
@@ -571,7 +573,8 @@ class DealOrder extends Model
 
         if( $today > $end ){
             $diff = date_diff($end,$start);
-            $days = $diff->days - 1;
+            // $days = $diff->days - 1;
+            $days = $diff->days ;
             if( $days % 30 == 0 ){
                 $shouyi = 30 * $daily * ( $dealOrder->total_price / 10000 );
 
@@ -626,7 +629,8 @@ class DealOrder extends Model
         }else{
             $diff = date_diff($today,$start,true);
             // if 48 天
-            $days = $diff->days - 1;
+            // $days = $diff->days - 1;
+            $days = $diff->days;
             if( $days > 0 && $days % 30 == 0 ){
                 // 把前三十天的收益划进账户
                 $shouyi = 30 * $daily * ( $dealOrder->total_price / 10000 );
@@ -700,13 +704,15 @@ class DealOrder extends Model
         $today = date_create(date('Y-m-d'));
         if( $today > $end ){
             $diff = date_diff($end,$start);
-            $days = $diff->days - 1;
+            // $days = $diff->days - 1;
+            $days = $diff->days;
             $jiecunShouyi = $days * $daily * ( $dealOrder->total_price / 10000 );
             $days = 0;
             $dealOrder->order_status = self::ORDER_STATUS_FINISHED;
         }else{
             $diff = date_diff($today,$start);
-            $days = $diff->days - 1;
+            // $days = $diff->days - 1;
+            $days = $diff->days;
             $jiecunShouyi = floor( $days / 30 ) * 30 * $daily * ( $dealOrder->total_price / 10000 );
         }
         if( $jiecunShouyi > 0 ){

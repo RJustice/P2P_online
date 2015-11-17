@@ -41,7 +41,8 @@ class CenterController extends Controller
             }else{
                 $diff = date_diff($now,$start);
             }
-            $days = $diff->days - 1;
+            // $days = $diff->days - 1;
+            $days = $diff->days;
             if( $now == $start ){
                 $days = 0;
             }

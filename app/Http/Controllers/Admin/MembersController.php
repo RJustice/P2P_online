@@ -109,7 +109,7 @@ class MembersController extends Controller
             //遍历筛选条件
             foreach ($all as $key => $value) {
                 if ($key == 'keywords') { //检索的关键词，定义检索关键词的检索语句
-                    $paginate->where('phone', 'LIKE', '%'.$value.'%');
+                    $paginate->where('phone', 'LIKE', '%'.$value.'%')->orWhere('name','LIKE','%'.$value.'%');
                 }
                 // else{
                 //     //可以根据不同的检索条件的不同值进行不同的语句组合，比如状态为7的数据加多筛选条件

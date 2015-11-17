@@ -344,7 +344,8 @@ class HandController extends Controller
         $data['account_money'] = $data['total_price'];
         // $data['referer'] = ''; 
         $data['user_name'] = $member->name;
-        $data['finish_date'] = date('Y-m-d',strtotime("+".($deal->repay_time + 1)." day",strtotime($data['create_date'])));
+        // $data['finish_date'] = date('Y-m-d',strtotime("+".($deal->repay_time + 1)." day",strtotime($data['create_date'])));
+        $data['finish_date'] = date('Y-m-d',strtotime("+".($deal->repay_time)." day",strtotime($data['create_date'])));
         $data['company_id'] = $salesManager->company_id;
         $data['who_sale'] = $salesManager->getKey();
 
@@ -433,5 +434,18 @@ class HandController extends Controller
             Storage::put($new_file, base64_decode(str_replace($result[1], '', $proof)));
         }
         return $new_file;
+    }
+
+
+    public function getRedeem($uid){
+        return view("forone::".$this->uri.'.redeem',compact('uid'));
+    }
+
+    public function postRedeem(Request $request){
+
+    }
+
+    public function ajaxGetOrders($id){
+
     }
 }
