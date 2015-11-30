@@ -84,6 +84,11 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin', 'middleware' => ['admi
         
         Route::get('offline',['as'=>'admin.hand.{id}.offline','uses'=>'HandController@getOffline']);
         Route::post('offline',['as'=>'admin.hand.{id}.offline','uses'=>'HandController@postOffline']);
+
+        Route::get('redeem',['as'=>'admin.hand.{id}.redeem','uses'=>'HandController@getRedeem']);
+        Route::post('redeem',['as'=>'admin.hand.{id}.redeem','uses'=>'HandController@postRedeem']);
+
+        Route::get('memberorders',['as'=>'admin.hand.{id}.memberorders','use'=>'HandController@ajaxGetOrders']);
     });
 
     // CheckController

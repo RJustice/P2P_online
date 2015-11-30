@@ -166,6 +166,9 @@ return [
                 ],
                 '线下订单' => [
                     'uri' => 'hand/new/offline',
+                ],
+                '线下赎回' => [
+                    'uri' => 'hand/new/redeem',
                 ]
             ],
         ],

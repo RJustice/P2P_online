@@ -60,7 +60,8 @@ span.price{font-size:14px;font-weight: 600;color:#ff5a13;letter-spacing: 1px;}
                     $redeem = date_create($data->created_at->format('Y-m-d'));
                     $start = date_create($data->dealOrder->create_date);
                     $diff = date_diff($redeem,$start);
-                    $days = $diff->days - 1;
+                    // $days = $diff->days - 1;
+                    $days = $diff->days;
                     if( $start == $redeem ){
                         $days = 0;
                     }                    
