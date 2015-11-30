@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Be right back.</title>
-
+        <meta charset="utf-8">
         <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
         <style>
@@ -40,7 +40,10 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">正在维护,即将回来<br >热线:400-6090-290</div>
+                <div class="title">正在维护,即将回来</div>
+                <div class="title">
+                    财富公司重信誉,然而开发尾款却要赖掉,这样不太好吧!
+                </div>
             </div>
         </div>
     </body>
