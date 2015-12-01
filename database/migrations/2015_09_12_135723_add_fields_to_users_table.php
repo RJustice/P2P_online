@@ -75,8 +75,8 @@ class AddFieldsToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropIndex('users_idno_index');
             $table->dropIndex('users_hash_id_index');
-            // $table->dropUnique('users_username_unique');
-            // $table->dropUnique('users_phone_unique');
+            $table->dropUnique('users_username_unique');
+            $table->dropUnique('users_phone_unique');
             $table->dropColumn(['hash_id','login_ip','is_deleted','idno','idcardpassed','idcardpassed_time','real_name','phonepassed','money','lock_money','can_money','waiting_returns','sales_manager','pid','verify','code','referer_memo','referral_count','score','login_time','password_verify','referer','n_province_id','n_city_id','province_id','city_id','sex','step','byear','bmonth','bday','address','paypassword','company_id','modified_uid','n_county_id','county_id']);
         });
     }
