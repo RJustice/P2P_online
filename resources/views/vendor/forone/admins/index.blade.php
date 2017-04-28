@@ -2,17 +2,17 @@
 
 @section('main')
 
-     {!! Html::list_header([
+     {!! Html::ilist_header([
      'new'=>true,
      ]) !!}
 
-     {!! Html::datagrid($results) !!}
+     {!! Html::idatagrid($results) !!}
 
-     {!! Html::modal_start('modal','编辑类型配置') !!}
+     {!! Html::imodal_start('modal','编辑类型配置') !!}
 
      <div class="md-whiteframe-z0 bg-white">
          {!! Form::open(['method'=>'POST','url'=>'admin/admins/assign-role','id'=>'form_id']) !!}
-         {!! Form::hidden_input('id') !!}
+         {!! Form::ihidden_input('id') !!}
          <div class="tab-content p m-b-md b-t b-t-2x">
              @foreach($roles as $role)
                  <label class="md-switch"><input type="checkbox" name="{{ $role->name }}"><i class="indigo"></i>{{ $role->description ? $role->display_name .'「'.$role->description.'」' : $role->display_name }}</label>
@@ -22,7 +22,7 @@
      </div>
 
      {!! Form::close() !!}
-     {!! Html::modal_end() !!}
+     {!! Html::imodal_end() !!}
 
 @stop
 

@@ -42,7 +42,7 @@ class AdminsController extends BaseController {
             ]
         ];
         $roles = Role::all();
-        $paginate = User::orderBy('created_at', 'desc')->paginate();
+        $paginate = User::whereIn('type',[User::TYPE_ADMIN,User::TYPE_EMPLOYEE])->orderBy('created_at', 'desc')->paginate();
         $results['items'] = $paginate;
 
         foreach ($paginate as $user) {
@@ -65,7 +65,7 @@ class AdminsController extends BaseController {
     {
         $data = $request->only(['username','name', 'password', 'email','phone','state']);
         $data['type'] = User::TYPE_ADMIN;
-        User::create();
+        User::create($data);
         return redirect()->route('admin.admins.index');
     }
 

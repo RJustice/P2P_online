@@ -5,3 +5,4 @@ Homestead.yaml
 p2ponline.sublime-project
 p2ponline.sublime-workspace
 /publish/uploads
+composer.lock

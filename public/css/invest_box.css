@@ -1,0 +1,82 @@
+/*.invest-tc-box{ width:600px; height:auto; border-radius:5px; -webkit-border-radius:5px; background:#fff; margin:0 auto; padding-bottom: 20px;}
+.invest-tc-box  h2{ height:50px; line-height:50px; background:#009dde; padding:0 20px; color:#fff; font-size:24px;border-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0;}
+.invest-tc-box  h2 .shut{ display:block; float:right; cursor:pointer; width:32px; height:32px; margin-top:9px;background: url(/Style/newStatic/res/images/shut.png) no-repeat;}
+.invest-tc-box  .me-invest{ padding:30px  45px 50px;}*/
+/*.me-invest.succ {
+    background: url(/Style/newStatic/res/images/caishen.gif) no-repeat right bottom;
+    background-size: 50%;
+}*/
+.me-invest .step{ margin:0 auto; padding:0 0  20px;}
+.me-invest .step  .p-invest{ padding-top:15px; }
+.me-invest .step .p-invest span{ font-size:18px; color:#999;padding-left:39px;}
+.me-invest .step  .p-invest  .span02{ margin:0 85px;}
+.me-invest  .form-box{}
+.me-invest  .form-box li{ padding:0 0 22px; clear:both; line-height:24px; position:relative; color:#999; font-size:14px; }
+.me-invest  .form-box li label{ float: left; width:112px; padding:0 14px 0 0; height:24px; line-height:24px; font-size:14px; color:#999; text-align:right;}
+.me-invest  .form-box li  .a-title{ font-size:14px; color:#666;  }
+.me-invest  .form-box li  .a-title:hover{ color:#009dde;border-bottom:1px solid #009dde;}
+.me-invest  .form-box input[type="text"],.me-invest  .form-box input[type="password"]{ height: 22px;line-height: 1.42857143;border: 1px solid #cccccc;width: 176px;padding: 0 15px;border-radius: 4px;margin-right: 0;box-shadow: inset 0 1px 1px rgba(0,0,0,.075);}
+.me-invest  .form-box li .error,.me-invest  .form-box li  .int-num{position:absolute; top:26px;left:0; line-height:24px; display:block; font-size:12px; clear:both; padding-left:84px; line-height:16px;}
+.me-invest  .form-box li .error{  color:#ff0000; }
+.me-invest  .form-box li  .int-num{ color:#999;}
+.me-invest  .form-box  .forget-password{ color:#009dde; margin-left:10px; font-size:14px;}
+.me-invest  .form-box  .read{ padding:4px 0 0 112px; color:#999; font-size:14px;}
+.me-invest  .form-box  .read  a{color:#009dde; text-decoration:underline;margin-left:5px; font-size:14px;}
+.me-invest  .form-box  .p-btn{ padding:15px 0 0 0;}
+.me-invest  .form-box   .a-btn{ float:none; padding:0;margin:0 auto; height:40px; line-height:40px; width:150px; text-align:center; color:#fff; font-size:18px; background:#009dde; display:block; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; -ms-border-radius:5px;-o-border-radius:5px;}
+
+.me-invest .tc {
+    width: 100%;
+    height: 48px;
+}
+.me-invest .tc.step1 {
+    background: url( /images/invest_step1.png) no-repeat center center;
+}
+.me-invest .tc.step2 {
+    background: url( /images/invest_step2.png) no-repeat center center;
+}
+.me-invest .tc.step3 {
+    background: url( /images/invest_step3.png) no-repeat center center;
+}
+.me-invest .err-title {
+    font-size: 1.4rem;
+}
+.me-invest .err-title a {
+    color: #009dde;
+    border-bottom: 1px solid;
+}
+.me-invest .yuan {
+    position: absolute;
+    top: 0;
+    left: 300px;
+}
+.me-invest p.error {
+    padding: 4px 0 0 84px;
+    color: red;
+    font-size: 14px;
+}
+.me-invest li.redpack-slct {
+    padding-bottom: 0;
+}
+.me-invest select {
+    height: 24px;
+    border: 1px solid #cccccc;
+    width: 176px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+.me-invest .tip {
+    color: red;
+    font-size: 14px;
+    line-height: 1.25;
+    margin: 0.5em 0 0.5em 8em;
+}
+
+/*投资详情页-弹窗确认投资样式如下*/
+.confirm-invest{ font-size:14px; color:#666; font-weight:bold;}
+.confirm-invest span{  color:#009dde;}
+
+/*投资详情页-弹窗投资完成样式如下*/
+.self-closing{ text-align:center; width:100%; padding:20px 0 0; font-size:14px; color:#999; }
+.me-invest  .complete-invest{ margin-top:-30px;}
