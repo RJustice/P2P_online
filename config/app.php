@@ -142,17 +142,23 @@ return [
         /*
          * Application Service Providers...
          */
+        Forone\Admin\Providers\ForoneServiceProvider::class,
+        
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Forone\Admin\Providers\ForoneServiceProvider::class,
+        
 
         Ender\UEditor\UEditorServiceProvider::class,
 
         Mews\Captcha\CaptchaServiceProvider::class,
 
         App\Providers\SmsServiceProvider::class,
+
+        Vinkla\Hashids\HashidsServiceProvider::class,
+
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -210,6 +216,9 @@ return [
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
         'Sms' => App\Facades\Sms::class,
+
+        'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

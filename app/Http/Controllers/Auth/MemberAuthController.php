@@ -84,6 +84,8 @@ class MemberAuthController extends Controller
         $credentials = $this->getCredentials($request);
 
         if (Auth::attempt($credentials, $request->has('remember'))) {
+            Session::forget('sms');
+            Session::forget('smsphone');
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
@@ -97,6 +99,13 @@ class MemberAuthController extends Controller
         return redirect($this->loginPath())
             ->withInput($request->only($this->loginUsername(), 'remember'))
             ->withErrors(['e'=>$this->getFailedLoginMessage()]);
+    }
+
+
+    public function getLogout(){
+        Auth::logout();
+        Session::flush();
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
 
     public function getRegister(){
@@ -145,7 +154,6 @@ class MemberAuthController extends Controller
                 return redirect(url('member/confirm'))
                     ->withErrors(['e'=>Sms::getError()]);
             }
-
             $user = $this->create(Session::get('register'));
             if( $user ){
                 Auth::login($user);
@@ -171,7 +179,7 @@ class MemberAuthController extends Controller
             'password' => 'required',
             'password_confirmation'=> 'confirmed',
             'agreement' => 'accepted',
-            'rec_user' => 'sometimes|exists:users,phone,type,'.User::TYPE_EMPLOYEE.',state,1',
+            'rec_user' => 'sometimes|exists:users,phone,state,1',
             'vercode' => 'required|check'
         ]);
         // $v->sometimes('rec_user','required|exists:users,phone,type,'.User::TYPE_EMPLOYEE,function($request){
@@ -195,7 +203,8 @@ class MemberAuthController extends Controller
                 'email' => '',
                 'type' => User::TYPE_MEMBER,
                 'password' => Hash::make($data['password']),
-                'state' => 1
+                'state' => 1,
+                'sales_manager' => User::where('phone',$data['rec_user'])->where('state',1)->first()->getKey()
             ]);
         Session::forget('sms');
         Session::forget('register');

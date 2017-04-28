@@ -10,7 +10,7 @@
     </dl>
     <dl>
      <dt>安全保障</dt>
-     <dd><a target="_blank" href="{{ url('/pages',['id'=>11]) }}">平台安全</a></dd>
+     <dd><a target="_blank" href="{{ url('/pages',['id'=>36]) }}">平台安全</a></dd>
      <dd><a target="_blank" href="{{ url('/pages',['id'=>12]) }}">服务说明</a></dd>
     </dl>
    </div><!--end of nav-->
@@ -34,10 +34,10 @@
   </div><!--end of footer_up-->
  </div><!--end of wrap-->
  
-  <!-- <div class="wrap footer_dow">
+  <div class="wrap footer_dow">
    <div class="l_819">
-    <p>&copy;<br>京ICP备</p>
+    <p>版权所有&copy;2015 北京农发众诚资产管理有限公司<br /><a href="http://www.miitbeian.gov.cn/">京ICP备15054265号</a></p>
    </div>
    <div class="clears"></div>
-  </div> -->
+  </div>
 </div>

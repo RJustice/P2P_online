@@ -10,7 +10,9 @@
         "ender/laravel-ueditor": "dev-master",
         "mews/captcha": "dev-master",
         "guzzlehttp/guzzle": "^6.1@dev",
-        "doctrine/dbal": "^2.6@dev"
+        "doctrine/dbal": "^2.6@dev",
+        "vinkla/hashids": "^2.0@dev",
+        "intervention/image": "^2.3@dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

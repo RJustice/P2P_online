@@ -22,9 +22,9 @@ return [
     'RedirectIfAuthenticatedPath' => 'admin/roles', // 如果授权后直接跳转到指定页面
 
     'menus'                       => [
-        '系统设置' => [
+        '权限设置' => [
             'icon'       => 'mdi-toggle-radio-button-on',
-            'permission' => 'admin',
+            'permission' => ['admin','employee_m'],
             'children'   => [
                 '角色管理'  => [
                     'uri' => 'roles',
@@ -39,7 +39,7 @@ return [
         ],
         '文章管理' => [
             'icon'       => 'mdi-toggle-radio-button-on',
-            'permission' => ['admin','editor'],
+            'permission' => ['admin','editor','employee_m'],
             'children'   => [
                 '分类管理'  => [
                     'uri' => 'category',
@@ -52,21 +52,144 @@ return [
                 ],
                 '招聘管理' => [
                     'uri' => 'recruit',
+                ],
+                '理财项目说明' => [
+                    'uri' => 'dealexp'
                 ]
             ],
         ],
-        // '用户管理' => [
-        //     'icon'       => 'mdi-toggle-radio-button-on',
-        //     'permission' => ['admin','editor'],
-        //     'children'   => [
-        //         '会员管理'  => [
-        //             'uri' => 'users',
-        //         ],
-        //         '员工管理'  => [
-        //             'uri' => 'employee',
-        //         ],
-        //     ],
-        // ],
+        '操作审核' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin','employee_m'],
+            'children'   => [
+                '全部审核项目' => [
+                    'uri' => 'check/list',
+                ],
+                '快速扣款待审核'  => [
+                    'uri' => 'check/debit',
+                ],
+                '线下订单待审核' => [
+                    'uri' => 'check/offline',
+                ],
+                '快速充值待审核' => [
+                    'uri' => 'check/recharge',
+                ],
+                '冻结资金待审核' => [
+                    'uri' => 'check/freeze',
+                ],
+            ],
+        ],
+        '用户管理' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin','editor','employee'],
+            'children'   => [
+                '客户管理'  => [
+                    'uri' => 'members',
+                ],
+                '员工管理'  => [
+                    'uri' => 'employee',
+                ],
+            ],
+        ],
+        '项目管理' => [            
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '项目列表'  => [
+                    'uri' => 'deals',
+                ],
+                '债务人管理'  => [
+                    'uri' => 'borrowers',
+                ],
+            ],  
+        ],        
+        '订单管理' => [            
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '投资列表'  => [
+                    'uri' => 'dealorders/order',
+                ],
+                '充值列表' => [
+                    'uri' => 'dealorders/recharge',
+                ],
+                'POS订单' => [
+                    'uri' => 'posorders',
+                ]
+            ],  
+        ],
+        '提现申请' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '待处理申请'  => [
+                    'uri' => 'carrys',
+                ],
+                '已通过申请' => [
+                    'uri' => 'carrys-passed',
+                ],                
+                '未通过申请' => [
+                    'uri' => 'carrys-unpassed',
+                ],
+                '已取消申请' => [
+                    'uri' => 'carrys-cancel',
+                ]
+            ],
+        ],
+        '赎回申请' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '待处理赎回申请'  => [
+                    'uri' => 'redeem',
+                ],
+                '已通过申请' => [
+                    'uri' => 'redeem-passed',
+                ],                
+                '未通过申请' => [
+                    'uri' => 'redeem-unpassed',
+                ]
+            ],
+        ],
+        '手动操作' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '快速充值'  => [
+                    'uri' => 'hand/new/recharge',
+                ],
+                '冻结资金'  => [
+                    'uri' => 'hand/new/freeze',
+                ],
+                '快速扣款' => [
+                    'uri' => 'hand/new/debit',
+                ],
+                '线下订单' => [
+                    'uri' => 'hand/new/offline',
+                ]
+            ],
+        ],
+        '咨询' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin',''],
+            'children'   => [
+                '在线咨询'  => [
+                    'uri' => 'contacts',
+                ]
+            ],
+        ],
+        '系统设置' => [
+            'icon'       => 'mdi-toggle-radio-button-on',
+            'permission' => ['admin'],
+            'children'   => [
+                '分公司'  => [
+                    'uri' => 'company',
+                ],
+                // '系统设置'  => [
+                //     'uri' => 'sys',
+                // ]
+            ],
+        ]
     ],
 
     'qiniu'                       => [

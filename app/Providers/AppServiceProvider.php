@@ -26,5 +26,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app['router']->middleware('member.auth', \App\Http\Middleware\MemberAuthenticate::class);
         $this->app['router']->middleware('member.guest', \App\Http\Middleware\RedirectIfAuthenticated::class);
         // $this->app->bind('Illuminate\Contracts\Auth\Guard','App\Services\CustomGuard');
+        $this->app['router']->middleware('admin.auth', \App\Http\Middleware\AdminAuthenticate::class);
+        
+        $this->app['router']->middleware('employee', \App\Http\Middleware\EmployeeAuthenticate::class);
+
+        $this->app->register(IFormServiceProvider::class);
+        $this->app->register(IHtmlServiceProvider::class);
     }
 }
