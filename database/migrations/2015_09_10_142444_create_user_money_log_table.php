@@ -12,7 +12,30 @@ class CreateUserMoneyLogTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('user_money_logs',function(Blueprint $table){
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->decimal('money',20,2);
+            $table->decimal('account_money',20,2);
+            $table->decimal('can_money',20,2);
+            $table->text('memo');
+            $table->tinyInteger('type');
+            $table->timestamp('created_at');
+            $table->date('create_time_ymd');
+            $table->integer('create_time_ym');
+            $table->integer('create_time_y');
+            $table->string('deal_order_sn',30);
+            $table->string('proof_id');
+            $table->tinyInteger('log_type');
+
+            // 索引
+            $table->index(['user_id','type','created_at']);
+            $table->index(['user_id','type','create_time_ymd']);
+            $table->index(['user_id','type']);
+            $table->index(['create_time_ymd']);
+            $table->index(['type','created_at']);
+            $table->index('deal_order_sn');
+        });
     }
 
     /**
@@ -22,6 +45,6 @@ class CreateUserMoneyLogTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('user_money_logs');
     }
 }

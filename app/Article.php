@@ -11,11 +11,12 @@ use Illuminate\Support\Facades\Auth;
 class Article extends Model
 {
 
-    protected $fillable = ['title','alias','content','categoryid','sectionid','type','published','deleted','ordering','out_link','from'];
+    protected $fillable = ['title','alias','content','categoryid','sectionid','type','published','deleted','ordering','out_link','from','deal_id'];
 
     const TYPE_PAGE = 'page';
     const TYPE_NORMAL = 'normal';
     const TYPE_RECRUIT = 'recruit';
+    const TYPE_DEALEXP = 'dealexp';
 
     protected $_type = false;
     protected $_create_by = false;

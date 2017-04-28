@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use App\User;
 
 class MemberAuthenticate
 {
@@ -40,6 +41,9 @@ class MemberAuthenticate
             } else {
                 return redirect()->guest('member/auth/login');
             }
+        }elseif( $this->auth->user()->state == User::STATE_SYS_CREATED ){
+            // dd(1);
+            return redirect()->route('sysmember');
         }
 
         return $next($request);
